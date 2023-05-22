@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { Dialog, Popover, Transition } from '@headlessui/react'
 import {
   ArrowPathIcon,
@@ -17,7 +18,40 @@ import {
 import Link from 'next/link'
 
 export default function Navbar() {
+  const supabase = useSupabaseClient()
+  const user = useUser()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [username, setUsername] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadData() {
+      setLoading(true)
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('username')
+          .eq('id', user.id)
+          .single()
+
+        if (error) console.warn(error)
+        else if (data) {
+          setUsername(data.username)
+        }
+
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // Only run query once user is logged in.
+    if (user) loadData()
+  }, [user])
+
+  async function logout() {
+    const { error } = await supabase.auth.signOut()
+    if (error) console.log('Error logging out:', error.message)
+  }
 
   return (
     <header className='bg-white'>
@@ -155,9 +189,21 @@ export default function Navbar() {
           </Popover>
         </Popover.Group>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-          <a href='#' className='text-sm font-semibold leading-6 text-gray-900'>
-            Log in <span aria-hidden='true'>&rarr;</span>
-          </a>
+          {user ? (
+            <button
+              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+              onClick={logout}
+            >
+              Logout <span aria-hidden='true'>&rarr;</span>
+            </button>
+          ) : (
+            <a
+              href='/users'
+              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+            >
+              Log in <span aria-hidden='true'>&rarr;</span>
+            </a>
+          )}
         </div>
       </nav>
       <Dialog
@@ -229,12 +275,21 @@ export default function Navbar() {
                   ))}
                 </div>
                 <div className='py-6'>
-                  <a
-                    href='#'
-                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    Log in
-                  </a>
+                  {user ? (
+                    <button
+                      className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                      onClick={logout}
+                    >
+                      Logout <span aria-hidden='true'>&rarr;</span>
+                    </button>
+                  ) : (
+                    <Link
+                      href='/users'
+                      className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                    >
+                      Log in <span aria-hidden='true'>&rarr;</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
