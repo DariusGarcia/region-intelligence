@@ -100,7 +100,7 @@ export default function Maps() {
                 })
               }
             >
-              <article className='flex flex-col gap-2'>
+              <article className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
                 <p>{selectedMarker.name}</p>
                 <p>{selectedMarker.ownerName}</p>
                 <p>{selectedMarker.phoneNumber}</p>
