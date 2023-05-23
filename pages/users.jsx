@@ -18,11 +18,13 @@ const Home = () => {
   return (
     <div className='flex w-full justify-center bg-white'>
       {!session ? (
-        <div className='w-96 mt-24 bg-white'>
+        <div className='w-96 mt-24 bg-white px-4 md:px-0'>
+          <h1 className='font-bold text-xl'>Sign In</h1>
           <Auth
             supabaseClient={supabase}
             appearance={{ theme: ThemeSupa }}
             theme='light'
+            providers={null}
           />
         </div>
       ) : (

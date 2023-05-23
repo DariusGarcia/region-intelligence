@@ -12,6 +12,8 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import Faq from '@/components/faq'
+import LandingHeader from '@/components/header/landingHeader'
+import Testimonials from '@/components/testimonials/testimonials'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -26,7 +28,7 @@ export default function Landing() {
 
       <main className='isolate'>
         {/* Hero section */}
-        <div className='relative pt-14'>
+        {/* <div className='relative pt-14'>
           <div
             className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
             aria-hidden='true'
@@ -77,17 +79,19 @@ export default function Landing() {
             aria-hidden='true'
           >
             <div
-              className='relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]'
+              className='relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#93c5fd] to-[#2563eb] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]'
               style={{
                 clipPath:
                   'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
               }}
             />
           </div>
+        </div> */}
+        <div className='flex justify-center md:my-24'>
+          <LandingHeader />
         </div>
-
         {/* Logo cloud */}
-        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8 my-36'>
           <div className='mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
             <img
               className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
@@ -128,8 +132,7 @@ export default function Landing() {
           <div className='mt-16 flex justify-center'>
             <p className='relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20'>
               <span className='hidden md:inline'>
-                Transistor saves up to $40,000 per year, per employee by working
-                with us.
+                Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
               </span>
               <a href='#' className='font-semibold text-blue-600'>
                 <span className='absolute inset-0' aria-hidden='true' /> Read
@@ -140,13 +143,13 @@ export default function Landing() {
         </div>
 
         {/* Feature section */}
-        <div className='mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
+        <div className='mx-auto mt-24 md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
           <div className='mx-auto max-w-2xl lg:text-center'>
             <h2 className='text-base font-semibold leading-7 text-blue-600'>
-              Deploy faster
+              Gain insights quicker
             </h2>
             <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-              Everything you need to deploy your app
+              Everything you need to be up to date
             </p>
             <p className='mt-6 text-lg leading-8 text-gray-600'>
               Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
@@ -177,7 +180,7 @@ export default function Landing() {
         </div>
 
         {/* Testimonial section */}
-        <div className='mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8'>
+        {/* <div className='mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8'>
           <div className='relative overflow-hidden bg-gray-900 px-6 py-20 shadow-xl sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-20'>
             <img
               className='absolute inset-0 h-full w-full object-cover brightness-150 saturate-0'
@@ -190,7 +193,7 @@ export default function Landing() {
               aria-hidden='true'
             >
               <div
-                className='aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#ff4694] to-[#776fff] opacity-[0.45]'
+                className='aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#93c5fd] to-[#2563eb] opacity-[0.45]'
                 style={{
                   clipPath:
                     'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
@@ -202,7 +205,7 @@ export default function Landing() {
               aria-hidden='true'
             >
               <div
-                className='aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#ff4694] to-[#776fff] opacity-25'
+                className='aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#93c5fd] to-[#2563eb] opacity-25'
                 style={{
                   clipPath:
                     'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
@@ -232,17 +235,19 @@ export default function Landing() {
               </figure>
             </div>
           </div>
+        </div> */}
+        <div className='md:mt-36 mt-24 justify-center'>
+          <Testimonials />
         </div>
-
         {/* Pricing section */}
-        <div className='py-24 sm:pt-48'>
+        <div className='pt-12 md:py-24 sm:pt-48'>
           <div className='mx-auto max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto max-w-4xl text-center'>
               <h2 className='text-base font-semibold leading-7 text-blue-600'>
                 Pricing
               </h2>
               <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl'>
-                Pricing plans for teams of&nbsp;all&nbsp;sizes
+                Affordable pricing plans for&nbsp;all&nbsp;
               </p>
             </div>
             <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
@@ -332,7 +337,7 @@ export default function Landing() {
             aria-hidden='true'
           >
             <div
-              className='aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-25'
+              className='aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#93c5fd] to-[#2563eb] opacity-25'
               style={{
                 clipPath:
                   'polygon(73.6% 48.6%, 91.7% 88.5%, 100% 53.9%, 97.4% 18.1%, 92.5% 15.4%, 75.7% 36.3%, 55.3% 52.8%, 46.5% 50.9%, 45% 37.4%, 50.3% 13.1%, 21.3% 36.2%, 0.1% 0.1%, 5.4% 49.1%, 21.4% 36.4%, 58.9% 100%, 73.6% 48.6%)',
@@ -369,7 +374,7 @@ export default function Landing() {
             aria-hidden='true'
           >
             <div
-              className='aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30'
+              className='aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#93c5fd] to-[#2563eb] opacity-30'
               style={{
                 clipPath:
                   'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
@@ -377,7 +382,6 @@ export default function Landing() {
             />
           </div>
         </div>
-        <Footer />
       </main>
     </div>
   )
@@ -391,13 +395,13 @@ const navigation = [
 ]
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Gain city insights',
     description:
       'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Home building permits',
     description:
       'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
     icon: LockClosedIcon,
@@ -417,10 +421,10 @@ const features = [
 ]
 const tiers = [
   {
-    name: 'Freelancer',
+    name: 'Starter',
     id: 'tier-freelancer',
-    href: '#',
-    priceMonthly: '$24',
+    href: 'https://buy.stripe.com/test_3cs6qO9870HaeL6144',
+    priceMonthly: '$15',
     description: 'The essentials to provide your best work for clients.',
     features: [
       '5 products',
@@ -431,10 +435,10 @@ const tiers = [
     mostPopular: false,
   },
   {
-    name: 'Startup',
+    name: 'Scale',
     id: 'tier-startup',
-    href: '#',
-    priceMonthly: '$32',
+    href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
+    priceMonthly: '$30',
     description: 'A plan that scales with your rapidly growing business.',
     features: [
       '25 products',
@@ -448,8 +452,8 @@ const tiers = [
   {
     name: 'Enterprise',
     id: 'tier-enterprise',
-    href: '#',
-    priceMonthly: '$48',
+    href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
+    priceMonthly: '$60',
     description: 'Dedicated support and infrastructure for your company.',
     features: [
       'Unlimited products',

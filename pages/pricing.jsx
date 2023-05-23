@@ -469,7 +469,7 @@ const pricing = {
     {
       name: 'Starter',
       id: 'tier-starter',
-      href: '#',
+      href: 'https://buy.stripe.com/test_3cs6qO9870HaeL6144',
       featured: false,
       description: 'All your essential business finances, taken care of.',
       price: { monthly: '$15', annually: '$144' },
@@ -482,7 +482,7 @@ const pricing = {
     {
       name: 'Scale',
       id: 'tier-scale',
-      href: '#',
+      href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
       featured: true,
       description: 'The best financial services for your thriving business.',
       price: { monthly: '$60', annually: '$576' },
@@ -496,9 +496,9 @@ const pricing = {
       ],
     },
     {
-      name: 'Growth',
+      name: 'Enterprise',
       id: 'tier-growth',
-      href: '#',
+      href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
       featured: false,
       description:
         'Convenient features to take your business to the next level.',
