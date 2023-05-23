@@ -10,7 +10,7 @@ export default function Maps() {
 
   const renderMap = () => {
     return (
-      <div className='w-full flex flex-col justify-center mt-8 md:mt-24 px-4'>
+      <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
         <h1 className='flex justify-center font-bold text-2xl mb-8'>
           Pending permits locations
         </h1>
@@ -28,7 +28,7 @@ export default function Maps() {
             <Marker key={name} position={{ lat, lng }} />
           ))}
         </GoogleMap>
-        <div className='mt-24 mx-4 '>
+        <div className='mt-24 w-full '>
           <PermitsTable />
         </div>
       </div>
