@@ -21,16 +21,16 @@ export default function PermitsTable() {
   return (
     <>
       <div className='bg-gray-900 py-10 rounded-lg overflow-auto'>
-        <h2 className='px-2 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8'>
+        <h2 className='px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8'>
           Latest activity
         </h2>
         <table className='mt-6 w-full whitespace-nowrap text-left'>
           <colgroup>
-            <col className='w-full sm:w-1/12 md:w-2/12' />
-            <col className='md:w-1/12 lg:w-2/12' />
-            <col className='lg:w-1/12' />
-            <col className='lg:w-1/12' />
-            <col className='lg:w-1/12' />
+            <col className='w-1/12' />
+            <col className='w-1/12' />
+            <col className='w-1/12' />
+            <col className='w-1/12' />
+            <col className='w-1/12' />
           </colgroup>
           <thead className='border-b border-white/10 text-sm leading-6 text-white'>
             <tr>
@@ -41,32 +41,25 @@ export default function PermitsTable() {
                 Listing Names
               </th>
               <th scope='col' className='py-2 pr-8 font-semibold text-left '>
-                Project Manager
-              </th>
-              <th
-                scope='col'
-                className='table-cell text-left py-2 pl-0 pr-8 font-semibold sm:table-cell'
-              >
-                Status
-              </th>
-              <th
-                scope='col'
-                className='hidden py-2 pl-0 pr-8 font-semibold sm:table-cell'
-              >
                 Location
               </th>
               <th
                 scope='col'
-                className='py-2 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20'
+                className='table-cell text-left py-2 pl-8 md:pl-0 md:pr-8 font-semibold sm:table-cell'
               >
-                Last Update
+                Lot size
               </th>
-
               <th
                 scope='col'
-                className='hidden py-2 pl-0 pr-4 text-left font-semibold sm:table-cell sm:pr-6 lg:pr-8'
+                className='py-2  pl-8 md:pl-0 md:pr-8 font-semibold sm:table-cell'
               >
-                Description
+                Contact
+              </th>
+              <th
+                scope='col'
+                className='py-2 pl-0 pr-4 font-semibold sm:pr-8 sm:text-left lg:pr-20'
+              >
+                Status
               </th>
             </tr>
           </thead>
@@ -80,57 +73,37 @@ export default function PermitsTable() {
                     </div>
                   </div>
                 </td>
-                <td className='hidden py-4 pl-0 pr-4  sm:table-cell sm:pr-8'>
+                <td className=' py-4 pl-0 pr-4 sm:table-cell sm:pr-8'>
                   <div className='flex gap-x-3'>
                     <div className='font-mono text-sm  leading-6 text-gray-400'>
-                      {item.projectManager}
+                      {item.location}
                     </div>
                   </div>
                 </td>
-                <td className='py-4 pl-0 pr-4 text-sm leading-6 sm:pr-8 lg:pr-20'>
+                <td className='py-4 pl-8 md:pl-0 pr-4 text-sm leading-6 sm:pr-8 lg:pr-20'>
                   <div className='flex items-center justify-end gap-x-2 sm:justify-start'>
-                    <p className='text-gray-400 sm:hidden'>
-                      {item.lastProjectUpdate}
-                    </p>
+                    <p className=' text-white sm:block'>{item.lotSize}</p>
+                  </div>
+                </td>
+                <td className='py-4 pl-8 md:pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20'>
+                  <div className='flex flex-col'>
+                    <p>{item.projectManager}</p>
+                    <p>{item.phoneNumber}</p>
+                  </div>
+                </td>
+                <td className='py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20'>
+                  <div className='flex flex-row items-center gap-2'>
                     <div
                       className={classNames(
                         statuses[item.status],
-                        'flex-none rounded-full p-1'
+                        'flex-none rounded-full text-center h-max p-1'
                       )}
                     >
                       <div className='h-1.5 w-1.5 rounded-full bg-current' />
                     </div>
                     <div className=' text-white sm:block'>{item.status}</div>
                   </div>
-                </td>
-                <td className='hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20'>
-                  {item.location}
-                </td>
-                <td className='hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20'>
-                  {item.lastProjectUpdate}
-                </td>
-                <td className='hidden py-4 pl-0 pr-4 text-left text-sm leading-6 text-gray-400 sm:table-cell sm:pr-6 lg:pr-8'>
-                  {visibleItems.includes(item) ? (
-                    <>
-                      <button
-                        className='bg-gray-700 hover:bg-opacity-50 hover:bg-blue-600 transition ease-out w-20 mb-4 text-center text-white p-0.5 rounded-lg'
-                        onClick={() => toggleVisibility(item)}
-                      >
-                        Close
-                      </button>
-                      <p>{item.description}</p>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        className='bg-gray-700 hover:bg-opacity-50 hover:bg-blue-600 transition ease-out w-20 mb-4 text-center text-white p-0.5 rounded-lg'
-                        onClick={() => toggleVisibility(item)}
-                      >
-                        See more
-                      </button>
-                      <p>{item.description.slice(0, 100)}...</p>
-                    </>
-                  )}
+                  <p>{item.lastProjectUpdate}</p>
                 </td>
               </tr>
             ))}
@@ -149,6 +122,8 @@ const activityItems = permitData.map((item) => ({
   location: item.location,
   listingNames: item.listingNames,
   description: item.description,
+  lotSize: item.lotSize,
+  phoneNumber: item.phoneNumber,
 }))
 
 const statuses = {
