@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>Your Company</span>
-            <p className='text-md font-semibold leading-6 text-gray-900'>
+            <p className='text-md font-semibold leading-6 text-gray-900 hover:text-blue-600 transition ease-out'>
               First Property
             </p>
           </Link>
@@ -79,7 +79,7 @@ export default function Navbar() {
         </div>
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900'>
+            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-blue-500 text-gray-900'>
               Product
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-gray-400'
@@ -110,13 +110,13 @@ export default function Navbar() {
                         />
                       </div>
                       <div className='flex-auto'>
-                        <a
+                        <Link
                           href={item.href}
                           className='block font-semibold text-gray-900'
                         >
                           {item.name}
                           <span className='absolute inset-0' />
-                        </a>
+                        </Link>
                         <p className='mt-1 text-gray-600'>{item.description}</p>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ export default function Navbar() {
                 </div>
                 <div className='grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50'>
                   {callsToAction.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className='flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100'
@@ -134,25 +134,28 @@ export default function Navbar() {
                         aria-hidden='true'
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Panel>
             </Transition>
           </Popover>
 
-          <a
+          <Link
             href='/pricing'
-            className='text-sm font-semibold leading-6 text-gray-900'
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
           >
             Pricing
-          </a>
-          <a href='#' className='text-sm font-semibold leading-6 text-gray-900'>
+          </Link>
+          <Link
+            href='/maps'
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+          >
             Marketplace
-          </a>
+          </Link>
 
           <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900'>
+            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
               Company
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-gray-400'
@@ -175,13 +178,13 @@ export default function Navbar() {
                     key={item.name}
                     className='relative rounded-lg p-4 hover:bg-gray-50'
                   >
-                    <a
+                    <Link
                       href={item.href}
                       className='block text-sm font-semibold leading-6 text-gray-900'
                     >
                       {item.name}
                       <span className='absolute inset-0' />
-                    </a>
+                    </Link>
                     <p className='mt-1 text-sm leading-6 text-gray-600'>
                       {item.description}
                     </p>
@@ -238,7 +241,7 @@ export default function Navbar() {
               <div className='-my-6 divide-y divide-gray-500/10'>
                 <div className='space-y-2 py-6'>
                   {products.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
@@ -250,31 +253,31 @@ export default function Navbar() {
                         />
                       </div>
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className='space-y-2 py-6'>
-                  <a
+                  <Link
                     href='/pricing'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
                     Pricing
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href='#'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
                     Marketplace
-                  </a>
+                  </Link>
 
                   {company.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className='py-6'>
