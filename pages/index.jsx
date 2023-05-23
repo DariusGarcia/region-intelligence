@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Head from 'next/head'
 import Faq from '@/components/faq'
 import LandingHeader from '@/components/header/landingHeader'
 import Testimonials from '@/components/testimonials/testimonials'
@@ -14,200 +13,210 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 
 export default function Landing() {
   return (
-    <div className='bg-white'>
-      <main className='isolate'>
-        {/* Hero section */}
-        <div className='flex justify-center md:my-24'>
-          <LandingHeader />
-        </div>
-        {/* Logo cloud */}
-        <div className='mx-auto max-w-7xl px-6 lg:px-8 my-36'>
-          <div className='mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
-            <img
-              className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-              src='https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg'
-              alt='Transistor'
-              width={158}
-              height={48}
-            />
-            <img
-              className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-              src='https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg'
-              alt='Reform'
-              width={158}
-              height={48}
-            />
-            <img
-              className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-              src='https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg'
-              alt='Tuple'
-              width={158}
-              height={48}
-            />
-            <img
-              className='col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1'
-              src='https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg'
-              alt='SavvyCal'
-              width={158}
-              height={48}
-            />
-            <img
-              className='col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1'
-              src='https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg'
-              alt='Statamic'
-              width={158}
-              height={48}
-            />
+    <>
+      <Head>
+        <title>First Property - Home</title>
+      </Head>
+      <div className='bg-white'>
+        <main className='isolate'>
+          {/* Hero section */}
+          <div className='flex justify-center md:my-24'>
+            <LandingHeader />
           </div>
-          <div className='mt-16 flex justify-center'>
-            <p className='relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20'>
-              <span className='hidden md:inline'>
-                Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-              </span>
-              <a href='#' className='font-semibold text-blue-600'>
-                <span className='absolute inset-0' aria-hidden='true' /> Read
-                our case study <span aria-hidden='true'>&rarr;</span>
-              </a>
-            </p>
-          </div>
-        </div>
-
-        {/* Feature section */}
-        <div className='mx-auto mt-24 md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
-          <div className='mx-auto max-w-2xl lg:text-center'>
-            <h2 className='text-base font-semibold leading-7 text-blue-600'>
-              Gain insights quicker
-            </h2>
-            <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-              Everything you need to be up to date
-            </p>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-              at. In mi viverra elit nunc.
-            </p>
-          </div>
-          <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
-            <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
-              {features.map((feature) => (
-                <div key={feature.name} className='relative pl-16'>
-                  <dt className='text-base font-semibold leading-7 text-gray-900'>
-                    <div className='absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600'>
-                      <feature.icon
-                        className='h-6 w-6 text-white'
-                        aria-hidden='true'
-                      />
-                    </div>
-                    {feature.name}
-                  </dt>
-                  <dd className='mt-2 text-base leading-7 text-gray-600'>
-                    {feature.description}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-
-        {/* Testimonial section */}
-        <div className='md:mt-36 mt-24 justify-center'>
-          <Testimonials />
-        </div>
-        {/* Pricing section */}
-        <div className='pt-12 md:py-24 sm:pt-48'>
-          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <div className='mx-auto max-w-4xl text-center'>
-              <h2 className='text-base font-semibold leading-7 text-blue-600'>
-                Pricing
-              </h2>
-              <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl'>
-                Affordable pricing plans for&nbsp;all&nbsp;
+          {/* Logo cloud */}
+          <div className='mx-auto max-w-7xl px-6 lg:px-8 my-36'>
+            <div className='mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
+              <img
+                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+                src='https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg'
+                alt='Transistor'
+                width={158}
+                height={48}
+              />
+              <img
+                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+                src='https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg'
+                alt='Reform'
+                width={158}
+                height={48}
+              />
+              <img
+                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
+                src='https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg'
+                alt='Tuple'
+                width={158}
+                height={48}
+              />
+              <img
+                className='col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1'
+                src='https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg'
+                alt='SavvyCal'
+                width={158}
+                height={48}
+              />
+              <img
+                className='col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1'
+                src='https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg'
+                alt='Statamic'
+                width={158}
+                height={48}
+              />
+            </div>
+            <div className='mt-16 flex justify-center'>
+              <p className='relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20'>
+                <span className='hidden md:inline'>
+                  Quis tellus eget adipiscing convallis sit sit eget aliquet
+                  quis.
+                </span>
+                <a href='#' className='font-semibold text-blue-600'>
+                  <span className='absolute inset-0' aria-hidden='true' /> Read
+                  our case study <span aria-hidden='true'>&rarr;</span>
+                </a>
               </p>
             </div>
-            <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
-              Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et
-              quasi iusto modi velit ut non voluptas in. Explicabo id ut
-              laborum.
-            </p>
-            <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-              {tiers.map((tier, tierIdx) => (
-                <div
-                  key={tier.id}
-                  className={classNames(
-                    tier.mostPopular ? 'lg:z-10 lg:rounded-b-none' : 'lg:mt-8',
-                    tierIdx === 0 ? 'lg:rounded-r-none' : '',
-                    tierIdx === tiers.length - 1 ? 'lg:rounded-l-none' : '',
-                    'flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10'
-                  )}
-                >
-                  <div>
-                    <div className='flex items-center justify-between gap-x-4'>
-                      <h3
-                        id={tier.id}
-                        className={classNames(
-                          tier.mostPopular ? 'text-blue-600' : 'text-gray-900',
-                          'text-lg font-semibold leading-8'
-                        )}
-                      >
-                        {tier.name}
-                      </h3>
-                      {tier.mostPopular ? (
-                        <p className='rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600'>
-                          Most popular
-                        </p>
-                      ) : null}
-                    </div>
-                    <p className='mt-4 text-sm leading-6 text-gray-600'>
-                      {tier.description}
-                    </p>
-                    <p className='mt-6 flex items-baseline gap-x-1'>
-                      <span className='text-4xl font-bold tracking-tight text-gray-900'>
-                        {tier.priceMonthly}
-                      </span>
-                      <span className='text-sm font-semibold leading-6 text-gray-600'>
-                        /month
-                      </span>
-                    </p>
-                    <ul
-                      role='list'
-                      className='mt-8 space-y-3 text-sm leading-6 text-gray-600'
-                    >
-                      {tier.features.map((feature) => (
-                        <li key={feature} className='flex gap-x-3'>
-                          <CheckIcon
-                            className='h-6 w-5 flex-none text-blue-600'
-                            aria-hidden='true'
-                          />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+          </div>
+
+          {/* Feature section */}
+          <div className='mx-auto mt-24 md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
+            <div className='mx-auto max-w-2xl lg:text-center'>
+              <h2 className='text-base font-semibold leading-7 text-blue-600'>
+                Gain insights quicker
+              </h2>
+              <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+                Everything you need to be up to date
+              </p>
+              <p className='mt-6 text-lg leading-8 text-gray-600'>
+                Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+                Suspendisse eget egestas a elementum pulvinar et feugiat blandit
+                at. In mi viverra elit nunc.
+              </p>
+            </div>
+            <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
+              <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
+                {features.map((feature) => (
+                  <div key={feature.name} className='relative pl-16'>
+                    <dt className='text-base font-semibold leading-7 text-gray-900'>
+                      <div className='absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600'>
+                        <feature.icon
+                          className='h-6 w-6 text-white'
+                          aria-hidden='true'
+                        />
+                      </div>
+                      {feature.name}
+                    </dt>
+                    <dd className='mt-2 text-base leading-7 text-gray-600'>
+                      {feature.description}
+                    </dd>
                   </div>
-                  <a
-                    href={tier.href}
-                    aria-describedby={tier.id}
-                    className={classNames(
-                      tier.mostPopular
-                        ? 'bg-blue-600 text-white shadow-sm hover:bg-blue-500'
-                        : 'text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300',
-                      'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
-                    )}
-                  >
-                    Buy plan
-                  </a>
-                </div>
-              ))}
+                ))}
+              </dl>
             </div>
           </div>
-        </div>
 
-        {/* FAQs */}
-        <Faq />
+          {/* Testimonial section */}
+          <div className='md:mt-36 mt-24 justify-center'>
+            <Testimonials />
+          </div>
+          {/* Pricing section */}
+          <div className='pt-12 md:py-24 sm:pt-48'>
+            <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+              <div className='mx-auto max-w-4xl text-center'>
+                <h2 className='text-base font-semibold leading-7 text-blue-600'>
+                  Pricing
+                </h2>
+                <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl'>
+                  Affordable pricing plans for&nbsp;all&nbsp;
+                </p>
+              </div>
+              <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
+                Distinctio et nulla eum soluta et neque labore quibusdam. Saepe
+                et quasi iusto modi velit ut non voluptas in. Explicabo id ut
+                laborum.
+              </p>
+              <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
+                {tiers.map((tier, tierIdx) => (
+                  <div
+                    key={tier.id}
+                    className={classNames(
+                      tier.mostPopular
+                        ? 'lg:z-10 lg:rounded-b-none'
+                        : 'lg:mt-8',
+                      tierIdx === 0 ? 'lg:rounded-r-none' : '',
+                      tierIdx === tiers.length - 1 ? 'lg:rounded-l-none' : '',
+                      'flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10'
+                    )}
+                  >
+                    <div>
+                      <div className='flex items-center justify-between gap-x-4'>
+                        <h3
+                          id={tier.id}
+                          className={classNames(
+                            tier.mostPopular
+                              ? 'text-blue-600'
+                              : 'text-gray-900',
+                            'text-lg font-semibold leading-8'
+                          )}
+                        >
+                          {tier.name}
+                        </h3>
+                        {tier.mostPopular ? (
+                          <p className='rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600'>
+                            Most popular
+                          </p>
+                        ) : null}
+                      </div>
+                      <p className='mt-4 text-sm leading-6 text-gray-600'>
+                        {tier.description}
+                      </p>
+                      <p className='mt-6 flex items-baseline gap-x-1'>
+                        <span className='text-4xl font-bold tracking-tight text-gray-900'>
+                          {tier.priceMonthly}
+                        </span>
+                        <span className='text-sm font-semibold leading-6 text-gray-600'>
+                          /month
+                        </span>
+                      </p>
+                      <ul
+                        role='list'
+                        className='mt-8 space-y-3 text-sm leading-6 text-gray-600'
+                      >
+                        {tier.features.map((feature) => (
+                          <li key={feature} className='flex gap-x-3'>
+                            <CheckIcon
+                              className='h-6 w-5 flex-none text-blue-600'
+                              aria-hidden='true'
+                            />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <a
+                      href={tier.href}
+                      aria-describedby={tier.id}
+                      className={classNames(
+                        tier.mostPopular
+                          ? 'bg-blue-600 text-white shadow-sm hover:bg-blue-500'
+                          : 'text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300',
+                        'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
+                      )}
+                    >
+                      Buy plan
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-        {/* CTA section */}
-        <Cta />
-      </main>
-    </div>
+          {/* FAQs */}
+          <Faq />
+
+          {/* CTA section */}
+          <Cta />
+        </main>
+      </div>
+    </>
   )
 }
 
