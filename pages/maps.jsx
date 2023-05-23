@@ -37,6 +37,7 @@ export default function Maps() {
         <GoogleMap
           center={{ lat: 33.611263, lng: -117.91887 }}
           zoom={12}
+          options={{ mapTypeId: 'hybrid' }}
           mapContainerStyle={{
             margin: '20px 0 0',
             height: '70vh',

@@ -36,16 +36,8 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         <Dialog.Title className='text-base font-semibold leading-6 text-white'>
                           Permit
                         </Dialog.Title>
-                        {/* <div className='ml-3 flex h-7 items-center'>
-                          <button
-                            type='button'
-                            className='rounded-md bg-blue-700 text-blue-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white'
-                            onClick={() => setOpen(!isOpen)}
-                          >
-                            <span className='sr-only'>Close panel</span>
-                            <XMarkIcon className='h-6 w-6' aria-hidden='true' />
-                          </button>
-                        </div> */}
+                        {/* TODO: fix bug where slide over doesnt open again if button is clicked */}
+                        {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
                       <div className='mt-1'>
                         <p className='text-sm text-blue-300'>
@@ -61,7 +53,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             src={homeImage}
                             alt='home'
                             layout='responsive'
-                            className='rounded-lg'
+                            className='rounded-lg my-4 mb-6'
                           />
                           <section className='flex flex-col gap-4'>
                             <span className='bg-gray-300 mt-2 w-full h-0.5' />
@@ -115,4 +107,17 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
       </Dialog>
     </Transition.Root>
   )
+}
+
+{
+  /* <div className='ml-3 flex h-7 items-center'>
+                          <button
+                            type='button'
+                            className='rounded-md bg-blue-700 text-blue-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white'
+                            onClick={() => setOpen(!isOpen)}
+                          >
+                            <span className='sr-only'>Close panel</span>
+                            <XMarkIcon className='h-6 w-6' aria-hidden='true' />
+                          </button>
+                        </div> */
 }
