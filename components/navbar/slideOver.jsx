@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
+import homeImage from '../../public/home.jpg'
 
 export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
@@ -34,16 +36,16 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         <Dialog.Title className='text-base font-semibold leading-6 text-white'>
                           Permit
                         </Dialog.Title>
-                        <div className='ml-3 flex h-7 items-center'>
+                        {/* <div className='ml-3 flex h-7 items-center'>
                           <button
                             type='button'
                             className='rounded-md bg-blue-700 text-blue-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white'
-                            onClick={() => setOpen(false)}
+                            onClick={() => setOpen(!isOpen)}
                           >
                             <span className='sr-only'>Close panel</span>
                             <XMarkIcon className='h-6 w-6' aria-hidden='true' />
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                       <div className='mt-1'>
                         <p className='text-sm text-blue-300'>
@@ -52,14 +54,56 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                       </div>
                     </div>
                     <div className='relative flex-1 px-4 py-6 sm:px-6'>
-                      {/* Your content */}{' '}
+                      <h2 className='font-medium text-lg mb-2'>Information</h2>
                       {markerData && (
-                        <div className='mt-1'>
-                          <p className='text-sm text-black'>
-                            {markerData.ownerName}
-                          </p>
-                          <p>{markerData.projectStatus}</p>
-                        </div>
+                        <>
+                          <Image
+                            src={homeImage}
+                            alt='home'
+                            layout='responsive'
+                            className='rounded-lg'
+                          />
+                          <section className='flex flex-col gap-4'>
+                            <span className='bg-gray-300 mt-2 w-full h-0.5' />
+                            <div className='flex flex-row justify-between '>
+                              <p className='text-gray-500'>Location</p>
+                              <p className='text-black'>
+                                {markerData.location}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className=' text-gray-500'>Lot size</p>
+                              <p>{markerData.lotSize}</p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className=' text-gray-500'>Status</p>
+                              <p>{markerData.projectStatus}</p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Owner's name</p>
+                              <p className='text-black'>
+                                {markerData.ownerName}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Last update</p>
+                              <p className='text-black'>
+                                {markerData.lastUpdate}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-col gap-4 justify-between'>
+                              <p className='text-gray-500'>Description</p>
+                              <p className='text-black'>
+                                {markerData.description}
+                              </p>
+                            </div>
+                          </section>
+                        </>
                       )}
                     </div>
                   </div>

@@ -113,7 +113,7 @@ export default function Maps() {
         </GoogleMap>
         <SlideOver
           isOpen={isSlideOverOpen}
-          onClose={() => setIsSlideOverOpen(false)}
+          onClose={() => setIsSlideOverOpen(!isSlideOverOpen)}
           markerData={selectedMarkerData}
         />
         <div className='mt-24 w-full '>
