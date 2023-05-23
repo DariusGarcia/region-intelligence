@@ -1,12 +1,32 @@
-import React from 'react'
-import { useLoadScript, GoogleMap, Marker } from '@react-google-maps/api'
+import React, { useState } from 'react'
+import {
+  useLoadScript,
+  GoogleMap,
+  Marker,
+  InfoWindow,
+} from '@react-google-maps/api'
 import randomCoord from '@/data/randomCoord'
 import PermitsTable from '@/components/maps/table'
+import SlideOver from '@/components/navbar/slideOver'
 
 export default function Maps() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
   })
+
+  const [selectedMarker, setSelectedMarker] = useState(null)
+  const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
+  const [selectedMarkerData, setSelectedMarkerData] = useState(null)
+
+  const handleMarkerClick = (markerData) => {
+    setSelectedMarkerData(markerData)
+    setSelectedMarker(markerData)
+    setIsSlideOverOpen(true)
+  }
+
+  const handleInfoWindowClose = () => {
+    setSelectedMarker(null)
+  }
 
   const renderMap = () => {
     return (
@@ -24,10 +44,78 @@ export default function Maps() {
             borderRadius: '8px',
           }}
         >
-          {randomCoord.map(([name, lat, lng]) => (
-            <Marker key={name} position={{ lat, lng }} />
-          ))}
+          {randomCoord.map(
+            ([
+              name,
+              lat,
+              lng,
+              ownerName,
+              phoneNumber,
+              lotSize,
+              projectStatus,
+              lastUpdate,
+              listingName,
+              location,
+              description,
+            ]) => (
+              <Marker
+                key={name}
+                position={{ lat, lng }}
+                onClick={() =>
+                  handleMarkerClick({
+                    name,
+                    lat,
+                    lng,
+                    ownerName,
+                    phoneNumber,
+                    lotSize,
+                    projectStatus,
+                    lastUpdate,
+                    listingName,
+                    location,
+                    description,
+                  })
+                }
+              />
+            )
+          )}
+          {selectedMarker && (
+            <InfoWindow
+              position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
+              onCloseClick={handleInfoWindowClose}
+              onClick={() =>
+                handleMarkerClick({
+                  name,
+                  lat,
+                  lng,
+                  ownerName,
+                  phoneNumber,
+                  lotSize,
+                  projectStatus,
+                  lastUpdate,
+                  listingName,
+                  location,
+                  description,
+                })
+              }
+            >
+              <article className='flex flex-col gap-2'>
+                <p>{selectedMarker.name}</p>
+                <p>{selectedMarker.ownerName}</p>
+                <p>{selectedMarker.phoneNumber}</p>
+                <p>Lot size: {selectedMarker.lotSize}</p>
+                <p>Status: {selectedMarker.projectStatus}</p>
+
+                {/* Additional content for the InfoWindow */}
+              </article>
+            </InfoWindow>
+          )}
         </GoogleMap>
+        <SlideOver
+          isOpen={isSlideOverOpen}
+          onClose={() => setIsSlideOverOpen(false)}
+          markerData={selectedMarkerData}
+        />
         <div className='mt-24 w-full '>
           <PermitsTable />
         </div>
