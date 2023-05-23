@@ -316,9 +316,9 @@ export default function Navbar() {
 
 const products = [
   {
-    name: 'Analytics',
-    description: 'Get a better understanding of your traffic',
-    href: '#',
+    name: 'Map View',
+    description: 'View the locations of pending city permits',
+    href: '/maps',
     icon: ChartPieIcon,
   },
   {
