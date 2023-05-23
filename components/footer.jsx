@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Footer() {
   return (
     <div className='mx-auto mt-32 max-w-7xl px-6 lg:px-8'>
@@ -17,14 +15,15 @@ export default function Footer() {
           >
             First Property
           </p>
+
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
                 <h3 className='text-sm font-semibold leading-6 text-gray-900'>
-                  Solutions
+                  Products
                 </h3>
                 <ul role='list' className='mt-6 space-y-4'>
-                  {footerNavigation.solutions.map((item) => (
+                  {footerNavigation.Products.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -98,7 +97,7 @@ export default function Footer() {
 }
 
 const footerNavigation = {
-  solutions: [
+  Products: [
     { name: 'Hosting', href: '#' },
     { name: 'Data Services', href: '#' },
     { name: 'Uptime Monitoring', href: '#' },

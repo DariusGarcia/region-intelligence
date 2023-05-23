@@ -1,15 +1,32 @@
+import React, { useEffect } from 'react'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-import Profile from '@/components/profile'
+import {
+  useSession,
+  useSupabaseClient,
+  useUser,
+} from '@supabase/auth-helpers-react'
 
-const Home = () => {
+import Router from 'next/router'
+
+export default function LoginPage() {
   const session = useSession()
   const supabase = useSupabaseClient()
 
+  useEffect(() => {
+    if (session) {
+      Router.push('/users')
+    }
+  }, [session])
+
+  async function logout() {
+    const { error } = await supabase.auth.signOut()
+    if (error) console.log('Error logging out:', error.message)
+  }
+
   return (
     <div className='flex w-full justify-center bg-white'>
-      {!session ? (
+      {!session && (
         <div className='w-96 mt-24 bg-white px-4 md:px-0'>
           <h1 className='font-bold text-xl'>Sign In</h1>
           <Auth
@@ -19,13 +36,7 @@ const Home = () => {
             providers={null}
           />
         </div>
-      ) : (
-        <div className='w-full mt-12  bg-white'>
-          <Profile />
-        </div>
       )}
     </div>
   )
 }
-
-export default Home
