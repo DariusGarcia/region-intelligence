@@ -22,11 +22,9 @@ export default function Navbar() {
   const user = useUser()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [username, setUsername] = useState([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     async function loadData() {
-      setLoading(true)
       try {
         const { data, error } = await supabase
           .from('profiles')
@@ -193,6 +191,12 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
+          <Link
+            href='/profile'
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+          >
+            Profile
+          </Link>
         </Popover.Group>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           {user ? (
@@ -279,6 +283,12 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
+                  <Link
+                    href='/profile'
+                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                  >
+                    Profile
+                  </Link>
                 </div>
                 <div className='py-6'>
                   {user ? (
