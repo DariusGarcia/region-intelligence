@@ -61,7 +61,7 @@ export default function Navbar() {
       >
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
-            <span className='sr-only'>Your Company</span>
+            <span className='sr-only'>First Property</span>
             <p className='text-md font-semibold leading-6 text-gray-900 hover:text-blue-600 transition ease-out'>
               First Property
             </p>
@@ -204,7 +204,7 @@ export default function Navbar() {
             </button>
           ) : (
             <a
-              href='/users'
+              href='/login'
               className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
             >
               Log in <span aria-hidden='true'>&rarr;</span>
@@ -290,7 +290,7 @@ export default function Navbar() {
                     </button>
                   ) : (
                     <Link
-                      href='/users'
+                      href='/login'
                       className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                     >
                       Log in <span aria-hidden='true'>&rarr;</span>
