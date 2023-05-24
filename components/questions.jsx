@@ -4,16 +4,13 @@ import RadioGroup from './radioGroup'
 export default function Questions({
   onIndustryChange,
   onCityChange,
-  onAboutUsChange,
+  onFoundUsChange,
   onCommunicationMethodChange,
+  onBackgroundChange,
 }) {
-  const [additionalInfo, setAdditionalInfo] = useState('')
-
-  const handleAdditionalInfoChange = (value) => {
-    setAdditionalInfo(value) // Update the state with the new value
+  const handleRadioSelection = (value) => {
+    onBackgroundChange(value) // Pass the selected value to the parent component
   }
-
-  console.log({ radioGroup: additionalInfo })
 
   return (
     <div className='pt-4'>
@@ -29,7 +26,7 @@ export default function Questions({
           <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-4'>
               <div className=''>
-                <RadioGroup onInputChange={handleAdditionalInfoChange} />
+                <RadioGroup onInputChange={handleRadioSelection} />
                 <label
                   htmlFor='username'
                   className='mt-8 mb-4 block font-medium leading-6 text-gray-900'
@@ -41,7 +38,7 @@ export default function Questions({
                     type='text'
                     name='industry'
                     id='industry'
-                    required
+                    required={true}
                     className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
                     placeholder='Commercial real estate'
                     onChange={(e) => onIndustryChange(e.target.value)}
@@ -71,7 +68,7 @@ export default function Questions({
             <div className='col-span-full'>
               <label
                 htmlFor='photo'
-                name='aboutUs'
+                name='foundUs'
                 className='block text-sm font-medium leading-6 text-gray-900'
               >
                 How did you find out about us?
@@ -80,7 +77,7 @@ export default function Questions({
                 <input
                   type='text'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                  onChange={(e) => onAboutUsChange(e.target.value)}
+                  onChange={(e) => onFoundUsChange(e.target.value)}
                 />
               </div>
             </div>
