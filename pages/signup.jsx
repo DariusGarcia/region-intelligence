@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import {
-  useSession,
-  useSupabaseClient,
-  useUser,
-} from '@supabase/auth-helpers-react'
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 
 import Router from 'next/router'
-import Questionnaire from '@/components/questionnaire'
 import Questions from '@/components/questions'
 import ErrorWarning from '@/components/alerts/error'
+import Link from 'next/link'
 
 export default function SignupPage() {
   const session = useSession()
@@ -75,45 +71,29 @@ export default function SignupPage() {
     })
 
     if (error) {
-      console.log(error)
       setError(error)
       return
     }
     setSuccess(true)
     setLoading(!loading)
-    console.log(data)
 
     return { data, error }
   }
 
-  console.log({
-    firstName: firstName,
-    lastName: lastName,
-    password: password,
-    email: email,
-    phoneNumber: phoneNumber,
-    industry: industry,
-    city: city,
-    communicationMethod: communicationMethod,
-    background: background,
-    found_us: foundUs,
-  })
-
-  console.log({ error: error })
   return (
     <>
       <Head>
         <title>First Property - Signup</title>
       </Head>
-      <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 '>
+      <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
         <div className='sm:mx-auto sm:w-full sm:max-w-lg'>
           <h1 className='text-2xl font-bold text-center'>First Property</h1>
-          <h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
+          <h2 className='mt-4 md:mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-600'>
             Create your account
           </h2>
         </div>
 
-        <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-xl '>
+        <div className=' sm:mx-auto sm:w-full sm:max-w-xl '>
           <form className='space-y-6' action='#' method='POST'>
             {error && <ErrorWarning message={error.message} />}
             <div className='flex flex-col mt-10  gap-x-6 gap-y-8 '>
@@ -240,12 +220,12 @@ export default function SignupPage() {
 
           <p className='mt-10 text-center text-sm text-gray-500'>
             Already have an account?{' '}
-            <a
-              href='#'
+            <Link
+              href='/login'
               className='font-semibold leading-6 text-blue-600 hover:text-blue-500'
             >
               Login instead
-            </a>
+            </Link>
           </p>
         </div>
       </div>
