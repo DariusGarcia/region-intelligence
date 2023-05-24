@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
+import Router from 'next/router'
+import { useSession } from '@supabase/auth-helpers-react'
 import {
   useLoadScript,
   GoogleMap,
   Marker,
   InfoWindow,
 } from '@react-google-maps/api'
-import randomCoord from '@/data/randomCoord'
-import PermitsTable from '@/components/maps/table'
 import SlideOver from '@/components/navbar/slideOver'
-import Head from 'next/head'
+import PermitsTable from '@/components/maps/table'
+import randomCoord from '@/data/randomCoord'
 
 export default function Maps() {
+  const session = useSession()
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
   })
+
+  useEffect(() => {
+    if (!session) {
+      Router.push('/login')
+    }
+  }, [session])
 
   const [selectedMarker, setSelectedMarker] = useState(null)
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)

@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { Auth } from '@supabase/auth-ui-react'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
-import {
-  useSession,
-  useSupabaseClient,
-  useUser,
-} from '@supabase/auth-helpers-react'
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 
 import Router from 'next/router'
 import Link from 'next/link'
