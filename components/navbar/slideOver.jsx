@@ -1,18 +1,15 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import homeImage from '../../public/home.jpg'
 
 export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
 
-  // Update the `open` state when the `isOpen` prop changes
   useEffect(() => {
     setOpen(isOpen)
   }, [isOpen])
 
-  console.log({ markerData: markerData })
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={onClose}>
@@ -36,7 +33,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         <Dialog.Title className='text-base font-semibold leading-6 text-white'>
                           Permit
                         </Dialog.Title>
-                        {/* TODO: fix bug where slide over doesnt open again if button is clicked */}
+                        {/* TODO: fix bug where slide over doesn't open again if button is clicked */}
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
                       <div className='mt-1'>
@@ -52,7 +49,8 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                           <Image
                             src={homeImage}
                             alt='home'
-                            layout='responsive'
+                            width={1000}
+                            height={1000}
                             className='rounded-lg my-4 mb-6'
                           />
                           <section className='flex flex-col gap-4'>

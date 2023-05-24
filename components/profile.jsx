@@ -1,10 +1,11 @@
-import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { useState, useEffect } from 'react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 export default function Profile() {
   const supabase = useSupabaseClient()
   const user = useUser()
+  // TODO: condense this into one state object
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
@@ -17,7 +18,6 @@ export default function Profile() {
   const [postal_code, setPostalCode] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
-  const [session, setSession] = useState(null)
 
   useEffect(() => {
     async function loadData() {

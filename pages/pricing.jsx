@@ -1,22 +1,13 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import { Dialog, RadioGroup } from '@headlessui/react'
-import {
-  Bars3Icon,
-  XMarkIcon as XMarkIconOutline,
-} from '@heroicons/react/24/outline'
+import Faq from '@/components/faq'
+import { RadioGroup } from '@headlessui/react'
 import {
   CheckIcon,
   XMarkIcon as XMarkIconMini,
 } from '@heroicons/react/20/solid'
-import Faq from '@/components/faq'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export default function PricingPage() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
 
   return (
@@ -601,4 +592,8 @@ const pricing = {
       ],
     },
   ],
+}
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
 }

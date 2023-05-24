@@ -1,5 +1,4 @@
 export default [
-  // ['Location 1', 33.641239, -117.91887],
   [
     'Location 2',
     33.59361,

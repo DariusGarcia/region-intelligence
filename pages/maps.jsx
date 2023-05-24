@@ -120,8 +120,6 @@ export default function Maps() {
                   <p>{selectedMarker.phoneNumber}</p>
                   <p>Lot size: {selectedMarker.lotSize}</p>
                   <p>Status: {selectedMarker.projectStatus}</p>
-
-                  {/* Additional content for the InfoWindow */}
                 </article>
               </InfoWindow>
             )}

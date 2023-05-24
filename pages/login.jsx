@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
-
 import Router from 'next/router'
 import Link from 'next/link'
 
@@ -16,11 +15,6 @@ export default function LoginPage() {
       Router.push('/')
     }
   }, [session])
-
-  async function logout() {
-    const { error } = await supabase.auth.signOut()
-    if (error) console.log('Error logging out:', error.message)
-  }
 
   async function handleSignIn(e) {
     e.preventDefault()
