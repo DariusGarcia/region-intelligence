@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from 'react'
+import Link from 'next/link'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { Dialog, Popover, Transition } from '@headlessui/react'
 import {
@@ -15,7 +16,6 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
-import Link from 'next/link'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -138,7 +138,6 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-
           <Link
             href='/pricing'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
@@ -160,7 +159,6 @@ export default function Navbar() {
                 aria-hidden='true'
               />
             </Popover.Button>
-
             <Transition
               as={Fragment}
               enter='transition ease-out duration-200'

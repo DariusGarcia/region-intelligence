@@ -7,12 +7,6 @@ import Questions from '@/components/questions'
 import ErrorWarning from '@/components/alerts/error'
 
 export default function SignupPage() {
-  useEffect(() => {
-    if (session) {
-      Router.push('/')
-    }
-  }, [session])
-
   const session = useSession()
   const supabase = useSupabaseClient()
   const [firstName, setFirstName] = useState('')
@@ -28,6 +22,12 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (session) {
+      Router.push('/')
+    }
+  }, [session])
 
   const handleIndustryChange = (value) => {
     setIndustry(value)
