@@ -7,7 +7,11 @@ const sides = [
   { id: 6, name: 'Other' },
 ]
 
-export default function RadioGroup() {
+export default function RadioGroup({ onInputChange }) {
+  const handleChange = (event) => {
+    const value = event.target.value
+    onInputChange(value) // Pass the updated value to the event handler
+  }
   return (
     <fieldset>
       <legend className='text-base font-semibold text-gray-900'>
@@ -29,6 +33,8 @@ export default function RadioGroup() {
                 id={`side-${side.id}`}
                 name='plan'
                 type='radio'
+                value={side.name}
+                onChange={handleChange}
                 defaultChecked={side.id === null}
                 className='h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-600'
               />
