@@ -19,9 +19,12 @@ export default function MapsPage() {
   })
 
   useEffect(() => {
-    if (!session) {
-      Router.push('/login')
-    }
+    const timeout = setTimeout(() => {
+      if (!session) {
+        Router.push('/login')
+      }
+    }, 100) // Delay of 0.1 seconds (100 milliseconds)
+    return () => clearTimeout(timeout) // Cleanup the timeout on component unmount
   }, [session])
 
   const [selectedMarker, setSelectedMarker] = useState(null)
