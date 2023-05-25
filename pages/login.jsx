@@ -3,12 +3,18 @@ import Head from 'next/head'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Router from 'next/router'
 import Link from 'next/link'
+import PasswordResetErrorWarning from '@/components/alerts/resetPasswordError'
+import PasswordResetSuccessAlert from '@/components/alerts/passwordResetSuccess'
 
 export default function LoginPage() {
   const session = useSession()
   const supabase = useSupabaseClient()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
 
   useEffect(() => {
     if (session) {
@@ -26,6 +32,22 @@ export default function LoginPage() {
     return { data, error }
   }
 
+  async function handleResetPassword(e) {
+    if (email.length <= 0) {
+      setError(true)
+      setErrorMessage('Please enter your email to reset your password.')
+      return
+    } else {
+      e.preventDefault()
+      setError(false)
+      setSuccess(true)
+      setSuccessMessage('Password reset email sent.')
+      await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'http://localhost:3000/forgot-password',
+      })
+    }
+  }
+
   return (
     <>
       <Head>
@@ -38,8 +60,9 @@ export default function LoginPage() {
           <h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
             Sign in to your account
           </h2>
+          {error && <PasswordResetErrorWarning message={errorMessage} />}
+          {success && <PasswordResetSuccessAlert message={successMessage} />}
         </div>
-
         <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
           <form className='space-y-6'>
             <div>
@@ -71,12 +94,12 @@ export default function LoginPage() {
                   Password
                 </label>
                 <div className='text-sm'>
-                  <Link
-                    href='/forgot-password'
+                  <button
+                    onClick={handleResetPassword}
                     className='font-semibold text-blue-600 hover:text-blue-500'
                   >
                     Forgot password?
-                  </Link>
+                  </button>
                 </div>
               </div>
               <div className='mt-2'>
