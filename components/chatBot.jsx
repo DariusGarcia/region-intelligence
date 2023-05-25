@@ -31,7 +31,7 @@ export default function ChatBot() {
   return (
     <>
       {visible && showChatBot && (
-        <div className='fixed z-50 flex flex-col gap-2 bottom-0 right-0 mr-4 mb-4 rounded-md bg-blue-500  p-12 text-white'>
+        <div className='fixed cursor-default z-50 flex flex-col gap-2 bottom-0 right-0 mr-4 mb-4 rounded-md bg-blue-500 p-4 text-white'>
           <div className='flex flex-row justify-center w-full mb-2'>
             {' '}
             <p className='w-full'>AI ChatBot</p>
@@ -46,11 +46,17 @@ export default function ChatBot() {
             Hi {user ? user[0].username : 'user'}! How are you enjoying this
             website? <span className='blink'> ...</span>
           </p>
+          {/* <form className='flex flex-row gap-2 justify-between'> */}
           <input
             type='text'
             className='rounded-md text-black '
             placeholder=' Im loving it!'
+            onClick={() => ''}
           />
+          {/* <button className='border border-white rounded-md p-2'>
+              Enter
+            </button> */}
+          {/* </form> */}
         </div>
       )}
     </>
