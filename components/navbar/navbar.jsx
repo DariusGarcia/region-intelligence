@@ -78,7 +78,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-blue-500 text-gray-900'>
-              Product
+              Projects
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-gray-400'
                 aria-hidden='true'
@@ -96,7 +96,7 @@ export default function Navbar() {
             >
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
                 <div className='p-4'>
-                  {products.map((item) => (
+                  {projects.map((item) => (
                     <div
                       key={item.name}
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'
@@ -148,7 +148,7 @@ export default function Navbar() {
             href='/maps'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
           >
-            Marketplace
+            Land Directory
           </Link>
 
           <Popover className='relative'>
@@ -193,7 +193,7 @@ export default function Navbar() {
             href='/profile'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
           >
-            Profile
+            My Profile
           </Link>
         </Popover.Group>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
@@ -240,9 +240,13 @@ export default function Navbar() {
               </button>
             </div>
             <div className='mt-6 flow-root'>
+              <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900'>
+                Projects
+              </p>
+
               <div className='-my-6 divide-y divide-gray-500/10'>
                 <div className='space-y-2 py-6'>
-                  {products.map((item) => (
+                  {projects.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -269,7 +273,7 @@ export default function Navbar() {
                     href='#'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
-                    Marketplace
+                    Land Directory
                   </Link>
 
                   {company.map((item) => (
@@ -285,7 +289,7 @@ export default function Navbar() {
                     href='/profile'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
-                    Profile
+                    My Profile
                   </Link>
                 </div>
                 <div className='py-6'>
@@ -325,7 +329,7 @@ export default function Navbar() {
   )
 }
 
-const products = [
+const projects = [
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',

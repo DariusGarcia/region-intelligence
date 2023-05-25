@@ -173,7 +173,7 @@ export default function LandingPage() {
                           {tier.priceMonthly}
                         </span>
                         <span className='text-sm font-semibold leading-6 text-gray-600'>
-                          /month
+                          {tier.priceMonthly === 'Free' ? '' : '/month'}
                         </span>
                       </p>
                       <ul
@@ -201,7 +201,9 @@ export default function LandingPage() {
                         'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                       )}
                     >
-                      Buy plan
+                      {tier.priceMonthly === 'Free'
+                        ? 'Get Started'
+                        : 'Buy Plan'}
                     </a>
                   </div>
                 ))}
@@ -222,27 +224,27 @@ export default function LandingPage() {
 
 const features = [
   {
-    name: 'Gain city insights',
+    name: 'Urban Intelligence',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      "With our platform, tap into a wealth of city data and urban development insights. Get the edge in understanding the dynamics of city planning and land use. Utilize powerful analytics to guide your decision-making process, ensuring you're always a step ahead.",
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'Home building permits',
+    name: 'Permit Mastery',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      'Our service takes the complexity out of permit navigation. Stay updated with real-time information on land development permits in Southern California. Make sense of current and upcoming developments with ease, enabling smoother project planning and execution.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Efficient Workflow',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Our platform streamlines the land development research process, eliminating the need for multiple databases and resources. With organized and easily navigable data at your disposal, you can focus on what truly matters - making informed and strategic decisions. ',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Investment Optimizer',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'Our platform is designed with inventory needs at the core. With up-to-date and comprehensive land development data, we equip you with the insights necessary to identify potential investment opportunities efficiently. Navigate the landscape of Southern California real estate investment with confidence and precision.',
     icon: FingerPrintIcon,
   },
 ]
@@ -250,8 +252,8 @@ const tiers = [
   {
     name: 'Starter',
     id: 'tier-freelancer',
-    href: 'https://buy.stripe.com/test_3cs6qO9870HaeL6144',
-    priceMonthly: '$15',
+    href: '/maps',
+    priceMonthly: 'Free',
     description: 'The essentials to provide your best work for clients.',
     features: [
       '5 products',

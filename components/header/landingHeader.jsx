@@ -19,13 +19,15 @@ export default function LandingHeader() {
               </div>
             </div>
             <h1 className='mt-12 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
-              Stay Informed, Stay Ahead
+              Empower Your Real Estate Journey
             </h1>
             <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Say goodbye to hours of research and tedious paperwork. First
-              Property simplifies the permit hunting process, providing you with
-              a user-friendly platform to access all the information you need
-              with just a few clicks.
+              No more navigating through complex research. With First Property,
+              everything you need is just a few clicks away. Our platform
+              revolutionizes the way you access and handle vital information,
+              making your decision-making process quicker and more informed.
+              Step into the future of property development - Join First Property
+              today!
             </p>
             <div className='mt-10 flex items-center gap-x-6'>
               <Link

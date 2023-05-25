@@ -116,7 +116,10 @@ export default function PricingPage() {
                                   tier.featured ? 'text-gray-900' : 'text-white'
                                 }
                               >
-                                USD
+                                {tier.price.monthly === 'Free' ||
+                                tier.price.annually === 'Free'
+                                  ? ''
+                                  : 'USD'}
                               </p>
                               <p
                                 className={
@@ -124,7 +127,12 @@ export default function PricingPage() {
                                     ? 'text-gray-500'
                                     : 'text-gray-400'
                                 }
-                              >{`Billed ${frequency.value}`}</p>
+                              >
+                                {tier.price.monthly === 'Free' ||
+                                tier.price.annually === 'Free'
+                                  ? ''
+                                  : `Billed ${frequency.value}`}
+                              </p>
                             </div>
                           </div>
                           <a
@@ -137,7 +145,10 @@ export default function PricingPage() {
                               'rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
                             )}
                           >
-                            Buy this plan
+                            {tier.price.monthly === 'Free' ||
+                            tier.price.annually === 'Free'
+                              ? 'Get started'
+                              : 'Buy this plan'}
                           </a>
                         </div>
                         <div className='mt-8 flow-root sm:mt-10'>
@@ -474,10 +485,10 @@ const pricing = {
     {
       name: 'Starter',
       id: 'tier-starter',
-      href: 'https://buy.stripe.com/test_3cs6qO9870HaeL6144',
+      href: '/maps',
       featured: false,
       description: 'All your essential business finances, taken care of.',
-      price: { monthly: '$15', annually: '$144' },
+      price: { monthly: 'Free', annually: 'Free' },
       mainFeatures: [
         'Basic invoicing',
         'Easy to use accounting',
