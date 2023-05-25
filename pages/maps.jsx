@@ -12,7 +12,7 @@ import SlideOver from '@/components/navbar/slideOver'
 import PermitsTable from '@/components/maps/table'
 import randomCoord from '@/data/randomCoord'
 
-export default function Maps() {
+export default function MapsPage() {
   const session = useSession()
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,

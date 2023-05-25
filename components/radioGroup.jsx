@@ -1,17 +1,9 @@
-const sides = [
-  { id: 1, name: 'Home Builder' },
-  { id: 2, name: 'Contractor' },
-  { id: 3, name: 'Land Owner' },
-  { id: 4, name: 'Investor' },
-  { id: 5, name: 'Realtor' },
-  { id: 6, name: 'Other' },
-]
-
 export default function RadioGroup({ onInputChange }) {
-  const handleChange = (event) => {
+  function handleChange(event) {
     const value = event.target.value
-    onInputChange(value) // Pass the updated value to the event handler
+    onInputChange(value)
   }
+
   return (
     <fieldset>
       <legend className='text-base font-semibold text-gray-900'>
@@ -45,3 +37,12 @@ export default function RadioGroup({ onInputChange }) {
     </fieldset>
   )
 }
+
+const sides = [
+  { id: 1, name: 'Home Builder' },
+  { id: 2, name: 'Contractor' },
+  { id: 3, name: 'Land Owner' },
+  { id: 4, name: 'Investor' },
+  { id: 5, name: 'Realtor' },
+  { id: 6, name: 'Other' },
+]

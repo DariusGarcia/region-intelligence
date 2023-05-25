@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { CheckIcon } from '@heroicons/react/20/solid'
 
-export default function Landing() {
+export default function LandingPage() {
   return (
     <>
       <Head>

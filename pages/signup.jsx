@@ -9,6 +9,7 @@ import ErrorWarning from '@/components/alerts/error'
 export default function SignupPage() {
   const session = useSession()
   const supabase = useSupabaseClient()
+  // condense this into one state object
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')

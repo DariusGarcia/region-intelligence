@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Faq() {
   return (
     <div className='mx-auto mt-24 max-w-7xl divide-y divide-gray-900/10 px-6  lg:px-8'>

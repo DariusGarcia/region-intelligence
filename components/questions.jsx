@@ -1,15 +1,14 @@
-import { useState } from 'react'
 import RadioGroup from './radioGroup'
 
 export default function Questions({
+  onBackgroundChange,
   onIndustryChange,
   onCityChange,
   onFoundUsChange,
   onCommunicationMethodChange,
-  onBackgroundChange,
 }) {
-  const handleRadioSelection = (value) => {
-    onBackgroundChange(value) // Pass the selected value to the parent component
+  function handleRadioSelection(value) {
+    onBackgroundChange(value)
   }
 
   return (
