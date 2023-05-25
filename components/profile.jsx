@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
+import RadioGroup from './radioGroup'
+import BackgroundSelectMenu from './selectMenu'
 
 export default function Profile() {
   const supabase = useSupabaseClient()
@@ -18,6 +20,7 @@ export default function Profile() {
   const [postal_code, setPostalCode] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
+  const [background, setBackground] = useState(null)
 
   useEffect(() => {
     async function loadData() {
@@ -42,6 +45,7 @@ export default function Profile() {
           setPostalCode(data.postal_code)
           setWebsite(data.website)
           setAvatarUrl(data.avatar_url)
+          setBackground(data.background)
         }
 
         setLoading(false)
@@ -70,6 +74,7 @@ export default function Profile() {
       website,
       avatar_url,
       about_section,
+      background,
       updated_at: new Date(),
     }
 
@@ -81,10 +86,16 @@ export default function Profile() {
     setLoading(false)
   }
 
+  // function handleBackgroundSelection(value) {
+  //   setBackground(value?.name)
+  // }
+
+  console.log({ fetchedBg: background })
+
   return (
     <>
-      {loading && <p className='text-center'>Loading ...</p>}
-      {user ? (
+      {/* {loading && <p className='text-center'>Loading ...</p>} */}
+      {
         <div className='flex justify-center px-4 md:px-0 bg-white'>
           <form
             onSubmit={updateProfile}
@@ -100,7 +111,27 @@ export default function Profile() {
                   you share.
                 </p>
 
-                <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                  <div className='col-span-full'>
+                    <label
+                      htmlFor='photo'
+                      className='block text-sm font-medium leading-6 text-gray-900'
+                    >
+                      Profile Picture
+                    </label>
+                    <div className='mt-2 flex items-center gap-x-3'>
+                      <UserCircleIcon
+                        className='h-12 w-12 text-gray-300'
+                        aria-hidden='true'
+                      />
+                      <button
+                        type='button'
+                        className='rounded-md bg-white px-2.5 py-1.5 pl-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+                      >
+                        Change
+                      </button>
+                    </div>
+                  </div>
                   <div className='sm:col-span-4'>
                     <label
                       htmlFor='username'
@@ -131,6 +162,9 @@ export default function Profile() {
                     >
                       About
                     </label>
+                    <p className='mt-3 text-sm leading-6 text-gray-600'>
+                      Write a few sentences about yourself.
+                    </p>
                     <div className='mt-2'>
                       <textarea
                         id='about'
@@ -141,32 +175,16 @@ export default function Profile() {
                         className='block w-full rounded-md border-0 py-1.5  pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                       />
                     </div>
-                    <p className='mt-3 text-sm leading-6 text-gray-600'>
-                      Write a few sentences about yourself.
-                    </p>
-                  </div>
-
-                  <div className='col-span-full'>
-                    <label
-                      htmlFor='photo'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Photo
-                    </label>
-                    <div className='mt-2 flex items-center gap-x-3'>
-                      <UserCircleIcon
-                        className='h-12 w-12 text-gray-300'
-                        aria-hidden='true'
-                      />
-                      <button
-                        type='button'
-                        className='rounded-md bg-white px-2.5 py-1.5 pl-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
-                      >
-                        Change
-                      </button>
-                    </div>
                   </div>
                 </div>
+                {/* Background select menu */}
+                {/* <div className='mt-4'>
+                  {' '}
+                  <BackgroundSelectMenu
+                    defaultValue={background}
+                    onInputChange={handleBackgroundSelection}
+                  />
+                </div> */}
               </div>
 
               <div className='border-b border-gray-900/10 pb-12'>
@@ -174,7 +192,7 @@ export default function Profile() {
                   Personal Information
                 </h2>
                 <p className='mt-1 text-sm leading-6 text-gray-600'>
-                  Use a permanent address where you can receive mail.
+                  This information is not shared publicly.
                 </p>
 
                 <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
@@ -358,9 +376,7 @@ export default function Profile() {
             </div>
           </form>
         </div>
-      ) : (
-        <h1>Please Log In</h1>
-      )}
+      }
     </>
   )
 }
