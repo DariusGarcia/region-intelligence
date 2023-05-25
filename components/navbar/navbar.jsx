@@ -10,6 +10,8 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
+  MapIcon,
+  ListBulletIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChevronDownIcon,
@@ -36,8 +38,6 @@ export default function Navbar() {
         else if (data) {
           setUsername(data.username)
         }
-
-        setLoading(false)
       } catch (error) {
         console.log(error)
       }
@@ -78,7 +78,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-blue-500 text-gray-900'>
-              Projects
+              Land Directory
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-gray-400'
                 aria-hidden='true'
@@ -96,7 +96,7 @@ export default function Navbar() {
             >
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
                 <div className='p-4'>
-                  {projects.map((item) => (
+                  {landDirectory.map((item) => (
                     <div
                       key={item.name}
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'
@@ -148,7 +148,7 @@ export default function Navbar() {
             href='/maps'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
           >
-            Land Directory
+            Projects
           </Link>
 
           <Popover className='relative'>
@@ -241,12 +241,12 @@ export default function Navbar() {
             </div>
             <div className='mt-6 flow-root'>
               <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900'>
-                Projects
+                Land Directory
               </p>
 
               <div className='-my-6 divide-y divide-gray-500/10'>
                 <div className='space-y-2 py-6'>
-                  {projects.map((item) => (
+                  {landDirectory.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -273,7 +273,7 @@ export default function Navbar() {
                     href='#'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
-                    Land Directory
+                    Projects
                   </Link>
 
                   {company.map((item) => (
@@ -329,6 +329,20 @@ export default function Navbar() {
   )
 }
 
+const landDirectory = [
+  {
+    name: 'Map View',
+    description: 'View the locations of pending city permits',
+    href: '/maps',
+    icon: MapIcon,
+  },
+  {
+    name: 'List View',
+    description: 'View the locations of pending city permits',
+    href: '/maps',
+    icon: ListBulletIcon,
+  },
+]
 const projects = [
   {
     name: 'Map View',
@@ -336,53 +350,53 @@ const projects = [
     href: '/maps',
     icon: ChartPieIcon,
   },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: 'Security',
-    description: 'Your customers’ data will be safe and secure',
-    href: '#',
-    icon: FingerPrintIcon,
-  },
-  {
-    name: 'Integrations',
-    description: 'Connect with third-party tools',
-    href: '#',
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: 'Automations',
-    description: 'Build strategic funnels that will convert',
-    href: '#',
-    icon: ArrowPathIcon,
-  },
+  // {
+  //   name: 'Engagement',
+  //   description: 'Speak directly to your customers',
+  //   href: '#',
+  //   icon: CursorArrowRaysIcon,
+  // },
+  // {
+  //   name: 'Security',
+  //   description: 'Your customers’ data will be safe and secure',
+  //   href: '#',
+  //   icon: FingerPrintIcon,
+  // },
+  // {
+  //   name: 'Integrations',
+  //   description: 'Connect with third-party tools',
+  //   href: '#',
+  //   icon: SquaresPlusIcon,
+  // },
+  // {
+  //   name: 'Automations',
+  //   description: 'Build strategic funnels that will convert',
+  //   href: '#',
+  //   icon: ArrowPathIcon,
+  // },
 ]
 const callsToAction = [
   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 const company = [
   {
     name: 'About us',
-    href: '#',
+    href: '/about',
     description:
       'Learn more about our company values and mission to empower others',
+  },
+  {
+    name: 'Contact Us',
+    href: '/contact',
+    description:
+      'Get in touch with our dedicated support team for any questions or inquiries',
   },
   {
     name: 'Careers',
     href: '#',
     description:
       'Looking for you next career opportunity? See all of our open positions',
-  },
-  {
-    name: 'Support',
-    href: '#',
-    description:
-      'Get in touch with our dedicated support team or reach out on our community forums',
   },
   {
     name: 'Blog',

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <div className='mx-auto mt-32 max-w-7xl px-6 lg:px-8'>
@@ -9,12 +11,13 @@ export default function Footer() {
           Footer
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
-          <p
-            className='h-7 text-md font-semibold leading-6 text-gray-900'
+          <Link
+            href='/'
+            className='h-7 text-md font-semibold leading-6 text-gray-900 hover:text-black'
             alt='Company name'
           >
             First Property
-          </p>
+          </Link>
 
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
@@ -98,22 +101,21 @@ export default function Footer() {
 
 const footerNavigation = {
   Products: [
-    { name: 'Hosting', href: '#' },
+    { name: 'Land Directory', href: '/maps' },
     { name: 'Data Services', href: '#' },
     { name: 'Uptime Monitoring', href: '#' },
     { name: 'Enterprise Services', href: '#' },
   ],
   support: [
-    { name: 'Pricing', href: '#' },
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Documentation', href: '#' },
     { name: 'Guides', href: '#' },
-    { name: 'API Reference', href: '#' },
   ],
   company: [
-    { name: 'About', href: '#' },
+    { name: 'About', href: '/about' },
     { name: 'Blog', href: '#' },
     { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
     { name: 'Partners', href: '#' },
   ],
   legal: [
