@@ -32,7 +32,7 @@ export default function ProfilePage() {
     <>
       <div className='min-h-full bg-gray-100'>
         <div className=''>
-          <div className='bg-indigo-600 pb-32'>
+          <div className='bg-blue-600 pb-32'>
             <header className='py-10'>
               <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <section className='flex flex-row justify-between'>
