@@ -7,6 +7,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Profile from '@/components/profile'
+import ChatBot from '@/components/chatBot'
 
 export default function ProfilePage() {
   const session = useSession()
