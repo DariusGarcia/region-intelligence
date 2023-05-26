@@ -339,7 +339,7 @@ const landDirectory = [
   {
     name: 'List View',
     description: 'View the locations of pending city permits',
-    href: '/maps',
+    href: '/land-directory',
     icon: ListBulletIcon,
   },
 ]

@@ -20,7 +20,7 @@ export default function ChatBot() {
       const timeout = setTimeout(() => {
         setShowChatBot(true)
         setVisible(true)
-      }, 2000) // Set the desired time in milliseconds
+      }, 30000) // Set the desired time in milliseconds
 
       return () => clearTimeout(timeout)
     }
