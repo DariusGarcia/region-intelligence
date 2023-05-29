@@ -6,6 +6,7 @@ import addHyphens from '@/utils/urlFormat'
 import { createClient } from '@supabase/supabase-js'
 import BounceLoader from 'react-spinners/BounceLoader'
 import capitalizeWords from '@/utils/capitalizeWords'
+import Pagination from '@/components/pagination'
 
 export default function index() {
   const supabase = createClient(
@@ -44,10 +45,13 @@ export default function index() {
     )
 
     setFilteredPermits(filteredPermits)
+    setCurrentPage(1)
   }
 
   const permitsToDisplay = searchTerm ? filteredPermits : cityProjects
+
   if (error) return <div>{error}</div>
+
   return (
     <div className='flex justify-center mt-4 md:mt-12 px-4'>
       <div className='flex flex-col items-center'>
@@ -116,13 +120,20 @@ export default function index() {
               <p>Click on any of the projects below to see more information.</p>
               {/* list of planning projects */}
               <div className='overflow-x-auto'>
-                <form className='w-full md:max-w-7xl md:min-w-[1200px] overflow-x'>
+                <form className=' md:max-w-7xl md:min-w-[1200px] w-[1250px] overflow-x'>
                   <input
                     className='w-full rounded-sm'
                     type='text'
-                    placeholder='Search for a project...'
+                    placeholder='Search for a project or city...'
                     value={searchTerm}
                     onChange={handleSearchChange}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault()
+                        setSearchTerm('')
+                      }
+                    }}
+                    disabled={loading}
                   />
                   <header className='grid grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2'>
                     <p className='text-left w-full'>Project Name</p>
@@ -136,27 +147,31 @@ export default function index() {
                       <BounceLoader color='#36d7b7' />
                     </div>
                   ) : (
-                    <ul>
-                      {permitsToDisplay.map((item) => (
-                        <li
-                          key={item.id}
-                          className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
-                        >
-                          <Link
-                            className='text-sm text-blue-600 hover:text-blue-500 underline'
-                            href={`/land-directory/list-view/${item.caseNumbers}`}
-                          >
-                            {item.caseNumbers}
-                          </Link>
-                          <p className='text-sm'>{item.projectLocations}</p>
-                          <p className='text-sm'>{item.city}</p>
-                          <p className='text-sm'>
-                            {capitalizeWords(item.applicant)}
-                          </p>
-                          <p className='text-sm'>{item.projectStatus}</p>
-                        </li>
-                      ))}
-                    </ul>
+                    <Pagination items={permitsToDisplay} itemsPerPage={25}>
+                      {(currentPageItems) => (
+                        <ul>
+                          {currentPageItems.map((item) => (
+                            <li
+                              key={item.id}
+                              className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
+                            >
+                              <Link
+                                className='text-sm text-blue-600 hover:text-blue-500 underline'
+                                href={`/land-directory/list-view/${item.caseNumbers}`}
+                              >
+                                {item.caseNumbers}
+                              </Link>
+                              <p className='text-sm'>{item.projectLocations}</p>
+                              <p className='text-sm'>{item.city}</p>
+                              <p className='text-sm'>
+                                {capitalizeWords(item.applicant)}
+                              </p>
+                              <p className='text-sm'>{item.projectStatus}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </Pagination>
                   )}
                 </form>
               </div>
