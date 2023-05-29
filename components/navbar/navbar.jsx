@@ -145,7 +145,7 @@ export default function Navbar() {
             Pricing
           </Link>
           <Link
-            href='/maps'
+            href='/land-directory'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
           >
             Projects
@@ -270,7 +270,7 @@ export default function Navbar() {
                     Pricing
                   </Link>
                   <Link
-                    href='#'
+                    href='/land-directory'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                   >
                     Projects
@@ -333,7 +333,7 @@ const landDirectory = [
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',
-    href: '/maps',
+    href: '/land-directory/map-view',
     icon: MapIcon,
   },
   {
@@ -347,7 +347,7 @@ const projects = [
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',
-    href: '/maps',
+    href: '/land-directory/maps',
     icon: ChartPieIcon,
   },
   // {

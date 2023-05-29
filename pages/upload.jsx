@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import * as XLSX from 'xlsx'
-import axios from 'axios'
+
 import convertToCamelCase from '@/utils/convertToCamelCase'
 import { createClient } from '@supabase/supabase-js'
 
@@ -33,8 +33,8 @@ export default function Home() {
         const workbook = XLSX.read(data, { type: 'array' })
         const worksheet = workbook.Sheets[workbook.SheetNames[0]]
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 })
-
         const headers = jsonData[0]
+
         const jsonDataWithKeys = jsonData.slice(1).map((row) => {
           const rowObject = {}
           headers.forEach((header, index) => {
@@ -43,14 +43,11 @@ export default function Home() {
           })
           return rowObject
         })
-
         resolve(jsonDataWithKeys)
       }
-
       reader.onerror = (e) => {
         reject(e)
       }
-
       reader.readAsArrayBuffer(file)
     })
   }
@@ -77,12 +74,12 @@ export default function Home() {
         plannerEmail: row['plannerEmail'],
       }))
 
-      console.log({ insertData: insertData })
       const { error } = await supabase.from('cityProjects').insert(insertData)
 
       if (error) {
         throw new Error('Error uploading data to Supabase')
       } else {
+        //   TODO: set alert to show data uploaded successfully
         console.log('Data uploaded to Supabase successfully')
       }
     } catch (error) {

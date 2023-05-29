@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js'
 import BounceLoader from 'react-spinners/BounceLoader'
 import capitalizeWords from '@/utils/capitalizeWords'
 import Pagination from '@/components/pagination'
+import mapView from '@/public/map-view.png'
 
 export default function index() {
   const supabase = createClient(
@@ -43,7 +44,8 @@ export default function index() {
           .toLowerCase()
           .includes(searchTerm.toLowerCase()) ||
         item.applicant.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.plannerName.toLowerCase().includes(searchTerm.toLowerCase())
+        item.plannerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.listingNames?.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     setFilteredPermits(filteredPermits)
@@ -59,27 +61,18 @@ export default function index() {
       <div className='flex flex-col items-center'>
         <div className='md:max-w-7xl justify-center'>
           <h1 className='text-3xl md:text-5xl font-bold  '>
-            Major planning projects
+            {headerText.title}
           </h1>
           <section className='mt-8 md:mt-12 flex flex-col justify-center w-full gap-4'>
-            <h2 className='text-2xl font-medium'>Current projects</h2>
-            <p className='max-w-xl'>
-              Below are some of the development projects in Orange County,
-              California. The project links will take you to more detailed
-              project descriptions, images, environmental documents, and
-              supplementary information. If you would like additional
-              information, feel free to contact our support team, or you may
-              also contact the assigned case planner of the respective project.
-            </p>
+            <h2 className='text-2xl font-medium'>{headerText.subtitle1}</h2>
+            <p className='max-w-xl'>{headerText.subtitle1Description}</p>
           </section>
           <section className='mt-12'>
-            <h3 className='text-2xl font-medium'>
-              Major Projects map and monthly development reports
-            </h3>
+            <h3 className='text-2xl font-medium'>{headerText.subtitle2}</h3>
             <div className='grid md:grid-cols-2 grid-cols-1 gap-4 justify-between max-w-xl mt-4'>
               <article className='flex flex-col gap-2  justify-center p-4 border   rounded-md'>
                 <Image
-                  src={image}
+                  src={mapView}
                   width={200}
                   alt='image'
                   height={200}
@@ -148,7 +141,7 @@ export default function index() {
                   </header>
                   {loading ? (
                     <div className='flex justify-center my-24 '>
-                      <BounceLoader color='#36d7b7' />
+                      <BounceLoader color='#0d6efd' />
                     </div>
                   ) : (
                     <Pagination items={permitsToDisplay} itemsPerPage={25}>
@@ -160,13 +153,15 @@ export default function index() {
                               className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
                             >
                               <Link
-                                className='text-sm text-blue-600 hover:text-blue-500 underline'
+                                className='text-sm text-blue-600 hover:text-blue-500 underline flex flex-col gap-2'
                                 href={`/land-directory/list-view/${item.id}`}
                               >
-                                {item.caseNumbers}
+                                <p> {item.caseNumbers}</p>
+                                <p>{item.listingNames}</p>
                               </Link>
+
                               <p className='text-sm'>{item.projectLocations}</p>
-                              <p className='text-sm'>{item.city}</p>
+                              <p className='text-sm'>{item.city}, CA</p>
                               <p className='text-sm'>
                                 {capitalizeWords(item.applicant)}
                               </p>
@@ -185,4 +180,12 @@ export default function index() {
       </div>
     </div>
   )
+}
+
+const headerText = {
+  title: 'Major planning projects',
+  subtitle1: 'Current projects',
+  subtitle1Description:
+    'Below are some of the development projects in Orange County, California. The project links will take you to more detailed project descriptions, images, environmental documents, and supplementary information. If you would like additional information, feel free to contact our support team, or you may also contact the assigned case planner of the respective project.',
+  subtitle2: 'Major Projects map and monthly development reports',
 }

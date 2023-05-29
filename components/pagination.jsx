@@ -114,7 +114,7 @@ const Pagination = ({ items, itemsPerPage, children }) => {
                         currentPage === page
                           ? 'bg-blue-600 text-white'
                           : 'text-gray-900'
-                      } ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`}
+                      } ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-black focus:z-20 focus:outline-offset-0`}
                     >
                       {page}
                     </a>

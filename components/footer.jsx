@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className='mx-auto mt-32 max-w-7xl px-6 lg:px-8'>
+    <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8'>
       <footer
         aria-labelledby='footer-heading'
         className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'
@@ -13,7 +13,7 @@ export default function Footer() {
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <Link
             href='/'
-            className='h-7 text-md font-semibold leading-6 text-gray-900 hover:text-black'
+            className='h-7 text-md font-semibold hover:underline leading-6 text-gray-900 hover:text-black'
             alt='Company name'
           >
             First Property
@@ -26,11 +26,11 @@ export default function Footer() {
                   Products
                 </h3>
                 <ul role='list' className='mt-6 space-y-4'>
-                  {footerNavigation.Products.map((item) => (
+                  {footerNavigation.projects.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 text-gray-600 hover:text-gray-900'
+                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'
                       >
                         {item.name}
                       </a>
@@ -47,7 +47,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 text-gray-600 hover:text-gray-900'
+                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'
                       >
                         {item.name}
                       </a>
@@ -66,7 +66,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 text-gray-600 hover:text-gray-900'
+                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'
                       >
                         {item.name}
                       </a>
@@ -83,7 +83,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 text-gray-600 hover:text-gray-900'
+                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'
                       >
                         {item.name}
                       </a>
@@ -100,24 +100,16 @@ export default function Footer() {
 }
 
 const footerNavigation = {
-  Products: [
-    { name: 'Land Directory', href: '/maps' },
-    { name: 'Data Services', href: '#' },
-    { name: 'Uptime Monitoring', href: '#' },
-    { name: 'Enterprise Services', href: '#' },
+  projects: [
+    { name: 'Map View', href: '/land-directory/map-view' },
+    { name: 'Land Directory', href: '/land-directory' },
   ],
   support: [
     { name: 'Contact Us', href: '/contact' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Documentation', href: '#' },
-    { name: 'Guides', href: '#' },
   ],
-  company: [
-    { name: 'About', href: '/about' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Partners', href: '#' },
-  ],
+  company: [{ name: 'About', href: '/' }],
   legal: [
     { name: 'Claim', href: '#' },
     { name: 'Privacy', href: '#' },
