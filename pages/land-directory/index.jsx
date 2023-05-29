@@ -16,12 +16,13 @@ export default function index() {
   const [filteredPermits, setFilteredPermits] = useState([])
   const [cityProjects, setCityProjects] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     setLoading(true)
     const fetchPermits = async () => {
       const { data, error } = await supabase.from('cityProjects').select()
-      if (error) console.log(error)
+      if (error) setError(error)
       setCityProjects(data)
       setLoading(false)
     }
@@ -35,14 +36,18 @@ export default function index() {
     const filteredPermits = cityProjects.filter(
       (item) =>
         item.caseNumbers.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.city.toLowerCase().includes(searchTerm.toLowerCase())
+        item.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.projectLocations
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        item.applicant.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     setFilteredPermits(filteredPermits)
   }
 
   const permitsToDisplay = searchTerm ? filteredPermits : cityProjects
-
+  if (error) return <div>{error}</div>
   return (
     <div className='flex justify-center mt-4 md:mt-12 px-4'>
       <div className='flex flex-col items-center'>
@@ -115,7 +120,7 @@ export default function index() {
                   <input
                     className='w-full rounded-sm'
                     type='text'
-                    placeholder='Search for a project or city...'
+                    placeholder='Search for a project...'
                     value={searchTerm}
                     onChange={handleSearchChange}
                   />
@@ -135,7 +140,7 @@ export default function index() {
                       {permitsToDisplay.map((item) => (
                         <li
                           key={item.id}
-                          className='grid grid-cols-5 w-full gap-2 border p-2 '
+                          className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
                         >
                           <Link
                             className='text-sm text-blue-600 hover:text-blue-500 underline'
