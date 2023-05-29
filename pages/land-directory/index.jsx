@@ -120,7 +120,7 @@ export default function index() {
               <p>Click on any of the projects below to see more information.</p>
               {/* list of planning projects */}
               <div className='overflow-x-auto'>
-                <form className=' md:max-w-7xl md:min-w-[1200px] w-[1250px] overflow-x'>
+                <form className='w-full  md:max-w-7xl lg:min-w-[1200px] lg:w-[1250px] overflow-x'>
                   <input
                     className='w-full rounded-sm'
                     type='text'
