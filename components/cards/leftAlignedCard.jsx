@@ -6,7 +6,7 @@ export default function LeftAlignedCard({ data }) {
     <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
       {data &&
         data.map((item) => (
-          <>
+          <div key={item.id}>
             <div className='flex flex-col px-4 py-6 sm:px-6 w-full'>
               <h3 className='text-md font-semibold leading-7 text-blue-600 mb-4'>
                 Project Information
@@ -116,7 +116,7 @@ export default function LeftAlignedCard({ data }) {
                 </div>
               </dl>
             </div>
-          </>
+          </div>
         ))}
     </div>
   )

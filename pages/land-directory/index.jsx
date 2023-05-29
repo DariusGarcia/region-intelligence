@@ -79,7 +79,7 @@ export default function index() {
                   className='flex justify-center place-items-center w-full'
                 />
                 <Link
-                  href='/maps'
+                  href='/land-directory/map-view'
                   className='text-blue-600 hover:text-blue-500 text-xl'
                 >
                   Interactive map
@@ -157,7 +157,7 @@ export default function index() {
                                 href={`/land-directory/list-view/${item.id}`}
                               >
                                 <p> {item.caseNumbers}</p>
-                                <p>{item.listingNames}</p>
+                                <p>{item.listingNames?.slice(0, 25)}...</p>
                               </Link>
 
                               <p className='text-sm'>{item.projectLocations}</p>
