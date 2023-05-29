@@ -1,11 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import * as XLSX from 'xlsx'
+import axios from 'axios'
+import convertToCamelCase from '@/utils/convertToCamelCase'
+import { createClient } from '@supabase/supabase-js'
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+)
 
 export default function Home() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
   const [json, setJson] = useState(null)
-  //   const [authenticated, setAuthenticated] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleFileChange = async (event) => {
+    setLoading(false)
     const file = event.target.files[0]
 
     try {
@@ -47,40 +59,42 @@ export default function Home() {
     })
   }
 
-  const convertToCamelCase = (str) => {
-    return str
-      .toLowerCase()
-      .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase())
+  const uploadDataToSupabase = async () => {
+    setLoading(true)
+
+    try {
+      const insertData = json.map((row) => ({
+        caseNumbers: row['caseNumbers'],
+        projectStatus: row['projectStatus'],
+        projectLocations: row['projectLocations'],
+        projectDescriptions: row['projectDescriptions'],
+        recentUpdate: row['recentUpdate'],
+        listingNames: row['listingNames'],
+        typeOfUse: row['typeOfUse'],
+        applicant: row['applicant'],
+        applicantPhone: row['applicantPhone'],
+        applicantEmail: row['applicantEmail'],
+        plannerName: row['plannerName'],
+        imageUrls: row['imageUrls'],
+        city: row['city'],
+        plannerPhone: row['plannerPhone'],
+        plannerEmail: row['plannerEmail'],
+      }))
+
+      console.log({ insertData: insertData })
+      const { error } = await supabase.from('cityProjects').insert(insertData)
+
+      if (error) {
+        throw new Error('Error uploading data to Supabase')
+      } else {
+        console.log('Data uploaded to Supabase successfully')
+      }
+    } catch (error) {
+      console.error('Error uploading data to Supabase:', error)
+    } finally {
+      setLoading(false)
+    }
   }
-
-  const saveJSONToFile = () => {
-    const data = JSON.stringify(json)
-    const blob = new Blob([data], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'output.json'
-
-    link.click()
-
-    // Clean up the URL object after the download
-    setTimeout(() => {
-      URL.revokeObjectURL(url)
-    }, 0)
-  }
-
-  //   useEffect(() => {
-  //     const password = prompt('Enter password:')
-  //     if (password === '123') {
-  //       setAuthenticated(true)
-  //     } else {
-  //       alert('Wrong password!')
-  //     }
-  //   }, [])
-
-  //   if (!authenticated) {
-  //     return null
-  //   }
 
   return (
     <div className=' w-full items-center mt-12 md:mt-24 justify-center flex flex-col'>
@@ -94,21 +108,22 @@ export default function Home() {
               viewBox='0 0 48 48'
               aria-hidden='true'
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6'
-              />
+              {/* SVG path */}
             </svg>
             <span className='mt-2 mb-6  block text-sm font-semibold text-gray-900'>
               Upload excel spreadsheet
             </span>
-            <div className='flex justify-center'>
+            <div className='flex flex-col justify-center items-center gap-6'>
               <input type='file' onChange={handleFileChange} className='w-56' />
               {json && (
                 <div>
-                  <button onClick={saveJSONToFile}>Save JSON to File</button>
+                  <button
+                    disabled={loading}
+                    className='bg-blue-600 text-white rounded-md p-2 hover:bg-blue-500'
+                    onClick={uploadDataToSupabase}
+                  >
+                    Upload to Supabase
+                  </button>
                 </div>
               )}
             </div>
