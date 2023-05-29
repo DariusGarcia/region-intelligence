@@ -8,25 +8,25 @@ export default function ChatBot() {
   const [user, setUser] = useState({})
   const [visible, setVisible] = useState(true)
 
-  useEffect(() => {
-    async function getUser() {
-      const { data } = await supabase
-        .from('profiles')
-        .select('username')
-        .eq('id', session?.user?.id)
+  // useEffect(() => {
+  //   async function getUser() {
+  //     const { data } = await supabase
+  //       .from('profiles')
+  //       .select('username')
+  //       .eq('id', session?.user?.id)
 
-      setUser(data)
+  //     setUser(data)
 
-      const timeout = setTimeout(() => {
-        setShowChatBot(true)
-        setVisible(true)
-      }, 30000) // Set the desired time in milliseconds
+  //     const timeout = setTimeout(() => {
+  //       setShowChatBot(true)
+  //       setVisible(true)
+  //     }, 30000) // Set the desired time in milliseconds
 
-      return () => clearTimeout(timeout)
-    }
+  //     return () => clearTimeout(timeout)
+  //   }
 
-    getUser()
-  }, [session])
+  //   getUser()
+  // }, [session])
 
   return (
     <>

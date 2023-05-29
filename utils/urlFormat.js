@@ -1,3 +1,9 @@
 export default function addHyphens(str) {
-  return str.replace(/ /g, '-')
+  // Decode the string to handle encoded spaces
+  const decodedStr = decodeURIComponent(str)
+
+  // Replace spaces with hyphens
+  const hyphenatedStr = decodedStr.replace(/ /g, '-')
+
+  return hyphenatedStr
 }

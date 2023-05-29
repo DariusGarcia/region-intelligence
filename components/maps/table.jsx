@@ -110,7 +110,6 @@ export default function PermitsTable() {
           </tbody>
         </table>
       </div>
-      <Pagination />
     </>
   )
 }

@@ -18,6 +18,7 @@ export default function index() {
   const [cityProjects, setCityProjects] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     setLoading(true)
@@ -41,7 +42,8 @@ export default function index() {
         item.projectLocations
           .toLowerCase()
           .includes(searchTerm.toLowerCase()) ||
-        item.applicant.toLowerCase().includes(searchTerm.toLowerCase())
+        item.applicant.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.plannerName.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
     setFilteredPermits(filteredPermits)
@@ -79,6 +81,7 @@ export default function index() {
                 <Image
                   src={image}
                   width={200}
+                  alt='image'
                   height={200}
                   className='flex justify-center place-items-center w-full'
                 />
@@ -97,6 +100,7 @@ export default function index() {
                 <Image
                   src={image}
                   width={200}
+                  alt='image'
                   height={200}
                   className='flex justify-center place-items-center w-full'
                 />
@@ -157,7 +161,7 @@ export default function index() {
                             >
                               <Link
                                 className='text-sm text-blue-600 hover:text-blue-500 underline'
-                                href={`/land-directory/list-view/${item.caseNumbers}`}
+                                href={`/land-directory/list-view/${item.id}`}
                               >
                                 {item.caseNumbers}
                               </Link>
