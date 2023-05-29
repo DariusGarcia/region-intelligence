@@ -1,0 +1,131 @@
+import { useState } from 'react'
+import * as XLSX from 'xlsx'
+import axios from 'axios'
+import convertToCamelCase from '@/utils/convertToCamelCase'
+import { createClient } from '@supabase/supabase-js'
+
+export default function Home() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+  const [json, setJson] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const handleFileChange = async (event) => {
+    setLoading(false)
+    const file = event.target.files[0]
+
+    try {
+      const jsonData = await excelToJson(file)
+      setJson(jsonData)
+    } catch (error) {
+      console.error('Error reading Excel file:', error)
+    }
+  }
+
+  const excelToJson = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result)
+        const workbook = XLSX.read(data, { type: 'array' })
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]]
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 })
+
+        const headers = jsonData[0]
+        const jsonDataWithKeys = jsonData.slice(1).map((row) => {
+          const rowObject = {}
+          headers.forEach((header, index) => {
+            const camelCaseKey = convertToCamelCase(header)
+            rowObject[camelCaseKey] = row[index]
+          })
+          return rowObject
+        })
+
+        resolve(jsonDataWithKeys)
+      }
+
+      reader.onerror = (e) => {
+        reject(e)
+      }
+
+      reader.readAsArrayBuffer(file)
+    })
+  }
+
+  const uploadDataToSupabase = async () => {
+    setLoading(true)
+
+    try {
+      const insertData = json.map((row) => ({
+        caseNumbers: row['caseNumbers'],
+        projectStatus: row['projectStatus'],
+        projectLocations: row['projectLocations'],
+        projectDescriptions: row['projectDescriptions'],
+        recentUpdate: row['recentUpdate'],
+        listingNames: row['listingNames'],
+        typeOfUse: row['typeOfUse'],
+        applicant: row['applicant'],
+        applicantPhone: row['applicantPhone'],
+        applicantEmail: row['applicantEmail'],
+        plannerName: row['plannerName'],
+        imageUrls: row['imageUrls'],
+        city: row['city'],
+        plannerPhone: row['plannerPhone'],
+        plannerEmail: row['plannerEmail'],
+      }))
+
+      console.log({ insertData: insertData })
+      const { error } = await supabase.from('cityProjects').insert(insertData)
+
+      if (error) {
+        throw new Error('Error uploading data to Supabase')
+      } else {
+        console.log('Data uploaded to Supabase successfully')
+      }
+    } catch (error) {
+      console.error('Error uploading data to Supabase:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className=' w-full items-center mt-12 md:mt-24 justify-center flex flex-col'>
+      <div className='w-full max-w-7xl'>
+        <div className=''>
+          <section className='relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>
+            <svg
+              className='mx-auto h-12 w-12 text-gray-400'
+              stroke='currentColor'
+              fill='none'
+              viewBox='0 0 48 48'
+              aria-hidden='true'
+            >
+              {/* SVG path */}
+            </svg>
+            <span className='mt-2 mb-6  block text-sm font-semibold text-gray-900'>
+              Upload excel spreadsheet
+            </span>
+            <div className='flex flex-col justify-center items-center gap-6'>
+              <input type='file' onChange={handleFileChange} className='w-56' />
+              {json && (
+                <div>
+                  <button
+                    disabled={loading}
+                    className='bg-blue-600 text-white rounded-md p-2 hover:bg-blue-500'
+                    onClick={uploadDataToSupabase}
+                  >
+                    Upload to Supabase
+                  </button>
+                </div>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  )
+}
