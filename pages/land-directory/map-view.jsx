@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
+import { createClient } from '@supabase/supabase-js'
 import { useSession } from '@supabase/auth-helpers-react'
 import {
   useLoadScript,
@@ -11,6 +12,8 @@ import {
 import SlideOver from '@/components/navbar/slideOver'
 import PermitsTable from '@/components/maps/table'
 import randomCoord from '@/data/randomCoord'
+import { BounceLoader } from 'react-spinners'
+import formatAddressForGeocoding from '@/utils/formatAddressForGeocoding'
 
 export default function MapsPage() {
   const session = useSession()
@@ -30,6 +33,56 @@ export default function MapsPage() {
   const [selectedMarker, setSelectedMarker] = useState(null)
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
   const [selectedMarkerData, setSelectedMarkerData] = useState(null)
+  const [permitData, setPermitData] = useState({})
+  const [permitCoord, setPermitCoord] = useState({})
+  const [isLoading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+  async function fetchPermits() {
+    const { data, error } = await supabase.from('cityProjects').select()
+    if (error) {
+      setError(error)
+      setLoading(false)
+      return
+    }
+    if (data) {
+      setPermitData(data)
+      setLoading(false)
+    }
+  }
+
+  async function getCoordinates(permitData) {
+    const permitDataWithGeolocation = []
+
+    permitData?.map(async (permit) => {
+      const { projectLocations } = permit
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${formatAddressForGeocoding(
+          projectLocations
+        )},+${permit.city},+CA&key=${process.env.NEXT_PUBLIC_GEOCODE_API_KEY}`
+      )
+
+      const data = await response.json()
+      const geolocation = data.results[0]?.geometry?.location
+
+      permitDataWithGeolocation.push({ ...permit, geolocation })
+      // permitDataWithGeolocation.push({ ...permit, projectLocations })
+    })
+
+    setPermitCoord(permitDataWithGeolocation)
+  }
+
+  console.log({ updatedPermitData: permitCoord })
+  useEffect(() => {
+    setLoading(true)
+    fetchPermits()
+    getCoordinates(permitData)
+    setLoading(false)
+  }, [])
 
   const handleMarkerClick = (markerData) => {
     setSelectedMarkerData(markerData)
@@ -40,6 +93,13 @@ export default function MapsPage() {
   const handleInfoWindowClose = () => {
     setSelectedMarker(null)
   }
+
+  if (isLoading)
+    return (
+      <div className='flex justify-center my-24'>
+        <BounceLoader color='#0d6efd' />
+      </div>
+    )
 
   const renderMap = () => {
     return (
