@@ -86,7 +86,7 @@ export default function ListViewPage() {
                 <div className='my-12  flex justify-center'>
                   <Link
                     href='/land-directory'
-                    className='bg-blue-600 hover:bg-blue-500 transition ease-out text-white p-2 rounded-md'
+                    className='bg-blue-600 hover:bg-blue-500 font-semibold transition ease-out text-white p-2 rounded-md'
                   >
                     Back to major planning projects
                   </Link>

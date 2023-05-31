@@ -1,36 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import image from '../../public/home.jpg'
 import Image from 'next/image'
-import addHyphens from '@/utils/urlFormat'
 import { createClient } from '@supabase/supabase-js'
-import BounceLoader from 'react-spinners/BounceLoader'
 import capitalizeWords from '@/utils/capitalizeWords'
 import Pagination from '@/components/pagination'
 import mapView from '@/public/map-view.png'
 
-export default function index() {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  )
+export default function LandDirectoryListViewPage({ cityProjects }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredPermits, setFilteredPermits] = useState([])
-  const [cityProjects, setCityProjects] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
-
-  useEffect(() => {
-    setLoading(true)
-    const fetchPermits = async () => {
-      const { data, error } = await supabase.from('cityProjects').select()
-      if (error) setError(error)
-      setCityProjects(data)
-      setLoading(false)
-    }
-    fetchPermits()
-  }, [])
 
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value
@@ -54,8 +34,6 @@ export default function index() {
 
   const permitsToDisplay = searchTerm ? filteredPermits : cityProjects
 
-  if (error) return <div>{error}</div>
-
   return (
     <div className='flex justify-center mt-4 md:mt-12 px-4'>
       <div className='flex flex-col items-center'>
@@ -73,9 +51,10 @@ export default function index() {
               <article className='flex flex-col gap-2  justify-center p-4 border   rounded-md'>
                 <Image
                   src={mapView}
-                  width={200}
+                  width={250}
                   alt='image'
                   height={200}
+                  priority
                   className='flex justify-center place-items-center w-full'
                 />
                 <Link
@@ -92,9 +71,10 @@ export default function index() {
               <article className='flex flex-col gap-2 justify-center p-4 border  rounded-md'>
                 <Image
                   src={image}
-                  width={200}
+                  width={250}
                   alt='image'
                   height={200}
+                  priority
                   className='flex justify-center place-items-center w-full'
                 />
                 <Link
@@ -115,6 +95,7 @@ export default function index() {
             <div className='flex flex-col gap-4'>
               <h4 className='text-2xl font-medium'>All planning projects</h4>
               <p>Click on any of the projects below to see more information.</p>
+
               {/* list of planning projects */}
               <div className='overflow-x-auto'>
                 <form className='w-full  md:max-w-7xl lg:min-w-[1200px] lg:w-[1250px] overflow-x'>
@@ -130,8 +111,8 @@ export default function index() {
                         setSearchTerm('')
                       }
                     }}
-                    disabled={loading}
                   />
+
                   <header className='grid grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2'>
                     <p className='text-left w-full'>Project Name</p>
                     <p className='text-left w-full'>Address</p>
@@ -139,39 +120,38 @@ export default function index() {
                     <p className='text-left w-full'>Applicant</p>
                     <p className='text-left w-full'>Project Status</p>
                   </header>
-                  {loading ? (
-                    <div className='flex justify-center my-24 '>
-                      <BounceLoader color='#0d6efd' />
-                    </div>
-                  ) : (
-                    <Pagination items={permitsToDisplay} itemsPerPage={25}>
-                      {(currentPageItems) => (
-                        <ul>
-                          {currentPageItems.map((item) => (
-                            <li
-                              key={item.id}
-                              className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
-                            >
-                              <Link
-                                className='text-sm text-blue-600 hover:text-blue-500 underline flex flex-col gap-2'
-                                href={`/land-directory/list-view/${item.id}`}
-                              >
-                                <p> {item.caseNumbers}</p>
-                                <p>{item.listingNames?.slice(0, 25)}...</p>
-                              </Link>
 
-                              <p className='text-sm'>{item.projectLocations}</p>
-                              <p className='text-sm'>{item.city}, CA</p>
-                              <p className='text-sm'>
-                                {capitalizeWords(item.applicant)}
+                  <Pagination items={permitsToDisplay} itemsPerPage={25}>
+                    {(currentPageItems) => (
+                      <ul>
+                        {currentPageItems.map((item) => (
+                          <li
+                            key={item.id}
+                            className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'
+                          >
+                            <Link
+                              className='text-sm text-blue-600 hover:text-blue-500 underline flex flex-col gap-2'
+                              href={`/land-directory/list-view/${item.id}`}
+                            >
+                              <p> {item.caseNumbers}</p>
+                              <p>
+                                {item.listingNames &&
+                                  item.listingNames?.slice(0, 25)}
+                                ...
                               </p>
-                              <p className='text-sm'>{item.projectStatus}</p>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </Pagination>
-                  )}
+                            </Link>
+
+                            <p className='text-sm'>{item.projectLocations}</p>
+                            <p className='text-sm'>{item.city}, CA</p>
+                            <p className='text-sm'>
+                              {capitalizeWords(item.applicant)}
+                            </p>
+                            <p className='text-sm'>{item.projectStatus}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </Pagination>
                 </form>
               </div>
             </div>
@@ -180,6 +160,30 @@ export default function index() {
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+
+  const { data, error } = await supabase.from('cityProjects').select()
+
+  if (error) {
+    console.error('Error fetching city projects:', error.message)
+    return {
+      props: {
+        cityProjects: [],
+      },
+    }
+  }
+
+  return {
+    props: {
+      cityProjects: data || [],
+    },
+  }
 }
 
 const headerText = {
