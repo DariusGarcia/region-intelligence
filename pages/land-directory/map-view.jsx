@@ -122,14 +122,14 @@ export default function MapsPage() {
               </div>
               <GoogleMap
                 center={
-                  selectedMarker
+                  selectedMarker.lat && selectedMarker.lng
                     ? {
-                        lat: Number(selectedMarker.lat),
-                        lng: Number(selectedMarker.lng),
+                        lat: parseFloat(selectedMarker.lat),
+                        lng: parseFloat(selectedMarker.lng),
                       }
                     : {
-                        lat: Number(permitData[4].lat),
-                        lng: Number(permitData[4].lng),
+                        lat: parseFloat(permitData[4].lat),
+                        lng: parseFloat(permitData[4].lng),
                       }
                 }
                 zoom={12}
@@ -145,8 +145,8 @@ export default function MapsPage() {
                   <Marker
                     key={permit.id}
                     position={{
-                      lat: Number(permit?.lat),
-                      lng: Number(permit?.lng),
+                      lat: parseFloat(permit?.lat),
+                      lng: parseFloat(permit?.lng),
                     }}
                     onClick={() =>
                       handleMarkerClick({
