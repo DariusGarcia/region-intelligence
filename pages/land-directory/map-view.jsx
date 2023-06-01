@@ -99,12 +99,12 @@ export default function MapsPage() {
     )
 
     setPermitCoord(permitDataWithGeolocation)
-    console.log({ permitCoord: permitCoord })
   }
   useEffect(() => {
     setLoading(true)
     fetchPermits()
     setLoading(false)
+    console.log({ permitCoord: permitCoord })
   }, [])
 
   const handleMarkerClick = (markerData) => {
@@ -241,5 +241,11 @@ export default function MapsPage() {
     )
   }
 
-  return isLoaded && permitCoord && !isLoading ? renderMap() : null
+  return isLoaded && permitCoord?.length > 0 && !isLoading ? (
+    renderMap()
+  ) : (
+    <div className='flex justify-center my-24'>
+      <BounceLoader color='#0d6efd' />
+    </div>
+  )
 }
