@@ -608,3 +608,9 @@ const pricing = {
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  }
+}
