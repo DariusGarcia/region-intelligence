@@ -3,6 +3,8 @@ import * as XLSX from 'xlsx'
 
 import convertToCamelCase from '@/utils/convertToCamelCase'
 import { createClient } from '@supabase/supabase-js'
+import formatAddressForGeocoding from '@/utils/formatAddressForGeocoding'
+import extractURL from '../utils/extractURL'
 
 export default function Home() {
   const supabase = createClient(
@@ -11,19 +13,45 @@ export default function Home() {
   )
   const [json, setJson] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [permitCoord, setPermitCoord] = useState([])
 
   const handleFileChange = async (event) => {
-    setLoading(false)
+    setLoading(true)
     const file = event.target.files[0]
 
     try {
       const jsonData = await excelToJson(file)
       setJson(jsonData)
+      getCoordinates(jsonData)
     } catch (error) {
       console.error('Error reading Excel file:', error)
+    } finally {
+      setLoading(false)
     }
   }
 
+  async function getCoordinates(permitData) {
+    const permitDataWithGeolocation = await Promise.all(
+      permitData.map(async (permit) => {
+        const { projectLocations } = permit
+        const response = await fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${formatAddressForGeocoding(
+            projectLocations
+          )},+${permit.city},+CA&key=${process.env.NEXT_PUBLIC_GEOCODE_API_KEY}`
+        )
+
+        const data = await response.json()
+        const geolocation = data.results[0]?.geometry?.location
+
+        return {
+          ...permit,
+          lat: geolocation?.lat,
+          lng: geolocation?.lng,
+        }
+      })
+    )
+    setPermitCoord(permitDataWithGeolocation)
+  }
   const excelToJson = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
@@ -56,7 +84,7 @@ export default function Home() {
     setLoading(true)
 
     try {
-      const insertData = json.map((row) => ({
+      const insertData = permitCoord.map((row) => ({
         caseNumbers: row['caseNumbers'],
         projectStatus: row['projectStatus'],
         projectLocations: row['projectLocations'],
@@ -65,15 +93,18 @@ export default function Home() {
         listingNames: row['listingNames'],
         typeOfUse: row['typeOfUse'],
         applicant: row['applicant'],
+        lat: row['lat'],
+        lng: row['lng'],
         applicantPhone: row['applicantPhone'],
         applicantEmail: row['applicantEmail'],
         plannerName: row['plannerName'],
-        imageUrls: row['imageUrls'],
+        imageUrls: extractURL(row['imageUrls']),
         city: row['city'],
         plannerPhone: row['plannerPhone'],
         plannerEmail: row['plannerEmail'],
       }))
 
+      console.log({ insertData: insertData })
       const { error } = await supabase.from('cityProjects').insert(insertData)
 
       if (error) {
@@ -87,6 +118,10 @@ export default function Home() {
     } finally {
       setLoading(false)
     }
+  }
+
+  if (loading) {
+    return <>Loading...</>
   }
 
   return (
@@ -111,8 +146,12 @@ export default function Home() {
               {json && (
                 <div>
                   <button
-                    disabled={loading}
-                    className='bg-blue-600 text-white rounded-md p-2 hover:bg-blue-500'
+                    disabled={loading ? true : false}
+                    className={
+                      loading
+                        ? 'bg-blue-900 opacity-50 text-white rounded-md p-2'
+                        : 'bg-blue-600 text-white rounded-md p-2 hover:bg-blue-500'
+                    }
                     onClick={uploadDataToSupabase}
                   >
                     Upload to Supabase
