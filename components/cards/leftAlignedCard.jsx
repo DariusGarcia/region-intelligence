@@ -1,14 +1,7 @@
 import capitalizeWords from '@/utils/capitalizeWords'
+import extractPhoneNumber from '@/utils/extractPhoneNumber'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
-function extractPhoneNumber(str) {
-  const phoneNumberRegex = /\d{3}-\d{3}-\d{4}/
-  const matches = str.match(phoneNumberRegex)
-  if (matches && matches.length > 0) {
-    return matches[0]
-  }
-  return null
-}
 export default function LeftAlignedCard({ data }) {
   return (
     <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
@@ -29,16 +22,16 @@ export default function LeftAlignedCard({ data }) {
             <div className='border-t border-gray-100 w-full'>
               <dl className='divide-y divide-gray-100'>
                 <div className='flex flex-col px-4 py-6  sm:gap-4 sm:px-6 w-96 lg:w-[600px]'>
-                  {item.imageUrls === 'None' ? (
+                  {item.imageUrls == '' || item.imageUrls == null ? (
                     <img
                       src='https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?w=1200&ssl=1'
-                      alt='image'
+                      alt='project image'
                       className='rounded-md shadow-md'
                     />
                   ) : (
                     <img
-                      alt='project'
-                      className='h-full w-full shadow-md rounded-md'
+                      alt='project image'
+                      className='h-full w-full  rounded-md'
                       src={item.imageUrls}
                     />
                   )}

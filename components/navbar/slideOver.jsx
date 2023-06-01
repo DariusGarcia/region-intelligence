@@ -2,6 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import homeImage from '../../public/home.jpg'
+import extractPhoneNumber from '@/utils/extractPhoneNumber'
 
 export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
@@ -46,13 +47,6 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                       <h2 className='font-medium text-lg mb-2'>Information</h2>
                       {markerData && (
                         <>
-                          {/* <Image
-                            src={markerData.imageUrls || homeImage}
-                            alt='home'
-                            width={1000}
-                            height={1000}
-                            className='rounded-lg my-4 mb-6'
-                          /> */}
                           <img
                             src={
                               markerData.imageUrls ||
@@ -108,9 +102,17 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>Applicant's email</p>
-                              <p className='text-black'>
+
+                              <a
+                                href={`mailto: ${markerData.applicantEmail}`}
+                                className={
+                                  markerData.applicantEmail === 'Undisclosed'
+                                    ? 'text-black'
+                                    : 'text-blue-500 underline hover:text-blue-400'
+                                }
+                              >
                                 {markerData.applicantEmail}
-                              </p>
+                              </a>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
@@ -122,18 +124,26 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>Planner's email</p>
-                              <p className='text-black'>
+                              <a
+                                href={`mailto: ${markerData.plannerEmail}`}
+                                className='text-blue-500 underline hover:text-blue-400'
+                              >
                                 {markerData.plannerEmail}
-                              </p>
+                              </a>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>
                                 Planner's phone number
                               </p>
-                              <p className='text-black text-sm'>
+                              <a
+                                className='text-blue-500 underline hover:text-blue-400'
+                                href={`tel: ${extractPhoneNumber(
+                                  markerData.plannerPhone
+                                )}`}
+                              >
                                 {markerData.plannerPhone}
-                              </p>
+                              </a>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
