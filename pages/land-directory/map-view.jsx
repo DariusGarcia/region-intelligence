@@ -49,63 +49,14 @@ export default function MapsPage() {
     }
 
     setPermitData(data)
-    getCoordinates(data)
   }
 
-  // async function getCoordinates(permitData) {
-  //   const permitDataWithGeolocation = []
-
-  //   permitData?.map(async (permit) => {
-  //     const { projectLocations } = permit
-  //     const response = await fetch(
-  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${formatAddressForGeocoding(
-  //         projectLocations
-  //       )},+${permit.city},+CA&key=${process.env.NEXT_PUBLIC_GEOCODE_API_KEY}`
-  //     )
-
-  //     const data = await response.json()
-  //     const geolocation = data.results[0]?.geometry?.location
-
-  //     permitDataWithGeolocation.push({
-  //       ...permit,
-  //       lat: geolocation?.lat,
-  //       lng: geolocation?.lng,
-  //     })
-  //   })
-
-  //   setPermitCoord(permitDataWithGeolocation)
-  //   console.log({ permitCoord: permitCoord })
-  // }
-
-  async function getCoordinates(permitData) {
-    const permitDataWithGeolocation = await Promise.all(
-      permitData.map(async (permit) => {
-        const { projectLocations } = permit
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${formatAddressForGeocoding(
-            projectLocations
-          )},+${permit.city},+CA&key=${process.env.NEXT_PUBLIC_GEOCODE_API_KEY}`
-        )
-
-        const data = await response.json()
-        const geolocation = data.results[0]?.geometry?.location
-
-        return {
-          ...permit,
-          lat: geolocation?.lat,
-          lng: geolocation?.lng,
-        }
-      })
-    )
-
-    setPermitCoord(permitDataWithGeolocation)
-  }
   useEffect(() => {
     setLoading(true)
     fetchPermits()
     setLoading(false)
     console.log({ permitCoord: permitCoord })
-  }, [])
+  }, [permitCoord])
 
   const handleMarkerClick = (markerData) => {
     setSelectedMarkerData(markerData)
@@ -127,7 +78,7 @@ export default function MapsPage() {
   const renderMap = () => {
     return (
       <>
-        {permitCoord && !isLoading && (
+        {permitData && !isLoading && (
           <>
             <Head>
               <title>First Property - Maps</title>
@@ -151,7 +102,7 @@ export default function MapsPage() {
                   borderRadius: '8px',
                 }}
               >
-                {permitCoord?.map((permit) => (
+                {permitData?.map((permit) => (
                   <Marker
                     key={permit.id}
                     position={{
@@ -241,7 +192,7 @@ export default function MapsPage() {
     )
   }
 
-  return isLoaded && permitCoord?.length > 0 && !isLoading ? (
+  return isLoaded && permitData?.length > 0 && !isLoading ? (
     renderMap()
   ) : (
     <div className='flex justify-center my-24'>
