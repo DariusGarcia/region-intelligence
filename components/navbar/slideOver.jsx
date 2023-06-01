@@ -58,7 +58,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <div className='flex flex-row justify-between '>
                               <p className='text-gray-500'>Location</p>
                               <p className='text-black'>
-                                {markerData.location}
+                                {markerData.projectLocations}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
@@ -75,21 +75,21 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>Owner's name</p>
                               <p className='text-black'>
-                                {markerData.ownerName}
+                                {markerData.applicant}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>Last update</p>
                               <p className='text-black'>
-                                {markerData.lastUpdate}
+                                {markerData.recentUpdate}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-col gap-4 justify-between'>
                               <p className='text-gray-500'>Description</p>
                               <p className='text-black'>
-                                {markerData.description}
+                                {markerData.projectDescriptions}
                               </p>
                             </div>
                           </section>

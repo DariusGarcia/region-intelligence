@@ -10,13 +10,16 @@ import {
   InfoWindow,
 } from '@react-google-maps/api'
 import SlideOver from '@/components/navbar/slideOver'
-import PermitsTable from '@/components/maps/table'
-import randomCoord from '@/data/randomCoord'
+import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
-import formatAddressForGeocoding from '@/utils/formatAddressForGeocoding'
 
 export default function MapsPage() {
   const session = useSession()
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (!session) {
@@ -25,38 +28,56 @@ export default function MapsPage() {
     }, 100) // 0.1 seconds (100 milliseconds)
     return () => clearTimeout(timeout)
   }, [session])
+
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
   })
-
   const [selectedMarker, setSelectedMarker] = useState(null)
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
   const [selectedMarkerData, setSelectedMarkerData] = useState(null)
   const [permitData, setPermitData] = useState([])
-  const [permitCoord, setPermitCoord] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  )
-  async function fetchPermits() {
-    const { data, error } = await supabase.from('cityProjects').select()
-    if (error) {
-      setError(error)
-      return
-    }
-
-    setPermitData(data)
-  }
+  const [cities, setCities] = useState(['All'])
+  const [selectedCity, setSelectedCity] = useState('')
 
   useEffect(() => {
     setLoading(true)
     fetchPermits()
+    fetchCities()
     setLoading(false)
-    console.log({ permitCoord: permitCoord })
-  }, [permitCoord])
+  }, [selectedCity])
+
+  async function fetchPermits() {
+    if (selectedCity === 'All cities' || selectedCity === '') {
+      const { data, error } = await supabase.from('cityProjects').select('*')
+      if (error) {
+        setError(error)
+        return
+      }
+      setPermitData(data)
+    } else {
+      const { data, error } = await supabase
+        .from('cityProjects')
+        .select('*')
+        .eq('city', selectedCity)
+      if (error) {
+        setError(error)
+        return
+      }
+      setPermitData(data)
+    }
+  }
+
+  async function fetchCities() {
+    const { data, error } = await supabase.from('cityProjects').select('city')
+    if (error) {
+      setError(error)
+      return
+    }
+    const distinctCities = Array.from(new Set(data.map((city) => city.city)))
+    setCities(distinctCities)
+  }
 
   const handleMarkerClick = (markerData) => {
     setSelectedMarkerData(markerData)
@@ -68,11 +89,15 @@ export default function MapsPage() {
     setSelectedMarker(null)
   }
 
-  if (isLoading)
+  function handleCitySelection(city) {
+    setSelectedCity(city)
+  }
+
+  if (error)
     return (
-      <div className='flex justify-center my-24'>
-        <BounceLoader color='#0d6efd' />
-      </div>
+      <p className='flex w-full justify-center text-center items-center font-medium'>
+        {error.message}
+      </p>
     )
 
   const renderMap = () => {
@@ -87,13 +112,21 @@ export default function MapsPage() {
               <h1 className='flex justify-center font-bold text-2xl mb-8'>
                 Pending permits locations
               </h1>
+              <div className='flex justify-center w-full items-center'>
+                <div className='flex flex-col w-72'>
+                  <CitySelectMenu
+                    onSelect={handleCitySelection}
+                    cities={['All cities', ...cities]}
+                  />
+                </div>
+              </div>
               <GoogleMap
                 center={
                   selectedMarker
                     ? { lat: selectedMarker.lat, lng: selectedMarker.lng }
-                    : { lat: 33.8036758, lng: -117.9119473 }
+                    : { lat: permitData[4].lat, lng: permitData[4].lng }
                 }
-                zoom={13}
+                zoom={12}
                 options={{ mapTypeId: 'hybrid' }}
                 mapContainerStyle={{
                   margin: '20px 0 0',
@@ -182,9 +215,7 @@ export default function MapsPage() {
                 onClose={() => setIsSlideOverOpen(!isSlideOverOpen)}
                 markerData={selectedMarkerData}
               />
-              <div className='mt-24 w-full '>
-                <PermitsTable />
-              </div>
+              <div className='mt-24 w-full '>{/* <PermitsTable /> */}</div>
             </div>
           </>
         )}
