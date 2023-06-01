@@ -123,8 +123,14 @@ export default function MapsPage() {
               <GoogleMap
                 center={
                   selectedMarker
-                    ? { lat: selectedMarker.lat, lng: selectedMarker.lng }
-                    : { lat: permitData[4].lat, lng: permitData[4].lng }
+                    ? {
+                        lat: Number(selectedMarker.lat),
+                        lng: Number(selectedMarker.lng),
+                      }
+                    : {
+                        lat: Number(permitData[4].lat),
+                        lng: Number(permitData[4].lng),
+                      }
                 }
                 zoom={12}
                 options={{ mapTypeId: 'hybrid' }}
@@ -170,8 +176,8 @@ export default function MapsPage() {
                 {selectedMarker && (
                   <InfoWindow
                     position={{
-                      lat: selectedMarker.lat,
-                      lng: selectedMarker.lng,
+                      lat: Number(selectedMarker.lat),
+                      lng: Number(selectedMarker.lng),
                     }}
                     onCloseClick={handleInfoWindowClose}
                     onClick={() =>
