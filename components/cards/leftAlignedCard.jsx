@@ -1,6 +1,14 @@
 import capitalizeWords from '@/utils/capitalizeWords'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
+function extractPhoneNumber(str) {
+  const phoneNumberRegex = /\d{3}-\d{3}-\d{4}/
+  const matches = str.match(phoneNumberRegex)
+  if (matches && matches.length > 0) {
+    return matches[0]
+  }
+  return null
+}
 export default function LeftAlignedCard({ data }) {
   return (
     <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
@@ -75,7 +83,12 @@ export default function LeftAlignedCard({ data }) {
                     Planner's phone number
                   </dt>
                   <dd className='mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0'>
-                    {item.plannerPhone}
+                    <a
+                      href={`tel: ${extractPhoneNumber(item.plannerPhone)}`}
+                      className='text-blue-500 underline hover:text-blue-400'
+                    >
+                      {extractPhoneNumber(item.plannerPhone)}
+                    </a>
                   </dd>
                 </div>
                 <div className='px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
@@ -83,7 +96,12 @@ export default function LeftAlignedCard({ data }) {
                     Planner's email address
                   </dt>
                   <dd className='mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0'>
-                    {item.plannerEmail}
+                    <a
+                      href={`mailto: ${item.plannerEmail}`}
+                      className='text-blue-500 underline hover:text-blue-400'
+                    >
+                      {item.plannerEmail}
+                    </a>
                   </dd>
                 </div>
                 <div className='px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>

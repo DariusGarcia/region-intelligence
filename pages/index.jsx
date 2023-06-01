@@ -17,6 +17,15 @@ export default function LandingPage() {
     <>
       <Head>
         <title>First Property - Home</title>
+        <meta
+          name='description'
+          content=' No more navigating through complex research. With First Property,
+              everything you need is just a few clicks away. Our platform
+              revolutionizes the way you access and handle vital information,
+              making your decision-making process quicker and more informed.
+              Step into the future of property development - Join First Property
+              today!'
+        />
       </Head>
       <div className='bg-white'>
         <main className='isolate'>
