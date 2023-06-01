@@ -122,14 +122,14 @@ export default function MapsPage() {
               </div>
               <GoogleMap
                 center={
-                  selectedMarker.lat && selectedMarker.lng
+                  selectedMarker
                     ? {
-                        lat: parseFloat(selectedMarker.lat),
-                        lng: parseFloat(selectedMarker.lng),
+                        lat: selectedMarker?.lat,
+                        lng: selectedMarker?.lng,
                       }
                     : {
-                        lat: parseFloat(permitData[4].lat),
-                        lng: parseFloat(permitData[4].lng),
+                        lat: permitData[3]?.lat,
+                        lng: permitData[3]?.lng,
                       }
                 }
                 zoom={12}
@@ -145,8 +145,8 @@ export default function MapsPage() {
                   <Marker
                     key={permit.id}
                     position={{
-                      lat: parseFloat(permit?.lat),
-                      lng: parseFloat(permit?.lng),
+                      lat: permit?.lat,
+                      lng: permit?.lng,
                     }}
                     onClick={() =>
                       handleMarkerClick({
@@ -176,8 +176,8 @@ export default function MapsPage() {
                 {selectedMarker && (
                   <InfoWindow
                     position={{
-                      lat: Number(selectedMarker.lat),
-                      lng: Number(selectedMarker.lng),
+                      lat: selectedMarker.lat,
+                      lng: selectedMarker.lng,
                     }}
                     onCloseClick={handleInfoWindowClose}
                     onClick={() =>
