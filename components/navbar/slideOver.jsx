@@ -14,8 +14,8 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={onClose}>
         <div className='fixed inset-0' />
-        <div className='fixed inset-0 overflow-hidden'>
-          <div className='absolute inset-0 overflow-hidden'>
+        <div className='fixed inset-0 overflow-auto'>
+          <div className='absolute inset-0 overflow-auto'>
             <div className='pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10'>
               <Transition.Child
                 as={Fragment}
@@ -31,14 +31,14 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                     <div className='bg-blue-700 px-4 py-6 sm:px-6'>
                       <div className='flex items-center justify-between'>
                         <Dialog.Title className='text-base font-semibold leading-6 text-white'>
-                          Permit
+                          Case number: {markerData && markerData.caseNumbers}
                         </Dialog.Title>
                         {/* TODO: fix bug where slide over doesn't open again if button is clicked */}
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
                       <div className='mt-1'>
                         <p className='text-sm text-blue-300'>
-                          {markerData && markerData.listingName}
+                          {markerData && markerData.listingNames}
                         </p>
                       </div>
                     </div>
@@ -46,8 +46,18 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                       <h2 className='font-medium text-lg mb-2'>Information</h2>
                       {markerData && (
                         <>
-                          <Image
-                            src={homeImage}
+                          {/* <Image
+                            src={markerData.imageUrls || homeImage}
+                            alt='home'
+                            width={1000}
+                            height={1000}
+                            className='rounded-lg my-4 mb-6'
+                          /> */}
+                          <img
+                            src={
+                              markerData.imageUrls ||
+                              'https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?w=1200&ssl=1'
+                            }
                             alt='home'
                             width={1000}
                             height={1000}
@@ -55,16 +65,21 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                           />
                           <section className='flex flex-col gap-4'>
                             <span className='bg-gray-300 mt-2 w-full h-0.5' />
+                            <div className='flex gap-2 flex-row justify-between '>
+                              <p className='text-gray-500 min-w-max'>
+                                Project Name
+                              </p>
+                              <p className='flex text-center text-black text-sm'>
+                                {markerData.listingNames}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300 mt-2 w-full h-0.5' />
                             <div className='flex flex-row justify-between '>
                               <p className='text-gray-500'>Location</p>
                               <p className='text-black'>
-                                {markerData.projectLocations}
+                                {markerData.projectLocations} {markerData.city},
+                                CA
                               </p>
-                            </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
-                              <p className=' text-gray-500'>Lot size</p>
-                              <p>{markerData.lotSize}</p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
@@ -72,10 +87,52 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                               <p>{markerData.projectStatus}</p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-col gap-4 justify-between'>
+                              <p className='text-gray-500'>Description</p>
+                              <p className='text-black'>
+                                {markerData.projectDescriptions}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
-                              <p className='text-gray-500'>Owner's name</p>
+                              <p className=' text-gray-500'>Type of use</p>
+                              <p>{markerData.typeOfUse}</p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Applicant's name</p>
                               <p className='text-black'>
                                 {markerData.applicant}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Applicant's email</p>
+                              <p className='text-black'>
+                                {markerData.applicantEmail}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Planner's name</p>
+                              <p className='text-black'>
+                                {markerData.plannerName}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>Planner's email</p>
+                              <p className='text-black'>
+                                {markerData.plannerEmail}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-row justify-between'>
+                              <p className='text-gray-500'>
+                                Planner's phone number
+                              </p>
+                              <p className='text-black text-sm'>
+                                {markerData.plannerPhone}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
@@ -83,13 +140,6 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                               <p className='text-gray-500'>Last update</p>
                               <p className='text-black'>
                                 {markerData.recentUpdate}
-                              </p>
-                            </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col gap-4 justify-between'>
-                              <p className='text-gray-500'>Description</p>
-                              <p className='text-black'>
-                                {markerData.projectDescriptions}
                               </p>
                             </div>
                           </section>
