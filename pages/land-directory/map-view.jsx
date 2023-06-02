@@ -12,6 +12,7 @@ import {
 import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
+import DataTable from '@/components/maps/dataTable'
 
 export default function MapsPage() {
   const session = useSession()
@@ -103,14 +104,14 @@ export default function MapsPage() {
   const renderMap = () => {
     return (
       <>
-        {permitData && !isLoading && (
+        {permitData[0].lat !== 0 && !isLoading && (
           <>
             <Head>
               <title>First Property - Maps</title>
             </Head>
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
-              <h1 className='flex justify-center font-bold text-2xl mb-8'>
-                Pending permits locations
+              <h1 className='flex justify-center font-bold text-3xl mb-8'>
+                City project locations
               </h1>
               <div className='flex justify-center w-full items-center'>
                 <div className='flex flex-col w-72'>
@@ -122,62 +123,63 @@ export default function MapsPage() {
               </div>
               <GoogleMap
                 center={
-                  selectedMarker
+                  typeof permitData[0] == 'number' && selectedMarker
                     ? {
                         lat: selectedMarker?.lat,
                         lng: selectedMarker?.lng,
                       }
                     : {
-                        lat: permitData[3]?.lat,
-                        lng: permitData[3]?.lng,
+                        lat: 33.7559852,
+                        lng: -117.8953888,
                       }
                 }
                 zoom={12}
                 options={{ mapTypeId: 'hybrid' }}
                 mapContainerStyle={{
                   margin: '20px 0 0',
-                  height: '70vh',
+                  height: '80vh',
                   width: '100%',
                   borderRadius: '8px',
                 }}
               >
-                {permitData?.map((permit) => (
-                  <Marker
-                    key={permit.id}
-                    position={{
-                      lat: permit?.lat,
-                      lng: permit?.lng,
-                    }}
-                    onClick={() =>
-                      handleMarkerClick({
-                        applicant: permit.applicant,
-                        applicantEmail: permit.applicantEmail,
-                        applicantPhone: permit.applicantPhone,
-                        caseNumbers: permit.caseNumbers,
-                        city: permit.city,
-                        created_at: permit.created_at,
-                        id: permit.id,
-                        imageUrls: permit.imageUrls,
-                        lat: permit.lat,
-                        listingNames: permit.listingNames,
-                        lng: permit.lng,
-                        plannerEmail: permit.plannerEmail,
-                        plannerName: permit.plannerName,
-                        plannerPhone: permit.plannerPhone,
-                        projectDescriptions: permit.projectDescriptions,
-                        projectLocations: permit.projectLocations,
-                        projectStatus: permit.projectStatus,
-                        recentUpdate: permit.recentUpdate,
-                        typeOfUse: permit.typeOfUse,
-                      })
-                    }
-                  />
-                ))}
+                {permitData.length > 0 &&
+                  permitData?.map((permit) => (
+                    <Marker
+                      key={permit.id}
+                      position={{
+                        lat: Number(permit?.lat),
+                        lng: Number(permit?.lng),
+                      }}
+                      onClick={() =>
+                        handleMarkerClick({
+                          applicant: permit.applicant,
+                          applicantEmail: permit.applicantEmail,
+                          applicantPhone: permit.applicantPhone,
+                          caseNumbers: permit.caseNumbers,
+                          city: permit.city,
+                          created_at: permit.created_at,
+                          id: permit.id,
+                          imageUrls: permit.imageUrls,
+                          lat: permit.lat,
+                          listingNames: permit.listingNames,
+                          lng: permit.lng,
+                          plannerEmail: permit.plannerEmail,
+                          plannerName: permit.plannerName,
+                          plannerPhone: permit.plannerPhone,
+                          projectDescriptions: permit.projectDescriptions,
+                          projectLocations: permit.projectLocations,
+                          projectStatus: permit.projectStatus,
+                          recentUpdate: permit.recentUpdate,
+                          typeOfUse: permit.typeOfUse,
+                        })
+                      }
+                    />
+                  ))}
                 {selectedMarker && (
                   <InfoWindow
                     position={{
-                      lat: selectedMarker.lat,
-                      lng: selectedMarker.lng,
+                      lat: selectedMarker?.lat,
+                      lng: selectedMarker?.lng,
                     }}
                     onCloseClick={handleInfoWindowClose}
                     onClick={() =>
@@ -221,7 +223,18 @@ export default function MapsPage() {
                 onClose={() => setIsSlideOverOpen(!isSlideOverOpen)}
                 markerData={selectedMarkerData}
               />
-              <div className='mt-24 w-full '>{/* <PermitsTable /> */}</div>
+              <section className='mt-8 md:mt-24 w-full flex flex-col items-center '>
+                <table>
+                  <h2 className='font-bold text-3xl'>Projects Table</h2>
+                  <div className=' my-4 w-56'>
+                    <CitySelectMenu
+                      onSelect={handleCitySelection}
+                      cities={['All cities', ...cities]}
+                    />
+                  </div>
+                  <DataTable permits={permitData} />
+                </table>
+              </section>
             </div>
           </>
         )}
@@ -229,7 +242,10 @@ export default function MapsPage() {
     )
   }
 
-  return isLoaded && permitData?.length > 0 && !isLoading ? (
+  return isLoaded &&
+    permitData?.length > 0 &&
+    permitData?.lat !== null &&
+    !isLoading ? (
     renderMap()
   ) : (
     <div className='flex justify-center my-24'>
