@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>First Property</span>
-            <p className='text-md font-semibold leading-6 text-gray-900 hover:text-blue-600 transition ease-out'>
+            <p className='text-lg font-semibold leading-6 text-blue-600 hover:text-blue-500 transition ease-out'>
               First Property
             </p>
           </Link>

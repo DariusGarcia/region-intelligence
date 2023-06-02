@@ -54,25 +54,40 @@ const Pagination = ({ items, itemsPerPage, children }) => {
 
   const handlePageClick = (event, page) => {
     event.preventDefault()
-    handlePageChange(page)
+    // Check if the button is disabled before handling the page change
+    if (
+      (page === currentPage - 1 && currentPage > 1) ||
+      (page === currentPage + 1 && currentPage < totalPages)
+    ) {
+      handlePageChange(page)
+    }
   }
+
+  const canGoToPreviousPage = currentPage > 1
+  const canGoToNextPage = currentPage < totalPages
 
   return (
     <>
       {children(currentPageItems)}
-      <div className='flex items-center justify-between border-t border-gray-200 bg-white  py-3 '>
+      <div className='flex items-center justify-between border-t border-gray-200 bg-white py-3 '>
         <div className='flex flex-1 justify-between sm:hidden'>
           <a
             href='#'
             onClick={(event) => handlePageClick(event, currentPage - 1)}
-            className='relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
+            className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
+              !canGoToPreviousPage && 'opacity-50 cursor-not-allowed'
+            }`}
+            disabled={!canGoToPreviousPage}
           >
             Previous
           </a>
           <a
             href='#'
             onClick={(event) => handlePageClick(event, currentPage + 1)}
-            className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
+            className={`relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
+              !canGoToNextPage && 'opacity-50 cursor-not-allowed'
+            }`}
+            disabled={!canGoToNextPage}
           >
             Next
           </a>
@@ -95,7 +110,10 @@ const Pagination = ({ items, itemsPerPage, children }) => {
               <a
                 href='#'
                 onClick={(event) => handlePageClick(event, currentPage - 1)}
-                className='relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'
+                className={`relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
+                  !canGoToPreviousPage && 'opacity-50 cursor-not-allowed'
+                }`}
+                disabled={!canGoToPreviousPage}
               >
                 <span className='sr-only'>Previous</span>
                 <ChevronLeftIcon className='h-5 w-5' aria-hidden='true' />
@@ -124,7 +142,10 @@ const Pagination = ({ items, itemsPerPage, children }) => {
               <a
                 href='#'
                 onClick={(event) => handlePageClick(event, currentPage + 1)}
-                className='relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'
+                className={`relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
+                  !canGoToNextPage && 'opacity-50 cursor-not-allowed'
+                }`}
+                disabled={!canGoToNextPage}
               >
                 <span className='sr-only'>Next</span>
                 <ChevronRightIcon className='h-5 w-5' aria-hidden='true' />
