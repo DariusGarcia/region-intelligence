@@ -224,7 +224,7 @@ export default function MapsPage() {
                 markerData={selectedMarkerData}
               />
               <section className='mt-8 md:mt-24 w-full flex flex-col items-center '>
-                <table>
+                <div>
                   <h2 className='font-bold text-3xl'>Projects Table</h2>
                   <div className=' my-4 w-56'>
                     <CitySelectMenu
@@ -233,7 +233,7 @@ export default function MapsPage() {
                     />
                   </div>
                   <DataTable permits={permitData} />
-                </table>
+                </div>
               </section>
             </div>
           </>

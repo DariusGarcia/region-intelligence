@@ -111,9 +111,11 @@ export default function LandingPage() {
                 Everything you need to be up to date
               </p>
               <p className='mt-6 text-lg leading-8 text-gray-600'>
-                Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-                Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-                at. In mi viverra elit nunc.
+                With our platform, tap into a wealth of city data and urban
+                development insights. Get the edge in understanding the dynamics
+                of city planning and land use. Utilize powerful analytics to
+                guide your decision-making process, ensuring you're always a
+                step ahead.
               </p>
             </div>
             <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
@@ -153,11 +155,9 @@ export default function LandingPage() {
                   Affordable pricing plans for&nbsp;all&nbsp;
                 </p>
               </div>
-              <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
-                Distinctio et nulla eum soluta et neque labore quibusdam. Saepe
-                et quasi iusto modi velit ut non voluptas in. Explicabo id ut
-                laborum.
-              </p>
+              {/* <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
+                The essentials to provide your best work for clients.
+              </p> */}
               <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
                 {tiers.map((tier, tierIdx) => (
                   <div
