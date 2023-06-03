@@ -6,9 +6,25 @@ import {
   CheckIcon,
   XMarkIcon as XMarkIconMini,
 } from '@heroicons/react/20/solid'
+import { motion as m, AnimatePresence } from 'framer-motion'
 
 export default function PricingPage() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
+  const cardVariants = {
+    offscreen: {
+      y: 150,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        bounce: 0.5,
+        duration: 1,
+      },
+    },
+  }
 
   return (
     <>
@@ -21,41 +37,50 @@ export default function PricingPage() {
           <div className='isolate overflow-hidden'>
             <div className='flow-root bg-gray-900 py-16 sm:pt-24 lg:pb-0'>
               <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-                <div className='relative z-10'>
-                  <h1 className='mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight text-white'>
-                    Simple pricing, no commitment
-                  </h1>
-                  <p className='mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60'>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Velit numquam eligendi quos odit doloribus molestiae
-                    voluptatum quos odit doloribus.
-                  </p>
-                  <div className='mt-16 flex justify-center'>
-                    <RadioGroup
-                      value={frequency}
-                      onChange={setFrequency}
-                      className='grid grid-cols-2 gap-x-1 rounded-full bg-white/5 p-1 text-center text-xs font-semibold leading-5 text-white'
-                    >
-                      <RadioGroup.Label className='sr-only'>
-                        Payment frequency
-                      </RadioGroup.Label>
-                      {pricing.frequencies.map((option) => (
-                        <RadioGroup.Option
-                          key={option.value}
-                          value={option}
-                          className={({ checked }) =>
-                            classNames(
-                              checked ? 'bg-blue-500' : '',
-                              'cursor-pointer rounded-full px-2.5 py-1'
-                            )
-                          }
+                <AnimatePresence>
+                  <m.div
+                    initial='offscreen'
+                    whileInView='onscreen'
+                    viewport={{ once: true, amount: 0.8 }}
+                    className='relative z-10'
+                  >
+                    <m.div variants={cardVariants}>
+                      <h1 className='mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight text-white'>
+                        Simple pricing, no commitment
+                      </h1>
+                      <p className='mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60'>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Velit numquam eligendi quos odit doloribus
+                        molestiae voluptatum quos odit doloribus.
+                      </p>
+                      <div className='mt-16 flex justify-center'>
+                        <RadioGroup
+                          value={frequency}
+                          onChange={setFrequency}
+                          className='grid grid-cols-2 gap-x-1 rounded-full bg-white/5 p-1 text-center text-xs font-semibold leading-5 text-white'
                         >
-                          <span>{option.label}</span>
-                        </RadioGroup.Option>
-                      ))}
-                    </RadioGroup>
-                  </div>
-                </div>
+                          <RadioGroup.Label className='sr-only'>
+                            Payment frequency
+                          </RadioGroup.Label>
+                          {pricing.frequencies.map((option) => (
+                            <RadioGroup.Option
+                              key={option.value}
+                              value={option}
+                              className={({ checked }) =>
+                                classNames(
+                                  checked ? 'bg-blue-500' : '',
+                                  'cursor-pointer rounded-full px-2.5 py-1'
+                                )
+                              }
+                            >
+                              <span>{option.label}</span>
+                            </RadioGroup.Option>
+                          ))}
+                        </RadioGroup>
+                      </div>
+                    </m.div>
+                  </m.div>
+                </AnimatePresence>
                 <div className='relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-3'>
                   <svg
                     viewBox='0 0 1208 1024'

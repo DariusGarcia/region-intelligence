@@ -11,8 +11,23 @@ import {
 } from '@heroicons/react/24/outline'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
+import { motion as m, AnimatePresence } from 'framer-motion'
 
 export default function LandingPage() {
+  const cardVariants = {
+    offscreen: {
+      y: 150,
+    },
+    onscreen: {
+      y: 0,
+
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  }
   return (
     <>
       <Head>
@@ -34,7 +49,7 @@ export default function LandingPage() {
             <LandingHeader />
           </div>
           {/* Logo cloud */}
-          <div className='mx-auto max-w-7xl px-6 lg:px-8 my-36'>
+          <div className='mx-auto max-w-7xl px-6 lg:px-8 my-16 md:my-36'>
             <div className='mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
               <Image
                 className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
@@ -72,7 +87,7 @@ export default function LandingPage() {
                 height={48}
               />
             </div>
-            <div className='mt-16 flex justify-center'>
+            <div className='mt-6 md:mt-16 flex justify-center'>
               <p className='relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20'>
                 <span className='hidden md:inline'>
                   Quis tellus eget adipiscing convallis sit sit eget aliquet
@@ -87,7 +102,7 @@ export default function LandingPage() {
           </div>
 
           {/* Feature section */}
-          <div className='mx-auto mt-24 md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
+          <div className='mx-auto  md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
             <div className='mx-auto max-w-2xl lg:text-center'>
               <h2 className='text-base font-semibold leading-7 text-blue-600'>
                 Gain insights quicker
