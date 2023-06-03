@@ -38,7 +38,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
                       <div className='mt-1'>
-                        <p className='text-sm text-blue-300'>
+                        <p className='text-md text-blue-300'>
                           {markerData && markerData.listingNames}
                         </p>
                       </div>
@@ -79,13 +79,6 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <div className='flex flex-row justify-between'>
                               <p className=' text-gray-500'>Status</p>
                               <p>{markerData.projectStatus}</p>
-                            </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col gap-4 justify-between'>
-                              <p className='text-gray-500'>Description</p>
-                              <p className='text-black'>
-                                {markerData.projectDescriptions}
-                              </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
@@ -131,13 +124,13 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                 {markerData.plannerEmail}
                               </a>
                             </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
+                            <span className='bg-gray-300 w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
                               <p className='text-gray-500'>
                                 Planner's phone number
                               </p>
                               <a
-                                className='text-blue-500 underline hover:text-blue-400'
+                                className='flex w-full justify-end underline text-blue-500 hover:text-blue-400'
                                 href={`tel: ${extractPhoneNumber(
                                   markerData.plannerPhone
                                 )}`}
@@ -150,6 +143,13 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                               <p className='text-gray-500'>Last update</p>
                               <p className='text-black'>
                                 {markerData.recentUpdate}
+                              </p>
+                            </div>
+                            <span className='bg-gray-300  w-full h-0.5' />
+                            <div className='flex flex-col gap-4 justify-between'>
+                              <p className='text-gray-500'>Description</p>
+                              <p className='text-black'>
+                                {markerData.projectDescriptions}
                               </p>
                             </div>
                           </section>

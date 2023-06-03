@@ -5,7 +5,7 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 export default function LandingHeader() {
   const cardVariants = {
     hidden: {
-      y: 300,
+      y: 200,
       opacity: 0,
     },
     visible: {

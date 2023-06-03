@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import permitData from '../../data/permits'
+// import permitData from '../../data/permits'
 import Pagination from '../pagination'
 
 export default function PermitsTable() {
