@@ -13,6 +13,9 @@ import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/maps/dataTable'
+import image from '@/public/home.jpg'
+import homeImg from '@/public/map-view.png'
+import Image from 'next/image'
 
 export default function MapsPage() {
   const session = useSession()
@@ -41,7 +44,14 @@ export default function MapsPage() {
   const [error, setError] = useState(null)
   const [cities, setCities] = useState(['All'])
   const [selectedCity, setSelectedCity] = useState('')
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  const images = permitData.map((img) => img.imageUrls)
+  console.log(images)
+  console.log({
+    currentImageIndex: currentImageIndex,
+    url: images[currentImageIndex],
+  })
   useEffect(() => {
     setLoading(true)
     fetchPermits()
@@ -94,6 +104,23 @@ export default function MapsPage() {
     setSelectedCity(city)
   }
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY
+    const windowHeight = window.innerHeight
+
+    const scrollPercentage = scrollPosition / windowHeight
+    const newIndex = Math.floor(scrollPercentage * images.length)
+
+    setCurrentImageIndex(newIndex)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   if (error)
     return (
       <p className='flex w-full justify-center text-center items-center font-medium'>
@@ -113,7 +140,7 @@ export default function MapsPage() {
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City project locations
               </h1>
-              <div className='flex justify-center w-full items-center'>
+              <div className='flex justify-center w-full items-center z-40'>
                 <div className='flex flex-col w-72'>
                   <CitySelectMenu
                     onSelect={handleCitySelection}
@@ -121,103 +148,121 @@ export default function MapsPage() {
                   />
                 </div>
               </div>
-              <GoogleMap
-                center={
-                  typeof permitData[0] == 'number' && selectedMarker
-                    ? {
+              <div className='flex flex-row'>
+                <GoogleMap
+                  center={
+                    typeof permitData[0] == 'number' && selectedMarker
+                      ? {
+                          lat: selectedMarker?.lat,
+                          lng: selectedMarker?.lng,
+                        }
+                      : {
+                          lat: 33.7559852,
+                          lng: -117.8953888,
+                        }
+                  }
+                  zoom={12}
+                  options={{ mapTypeId: 'hybrid' }}
+                  mapContainerStyle={{
+                    margin: '20px 0 0',
+                    height: '50vh',
+                    width: '100%',
+                    borderRadius: '8px',
+                    position: 'fixed',
+                    // top: '10',
+                    // left: '0',
+                    right: '0',
+                    bottom: '0',
+                    zIndex: '3',
+                  }}
+                >
+                  {permitData.length > 0 &&
+                    permitData?.map((permit) => (
+                      <Marker
+                        key={permit.id}
+                        position={{
+                          lat: Number(permit?.lat),
+                          lng: Number(permit?.lng),
+                        }}
+                        onClick={() =>
+                          handleMarkerClick({
+                            applicant: permit.applicant,
+                            applicantEmail: permit.applicantEmail,
+                            applicantPhone: permit.applicantPhone,
+                            caseNumbers: permit.caseNumbers,
+                            city: permit.city,
+                            created_at: permit.created_at,
+                            id: permit.id,
+                            imageUrls: permit.imageUrls,
+                            lat: permit.lat,
+                            listingNames: permit.listingNames,
+                            lng: permit.lng,
+                            plannerEmail: permit.plannerEmail,
+                            plannerName: permit.plannerName,
+                            plannerPhone: permit.plannerPhone,
+                            projectDescriptions: permit.projectDescriptions,
+                            projectLocations: permit.projectLocations,
+                            projectStatus: permit.projectStatus,
+                            recentUpdate: permit.recentUpdate,
+                            typeOfUse: permit.typeOfUse,
+                          })
+                        }
+                      />
+                    ))}
+                  {selectedMarker && (
+                    <InfoWindow
+                      position={{
                         lat: selectedMarker?.lat,
                         lng: selectedMarker?.lng,
-                      }
-                    : {
-                        lat: 33.7559852,
-                        lng: -117.8953888,
-                      }
-                }
-                zoom={12}
-                options={{ mapTypeId: 'hybrid' }}
-                mapContainerStyle={{
-                  margin: '20px 0 0',
-                  height: '80vh',
-                  width: '100%',
-                  borderRadius: '8px',
-                }}
-              >
-                {permitData.length > 0 &&
-                  permitData?.map((permit) => (
-                    <Marker
-                      key={permit.id}
-                      position={{
-                        lat: Number(permit?.lat),
-                        lng: Number(permit?.lng),
                       }}
+                      onCloseClick={handleInfoWindowClose}
                       onClick={() =>
                         handleMarkerClick({
-                          applicant: permit.applicant,
-                          applicantEmail: permit.applicantEmail,
-                          applicantPhone: permit.applicantPhone,
-                          caseNumbers: permit.caseNumbers,
-                          city: permit.city,
-                          created_at: permit.created_at,
-                          id: permit.id,
-                          imageUrls: permit.imageUrls,
-                          lat: permit.lat,
-                          listingNames: permit.listingNames,
-                          lng: permit.lng,
-                          plannerEmail: permit.plannerEmail,
-                          plannerName: permit.plannerName,
-                          plannerPhone: permit.plannerPhone,
-                          projectDescriptions: permit.projectDescriptions,
-                          projectLocations: permit.projectLocations,
-                          projectStatus: permit.projectStatus,
-                          recentUpdate: permit.recentUpdate,
-                          typeOfUse: permit.typeOfUse,
+                          applicant,
+                          caseNumbers,
+                          id,
+                          imageUrls,
+                          lat,
+                          listingNames,
+                          lng,
+                          plannerEmail,
+                          plannerName,
+                          plannerPhone,
+                          projectDescriptions,
+                          projectLocations,
+                          projectStatus,
+                          recentUpdate,
+                          typeOfUse,
                         })
                       }
+                    >
+                      <article
+                        id={selectedMarker.id}
+                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'
+                      >
+                        <p>{selectedMarker.caseNumbers}</p>
+                        <p>{selectedMarker.listingNames}</p>
+                        <p>Address: {selectedMarker.projectLocations}</p>
+                        <p>Applicant: {selectedMarker.applicant}</p>
+                        <p>Planner's name: {selectedMarker.plannerName}</p>
+                        <p>Planner's email: {selectedMarker.plannerEmail}</p>
+                        <p>Status: {selectedMarker.projectStatus}</p>
+                      </article>
+                    </InfoWindow>
+                  )}
+                </GoogleMap>
+                {permitData && (
+                  <div className='image-overlay '>
+                    <img
+                      src={images[currentImageIndex]}
+                      alt='Image'
+                      width={800}
+                      height={800}
+                      objectFit='cover'
                     />
-                  ))}
-                {selectedMarker && (
-                  <InfoWindow
-                    position={{
-                      lat: selectedMarker?.lat,
-                      lng: selectedMarker?.lng,
-                    }}
-                    onCloseClick={handleInfoWindowClose}
-                    onClick={() =>
-                      handleMarkerClick({
-                        applicant,
-                        applicantEmail,
-                        applicantPhone,
-                        caseNumbers,
-                        city,
-                        created_at,
-                        id,
-                        imageUrls,
-                        lat,
-                        listingNames,
-                        lng,
-                        plannerEmail,
-                        plannerName,
-                        plannerPhone,
-                        projectDescriptions,
-                        projectLocations,
-                        projectStatus,
-                        recentUpdate,
-                        typeOfUse,
-                      })
-                    }
-                  >
-                    <article className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
-                      <p>{selectedMarker.caseNumbers}</p>
-                      <p>{selectedMarker.listingNames}</p>
-                      <p>Address: {selectedMarker.projectLocations}</p>
-                      <p>Applicant: {selectedMarker.applicant}</p>
-                      <p>Planner's name: {selectedMarker.plannerName}</p>
-                      <p>Planner's email: {selectedMarker.plannerEmail}</p>
-                      <p>Status: {selectedMarker.projectStatus}</p>
-                    </article>
-                  </InfoWindow>
+                  </div>
                 )}
-              </GoogleMap>
+              </div>
               <SlideOver
                 isOpen={isSlideOverOpen}
                 onClose={() => setIsSlideOverOpen(!isSlideOverOpen)}
