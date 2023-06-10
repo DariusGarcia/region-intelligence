@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import image from '../../public/home.jpg'
-import Image from 'next/image'
-import { createClient } from '@supabase/supabase-js'
 import capitalizeWords from '@/utils/capitalizeWords'
 import Pagination from '@/components/pagination'
-import mapView from '@/public/map-view.png'
-import Head from 'next/head'
 
 export default function DataTable({ permits }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [filteredPermits, setFilteredPermits] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
 
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value
@@ -26,11 +20,10 @@ export default function DataTable({ permits }) {
           .includes(searchTerm.toLowerCase()) ||
         item.applicant.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.plannerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.listingNames?.toLowerCase().includes(searchTerm.toLowerCase())
+        item.listingNames?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.projectStatus.toLowerCase().includes(searchTerm.toLowerCase())
     )
-
     setFilteredPermits(filteredPermits)
-    setCurrentPage(1)
   }
 
   const permitsToDisplay = searchTerm ? filteredPermits : permits
@@ -51,7 +44,7 @@ export default function DataTable({ permits }) {
           }}
         />
 
-        <header className='grid grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2'>
+        <header className='grid grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2 font-medium'>
           <p className='text-left w-full'>Project Name</p>
           <p className='text-left w-full'>Address</p>
           <p className='text-left w-full'>City</p>
