@@ -49,7 +49,7 @@ export default function LandingPage() {
             <LandingHeader />
           </div>
           {/* Logo cloud */}
-          <div className='mx-auto max-w-7xl px-6 lg:px-8 my-16 md:my-36'>
+          {/* <div className='mx-auto max-w-7xl px-6 lg:px-8 my-16 md:my-36'>
             <div className='mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
               <Image
                 className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
@@ -99,7 +99,7 @@ export default function LandingPage() {
                 </a>
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* Feature section */}
           <div className='mx-auto  md:mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8'>
