@@ -392,16 +392,16 @@ const company = [
     description:
       'Get in touch with our dedicated support team for any questions or inquiries',
   },
-  {
-    name: 'Careers',
-    href: '#',
-    description:
-      'Looking for you next career opportunity? See all of our open positions',
-  },
-  {
-    name: 'Blog',
-    href: '#',
-    description:
-      'Read our latest announcements and get perspectives from our team',
-  },
+  // {
+  //   name: 'Careers',
+  //   href: '#',
+  //   description:
+  //     'Looking for you next career opportunity? See all of our open positions',
+  // },
+  // {
+  //   name: 'Blog',
+  //   href: '#',
+  //   description:
+  //     'Read our latest announcements and get perspectives from our team',
+  // },
 ]

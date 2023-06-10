@@ -252,7 +252,7 @@ export default function MapsPage() {
                   )}
                 </GoogleMap>
                 {permitData && (
-                  <div className='image-overlay '>
+                  <div className='image-overlay'>
                     <img
                       src={images[currentImageIndex]}
                       alt='Image'
