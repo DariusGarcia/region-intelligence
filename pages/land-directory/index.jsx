@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import Head from 'next/head'
 import Link from 'next/link'
-import DataTable from '@/components/maps/dataTable'
+import DataTable from '@/components/dataTables/dataTable'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { IoIosListBox } from 'react-icons/io'
 

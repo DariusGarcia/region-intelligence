@@ -12,7 +12,7 @@ import {
 import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
-import DataTable from '@/components/maps/dataTable'
+import DataTable from '@/components/dataTables/dataTable'
 import image from '@/public/home.jpg'
 import homeImg from '@/public/map-view.png'
 import Image from 'next/image'
@@ -140,7 +140,7 @@ export default function MapsPage() {
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City project locations
               </h1>
-              <div className='flex justify-center w-full items-center z-40'>
+              <div className='flex justify-center w-full items-center '>
                 <div className='flex flex-col w-72'>
                   <CitySelectMenu
                     onSelect={handleCitySelection}
@@ -165,15 +165,9 @@ export default function MapsPage() {
                   options={{ mapTypeId: 'hybrid' }}
                   mapContainerStyle={{
                     margin: '20px 0 0',
-                    height: '50vh',
+                    height: '70vh',
                     width: '100%',
                     borderRadius: '8px',
-                    position: 'fixed',
-                    // top: '10',
-                    // left: '0',
-                    right: '0',
-                    bottom: '0',
-                    zIndex: '3',
                   }}
                 >
                   {permitData.length > 0 &&
@@ -251,17 +245,6 @@ export default function MapsPage() {
                     </InfoWindow>
                   )}
                 </GoogleMap>
-                {permitData && (
-                  <div className='image-overlay'>
-                    <img
-                      src={images[currentImageIndex]}
-                      alt='Image'
-                      width={800}
-                      height={800}
-                      objectFit='cover'
-                    />
-                  </div>
-                )}
               </div>
               <SlideOver
                 isOpen={isSlideOverOpen}
