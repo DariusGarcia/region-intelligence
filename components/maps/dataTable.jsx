@@ -35,7 +35,7 @@ export default function DataTable({ permits }) {
 
   const permitsToDisplay = searchTerm ? filteredPermits : permits
   return (
-    <div className='overflow-x-auto'>
+    <div className='overflow-x-auto w-full'>
       <form className='w-full md:max-w-7xl lg:min-w-[1200px] lg:w-[1250px] overflow-x'>
         <input
           className='w-full rounded-md border-2 border-gray-200 focus:border-blue-600 focus:ring-blue-600 sm:text-sm'
