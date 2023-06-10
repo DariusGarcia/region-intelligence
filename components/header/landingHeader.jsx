@@ -13,8 +13,8 @@ export default function LandingHeader() {
       opacity: 1,
       transition: {
         type: 'spring',
-        bounce: 0.5,
-        duration: 1,
+        bounce: 0.4,
+        duration: 0.8,
       },
     },
   }

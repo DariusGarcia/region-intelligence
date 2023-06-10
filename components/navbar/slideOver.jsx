@@ -70,7 +70,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             <span className='bg-gray-300 mt-2 w-full h-0.5' />
                             <div className='flex flex-row justify-between '>
                               <p className='text-gray-500'>Location</p>
-                              <p className='text-black'>
+                              <p className='text-black text-end'>
                                 {markerData.projectLocations} {markerData.city},
                                 CA
                               </p>

@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx'
 import convertToCamelCase from '@/utils/convertToCamelCase'
 import { createClient } from '@supabase/supabase-js'
 import formatAddressForGeocoding from '@/utils/formatAddressForGeocoding'
-import extractURL from '../utils/extractURL'
+import extractURL from '../../utils/extractURL'
 
 export default function Home() {
   const supabase = createClient(
@@ -52,6 +52,7 @@ export default function Home() {
     )
     setPermitCoord(permitDataWithGeolocation)
   }
+
   const excelToJson = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()

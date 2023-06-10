@@ -52,7 +52,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-white'>
+    <header className='bg-white z-50'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
         aria-label='Global'
@@ -392,16 +392,16 @@ const company = [
     description:
       'Get in touch with our dedicated support team for any questions or inquiries',
   },
-  {
-    name: 'Careers',
-    href: '#',
-    description:
-      'Looking for you next career opportunity? See all of our open positions',
-  },
-  {
-    name: 'Blog',
-    href: '#',
-    description:
-      'Read our latest announcements and get perspectives from our team',
-  },
+  // {
+  //   name: 'Careers',
+  //   href: '#',
+  //   description:
+  //     'Looking for you next career opportunity? See all of our open positions',
+  // },
+  // {
+  //   name: 'Blog',
+  //   href: '#',
+  //   description:
+  //     'Read our latest announcements and get perspectives from our team',
+  // },
 ]
