@@ -46,12 +46,13 @@ export default function MapsPage() {
   const [selectedCity, setSelectedCity] = useState('')
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  // used to display for image slideover on scroll
   const images = permitData.map((img) => img.imageUrls)
-  console.log(images)
-  console.log({
-    currentImageIndex: currentImageIndex,
-    url: images[currentImageIndex],
-  })
+  // console.log(images)
+  // console.log({
+  //   currentImageIndex: currentImageIndex,
+  //   url: images[currentImageIndex],
+  // })
   useEffect(() => {
     setLoading(true)
     fetchPermits()
@@ -168,8 +169,7 @@ export default function MapsPage() {
                     height: '70vh',
                     width: '100%',
                     borderRadius: '8px',
-                  }}
-                >
+                  }}>
                   {permitData.length > 0 &&
                     permitData?.map((permit) => (
                       <Marker
@@ -228,12 +228,10 @@ export default function MapsPage() {
                           recentUpdate,
                           typeOfUse,
                         })
-                      }
-                    >
+                      }>
                       <article
                         id={selectedMarker.id}
-                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'
-                      >
+                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
                         <p>{selectedMarker.caseNumbers}</p>
                         <p>{selectedMarker.listingNames}</p>
                         <p>Address: {selectedMarker.projectLocations}</p>

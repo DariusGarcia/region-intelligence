@@ -3,9 +3,16 @@ import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import homeImage from '../../public/home.jpg'
 import extractPhoneNumber from '@/utils/extractPhoneNumber'
+import StatusModal from '../statusModal'
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
 
 export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const handleMouseEnter = () => {
+    setIsHovered(!isHovered)
+  }
 
   useEffect(() => {
     setOpen(isOpen)
@@ -25,8 +32,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                 enterTo='translate-x-0'
                 leave='transform transition ease-in-out duration-500 sm:duration-700'
                 leaveFrom='translate-x-0'
-                leaveTo='translate-x-full'
-              >
+                leaveTo='translate-x-full'>
                 <Dialog.Panel className='pointer-events-auto w-screen max-w-md'>
                   <div className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
                     <div className='bg-blue-700 px-4 py-6 sm:px-6'>
@@ -37,13 +43,16 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         {/* TODO: fix bug where slide over doesn't open again if button is clicked */}
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
+                      <div className='absolute  right-40 pb-24 bottom-50 '>
+                        {isHovered && <StatusModal />}
+                      </div>
                       <div className='mt-1'>
                         <p className='text-md text-blue-300'>
                           {markerData && markerData.listingNames}
                         </p>
                       </div>
                     </div>
-                    <div className='relative flex-1 px-4 py-6 sm:px-6'>
+                    <div className='relative flex-1 px-4 py-6 sm:px-6 z-30'>
                       <h2 className='font-medium text-lg mb-2'>Information</h2>
                       {markerData && (
                         <>
@@ -77,7 +86,16 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-row justify-between'>
-                              <p className=' text-gray-500'>Status</p>
+                              <div className='flex flex-row gap-2 justify-center items-center '>
+                                <p className=' text-gray-500 w-min'>Status</p>
+                                <p className='flex flex-row w-min cursor-pointer '>
+                                  <QuestionMarkCircleIcon
+                                    className='h-7 w-7 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
+                                    onClick={handleMouseEnter}
+                                  />
+                                </p>
+                              </div>
+
                               <p>{markerData.projectStatus}</p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
@@ -102,8 +120,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                   markerData.applicantEmail === 'Undisclosed'
                                     ? 'text-black'
                                     : 'text-blue-500 underline hover:text-blue-400'
-                                }
-                              >
+                                }>
                                 {markerData.applicantEmail}
                               </a>
                             </div>
@@ -119,8 +136,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                               <p className='text-gray-500'>Planner's email</p>
                               <a
                                 href={`mailto: ${markerData.plannerEmail}`}
-                                className='text-blue-500 underline hover:text-blue-400'
-                              >
+                                className='text-blue-500 underline hover:text-blue-400'>
                                 {markerData.plannerEmail}
                               </a>
                             </div>
@@ -133,8 +149,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                 className='flex w-full justify-end underline text-blue-500 hover:text-blue-400'
                                 href={`tel: ${extractPhoneNumber(
                                   markerData.plannerPhone
-                                )}`}
-                              >
+                                )}`}>
                                 {markerData.plannerPhone}
                               </a>
                             </div>
