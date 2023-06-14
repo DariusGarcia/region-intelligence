@@ -10,14 +10,20 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleMouseEnter = () => {
-    setIsHovered(!isHovered)
+  const handleStatusIconClick = () => {
+    setIsHovered(true)
+    setTimeout(() => {
+      setIsHovered(false)
+    }, 5000)
   }
 
   useEffect(() => {
     setOpen(isOpen)
   }, [isOpen])
 
+  function handleToggle() {
+    setIsHovered(!isHovered)
+  }
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={onClose}>
@@ -44,7 +50,9 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
                       <div className='absolute  right-40 pb-24 bottom-50 '>
-                        {isHovered && <StatusModal />}
+                        {isHovered && (
+                          <StatusModal handleToggle={handleToggle} />
+                        )}
                       </div>
                       <div className='mt-1'>
                         <p className='text-md text-blue-300'>
@@ -91,7 +99,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                 <p className='flex flex-row w-min cursor-pointer '>
                                   <QuestionMarkCircleIcon
                                     className='h-7 w-7 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
-                                    onClick={handleMouseEnter}
+                                    onClick={handleStatusIconClick}
                                   />
                                 </p>
                               </div>

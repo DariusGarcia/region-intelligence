@@ -10,8 +10,11 @@ export default function DataTable({ permits }) {
   const [filteredPermits, setFilteredPermits] = useState([])
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleMouseEnter = () => {
+  const handleStatusIconClick = () => {
     setIsHovered(!isHovered)
+    setTimeout(() => {
+      setIsHovered(false)
+    }, 5000)
   }
 
   const handleSearchChange = (event) => {
@@ -65,7 +68,7 @@ export default function DataTable({ permits }) {
             <p className='flex flex-row w-min cursor-pointer '>
               <QuestionMarkCircleIcon
                 className='h-7 w-7 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
-                onClick={handleMouseEnter}
+                onClick={handleStatusIconClick}
               />
             </p>
           </div>
