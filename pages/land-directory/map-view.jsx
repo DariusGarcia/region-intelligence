@@ -7,7 +7,7 @@ import {
   useLoadScript,
   GoogleMap,
   MarkerF,
-  InfoWindow,
+  InfoWindowF,
 } from '@react-google-maps/api'
 import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
@@ -28,7 +28,7 @@ export default function MapsPage() {
       if (!session) {
         Router.push('/login')
       }
-    }, 100) // 0.1 seconds (100 milliseconds)
+    }, 100)
     return () => clearTimeout(timeout)
   }, [session])
 
@@ -48,6 +48,7 @@ export default function MapsPage() {
   const [selectedProjectStatus, setSelectedProjectStatus] = useState('All')
   // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  console.log(projectStatuses)
   useEffect(() => {
     setLoading(true)
     fetchPermits()
@@ -90,14 +91,11 @@ export default function MapsPage() {
     if (selectedCity !== 'All cities') {
       projectStatusQuery = projectStatusQuery.eq('city', selectedCity)
     }
-
     const { data, error } = await projectStatusQuery
-
     if (error) {
       setError(error)
       return
     }
-
     const distinctProjectStatuses = Array.from(
       new Set(data.map((status) => status.projectStatus))
     )
@@ -117,8 +115,11 @@ export default function MapsPage() {
   function handleCitySelection(city) {
     setSelectedCity(city)
   }
+
   function handleStatusSelection(status) {
     setSelectedProjectStatus(status)
+    setSelectedMarker(null)
+    setSelectedMarkerData(null)
   }
 
   if (error) return <ErrorPage errorMessage={error.message} />
@@ -135,17 +136,19 @@ export default function MapsPage() {
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City project locations
               </h1>
-              <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center '>
-                <div className='flex flex-col w-72'>
+              <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center'>
+                <div className='flex flex-col w-72 cursor-pointer'>
                   <CitySelectMenu
                     onSelect={handleCitySelection}
                     cities={['All cities', ...cities]}
+                    className='cursor-pointer'
                   />
                 </div>
-                <div className='flex flex-col w-72'>
+                <div className='flex flex-col w-72 cursor-pointer'>
                   <StatusSelectMenu
                     onSelect={handleStatusSelection}
                     status={['All', ...projectStatuses]}
+                    className='cursor-pointer'
                   />
                 </div>
               </div>
@@ -204,7 +207,7 @@ export default function MapsPage() {
                       />
                     ))}
                   {selectedMarker && (
-                    <InfoWindow
+                    <InfoWindowF
                       position={{
                         lat: selectedMarker?.lat,
                         lng: selectedMarker?.lng,
@@ -261,7 +264,7 @@ export default function MapsPage() {
                           {selectedMarker.projectStatus}
                         </p>
                       </article>
-                    </InfoWindow>
+                    </InfoWindowF>
                   )}
                 </GoogleMap>
               </div>
