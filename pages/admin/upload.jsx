@@ -67,8 +67,9 @@ export default function Home() {
         const jsonDataWithKeys = jsonData.slice(1).map((row) => {
           const rowObject = {}
           headers.forEach((header, index) => {
-            const camelCaseKey = convertToCamelCase(header)
-            rowObject[camelCaseKey] = row[index]
+            // commented out because the new excel data already came camelCased
+            // const camelCaseKey = convertToCamelCase(header)
+            rowObject[header] = row[index]
           })
           return rowObject
         })
@@ -99,10 +100,11 @@ export default function Home() {
         applicantPhone: row['applicantPhone'],
         applicantEmail: row['applicantEmail'],
         plannerName: row['plannerName'],
-        imageUrls: extractURL(row['imageUrls']),
+        imageUrls: row['imageUrls'],
         city: row['city'],
         plannerPhone: row['plannerPhone'],
         plannerEmail: row['plannerEmail'],
+        plannerLeads: row['plannerLeads'],
       }))
 
       console.log({ insertData: insertData })
@@ -135,8 +137,7 @@ export default function Home() {
               stroke='currentColor'
               fill='none'
               viewBox='0 0 48 48'
-              aria-hidden='true'
-            >
+              aria-hidden='true'>
               {/* SVG path */}
             </svg>
             <span className='mt-2 mb-6  block text-sm font-semibold text-gray-900'>
@@ -153,8 +154,7 @@ export default function Home() {
                         ? 'bg-blue-900 opacity-50 text-white rounded-md p-2'
                         : 'bg-blue-600 text-white rounded-md p-2 hover:bg-blue-500'
                     }
-                    onClick={uploadDataToSupabase}
-                  >
+                    onClick={uploadDataToSupabase}>
                     Upload to Supabase
                   </button>
                 </div>

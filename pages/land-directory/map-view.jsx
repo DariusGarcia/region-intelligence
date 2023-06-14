@@ -6,16 +6,14 @@ import { useSession } from '@supabase/auth-helpers-react'
 import {
   useLoadScript,
   GoogleMap,
-  Marker,
+  MarkerF,
   InfoWindow,
 } from '@react-google-maps/api'
 import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
-import image from '@/public/home.jpg'
-import homeImg from '@/public/map-view.png'
-import Image from 'next/image'
+import ErrorPage from '../error'
 
 export default function MapsPage() {
   const session = useSession()
@@ -36,6 +34,7 @@ export default function MapsPage() {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
   })
+
   const [selectedMarker, setSelectedMarker] = useState(null)
   const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
   const [selectedMarkerData, setSelectedMarkerData] = useState(null)
@@ -44,14 +43,8 @@ export default function MapsPage() {
   const [error, setError] = useState(null)
   const [cities, setCities] = useState(['All'])
   const [selectedCity, setSelectedCity] = useState('')
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  const images = permitData.map((img) => img.imageUrls)
-  console.log(images)
-  console.log({
-    currentImageIndex: currentImageIndex,
-    url: images[currentImageIndex],
-  })
   useEffect(() => {
     setLoading(true)
     fetchPermits()
@@ -104,29 +97,7 @@ export default function MapsPage() {
     setSelectedCity(city)
   }
 
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY
-    const windowHeight = window.innerHeight
-
-    const scrollPercentage = scrollPosition / windowHeight
-    const newIndex = Math.floor(scrollPercentage * images.length)
-
-    setCurrentImageIndex(newIndex)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
-  if (error)
-    return (
-      <p className='flex w-full justify-center text-center items-center font-medium'>
-        {error.message}
-      </p>
-    )
+  if (error) return <ErrorPage errorMessage={error.message} />
 
   const renderMap = () => {
     return (
@@ -168,11 +139,10 @@ export default function MapsPage() {
                     height: '70vh',
                     width: '100%',
                     borderRadius: '8px',
-                  }}
-                >
+                  }}>
                   {permitData.length > 0 &&
                     permitData?.map((permit) => (
-                      <Marker
+                      <MarkerF
                         key={permit.id}
                         position={{
                           lat: Number(permit?.lat),
@@ -228,19 +198,38 @@ export default function MapsPage() {
                           recentUpdate,
                           typeOfUse,
                         })
-                      }
-                    >
+                      }>
                       <article
                         id={selectedMarker.id}
-                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'
-                      >
-                        <p>{selectedMarker.caseNumbers}</p>
-                        <p>{selectedMarker.listingNames}</p>
-                        <p>Address: {selectedMarker.projectLocations}</p>
-                        <p>Applicant: {selectedMarker.applicant}</p>
-                        <p>Planner's name: {selectedMarker.plannerName}</p>
-                        <p>Planner's email: {selectedMarker.plannerEmail}</p>
-                        <p>Status: {selectedMarker.projectStatus}</p>
+                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
+                        <p>
+                          <span className='font-medium'>Case number: </span>
+                          {selectedMarker.caseNumbers}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Listing name:</span>{' '}
+                          {selectedMarker.listingNames}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Address:</span>{' '}
+                          {selectedMarker.projectLocations}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Applicant:</span>{' '}
+                          {selectedMarker.applicant}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Planner's name:</span>{' '}
+                          {selectedMarker.plannerName}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Planner's email:</span>{' '}
+                          {selectedMarker.plannerEmail}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Status:</span>{' '}
+                          {selectedMarker.projectStatus}
+                        </p>
                       </article>
                     </InfoWindow>
                   )}
@@ -281,3 +270,24 @@ export default function MapsPage() {
     </div>
   )
 }
+
+/**
+ * Code for image slider
+ */
+
+// const handleScroll = () => {
+//   const scrollPosition = window.scrollY
+//   const windowHeight = window.innerHeight
+
+//   const scrollPercentage = scrollPosition / windowHeight
+//   const newIndex = Math.floor(scrollPercentage * images.length)
+
+//   setCurrentImageIndex(newIndex)
+// }
+
+// useEffect(() => {
+//   window.addEventListener('scroll', handleScroll)
+//   return () => {
+//     window.removeEventListener('scroll', handleScroll)
+//   }
+// }, [])

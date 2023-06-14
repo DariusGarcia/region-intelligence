@@ -1,16 +1,27 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import Image from 'next/image'
-import homeImage from '../../public/home.jpg'
 import extractPhoneNumber from '@/utils/extractPhoneNumber'
+import StatusModal from '../statusModal'
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
 
 export default function SlideOver({ isOpen, onClose, markerData }) {
   const [open, setOpen] = useState(isOpen)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const handleStatusIconClick = () => {
+    setIsHovered(true)
+    setTimeout(() => {
+      setIsHovered(false)
+    }, 5000)
+  }
 
   useEffect(() => {
     setOpen(isOpen)
   }, [isOpen])
 
+  function handleToggle() {
+    setIsHovered(!isHovered)
+  }
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as='div' className='relative z-10' onClose={onClose}>
@@ -25,8 +36,7 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                 enterTo='translate-x-0'
                 leave='transform transition ease-in-out duration-500 sm:duration-700'
                 leaveFrom='translate-x-0'
-                leaveTo='translate-x-full'
-              >
+                leaveTo='translate-x-full'>
                 <Dialog.Panel className='pointer-events-auto w-screen max-w-md'>
                   <div className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
                     <div className='bg-blue-700 px-4 py-6 sm:px-6'>
@@ -34,16 +44,20 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                         <Dialog.Title className='text-base font-semibold leading-6 text-white'>
                           Case number: {markerData && markerData.caseNumbers}
                         </Dialog.Title>
-                        {/* TODO: fix bug where slide over doesn't open again if button is clicked */}
                         {/* CLOSE OUT BUTTON GOES HERE */}
                       </div>
+                      <div className='absolute  right-40 pb-24 bottom-50 '>
+                        {isHovered && (
+                          <StatusModal handleToggle={handleToggle} />
+                        )}
+                      </div>
                       <div className='mt-1'>
-                        <p className='text-md text-blue-300'>
+                        <p className='md:text-md text-blue-300'>
                           {markerData && markerData.listingNames}
                         </p>
                       </div>
                     </div>
-                    <div className='relative flex-1 px-4 py-6 sm:px-6'>
+                    <div className='relative flex-1 px-4 py-6 sm:px-6 z-30'>
                       <h2 className='font-medium text-lg mb-2'>Information</h2>
                       {markerData && (
                         <>
@@ -59,41 +73,50 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                           />
                           <section className='flex flex-col gap-4'>
                             <span className='bg-gray-300 mt-2 w-full h-0.5' />
-                            <div className='flex gap-2 flex-row justify-between '>
+                            <div className='flex gap-2 flex-col justify-start md:flex-row md:justify-between md:items-center '>
                               <p className='text-gray-500 min-w-max'>
                                 Project Name
                               </p>
-                              <p className='flex text-center text-black text-sm'>
+                              <p className='flex md:text-center text-black md:text-sm'>
                                 {markerData.listingNames}
                               </p>
                             </div>
                             <span className='bg-gray-300 mt-2 w-full h-0.5' />
-                            <div className='flex flex-row justify-between '>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between '>
                               <p className='text-gray-500'>Location</p>
-                              <p className='text-black text-end'>
+                              <p className='text-black md:text-end'>
                                 {markerData.projectLocations} {markerData.city},
                                 CA
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
-                              <p className=' text-gray-500'>Status</p>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
+                              <div className='flex justify-start flex-row gap-2 md:justify-center md:items-center '>
+                                <p className=' text-gray-500 w-min'>Status</p>
+                                <p className='flex flex-col justify-start md:flex-row w-min cursor-pointer '>
+                                  <QuestionMarkCircleIcon
+                                    className='h-7 w-7 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
+                                    onClick={handleStatusIconClick}
+                                  />
+                                </p>
+                              </div>
+
                               <p>{markerData.projectStatus}</p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className=' text-gray-500'>Type of use</p>
                               <p>{markerData.typeOfUse}</p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Applicant's name</p>
                               <p className='text-black'>
                                 {markerData.applicant}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Applicant's email</p>
 
                               <a
@@ -102,51 +125,48 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                   markerData.applicantEmail === 'Undisclosed'
                                     ? 'text-black'
                                     : 'text-blue-500 underline hover:text-blue-400'
-                                }
-                              >
+                                }>
                                 {markerData.applicantEmail}
                               </a>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Planner's name</p>
                               <p className='text-black'>
                                 {markerData.plannerName}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Planner's email</p>
                               <a
                                 href={`mailto: ${markerData.plannerEmail}`}
-                                className='text-blue-500 underline hover:text-blue-400'
-                              >
+                                className='text-blue-500 underline hover:text-blue-400'>
                                 {markerData.plannerEmail}
                               </a>
                             </div>
                             <span className='bg-gray-300 w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>
                                 Planner's phone number
                               </p>
                               <a
-                                className='flex w-full justify-end underline text-blue-500 hover:text-blue-400'
+                                className='flex w-full md:justify-end underline text-blue-500 hover:text-blue-400'
                                 href={`tel: ${extractPhoneNumber(
                                   markerData.plannerPhone
-                                )}`}
-                              >
+                                )}`}>
                                 {markerData.plannerPhone}
                               </a>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-row justify-between'>
+                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Last update</p>
                               <p className='text-black'>
                                 {markerData.recentUpdate}
                               </p>
                             </div>
                             <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col gap-4 justify-between'>
+                            <div className='flex flex-col gap-4 md:justify-between'>
                               <p className='text-gray-500'>Description</p>
                               <p className='text-black'>
                                 {markerData.projectDescriptions}
@@ -165,17 +185,4 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
       </Dialog>
     </Transition.Root>
   )
-}
-
-{
-  /* <div className='ml-3 flex h-7 items-center'>
-                          <button
-                            type='button'
-                            className='rounded-md bg-blue-700 text-blue-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white'
-                            onClick={() => setOpen(!isOpen)}
-                          >
-                            <span className='sr-only'>Close panel</span>
-                            <XMarkIcon className='h-6 w-6' aria-hidden='true' />
-                          </button>
-                        </div> */
 }
