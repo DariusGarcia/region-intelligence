@@ -56,25 +56,19 @@ export default function MapsPage() {
     setLoading(false)
   }, [selectedCity, selectedProjectStatus])
 
-  console.log(selectedProjectStatus)
   async function fetchPermits() {
     let permitQuery = supabase.from('cityProjects').select('*')
-
     if (selectedCity !== 'All cities') {
       permitQuery = permitQuery.eq('city', selectedCity)
     }
-
     if (selectedProjectStatus !== 'All') {
       permitQuery = permitQuery.eq('projectStatus', selectedProjectStatus)
     }
-
     const { data, error } = await permitQuery
-
     if (error) {
       setError(error)
       return
     }
-
     setPermitData(data)
   }
 
