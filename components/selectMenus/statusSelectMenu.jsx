@@ -1,13 +1,23 @@
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
+import StatusModal from '../statusModal'
 
 export default function StatusSelectMenu({ onSelect, status }) {
   const [selected, setSelected] = useState('')
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleSelect = (selectedOption) => {
     setSelected(selectedOption)
     onSelect(selectedOption)
+  }
+
+  const handleStatusIconClick = () => {
+    setIsHovered(!isHovered)
+    setTimeout(() => {
+      setIsHovered(false)
+    }, 10000)
   }
 
   return (
@@ -15,7 +25,16 @@ export default function StatusSelectMenu({ onSelect, status }) {
       {({ open }) => (
         <>
           <Listbox.Label className='block text-md font-medium leading-6 text-gray-900'>
-            Filter by project status
+            <div className='flex flex-row gap-2 items-center'>
+              <p> Filter by project status</p>
+              <p className='flex flex-row w-min cursor-pointer '>
+                <QuestionMarkCircleIcon
+                  className='h-7 w-5 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
+                  onClick={handleStatusIconClick}
+                />
+              </p>
+            </div>
+            {isHovered && <StatusModal />}
           </Listbox.Label>
           <div className='relative '>
             <Listbox.Button className='relative w-full cursor-default rounded-md  bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'>
