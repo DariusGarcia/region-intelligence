@@ -202,13 +202,34 @@ export default function MapsPage() {
                       <article
                         id={selectedMarker.id}
                         className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
-                        <p>{selectedMarker.caseNumbers}</p>
-                        <p>{selectedMarker.listingNames}</p>
-                        <p>Address: {selectedMarker.projectLocations}</p>
-                        <p>Applicant: {selectedMarker.applicant}</p>
-                        <p>Planner's name: {selectedMarker.plannerName}</p>
-                        <p>Planner's email: {selectedMarker.plannerEmail}</p>
-                        <p>Status: {selectedMarker.projectStatus}</p>
+                        <p>
+                          <span className='font-medium'>Case number: </span>
+                          {selectedMarker.caseNumbers}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Listing name:</span>{' '}
+                          {selectedMarker.listingNames}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Address:</span>{' '}
+                          {selectedMarker.projectLocations}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Applicant:</span>{' '}
+                          {selectedMarker.applicant}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Planner's name:</span>{' '}
+                          {selectedMarker.plannerName}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Planner's email:</span>{' '}
+                          {selectedMarker.plannerEmail}
+                        </p>
+                        <p>
+                          <span className='font-medium'>Status:</span>{' '}
+                          {selectedMarker.projectStatus}
+                        </p>
                       </article>
                     </InfoWindow>
                   )}
