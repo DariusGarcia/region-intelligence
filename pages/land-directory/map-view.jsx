@@ -14,6 +14,7 @@ import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
 import ErrorPage from '../error'
+import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
 
 export default function MapsPage() {
   const session = useSession()
@@ -42,35 +43,39 @@ export default function MapsPage() {
   const [isLoading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [cities, setCities] = useState(['All'])
-  const [selectedCity, setSelectedCity] = useState('')
+  const [projectStatuses, setProjectStatuses] = useState(['All'])
+  const [selectedCity, setSelectedCity] = useState('All cities')
+  const [selectedProjectStatus, setSelectedProjectStatus] = useState('All')
   // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
     setLoading(true)
     fetchPermits()
     fetchCities()
+    fetchProjectStatuses()
     setLoading(false)
-  }, [selectedCity])
+  }, [selectedCity, selectedProjectStatus])
 
+  console.log(selectedProjectStatus)
   async function fetchPermits() {
-    if (selectedCity === 'All cities' || selectedCity === '') {
-      const { data, error } = await supabase.from('cityProjects').select('*')
-      if (error) {
-        setError(error)
-        return
-      }
-      setPermitData(data)
-    } else {
-      const { data, error } = await supabase
-        .from('cityProjects')
-        .select('*')
-        .eq('city', selectedCity)
-      if (error) {
-        setError(error)
-        return
-      }
-      setPermitData(data)
+    let permitQuery = supabase.from('cityProjects').select('*')
+
+    if (selectedCity !== 'All cities') {
+      permitQuery = permitQuery.eq('city', selectedCity)
     }
+
+    if (selectedProjectStatus !== 'All') {
+      permitQuery = permitQuery.eq('projectStatus', selectedProjectStatus)
+    }
+
+    const { data, error } = await permitQuery
+
+    if (error) {
+      setError(error)
+      return
+    }
+
+    setPermitData(data)
   }
 
   async function fetchCities() {
@@ -81,6 +86,28 @@ export default function MapsPage() {
     }
     const distinctCities = Array.from(new Set(data.map((city) => city.city)))
     setCities(distinctCities)
+  }
+
+  async function fetchProjectStatuses() {
+    let projectStatusQuery = supabase
+      .from('cityProjects')
+      .select('projectStatus')
+
+    if (selectedCity !== 'All cities') {
+      projectStatusQuery = projectStatusQuery.eq('city', selectedCity)
+    }
+
+    const { data, error } = await projectStatusQuery
+
+    if (error) {
+      setError(error)
+      return
+    }
+
+    const distinctProjectStatuses = Array.from(
+      new Set(data.map((status) => status.projectStatus))
+    )
+    setProjectStatuses(distinctProjectStatuses)
   }
 
   const handleMarkerClick = (markerData) => {
@@ -95,6 +122,9 @@ export default function MapsPage() {
 
   function handleCitySelection(city) {
     setSelectedCity(city)
+  }
+  function handleStatusSelection(status) {
+    setSelectedProjectStatus(status)
   }
 
   if (error) return <ErrorPage errorMessage={error.message} />
@@ -111,11 +141,17 @@ export default function MapsPage() {
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City project locations
               </h1>
-              <div className='flex justify-center w-full items-center '>
+              <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center '>
                 <div className='flex flex-col w-72'>
                   <CitySelectMenu
                     onSelect={handleCitySelection}
                     cities={['All cities', ...cities]}
+                  />
+                </div>
+                <div className='flex flex-col w-72'>
+                  <StatusSelectMenu
+                    onSelect={handleStatusSelection}
+                    status={['All', ...projectStatuses]}
                   />
                 </div>
               </div>
