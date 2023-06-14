@@ -5,8 +5,7 @@ export default function Footer() {
     <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8'>
       <footer
         aria-labelledby='footer-heading'
-        className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'
-      >
+        className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'>
         <h2 id='footer-heading' className='sr-only'>
           Footer
         </h2>
@@ -14,8 +13,7 @@ export default function Footer() {
           <Link
             href='/'
             className='h-7 text-md font-semibold hover:underline leading-6 text-gray-900 hover:text-black'
-            alt='Company name'
-          >
+            alt='Company name'>
             First Property
           </Link>
 
@@ -30,8 +28,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'
-                      >
+                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'>
                         {item.name}
                       </a>
                     </li>
@@ -47,8 +44,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'
-                      >
+                        className='text-sm leading-6 hover:underline text-gray-600 hover:text-gray-900'>
                         {item.name}
                       </a>
                     </li>
@@ -57,7 +53,7 @@ export default function Footer() {
               </div>
             </div>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
-              <div>
+              {/* <div>
                 <h3 className='text-sm font-semibold leading-6 text-gray-900'>
                   Company
                 </h3>
@@ -66,14 +62,13 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'
-                      >
+                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'>
                         {item.name}
                       </a>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
               <div className='mt-10 md:mt-0'>
                 <h3 className='text-sm font-semibold leading-6 text-gray-900'>
                   Legal
@@ -83,8 +78,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'
-                      >
+                        className='text-sm hover:underline leading-6 text-gray-600 hover:text-gray-900'>
                         {item.name}
                       </a>
                     </li>

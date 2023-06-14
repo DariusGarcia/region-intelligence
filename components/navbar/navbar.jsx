@@ -55,8 +55,7 @@ export default function Navbar() {
     <header className='bg-white z-50'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
-        aria-label='Global'
-      >
+        aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>First Property</span>
@@ -69,8 +68,7 @@ export default function Navbar() {
           <button
             type='button'
             className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
-            onClick={() => setMobileMenuOpen(true)}
-          >
+            onClick={() => setMobileMenuOpen(true)}>
             <span className='sr-only'>Open main menu</span>
             <Bars3Icon className='h-6 w-6' aria-hidden='true' />
           </button>
@@ -92,15 +90,13 @@ export default function Navbar() {
               enterTo='opacity-100 translate-y-0'
               leave='transition ease-in duration-150'
               leaveFrom='opacity-100 translate-y-0'
-              leaveTo='opacity-0 translate-y-1'
-            >
+              leaveTo='opacity-0 translate-y-1'>
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
                 <div className='p-4'>
                   {landDirectory.map((item) => (
                     <div
                       key={item.name}
-                      className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'
-                    >
+                      className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'>
                       <div className='mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
                           className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
@@ -110,8 +106,7 @@ export default function Navbar() {
                       <div className='flex-auto'>
                         <Link
                           href={item.href}
-                          className='block font-semibold text-gray-900'
-                        >
+                          className='block font-semibold text-gray-900'>
                           {item.name}
                           <span className='absolute inset-0' />
                         </Link>
@@ -125,8 +120,7 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100'
-                    >
+                      className='flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100'>
                       <item.icon
                         className='h-5 w-5 flex-none text-gray-400'
                         aria-hidden='true'
@@ -140,14 +134,12 @@ export default function Navbar() {
           </Popover>
           <Link
             href='/pricing'
-            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-          >
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
             Pricing
           </Link>
           <Link
             href='/land-directory'
-            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-          >
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
             Projects
           </Link>
 
@@ -166,18 +158,15 @@ export default function Navbar() {
               enterTo='opacity-100 translate-y-0'
               leave='transition ease-in duration-150'
               leaveFrom='opacity-100 translate-y-0'
-              leaveTo='opacity-0 translate-y-1'
-            >
+              leaveTo='opacity-0 translate-y-1'>
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5'>
                 {company.map((item) => (
                   <div
                     key={item.name}
-                    className='relative rounded-lg p-4 hover:bg-gray-50'
-                  >
+                    className='relative rounded-lg p-4 hover:bg-gray-50'>
                     <Link
                       href={item.href}
-                      className='block text-sm font-semibold leading-6 text-gray-900'
-                    >
+                      className='block text-sm font-semibold leading-6 text-gray-900'>
                       {item.name}
                       <span className='absolute inset-0' />
                     </Link>
@@ -191,8 +180,7 @@ export default function Navbar() {
           </Popover>
           <Link
             href='/profile'
-            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-          >
+            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
             My Profile
           </Link>
         </Popover.Group>
@@ -200,15 +188,13 @@ export default function Navbar() {
           {user ? (
             <button
               className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-              onClick={logout}
-            >
+              onClick={logout}>
               Logout <span aria-hidden='true'>&rarr;</span>
             </button>
           ) : (
             <a
               href='/login'
-              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-            >
+              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
               Log in <span aria-hidden='true'>&rarr;</span>
             </a>
           )}
@@ -218,8 +204,7 @@ export default function Navbar() {
         as='div'
         className='lg:hidden'
         open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
+        onClose={setMobileMenuOpen}>
         <div className='fixed inset-0 z-10' />
         <Dialog.Panel className='fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
           <div className='p-6'>
@@ -233,8 +218,7 @@ export default function Navbar() {
               <button
                 type='button'
                 className='-m-2.5 rounded-md p-2.5 text-gray-700'
-                onClick={() => setMobileMenuOpen(false)}
-              >
+                onClick={() => setMobileMenuOpen(false)}>
                 <span className='sr-only'>Close menu</span>
                 <XMarkIcon className='h-6 w-6' aria-hidden='true' />
               </button>
@@ -250,8 +234,7 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                    >
+                      className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       <div className='flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
                           className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
@@ -265,14 +248,12 @@ export default function Navbar() {
                 <div className='space-y-2 py-6'>
                   <Link
                     href='/pricing'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
+                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     Pricing
                   </Link>
                   <Link
                     href='/land-directory'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
+                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     Projects
                   </Link>
 
@@ -280,15 +261,13 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                    >
+                      className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       {item.name}
                     </Link>
                   ))}
                   <Link
                     href='/profile'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
+                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     My Profile
                   </Link>
                 </div>
@@ -296,15 +275,13 @@ export default function Navbar() {
                   {user ? (
                     <button
                       className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-                      onClick={logout}
-                    >
+                      onClick={logout}>
                       Logout <span aria-hidden='true'>&rarr;</span>
                     </button>
                   ) : (
                     <Link
                       href='/login'
-                      className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                    >
+                      className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       Log in <span aria-hidden='true'>&rarr;</span>
                     </Link>
                   )}
@@ -317,8 +294,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className='p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100'
-              >
+                className='p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100'>
                 {item.name}
               </a>
             ))}
@@ -380,12 +356,12 @@ const callsToAction = [
   { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 const company = [
-  {
-    name: 'About us',
-    href: '/about',
-    description:
-      'Learn more about our company values and mission to empower others',
-  },
+  // {
+  //   name: 'About us',
+  //   href: '/about',
+  //   description:
+  //     'Learn more about our company values and mission to empower others',
+  // },
   {
     name: 'Contact Us',
     href: '/contact',
