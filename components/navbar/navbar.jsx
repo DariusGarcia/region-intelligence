@@ -76,7 +76,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-blue-500 text-gray-900'>
-              Land Directory
+              Current Planning Developments
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-gray-400'
                 aria-hidden='true'
@@ -93,7 +93,7 @@ export default function Navbar() {
               leaveTo='opacity-0 translate-y-1'>
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
                 <div className='p-4'>
-                  {landDirectory.map((item) => (
+                  {currentPlanningDevelopments.map((item) => (
                     <div
                       key={item.name}
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'>
@@ -138,9 +138,9 @@ export default function Navbar() {
             Pricing
           </Link>
           <Link
-            href='/land-directory'
+            href='/ceqa'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
-            Projects
+            Ceqa
           </Link>
 
           <Popover className='relative'>
@@ -225,12 +225,12 @@ export default function Navbar() {
             </div>
             <div className='mt-6 flow-root'>
               <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900'>
-                Land Directory
+                Current Planning Developments
               </p>
 
               <div className='-my-6 divide-y divide-gray-500/10'>
                 <div className='space-y-2 py-6'>
-                  {landDirectory.map((item) => (
+                  {currentPlanningDevelopments.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -252,9 +252,9 @@ export default function Navbar() {
                     Pricing
                   </Link>
                   <Link
-                    href='/land-directory'
+                    href='/ceqa'
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                    Projects
+                    Ceqa
                   </Link>
 
                   {company.map((item) => (
@@ -305,17 +305,17 @@ export default function Navbar() {
   )
 }
 
-const landDirectory = [
+const currentPlanningDevelopments = [
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',
-    href: '/land-directory/map-view',
+    href: '/current-planning-developments/map-view',
     icon: MapIcon,
   },
   {
     name: 'List View',
     description: 'View the locations of pending city permits',
-    href: '/land-directory',
+    href: '/current-planning-developments',
     icon: ListBulletIcon,
   },
 ]
@@ -323,7 +323,7 @@ const projects = [
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',
-    href: '/land-directory/maps',
+    href: '/current-planning-developments/maps',
     icon: ChartPieIcon,
   },
   // {
