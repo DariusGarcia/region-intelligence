@@ -108,34 +108,60 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                               <p className=' text-gray-500'>Type of use</p>
                               <p>{markerData.typeOfUse}</p>
                             </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
-                              <p className='text-gray-500'>Applicant's name</p>
-                              <p className='text-black'>
-                                {markerData.applicant}
-                              </p>
-                            </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
-                              <p className='text-gray-500'>Applicant's email</p>
+                            {markerData.applicant === 'Undisclosed' ? (
+                              ''
+                            ) : (
+                              <>
+                                <span className='bg-gray-300  w-full h-0.5' />
+                                <div className='flex flex-col justify-start md:flex-row md:justify-between'>
+                                  <p className='text-gray-500'>
+                                    Applicant's name
+                                  </p>
+                                  <p className='text-black'>
+                                    {markerData.applicant}
+                                  </p>
+                                </div>
+                              </>
+                            )}
+                            {markerData.applicantEmail === 'Undisclosed' ? (
+                              ''
+                            ) : (
+                              <>
+                                <span className='bg-gray-300  w-full h-0.5' />
+                                <div className='flex flex-col justify-start md:flex-row md:justify-between'>
+                                  <p className='text-gray-500'>
+                                    Applicant's email
+                                  </p>
 
-                              <a
-                                href={`mailto: ${markerData.applicantEmail}`}
-                                className={
-                                  markerData.applicantEmail === 'Undisclosed'
-                                    ? 'text-black'
-                                    : 'text-blue-500 underline hover:text-blue-400'
-                                }>
-                                {markerData.applicantEmail}
-                              </a>
-                            </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
-                              <p className='text-gray-500'>Planner's name</p>
-                              <p className='text-black'>
-                                {markerData.plannerName}
-                              </p>
-                            </div>
+                                  <a
+                                    href={`mailto: ${markerData.applicantEmail}`}
+                                    className={
+                                      markerData.applicantEmail ===
+                                      'Undisclosed'
+                                        ? 'text-black'
+                                        : 'text-blue-500 underline hover:text-blue-400'
+                                    }>
+                                    {markerData.applicantEmail}
+                                  </a>
+                                </div>
+                              </>
+                            )}
+                            {markerData.plannerName === 'Undisclosed' ||
+                            markerData.plannerName === '' ? (
+                              ''
+                            ) : (
+                              <>
+                                <span className='bg-gray-300  w-full h-0.5' />
+                                <div className='flex flex-col justify-start md:flex-row md:justify-between'>
+                                  <p className='text-gray-500'>
+                                    Planner's name
+                                  </p>
+                                  <p className='text-black'>
+                                    {markerData.plannerName}
+                                  </p>
+                                </div>
+                              </>
+                            )}
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-col justify-start md:flex-row md:justify-between'>
                               <p className='text-gray-500'>Planner's email</p>
@@ -158,13 +184,19 @@ export default function SlideOver({ isOpen, onClose, markerData }) {
                                 {markerData.plannerPhone}
                               </a>
                             </div>
-                            <span className='bg-gray-300  w-full h-0.5' />
-                            <div className='flex flex-col justify-start md:flex-row md:justify-between'>
-                              <p className='text-gray-500'>Last update</p>
-                              <p className='text-black'>
-                                {markerData.recentUpdate}
-                              </p>
-                            </div>
+                            {markerData.recentUpdate === 'Undisclosed' ? (
+                              ''
+                            ) : (
+                              <>
+                                <span className='bg-gray-300  w-full h-0.5' />
+                                <div className='flex flex-col justify-start md:flex-row md:justify-between'>
+                                  <p className='text-gray-500'>Last update</p>
+                                  <p className='text-black'>
+                                    {markerData.recentUpdate}
+                                  </p>
+                                </div>
+                              </>
+                            )}
                             <span className='bg-gray-300  w-full h-0.5' />
                             <div className='flex flex-col gap-4 md:justify-between'>
                               <p className='text-gray-500'>Description</p>
