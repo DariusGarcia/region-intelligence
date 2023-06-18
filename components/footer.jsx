@@ -95,8 +95,9 @@ export default function Footer() {
 
 const footerNavigation = {
   projects: [
-    { name: 'Map View', href: '/land-directory/map-view' },
-    { name: 'Land Directory', href: '/land-directory' },
+    { name: 'Map View', href: '/current-planning-developments/map-view' },
+    { name: 'Land Directory', href: '/current-planning-developments' },
+    { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
     { name: 'Contact Us', href: '/contact' },

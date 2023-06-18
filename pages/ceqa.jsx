@@ -11,7 +11,8 @@ export default function CeqaMapPage() {
 
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? ''
   return (
-    <main className='h-[80vh] w-screen mt-12 cursor-grab'>
+    <main className='h-[80vh] w-full md:px-8 mt-6 md:mt-12 cursor-grab'>
+      <h1 className='flex justify-center text-3xl font-semibold mb-4'>CEQA</h1>
       {/* <div className='sidebar'>
         Longitude: {mapViewport.longitude} | Latitude: {mapViewport.latitude} |
         Zoom: {mapViewport.zoom}
@@ -23,7 +24,7 @@ export default function CeqaMapPage() {
           longitude: -117.85,
           zoom: 12,
         }}
-        className='h-full w-screen'
+        className='h-full w-full'
         mapStyle='mapbox://styles/dariusgarcia8/cliwq37qt00f401pz0lqg9shz'
         mapboxAccessToken={mapboxToken}>
         <Marker longitude={-122.4} latitude={37.8} color='red' />

@@ -140,7 +140,7 @@ export default function Navbar() {
           <Link
             href='/ceqa'
             className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
-            Ceqa
+            CEQA
           </Link>
 
           <Popover className='relative'>
