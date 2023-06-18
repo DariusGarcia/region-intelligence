@@ -3,6 +3,7 @@ import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 import RadioGroup from './radioGroup'
 import BackgroundSelectMenu from './selectMenus/selectMenu'
+import SuccessNotification from './notifications/successNotification'
 
 export default function Profile() {
   const supabase = useSupabaseClient()
@@ -21,6 +22,8 @@ export default function Profile() {
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
   const [background, setBackground] = useState(null)
+  const [error, setError] = useState(null)
+  const [success, setSuccess] = useState(null)
 
   useEffect(() => {
     async function loadData() {
@@ -32,8 +35,10 @@ export default function Profile() {
           .eq('id', user.id)
           .single()
 
-        if (error) console.warn(error)
-        else if (data) {
+        if (error) {
+          setError(error.message)
+          console.warn(error)
+        } else if (data) {
           setData(data)
           setUsername(data.username)
           setFirstName(data.first_name)
@@ -82,6 +87,8 @@ export default function Profile() {
 
     if (error) {
       alert(error.message)
+    } else {
+      setSuccess('Profile updated successfully')
     }
     setLoading(false)
   }
@@ -90,13 +97,12 @@ export default function Profile() {
   //   setBackground(value?.name)
   // }
 
-  console.log({ fetchedBg: background })
-
   return (
     <>
       {/* {loading && <p className='text-center'>Loading ...</p>} */}
       {
         <div className='flex justify-center px-4 md:px-0 bg-white'>
+          {success && <SuccessNotification message={success} />}
           <form
             onSubmit={updateProfile}
             className='max-w-4xl flex flex-col justify-center'>
@@ -111,7 +117,7 @@ export default function Profile() {
                 </p>
 
                 <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-                  <div className='col-span-full'>
+                  {/* <div className='col-span-full'>
                     <label
                       htmlFor='photo'
                       className='block text-sm font-medium leading-6 text-gray-900'>
@@ -128,7 +134,7 @@ export default function Profile() {
                         Change
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                   <div className='sm:col-span-4'>
                     <label
                       htmlFor='username'

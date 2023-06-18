@@ -42,21 +42,23 @@ export default function PricingPage() {
                     initial='offscreen'
                     whileInView='onscreen'
                     viewport={{ once: true, amount: 0.8 }}
-                    className='relative z-10'>
+                    className='relative z-10'
+                  >
                     <m.div variants={cardVariants}>
                       <h1 className='mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight text-white'>
                         Simple pricing, no commitment
                       </h1>
-                      {/* <p className='mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60'>
+                      <p className='mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60'>
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Velit numquam eligendi quos odit doloribus
                         molestiae voluptatum quos odit doloribus.
-                      </p> */}
+                      </p>
                       <div className='mt-16 flex justify-center'>
                         <RadioGroup
                           value={frequency}
                           onChange={setFrequency}
-                          className='grid grid-cols-2 gap-x-1 rounded-full bg-white/5 p-1 text-center text-xs font-semibold leading-5 text-white'>
+                          className='grid grid-cols-2 gap-x-1 rounded-full bg-white/5 p-1 text-center text-xs font-semibold leading-5 text-white'
+                        >
                           <RadioGroup.Label className='sr-only'>
                             Payment frequency
                           </RadioGroup.Label>
@@ -69,7 +71,8 @@ export default function PricingPage() {
                                   checked ? 'bg-blue-500' : '',
                                   'cursor-pointer rounded-full px-2.5 py-1'
                                 )
-                              }>
+                              }
+                            >
                               <span>{option.label}</span>
                             </RadioGroup.Option>
                           ))}
@@ -78,11 +81,12 @@ export default function PricingPage() {
                     </m.div>
                   </m.div>
                 </AnimatePresence>
-                <div className='relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-2'>
+                <div className='relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-3'>
                   <svg
                     viewBox='0 0 1208 1024'
                     aria-hidden='true'
-                    className='absolute -bottom-48 left-1/2 h-[64rem] -translate-x-1/2 translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] lg:-top-48 lg:bottom-auto lg:translate-y-0'>
+                    className='absolute -bottom-48 left-1/2 h-[64rem] -translate-x-1/2 translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] lg:-top-48 lg:bottom-auto lg:translate-y-0'
+                  >
                     <ellipse
                       cx={604}
                       cy={512}
@@ -109,14 +113,16 @@ export default function PricingPage() {
                           ? 'z-10 bg-white shadow-xl ring-1 ring-gray-900/10'
                           : 'bg-gray-800/80 ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0',
                         'relative rounded-2xl'
-                      )}>
+                      )}
+                    >
                       <div className='p-8 lg:pt-12 xl:p-10 xl:pt-14'>
                         <h2
                           id={tier.id}
                           className={classNames(
                             tier.featured ? 'text-gray-900' : 'text-white',
                             'text-sm font-semibold leading-6'
-                          )}>
+                          )}
+                        >
                           {tier.name}
                         </h2>
                         <div className='flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch'>
@@ -125,14 +131,16 @@ export default function PricingPage() {
                               className={classNames(
                                 tier.featured ? 'text-gray-900' : 'text-white',
                                 'text-4xl font-bold tracking-tight'
-                              )}>
+                              )}
+                            >
                               {tier.price[frequency.value]}
                             </p>
                             <div className='text-sm leading-5'>
                               <p
                                 className={
                                   tier.featured ? 'text-gray-900' : 'text-white'
-                                }>
+                                }
+                              >
                                 {tier.price.monthly === 'Free' ||
                                 tier.price.annually === 'Free'
                                   ? ''
@@ -143,7 +151,8 @@ export default function PricingPage() {
                                   tier.featured
                                     ? 'text-gray-500'
                                     : 'text-gray-400'
-                                }>
+                                }
+                              >
                                 {tier.price.monthly === 'Free' ||
                                 tier.price.annually === 'Free'
                                   ? ''
@@ -159,7 +168,8 @@ export default function PricingPage() {
                                 ? 'bg-blue-600 shadow-sm hover:bg-blue-500 focus-visible:outline-blue-600'
                                 : 'bg-white/10 hover:bg-white/20 focus-visible:outline-white',
                               'rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
-                            )}>
+                            )}
+                          >
                             {tier.price.monthly === 'Free' ||
                             tier.price.annually === 'Free'
                               ? 'Get started'
@@ -174,11 +184,13 @@ export default function PricingPage() {
                                 ? 'divide-gray-900/5 border-gray-900/5 text-gray-600'
                                 : 'divide-white/5 border-white/5 text-white',
                               '-my-2 divide-y border-t text-sm leading-6 lg:border-t-0'
-                            )}>
+                            )}
+                          >
                             {tier.mainFeatures.map((mainFeature) => (
                               <li
                                 key={mainFeature}
-                                className='flex gap-x-3 py-2'>
+                                className='flex gap-x-3 py-2'
+                              >
                                 <CheckIcon
                                   className={classNames(
                                     tier.featured
@@ -204,7 +216,8 @@ export default function PricingPage() {
                 {/* Feature comparison (up to lg) */}
                 <section
                   aria-labelledby='mobile-comparison-heading'
-                  className='lg:hidden'>
+                  className='lg:hidden'
+                >
                   <h2 id='mobile-comparison-heading' className='sr-only'>
                     Feature comparison
                   </h2>
@@ -213,19 +226,22 @@ export default function PricingPage() {
                     {pricing.tiers.map((tier) => (
                       <div
                         key={tier.id}
-                        className='border-t border-gray-900/10'>
+                        className='border-t border-gray-900/10'
+                      >
                         <div
                           className={classNames(
                             tier.featured
                               ? 'border-blue-600'
                               : 'border-transparent',
                             '-mt-px w-72 border-t-2 pt-10 md:w-80'
-                          )}>
+                          )}
+                        >
                           <h3
                             className={classNames(
                               tier.featured ? 'text-blue-600' : 'text-gray-900',
                               'text-sm font-semibold leading-6'
-                            )}>
+                            )}
+                          >
                             {tier.name}
                           </h3>
                           <p className='mt-1 text-sm leading-6 text-gray-600'>
@@ -252,12 +268,14 @@ export default function PricingPage() {
                                       ? 'ring-2 ring-blue-600'
                                       : 'ring-1 ring-gray-900/10',
                                     'relative rounded-lg bg-white shadow-sm sm:rounded-none sm:bg-transparent sm:shadow-none sm:ring-0'
-                                  )}>
+                                  )}
+                                >
                                   <dl className='divide-y divide-gray-200 text-sm leading-6'>
                                     {section.features.map((feature) => (
                                       <div
                                         key={feature.name}
-                                        className='flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-2 sm:px-0'>
+                                        className='flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-2 sm:px-0'
+                                      >
                                         <dt className='pr-4 text-gray-600'>
                                           {feature.name}
                                         </dt>
@@ -269,7 +287,8 @@ export default function PricingPage() {
                                                 tier.featured
                                                   ? 'font-semibold text-blue-600'
                                                   : 'text-gray-900'
-                                              }>
+                                              }
+                                            >
                                               {feature.tiers[tier.name]}
                                             </span>
                                           ) : (
@@ -323,12 +342,13 @@ export default function PricingPage() {
                 {/* Feature comparison (lg+) */}
                 <section
                   aria-labelledby='comparison-heading'
-                  className='hidden lg:block'>
+                  className='hidden lg:block'
+                >
                   <h2 id='comparison-heading' className='sr-only'>
                     Feature comparison
                   </h2>
 
-                  <div className='grid grid-cols-3 gap-x-8 border-t border-gray-900/10 before:block'>
+                  <div className='grid grid-cols-4 gap-x-8 border-t border-gray-900/10 before:block'>
                     {pricing.tiers.map((tier) => (
                       <div key={tier.id} aria-hidden='true' className='-mt-px'>
                         <div
@@ -337,12 +357,14 @@ export default function PricingPage() {
                               ? 'border-blue-600'
                               : 'border-transparent',
                             'border-t-2 pt-10'
-                          )}>
+                          )}
+                        >
                           <p
                             className={classNames(
                               tier.featured ? 'text-blue-600' : 'text-gray-900',
                               'text-sm font-semibold leading-6'
-                            )}>
+                            )}
+                          >
                             {tier.name}
                           </p>
                           <p className='mt-1 text-sm leading-6 text-gray-600'>
@@ -362,8 +384,10 @@ export default function PricingPage() {
                         <div className='relative -mx-8 mt-10'>
                           {/* Fake card backgrounds */}
                           <div
-                            className='absolute inset-x-8 inset-y-0 grid grid-cols-3 gap-x-8 before:block'
-                            aria-hidden='true'>
+                            className='absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block'
+                            aria-hidden='true'
+                          >
+                            <div className='h-full w-full rounded-lg bg-white shadow-sm' />
                             <div className='h-full w-full rounded-lg bg-white shadow-sm' />
                             <div className='h-full w-full rounded-lg bg-white shadow-sm' />
                           </div>
@@ -388,7 +412,8 @@ export default function PricingPage() {
                                 <tr key={feature.name}>
                                   <th
                                     scope='row'
-                                    className='w-1/4 py-3 pr-4 text-left text-sm font-normal leading-6 text-gray-900'>
+                                    className='w-1/4 py-3 pr-4 text-left text-sm font-normal leading-6 text-gray-900'
+                                  >
                                     {feature.name}
                                     {featureIdx !==
                                     section.features.length - 1 ? (
@@ -398,7 +423,8 @@ export default function PricingPage() {
                                   {pricing.tiers.map((tier) => (
                                     <td
                                       key={tier.id}
-                                      className='relative w-1/4 px-4 py-0 text-center'>
+                                      className='relative w-1/4 px-4 py-0 text-center'
+                                    >
                                       <span className='relative h-full w-full py-3'>
                                         {typeof feature.tiers[tier.name] ===
                                         'string' ? (
@@ -408,7 +434,8 @@ export default function PricingPage() {
                                                 ? 'font-semibold text-blue-600'
                                                 : 'text-gray-900',
                                               'text-sm leading-6'
-                                            )}>
+                                            )}
+                                          >
                                             {feature.tiers[tier.name]}
                                           </span>
                                         ) : (
@@ -443,8 +470,9 @@ export default function PricingPage() {
 
                           {/* Fake card borders */}
                           <div
-                            className='pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-3 gap-x-8 before:block'
-                            aria-hidden='true'>
+                            className='pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block'
+                            aria-hidden='true'
+                          >
                             {pricing.tiers.map((tier) => (
                               <div
                                 key={tier.id}
@@ -487,9 +515,9 @@ const pricing = {
       description: 'All your essential business finances, taken care of.',
       price: { monthly: 'Free', annually: 'Free' },
       mainFeatures: [
-        'Access  to current developments',
-        'Access to CEQA listings',
-        'Basic analytics',
+        'Basic invoicing',
+        'Easy to use accounting',
+        'Mutli-accounts',
       ],
     },
     {
@@ -498,31 +526,31 @@ const pricing = {
       href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
       featured: true,
       description: 'The best financial services for your thriving business.',
-      price: { monthly: '$10', annually: '$120' },
+      price: { monthly: '$60', annually: '$576' },
       mainFeatures: [
-        'Access  to current developments',
-        'Access to CEQA listings',
-        'Advanced analytics',
-        'CEQA topic modelings',
-        'Insightful demographic data',
-        'Local data extraction',
+        'Advanced invoicing',
+        'Easy to use accounting',
+        'Mutli-accounts',
+        'Tax planning toolkit',
+        'VAT & VATMOSS filing',
+        'Free bank transfers',
       ],
     },
-    // {
-    //   name: 'Enterprise',
-    //   id: 'tier-growth',
-    //   href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
-    //   featured: false,
-    //   description:
-    //     'Convenient features to take your business to the next level.',
-    //   price: { monthly: '$30', annually: '$288' },
-    //   mainFeatures: [
-    //     'Basic invoicing',
-    //     'Easy to use accounting',
-    //     'Mutli-accounts',
-    //     'Tax planning toolkit',
-    //   ],
-    // },
+    {
+      name: 'Enterprise',
+      id: 'tier-growth',
+      href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
+      featured: false,
+      description:
+        'Convenient features to take your business to the next level.',
+      price: { monthly: '$30', annually: '$288' },
+      mainFeatures: [
+        'Basic invoicing',
+        'Easy to use accounting',
+        'Mutli-accounts',
+        'Tax planning toolkit',
+      ],
+    },
   ],
   sections: [
     {
@@ -530,17 +558,18 @@ const pricing = {
       features: [
         {
           name: 'Tax Savings',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Easy to use accounting',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Multi-accounts',
           tiers: {
             Starter: '3 accounts',
             Scale: 'Unlimited accounts',
+            Growth: '7 accounts',
           },
         },
         {
@@ -548,19 +577,20 @@ const pricing = {
           tiers: {
             Starter: '3 invoices',
             Scale: 'Unlimited invoices',
+            Growth: '10 invoices',
           },
         },
         {
           name: 'Exclusive offers',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: true },
         },
         {
           name: '6 months free advisor',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: true },
         },
         {
           name: 'Mobile and web access',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: false },
         },
       ],
     },
@@ -569,31 +599,31 @@ const pricing = {
       features: [
         {
           name: '24/7 customer support',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Instant notifications',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Budgeting tools',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Digital receipts',
-          tiers: { Starter: true, Scale: true },
+          tiers: { Starter: true, Scale: true, Growth: true },
         },
         {
           name: 'Pots to separate money',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: true },
         },
         {
           name: 'Free bank transfers',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: false },
         },
         {
           name: 'Business debit card',
-          tiers: { Starter: false, Scale: true },
+          tiers: { Starter: false, Scale: true, Growth: false },
         },
       ],
     },
