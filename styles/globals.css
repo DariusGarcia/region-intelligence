@@ -46,7 +46,8 @@ body {
   padding: 6px 12px;
   font-family: monospace;
   z-index: 1;
-  position: absolute;
+  position: relative;
+  width: max-content;
   top: 0;
   left: 0;
   margin: 12px;
