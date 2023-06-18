@@ -498,7 +498,7 @@ const pricing = {
       href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
       featured: true,
       description: 'The best financial services for your thriving business.',
-      price: { monthly: '$60', annually: '$576' },
+      price: { monthly: '$10', annually: '$120' },
       mainFeatures: [
         'Access  to current developments',
         'Access to CEQA listings',
