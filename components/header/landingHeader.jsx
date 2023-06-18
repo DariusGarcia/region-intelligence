@@ -28,7 +28,7 @@ export default function LandingHeader() {
             initial='hidden'
             animate='visible'
             viewport={{ once: true, amount: 0.8 }}
-            className='px-6 sm:pb-32 lg:px-0   flex flex-col items-center gap-4 '>
+            className='px-6 sm:pb-32 lg:px-0  flex flex-col items-center gap-4 '>
             <m.div variants={cardVariants}>
               <div className='flex flex-col justify-center mx-auto max-w-2xl lg:mx-0'>
                 <div className='hidden sm:mt-32 md:mt-0 sm:flex '>
