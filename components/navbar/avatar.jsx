@@ -16,7 +16,12 @@ export default function Avatar({ name }) {
         <button
           onClick={() => setToggle(!toggle)}
           className='relative inline-block'>
-          <p className='h-12 w-12 rounded-full bg-gray-100 hover:bg-gray-200 transition ease-out flex justify-center items-center font-medium z-50'>
+          <p
+            className={
+              !toggle
+                ? 'h-12 w-12 rounded-full bg-gray-100 hover:bg-gray-200 transition ease-out flex justify-center items-center font-medium z-50'
+                : 'h-12 w-12 rounded-full bg-gray-200 hover:bg-gray-200 transition ease-out flex justify-center items-center font-medium z-50'
+            }>
             {String(name).toUpperCase()}
           </p>
           <span className='absolute right-0 top-0 block h-3.5 w-3.5 rounded-full bg-red-400 ring-2 ring-white'></span>
@@ -27,7 +32,7 @@ export default function Avatar({ name }) {
               </p>
               <Link
                 href='/profile'
-                className='hover:text-gray-600 z-50 transition ease-out'>
+                className='hover:text-gray-600 z-50 transition ease-out font-medium'>
                 My profile
               </Link>
               <button

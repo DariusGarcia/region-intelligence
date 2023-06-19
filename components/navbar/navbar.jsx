@@ -252,6 +252,11 @@ export default function Navbar() {
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     Ceqa
                   </Link>
+                  <Link
+                    href='/profile'
+                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
+                    My profile
+                  </Link>
 
                   {company.map((item) => (
                     <Link
@@ -264,7 +269,11 @@ export default function Navbar() {
                 </div>
                 <div className='py-6'>
                   {user ? (
-                    <Avatar name={avatarName} />
+                    <button
+                      className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                      onClick={logout}>
+                      Logout <span aria-hidden='true'>&rarr;</span>
+                    </button>
                   ) : (
                     <Link
                       href='/login'
