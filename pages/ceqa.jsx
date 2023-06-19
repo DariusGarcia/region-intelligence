@@ -28,14 +28,11 @@ export default function CeqaMapPage() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? ''
   return (
     <div>
-      <main className='h-[80vh] w-full md:px-8 mt-6 md:mt-12 cursor-grab mb-48'>
+      <main className='h-[70vh]  w-full md:px-8 mt-6 md:mt-12 mb-48'>
         <h1 className='flex justify-center text-3xl font-semibold mb-4'>
           CEQA
         </h1>
-        {/* <div className='sidebar'>
-        Longitude: {mapViewport.longitude} | Latitude: {mapViewport.latitude} |
-        Zoom: {mapViewport.zoom}
-      </div> */}
+
         <Map
           ref={map}
           initialViewState={{
@@ -49,7 +46,7 @@ export default function CeqaMapPage() {
           <Marker longitude={-122.4} latitude={37.8} color='red' />
         </Map>
       </main>
-      <div className='mx-2'>
+      <div className='mx-2 relative'>
         <h1 className='ml-8 font-medium text-3xl'>CEQA Data</h1>
         <CollapsibleTable dataRows={data} />
       </div>

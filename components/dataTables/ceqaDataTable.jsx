@@ -1,5 +1,4 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import Box from '@mui/material/Box'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
@@ -14,57 +13,6 @@ import Paper from '@mui/material/Paper'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import TablePagination from '@mui/material/TablePagination'
-
-function createData(
-  title,
-  schNumber,
-  city,
-  status,
-  type,
-  descriptions,
-  leadAgency,
-  reason,
-  index,
-  contactAddress,
-  contactEmail,
-  contactPhone,
-  county,
-  state,
-  zipCode,
-  received
-) {
-  return {
-    title,
-    schNumber,
-    city,
-    status,
-    type,
-    descriptions,
-    index,
-    contactAddress,
-    contactEmail,
-    contactPhone,
-    county,
-    state,
-    zipCode,
-    received,
-    information: [
-      {
-        title: title,
-        contactAddress: contactAddress,
-        contactEmail: contactEmail,
-        contactPhone: contactPhone,
-        county: county,
-        state: state,
-        zipCode: zipCode,
-        received: received,
-        description: descriptions,
-        leadAgency: leadAgency,
-        reason: reason,
-      },
-    ],
-  }
-}
 
 function Row(props) {
   const { row } = props
@@ -98,7 +46,7 @@ function Row(props) {
           <TableRow className={row.index % 2 !== 0 ? 'bg-gray-50' : 'bg-white'}>
             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
               <Collapse in={open} timeout='auto' unmountOnExit>
-                <Box sx={{ margin: 1 }}>
+                <Box sx={{ margin: 0.5 }}>
                   <Typography variant='h6' gutterBottom component='div'>
                     Information
                   </Typography>
@@ -266,4 +214,55 @@ export default function CollapsibleTable({ dataRows }) {
       )}
     </>
   )
+}
+
+function createData(
+  title,
+  schNumber,
+  city,
+  status,
+  type,
+  descriptions,
+  leadAgency,
+  reason,
+  index,
+  contactAddress,
+  contactEmail,
+  contactPhone,
+  county,
+  state,
+  zipCode,
+  received
+) {
+  return {
+    title,
+    schNumber,
+    city,
+    status,
+    type,
+    descriptions,
+    index,
+    contactAddress,
+    contactEmail,
+    contactPhone,
+    county,
+    state,
+    zipCode,
+    received,
+    information: [
+      {
+        title: title,
+        contactAddress: contactAddress,
+        contactEmail: contactEmail,
+        contactPhone: contactPhone,
+        county: county,
+        state: state,
+        zipCode: zipCode,
+        received: received,
+        description: descriptions,
+        leadAgency: leadAgency,
+        reason: reason,
+      },
+    ],
+  }
 }

@@ -18,6 +18,7 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
+import Avatar from './avatar'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -25,6 +26,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [username, setUsername] = useState([])
 
+  const avatarName =
+    user?.user_metadata?.first_name?.slice(0, 1) +
+    user?.user_metadata?.last_name?.slice(0, 1)
+  console.log(avatarName)
   useEffect(() => {
     async function loadData() {
       try {
@@ -178,19 +183,10 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <Link
-            href='/profile'
-            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
-            My Profile
-          </Link>
         </Popover.Group>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           {user ? (
-            <button
-              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-              onClick={logout}>
-              Logout <span aria-hidden='true'>&rarr;</span>
-            </button>
+            <Avatar name={avatarName} />
           ) : (
             <a
               href='/login'
@@ -265,19 +261,10 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
-                  <Link
-                    href='/profile'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                    My Profile
-                  </Link>
                 </div>
                 <div className='py-6'>
                   {user ? (
-                    <button
-                      className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-                      onClick={logout}>
-                      Logout <span aria-hidden='true'>&rarr;</span>
-                    </button>
+                    <Avatar name={avatarName} />
                   ) : (
                     <Link
                       href='/login'
