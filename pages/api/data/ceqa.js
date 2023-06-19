@@ -1,21 +1,21 @@
 import mysql from 'mysql2'
 
-export default async function handler(req, res) {
-  const pool = mysql.createPool({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    connectionLimit: 10, // Adjust this value as per your requirements
-  })
+const pool = mysql.createPool({
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  connectionLimit: process.env.CONNECTION_LIMIT, // Adjust this value as per your requirements
+})
 
+export default async function handler(req, res) {
   pool.getConnection((error, connection) => {
     if (error) {
       // Handle connection error
       console.error('Error connecting to database:', error)
       res.status(500).json({ error: 'Internal Server Error' })
     } else {
-      const query = 'SELECT * FROM SEQA_Phase_1'
+      const query = `SELECT * FROM ${process.env.CEQA_DB}`
 
       connection.query(query, (error, results) => {
         connection.release() // Release the connection back to the pool
