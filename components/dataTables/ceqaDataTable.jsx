@@ -16,24 +16,48 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import TablePagination from '@mui/material/TablePagination'
 
 function createData(
-  schNumber,
   title,
+  schNumber,
   city,
   status,
   type,
   descriptions,
   leadAgency,
-  reason
+  reason,
+  index,
+  contactAddress,
+  contactEmail,
+  contactPhone,
+  county,
+  state,
+  zipCode,
+  received
 ) {
   return {
-    schNumber,
     title,
+    schNumber,
     city,
     status,
     type,
     descriptions,
+    index,
+    contactAddress,
+    contactEmail,
+    contactPhone,
+    county,
+    state,
+    zipCode,
+    received,
     information: [
       {
+        title: title,
+        contactAddress: contactAddress,
+        contactEmail: contactEmail,
+        contactPhone: contactPhone,
+        county: county,
+        state: state,
+        zipCode: zipCode,
+        received: received,
         description: descriptions,
         leadAgency: leadAgency,
         reason: reason,
@@ -50,7 +74,9 @@ function Row(props) {
     <>
       {row && (
         <React.Fragment>
-          <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+          <TableRow
+            sx={{ '& > *': { borderBottom: 'unset' } }}
+            className={row.index % 2 !== 0 ? 'bg-gray-50' : 'bg-white'}>
             <TableCell>
               <IconButton
                 aria-label='expand row'
@@ -60,39 +86,100 @@ function Row(props) {
               </IconButton>
             </TableCell>
             <TableCell component='th' scope='row'>
-              {row.title}
+              {row.schNumber}
             </TableCell>
-            <TableCell align='left'>{row.schNumber}</TableCell>
-            <TableCell align='left'>{String(row.title).slice(0, 10)}</TableCell>
-            <TableCell align='left'>{row.city}</TableCell>
+            <TableCell align='left'>
+              {String(row.title).slice(0, 60)}...
+            </TableCell>
+            <TableCell align='left'>{String(row.city).slice(0, 20)}</TableCell>
             <TableCell align='left'>{row.status}</TableCell>
+            <TableCell align='left'>{row.type}</TableCell>
           </TableRow>
-          <TableRow>
+          <TableRow className={row.index % 2 !== 0 ? 'bg-gray-50' : 'bg-white'}>
             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
               <Collapse in={open} timeout='auto' unmountOnExit>
                 <Box sx={{ margin: 1 }}>
                   <Typography variant='h6' gutterBottom component='div'>
                     Information
                   </Typography>
-                  <Table size='small' aria-label='purchases'>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Customer</TableCell>
-                        <TableCell align='left'>Amount</TableCell>
-                        <TableCell align='left'>Total price ($)</TableCell>
-                      </TableRow>
-                    </TableHead>
+                  <Table size='small' aria-label='information'>
+                    <TableHead></TableHead>
                     <TableBody>
                       {row.information.map((info) => (
-                        <TableRow key={info.reason}>
-                          <TableCell component='th' scope='row'>
-                            {info.leadAgency}
-                          </TableCell>
-                          <TableCell>{info.description}</TableCell>
-
-                          <TableCell align='right'></TableCell>
-                        </TableRow>
+                        <>
+                          <TableRow key={info.title}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Title:</p>
+                                {info.title}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.leadAgency}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Lead agency:</p>
+                                {info.leadAgency}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.contactAddress}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>
+                                  Contact address:
+                                </p>
+                                {info.contactAddress}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.contactEmail}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Contact email:</p>
+                                {info.contactEmail}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.contactPhone}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Contact phone:</p>
+                                {info.contactPhone}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.county}>
+                            <TableCell component='th' scope='row'>
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>County:</p>
+                                {info.county}
+                                {', '}
+                                {info.state}
+                                {', '}
+                                {info.zipCode}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.description}>
+                            <TableCell>
+                              {' '}
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Description:</p>
+                                {info.description}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                          <TableRow key={info.received}>
+                            <TableCell>
+                              {' '}
+                              <div className='flex flex-row gap-2'>
+                                <p className='font-semibold'>Received:</p>
+                                {info.received}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        </>
                       ))}
                     </TableBody>
                   </Table>
@@ -106,24 +193,6 @@ function Row(props) {
   )
 }
 
-// Row.propTypes = {
-//   row: PropTypes.shape({
-//     calories: PropTypes.number.isRequired,
-//     carbs: PropTypes.number.isRequired,
-//     fat: PropTypes.number.isRequired,
-//     history: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         amount: PropTypes.number.isRequired,
-//         customerId: PropTypes.string.isRequired,
-//         date: PropTypes.string.isRequired,
-//       })
-//     ).isRequired,
-//     name: PropTypes.string.isRequired,
-//     price: PropTypes.number.isRequired,
-//     protein: PropTypes.number.isRequired,
-//   }).isRequired,
-// }
-
 export default function CollapsibleTable({ dataRows }) {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(10)
@@ -133,12 +202,20 @@ export default function CollapsibleTable({ dataRows }) {
       createData(
         row.Title,
         row.schNumber,
+        row.City,
         row.potentialDeal,
         row.Type,
-        row.City,
         row.Descriptions,
         row.LeadAgency,
-        row.Reason
+        row.Reason,
+        row.index,
+        row.ContactAddress,
+        row.ContactEmail,
+        row.ContactPhone,
+        row.County,
+        row.State,
+        row.ZipCode,
+        row.Received
       )
     ),
   ]
