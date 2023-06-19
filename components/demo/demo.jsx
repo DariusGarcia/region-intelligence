@@ -1,4 +1,4 @@
-export default function Testimonials() {
+export default function DemoVideo() {
   return (
     <section className='mt-24 mb-12  h-full w-full'>
       <div className='h-full'>

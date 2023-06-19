@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Faq from '@/components/faq'
 import LandingHeader from '@/components/header/landingHeader'
-import Testimonials from '@/components/testimonials/testimonials'
 import Cta from '@/components/cta'
 import {
   ArrowPathIcon,
@@ -10,24 +9,9 @@ import {
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
 import { CheckIcon } from '@heroicons/react/20/solid'
-import Image from 'next/image'
-import { motion as m, AnimatePresence } from 'framer-motion'
+import DemoVideo from '@/components/demo/demo'
 
 export default function LandingPage() {
-  const cardVariants = {
-    offscreen: {
-      y: 150,
-    },
-    onscreen: {
-      y: 0,
-
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  }
   return (
     <>
       <Head>
@@ -90,7 +74,7 @@ export default function LandingPage() {
 
           {/* Testimonial section */}
           <div className='md:mt-36 mt-24 justify-center'>
-            <Testimonials />
+            <DemoVideo />
           </div>
           {/* Pricing section */}
           <div className='pt-12 md:py-24 sm:pt-48'>
@@ -245,21 +229,6 @@ const tiers = [
     ],
     mostPopular: true,
   },
-  // {
-  //   name: 'Enterprise',
-  //   id: 'tier-enterprise',
-  //   href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
-  //   priceMonthly: '$60',
-  //   description: 'Dedicated support and infrastructure for your company.',
-  //   features: [
-  //     'Unlimited products',
-  //     'Unlimited subscribers',
-  //     'Advanced analytics',
-  //     '1-hour, dedicated support response time',
-  //     'Marketing automations',
-  //   ],
-  //   mostPopular: false,
-  // },
 ]
 
 function classNames(...classes) {
