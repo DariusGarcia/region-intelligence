@@ -352,7 +352,7 @@ const projects = [
   // },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+  { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
   { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 const company = [
