@@ -83,7 +83,7 @@ export default function DataTable({ permits }) {
                   className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'>
                   <Link
                     className='text-sm text-blue-600 hover:text-blue-500 underline flex flex-col gap-2'
-                    href={`/land-directory/list-view/${item.id}`}>
+                    href={`/current-planning-developments/list-view/${item.id}`}>
                     <p> {item.caseNumbers}</p>
                     <p>
                       {item.listingNames && item.listingNames?.slice(0, 25)}
