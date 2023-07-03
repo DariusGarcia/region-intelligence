@@ -23,32 +23,74 @@ export default function Faq() {
 const faqs = [
   {
     id: 1,
-    question: 'How do the reoccuring payments work?',
+    question: '1.	What is the planning map and what is its purpose? ',
     answer:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum quos odit doloribus.',
+      'Our tool is a comprehensive real estate platform specifically designed for real estate professionals in Southern California. It provides exclusive access to current planning developments, parcel-specific zoning information, and landmark locations, thereby equipping professionals with vital insights into the local real estate market. Giving professionals the opportunity to save time in their due diligence process. ',
   },
   {
     id: 2,
-    question: 'How do the reoccuring payments work?',
+    question: 'How do I create an account? ',
     answer:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum quos odit doloribus.',
+      "To create an account, navigate to our homepage and click on 'Get Started'. From that point on, pick a subscription tier that best suits your interest, and it will forward you to an account creation page. You will be asked for some background information regarding your role in the real-estate industry, we ask that you fill this out as it will help us improve our platform. Lastly, finish the sign-up process and you will receive a confirmation email. Click that email and you will get access to our beta version of the platform.",
   },
   {
     id: 3,
-    question: 'How do the reoccuring payments work?',
+    question: 'I forgot my password, how do I reset it? ',
     answer:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum quos odit doloribus.',
+      'If you\'ve forgotten your password, click on the "Forgot password?" link on the login page. You will be asked to enter the email address associated with your account. Once you do, an email will be sent with instructions on how to reset your password.',
   },
   {
     id: 4,
-    question: 'How do the reoccuring payments work?',
+    question: 'How can I update my personal information? ',
     answer:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum quos odit doloribus.',
+      'After logging in, navigate to "Profile" on the dashboard. From there, you can update your personal information, such as your name, email address, and professional details.',
   },
   {
     id: 5,
-    question: 'How do the reoccuring payments work?',
+    question: 'Where can I find a user manual or guide?',
     answer:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum quos odit doloribus.',
+      'Our user manual can be found in the "Help" or "Support" section of our website. it contains a detailed guide on how to use the platform and its various features.',
+  },
+  {
+    id: 6,
+    question: 'How can I contact customer support?',
+    answer:
+      'You can reach out to our customer support team through the "Company" tab under \'Contact Us\'. Another way is to click on the support button at the bottom of the page. We aim to respond to all queries within 24 hours.',
+  },
+  {
+    id: 7,
+    question: 'Is my personal information secure?',
+    answer:
+      'We take user privacy and data security very seriously. Your personal information is stored securely and is only used for the purposes outlined in our privacy policy.',
+  },
+  {
+    id: 8,
+    question: 'How often is the data in the app updated?',
+    answer:
+      'Our database is updated regularly to ensure that you have the most accurate and current information. Specific features like planning, developments, parcel information, and landmark locations are updated as we receive new data from municipal cities across Southern California.',
+  },
+  {
+    id: 9,
+    question: 'What is the cost of using the mapping tool? ',
+    answer:
+      'As our pricing model has not been solid, we are granting users free access to our platform in exchange for their time and feedback. The current tools available are in beta and need to be refined. Therefore, enjoy free access!',
+  },
+  {
+    id: 10,
+    question: "What does 'undisclosed' mean in the data?",
+    answer:
+      "The reasoning behind outlining 'undisclosed' is that the city has not provided us with this information yet. We are working hard in fixing this, as it is a concern to us as much as it is to you.",
+  },
+  {
+    id: 11,
+    question: 'How do I report a bug?',
+    answer:
+      'Please use our "Contact Us" tab under the "Company" link located on the home page. Another way is to click \'support\' located at the bottom of the page.',
+  },
+  {
+    id: 12,
+    question: 'Does the platform offer a mobile or desktop version? ',
+    answer:
+      'Yes! Our platform is accessible on any device layout, ensuring access to important information wherever you are.',
   },
 ]

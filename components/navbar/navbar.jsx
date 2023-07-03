@@ -29,7 +29,7 @@ export default function Navbar() {
   const avatarName =
     user?.user_metadata?.first_name?.slice(0, 1) +
     user?.user_metadata?.last_name?.slice(0, 1)
-  console.log(avatarName)
+
   useEffect(() => {
     async function loadData() {
       try {
@@ -352,12 +352,12 @@ const callsToAction = [
   { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]
 const company = [
-  // {
-  //   name: 'About us',
-  //   href: '/about',
-  //   description:
-  //     'Learn more about our company values and mission to empower others',
-  // },
+  {
+    name: 'About us',
+    href: '/about',
+    description:
+      'Learn more about our company values and mission to empower others',
+  },
   {
     name: 'Contact Us',
     href: '/contact',
