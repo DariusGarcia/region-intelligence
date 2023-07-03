@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Faq from '@/components/faq'
 import LandingHeader from '@/components/header/landingHeader'
 import Cta from '@/components/cta'
+import React, { useRef } from 'react'
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
@@ -12,6 +13,7 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 import DemoVideo from '@/components/demo/demo'
 
 export default function LandingPage() {
+  const targetRef = useRef(null)
   return (
     <>
       <Head>
@@ -30,12 +32,16 @@ export default function LandingPage() {
         <main className='isolate'>
           {/* Hero section */}
           <div className='flex justify-center md:my-24'>
-            <LandingHeader />
+            <LandingHeader
+              scrollToTarget={() =>
+                targetRef.current.scrollIntoView({ behavior: 'smooth' })
+              }
+            />
           </div>
 
           {/* Feature section */}
           <div className='mx-auto  md:mt-32 p-4 py-8 px-6 sm:mt-56 lg:px-8 bg-gray-900'>
-            <div className='mx-auto max-w-2xl lg:text-center'>
+            <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
               <h2 className='text-base font-semibold leading-7 text-blue-600'>
                 Gain insights quicker
               </h2>
@@ -193,9 +199,9 @@ const features = [
     icon: ArrowPathIcon,
   },
   {
-    name: 'Investment Optimizer',
+    name: 'Coming Soon: Demographic Dashboard',
     description:
-      'Our platform is designed with inventory needs at the core. With up-to-date and comprehensive land development data, we equip you with the insights necessary to identify potential investment opportunities efficiently. Navigate the landscape of Southern California real estate investment with confidence and precision.',
+      "We're always working to make First Property your ultimate real estate resource. That's why we're excited to announce our upcoming feature: the Demographic Dashboard. This innovative tool will provide you with rich demographic data at your fingertips. Understand the population's age, income levels, household size, and much more in your targeted areas. Whether you're considering a new investment or advising a client, our Demographic Dashboard will provide key insights to make the most informed decisions. Stay tuned for the unveiling of this feature – a game-changer in tailoring your real estate strategies!",
     icon: FingerPrintIcon,
   },
 ]

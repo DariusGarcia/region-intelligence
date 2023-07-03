@@ -1,25 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion as m, AnimatePresence } from 'framer-motion'
-import mobileImg from '../../public/mobile.png'
 
-export default function LandingHeader() {
-  const cardVariants = {
-    hidden: {
-      y: 200,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  }
-
+export default function LandingHeader({ scrollToTarget }) {
   return (
     <div className='relative bg-white '>
       <div className='mx-auto flex flex-row lg:px-8'>
@@ -33,9 +16,9 @@ export default function LandingHeader() {
               <div className='flex flex-col justify-center mx-auto max-w-2xl lg:mx-0'>
                 <div className='hidden sm:mt-32 md:mt-0 sm:flex '>
                   <div className='relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
-                    Announcing our next round of funding.{' '}
+                    Explore our journey.{' '}
                     <Link
-                      href='#'
+                      href='/about'
                       className='whitespace-nowrap font-semibold text-blue-600'>
                       <span className='absolute inset-0' aria-hidden='true' />
                       Read more <span aria-hidden='true'>&rarr;</span>
@@ -46,12 +29,9 @@ export default function LandingHeader() {
                   Empower Your Real Estate Journey
                 </h1>
                 <p className='mt-6 text-lg leading-8 text-gray-600'>
-                  No more navigating through complex research. With First
-                  Property, everything you need is just a few clicks away. Our
-                  platform revolutionizes the way you access and handle vital
-                  information, making your decision-making process quicker and
-                  more informed. Step into the future of property development -
-                  Join First Property today!
+                  First Property: Simple, quick, insightful. Your key to smarter
+                  decision-making in property development. Join today and
+                  revolutionize your real estate journey
                 </p>
                 <div className='mt-10 flex items-center gap-x-6'>
                   <Link
@@ -59,18 +39,19 @@ export default function LandingHeader() {
                     className='rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                     Get started
                   </Link>
-                  <Link
-                    href='/pricing'
+                  <button
+                    onClick={scrollToTarget}
+                    href='gain-insights'
                     className='text-sm font-semibold leading-6 text-gray-900'>
                     Learn more <span aria-hidden='true'>→</span>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </m.div>
             <div className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
               <Image
                 className=' w-full rounded-lg  bg-gray-50 lg:h-full'
-                src={'/updatedMap.png'}
+                src='/updatedMap.png'
                 alt='landing'
                 height={1000}
                 width={1000}
@@ -82,4 +63,20 @@ export default function LandingHeader() {
       </div>
     </div>
   )
+}
+
+const cardVariants = {
+  hidden: {
+    y: 200,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
 }
