@@ -108,9 +108,10 @@ export default function MapsPage() {
             </Head>
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
-                City project locations
+                City Planning Guide
               </h1>
-              <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center'>
+              {/* Select menus */}
+              {/* <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center'>
                 <div className='flex flex-col w-72 cursor-pointer'>
                   <CitySelectMenu
                     onSelect={handleCitySelection}
@@ -125,7 +126,7 @@ export default function MapsPage() {
                     className='cursor-pointer'
                   />
                 </div>
-              </div>
+              </div> */}
               {/* New map iFrame */}
               <section className='h-full w-full mt-12'>
                 <iframe
