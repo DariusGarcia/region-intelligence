@@ -10,21 +10,6 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 
 export default function PricingPage() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
-  const cardVariants = {
-    offscreen: {
-      y: 150,
-      opacity: 0,
-    },
-    onscreen: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  }
 
   return (
     <>
@@ -482,7 +467,7 @@ const pricing = {
     {
       name: 'Starter',
       id: 'tier-starter',
-      href: '/maps',
+      href: '/current-planning-developments/map-view',
       featured: false,
       description: 'All your essential business finances, taken care of.',
       price: { monthly: 'Free', annually: 'Free' },
@@ -508,21 +493,6 @@ const pricing = {
         'Local data extraction',
       ],
     },
-    // {
-    //   name: 'Enterprise',
-    //   id: 'tier-growth',
-    //   href: 'https://buy.stripe.com/test_14k16u3NN0Ha6eA5km',
-    //   featured: false,
-    //   description:
-    //     'Convenient features to take your business to the next level.',
-    //   price: { monthly: '$30', annually: '$288' },
-    //   mainFeatures: [
-    //     'Basic invoicing',
-    //     'Easy to use accounting',
-    //     'Mutli-accounts',
-    //     'Tax planning toolkit',
-    //   ],
-    // },
   ],
   sections: [
     {
@@ -608,4 +578,20 @@ export async function getStaticProps() {
   return {
     props: {},
   }
+}
+
+const cardVariants = {
+  offscreen: {
+    y: 150,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
 }

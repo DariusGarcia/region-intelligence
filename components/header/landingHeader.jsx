@@ -70,7 +70,7 @@ export default function LandingHeader() {
             <div className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
               <Image
                 className=' w-full rounded-lg  bg-gray-50 lg:h-full'
-                src={mobileImg}
+                src={'/updatedMap.png'}
                 alt='landing'
                 height={1000}
                 width={1000}
