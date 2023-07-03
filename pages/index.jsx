@@ -209,7 +209,7 @@ const tiers = [
   {
     name: 'Starter',
     id: 'tier-freelancer',
-    href: '/maps',
+    href: '/current-planning-developments/map-view',
     priceMonthly: 'Free',
     description: 'The essentials to provide your best work for clients.',
     features: [
