@@ -3,13 +3,6 @@ import Head from 'next/head'
 import Router from 'next/router'
 import { createClient } from '@supabase/supabase-js'
 import { useSession } from '@supabase/auth-helpers-react'
-import {
-  useLoadScript,
-  GoogleMap,
-  MarkerF,
-  InfoWindowF,
-} from '@react-google-maps/api'
-import SlideOver from '@/components/navbar/slideOver'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
@@ -32,13 +25,6 @@ export default function MapsPage() {
     return () => clearTimeout(timeout)
   }, [session])
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
-  })
-
-  const [selectedMarker, setSelectedMarker] = useState(null)
-  const [isSlideOverOpen, setIsSlideOverOpen] = useState(false)
-  const [selectedMarkerData, setSelectedMarkerData] = useState(null)
   const [permitData, setPermitData] = useState([])
   const [isLoading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -46,9 +32,7 @@ export default function MapsPage() {
   const [projectStatuses, setProjectStatuses] = useState(['All'])
   const [selectedCity, setSelectedCity] = useState('All cities')
   const [selectedProjectStatus, setSelectedProjectStatus] = useState('All')
-  // const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  console.log(projectStatuses)
   useEffect(() => {
     setLoading(true)
     fetchPermits()
@@ -102,16 +86,6 @@ export default function MapsPage() {
     setProjectStatuses(distinctProjectStatuses)
   }
 
-  const handleMarkerClick = (markerData) => {
-    setSelectedMarkerData(markerData)
-    setSelectedMarker(markerData)
-    setIsSlideOverOpen(true)
-  }
-
-  const handleInfoWindowClose = () => {
-    setSelectedMarker(null)
-  }
-
   function handleCitySelection(city) {
     setSelectedCity(city)
   }
@@ -152,155 +126,16 @@ export default function MapsPage() {
                   />
                 </div>
               </div>
-              <div className='flex flex-row'>
-                <GoogleMap
-                  center={
-                    typeof permitData[0] == 'number' && selectedMarker
-                      ? {
-                          lat: selectedMarker?.lat,
-                          lng: selectedMarker?.lng,
-                        }
-                      : {
-                          lat: 33.7559852,
-                          lng: -117.8953888,
-                        }
-                  }
-                  zoom={12}
-                  options={{ mapTypeId: 'hybrid' }}
-                  mapContainerStyle={{
-                    margin: '20px 0 0',
-                    height: '70vh',
-                    width: '100%',
-                    borderRadius: '8px',
-                  }}>
-                  {permitData.length > 0 &&
-                    permitData?.map((permit) => (
-                      <MarkerF
-                        key={permit.id}
-                        position={{
-                          lat: Number(permit?.lat),
-                          lng: Number(permit?.lng),
-                        }}
-                        onClick={() =>
-                          handleMarkerClick({
-                            applicant: permit.applicant,
-                            applicantEmail: permit.applicantEmail,
-                            applicantPhone: permit.applicantPhone,
-                            caseNumbers: permit.caseNumbers,
-                            city: permit.city,
-                            created_at: permit.created_at,
-                            id: permit.id,
-                            imageUrls: permit.imageUrls,
-                            lat: permit.lat,
-                            listingNames: permit.listingNames,
-                            lng: permit.lng,
-                            plannerEmail: permit.plannerEmail,
-                            plannerName: permit.plannerName,
-                            plannerPhone: permit.plannerPhone,
-                            projectDescriptions: permit.projectDescriptions,
-                            projectLocations: permit.projectLocations,
-                            projectStatus: permit.projectStatus,
-                            recentUpdate: permit.recentUpdate,
-                            typeOfUse: permit.typeOfUse,
-                          })
-                        }
-                      />
-                    ))}
-                  {selectedMarker && (
-                    <InfoWindowF
-                      position={{
-                        lat: selectedMarker?.lat,
-                        lng: selectedMarker?.lng,
-                      }}
-                      onCloseClick={handleInfoWindowClose}
-                      onClick={() =>
-                        handleMarkerClick({
-                          applicant,
-                          caseNumbers,
-                          id,
-                          imageUrls,
-                          lat,
-                          listingNames,
-                          lng,
-                          plannerEmail,
-                          plannerName,
-                          plannerPhone,
-                          projectDescriptions,
-                          projectLocations,
-                          projectStatus,
-                          recentUpdate,
-                          typeOfUse,
-                        })
-                      }>
-                      <article
-                        id={selectedMarker.id}
-                        className='flex flex-col gap-2 pb-4 md:pb-0 md:pr-0 pr-2 w-full'>
-                        {selectedMarker.recentUpdate === 'Undisclosed' ? (
-                          ''
-                        ) : (
-                          <>
-                            <p>
-                              <span className='font-medium'>Case number: </span>
-                              {selectedMarker.caseNumbers}
-                            </p>
-                          </>
-                        )}
-                        <p>
-                          <span className='font-medium'>Listing name:</span>{' '}
-                          {selectedMarker.listingNames}
-                        </p>
-                        <p>
-                          <span className='font-medium'>Address:</span>{' '}
-                          {selectedMarker.projectLocations}
-                        </p>
-                        {selectedMarker.applicant === 'Undisclosed' ? (
-                          ''
-                        ) : (
-                          <>
-                            <p>
-                              <span className='font-medium'>Applicant:</span>{' '}
-                              {selectedMarker.applicant}
-                            </p>
-                          </>
-                        )}
-                        {selectedMarker.plannerName === 'Undisclosed' ? (
-                          ''
-                        ) : (
-                          <>
-                            <p>
-                              <span className='font-medium'>
-                                Planner's name:
-                              </span>{' '}
-                              {selectedMarker.plannerName}
-                            </p>
-                          </>
-                        )}
-                        {selectedMarker.plannerEmail === 'Undisclosed' ? (
-                          ''
-                        ) : (
-                          <>
-                            <p>
-                              <span className='font-medium'>
-                                Planner's email:
-                              </span>{' '}
-                              {selectedMarker.plannerEmail}
-                            </p>
-                          </>
-                        )}
-                        <p>
-                          <span className='font-medium'>Status:</span>{' '}
-                          {selectedMarker.projectStatus}
-                        </p>
-                      </article>
-                    </InfoWindowF>
-                  )}
-                </GoogleMap>
-              </div>
-              <SlideOver
-                isOpen={isSlideOverOpen}
-                onClose={() => setIsSlideOverOpen(!isSlideOverOpen)}
-                markerData={selectedMarkerData}
-              />
+              {/* New map iFrame */}
+              <section className='h-full w-full mt-12'>
+                <iframe
+                  src='https://ucirvine.maps.arcgis.com/apps/instant/sidebar/index.html?appid=c0d456660cd54723a4b760db84883624'
+                  frameBorder='0'
+                  className='w-full h-[90vh] rounded-md'
+                  allowFullScreen>
+                  iFrames are not supported on this page.
+                </iframe>
+              </section>
               <section className='mt-8 md:mt-24 w-full flex flex-col items-center '>
                 <div>
                   <h2 className='font-bold text-3xl'>Projects Table</h2>
@@ -320,10 +155,7 @@ export default function MapsPage() {
     )
   }
 
-  return isLoaded &&
-    permitData?.length > 0 &&
-    permitData?.lat !== null &&
-    !isLoading ? (
+  return permitData?.length > 0 && permitData?.lat !== null && !isLoading ? (
     renderMap()
   ) : (
     <div className='flex justify-center my-24'>
@@ -331,24 +163,3 @@ export default function MapsPage() {
     </div>
   )
 }
-
-/**
- * Code for image slider
- */
-
-// const handleScroll = () => {
-//   const scrollPosition = window.scrollY
-//   const windowHeight = window.innerHeight
-
-//   const scrollPercentage = scrollPosition / windowHeight
-//   const newIndex = Math.floor(scrollPercentage * images.length)
-
-//   setCurrentImageIndex(newIndex)
-// }
-
-// useEffect(() => {
-//   window.addEventListener('scroll', handleScroll)
-//   return () => {
-//     window.removeEventListener('scroll', handleScroll)
-//   }
-// }, [])
