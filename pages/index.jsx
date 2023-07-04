@@ -31,11 +31,11 @@ export default function LandingPage() {
               today!'
         />
       </Head>
-      <div className='bg-white'>
+      <div className='bg-white w-full'>
         <AnimatePresence>
-          <main className='isolate'>
+          <main className='isolate w-full'>
             {/* Hero section */}
-            <div className='flex justify-center md:my-24'>
+            <div className='flex justify-center md:my-24 w-full'>
               <LandingHeader
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -46,10 +46,10 @@ export default function LandingPage() {
             {/* Feature section */}
             <div className='mx-auto  md:mt-32 p-4 py-8 px-6 sm:mt-56 lg:px-8 bg-gray-900'>
               <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
-                <h2 className='text-2xl font-semibold leading-7 text-blue-600'>
+                <h2 className='text-xl font-semibold leading-7 text-blue-600'>
                   Gain insights quicker
                 </h2>
-                <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+                <p className='my-2 text-2xl font-bold tracking-tight text-white sm:text-4xl'>
                   Everything you need to be up to date
                 </p>
                 <p className=' text-lg leading-8 text-white'>

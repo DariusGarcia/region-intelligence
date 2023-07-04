@@ -5,7 +5,7 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 export default function LandingHeader({ scrollToTarget }) {
   return (
     <div className='relative bg-white '>
-      <div className='mx-auto flex flex-row lg:px-8'>
+      <div className='mx-auto flex flex-wrap lg:px-8'>
         <AnimatePresence>
           <m.div
             initial='hidden'
