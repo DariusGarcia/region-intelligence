@@ -160,7 +160,7 @@ export default function FeedbackPopup() {
                               htmlFor='project-description'
                               className='block text-sm font-medium leading-6 text-gray-900 sm:mt-1.5'>
                               Leave a comment about how we could improve our
-                              platform
+                              platform.
                             </label>
                           </div>
                           <div className='sm:col-span-2'>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8'>
+    <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8 '>
       <footer
         aria-labelledby='footer-heading'
         className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'>
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <Link
             href='/'
-            className='h-7 text-md font-semibold hover:underline leading-6 text-gray-900 hover:text-black'
+            className='h-7 text-xl font-semibold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
             alt='Company name'>
             First Property
           </Link>
@@ -97,17 +97,17 @@ const footerNavigation = {
   projects: [
     { name: 'Map View', href: '/current-planning-developments/map-view' },
     { name: 'Land Directory', href: '/current-planning-developments' },
-    { name: 'CEQA Map', href: '/ceqa' },
+    { name: 'Demo', href: '/demo' },
+    // { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
     { name: 'Contact Us', href: '/contact' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Documentation', href: '#' },
   ],
   company: [{ name: 'About us', href: '/' }],
   legal: [
     { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Privacy', href: '/company/privacy' },
+    { name: 'Terms', href: '/company/terms-and-conditions' },
   ],
 }

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Navbar from '@/components/navbar/navbar'
 import Footer from '@/components/footer'
 import Head from 'next/head'
-import ChatBot from '@/components/chatBot'
+import ChatBot from '@/features/chatBot'
 
 export default function MyApp({ Component, pageProps }) {
   const [supabase] = useState(() => createBrowserSupabaseClient())
@@ -17,8 +17,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <SessionContextProvider
         supabaseClient={supabase}
-        initialSession={pageProps.initialSession}
-      >
+        initialSession={pageProps.initialSession}>
         <Navbar />
         <ChatBot />
         <Component {...pageProps} />
