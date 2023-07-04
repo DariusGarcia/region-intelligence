@@ -2,12 +2,12 @@ import React from 'react'
 
 const TermsAndConditions = () => {
   return (
-    <div className='w-full flex flex-col justify-center items-center my-12 md:my-24 px-4'>
+    <div className='w-full flex flex-col justify-center items-center my-12 px-4 md:mx-4'>
       <div className='max-w-7xl'>
         <h1 className='text-2xl font-bold'>Terms and Conditions</h1>
         <section className='flex flex-col gap-4 mt-8 '>
           {terms.map((term) => (
-            <div>
+            <div key={term.id}>
               <h2 className='font-medium text-lg'>{term.title}</h2>
               <p className='pl-6'>{term.text}</p>
             </div>
