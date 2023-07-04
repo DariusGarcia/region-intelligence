@@ -13,8 +13,7 @@ export default function ContactPage() {
             <div className='absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2'>
               <svg
                 className='absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
-                aria-hidden='true'
-              >
+                aria-hidden='true'>
                 <defs>
                   <pattern
                     id='83fd4e5a-9d52-42fc-97b6-718e5d7ee527'
@@ -22,8 +21,7 @@ export default function ContactPage() {
                     height={200}
                     x='100%'
                     y={-1}
-                    patternUnits='userSpaceOnUse'
-                  >
+                    patternUnits='userSpaceOnUse'>
                     <path d='M130 200V.5M.5 .5H200' fill='none' />
                   </pattern>
                 </defs>
@@ -44,7 +42,7 @@ export default function ContactPage() {
             </h2>
             <p className='mt-6 text-lg leading-8 text-gray-600'>
               Get in touch with our dedicated support team for any questions or
-              inquiries
+              inquiries. Please allow up to 48 hours for a response.
             </p>
             <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600'>
               <div className='flex gap-x-4'>
@@ -55,11 +53,7 @@ export default function ContactPage() {
                     aria-hidden='true'
                   />
                 </dt>
-                <dd>
-                  545 Bloomfield
-                  <br />
-                  Cerritos, CA 90703
-                </dd>
+                <dd>Cerritos, CA 90703</dd>
               </div>
               <div className='flex gap-x-4'>
                 <dt className='flex-none'>
@@ -72,8 +66,7 @@ export default function ContactPage() {
                 <dd>
                   <a
                     className='hover:text-gray-900'
-                    href='tel:+1 (555) 234-5678'
-                  >
+                    href='tel:+1 (562) 275-1986'>
                     +1 (562) 275-1986
                   </a>
                 </dd>
@@ -89,9 +82,8 @@ export default function ContactPage() {
                 <dd>
                   <a
                     className='hover:text-gray-900'
-                    href='mailto:hello@example.com'
-                  >
-                    johndoe@gamil.com
+                    href='mailto:jasotel1@uci.edu'>
+                    jasotel1@uci.edu
                   </a>
                 </dd>
               </div>
@@ -101,15 +93,13 @@ export default function ContactPage() {
         <form
           action='#'
           method='POST'
-          className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'
-        >
+          className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
           <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
             <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
               <div>
                 <label
                   htmlFor='first-name'
-                  className='block text-sm font-semibold leading-6 text-gray-900'
-                >
+                  className='block text-sm font-semibold leading-6 text-gray-900'>
                   First name
                 </label>
                 <div className='mt-2.5'>
@@ -125,8 +115,7 @@ export default function ContactPage() {
               <div>
                 <label
                   htmlFor='last-name'
-                  className='block text-sm font-semibold leading-6 text-gray-900'
-                >
+                  className='block text-sm font-semibold leading-6 text-gray-900'>
                   Last name
                 </label>
                 <div className='mt-2.5'>
@@ -142,8 +131,7 @@ export default function ContactPage() {
               <div className='sm:col-span-2'>
                 <label
                   htmlFor='email'
-                  className='block text-sm font-semibold leading-6 text-gray-900'
-                >
+                  className='block text-sm font-semibold leading-6 text-gray-900'>
                   Email
                 </label>
                 <div className='mt-2.5'>
@@ -159,8 +147,7 @@ export default function ContactPage() {
               <div className='sm:col-span-2'>
                 <label
                   htmlFor='phone-number'
-                  className='block text-sm font-semibold leading-6 text-gray-900'
-                >
+                  className='block text-sm font-semibold leading-6 text-gray-900'>
                   Phone number
                 </label>
                 <div className='mt-2.5'>
@@ -176,8 +163,7 @@ export default function ContactPage() {
               <div className='sm:col-span-2'>
                 <label
                   htmlFor='message'
-                  className='block text-sm font-semibold leading-6 text-gray-900'
-                >
+                  className='block text-sm font-semibold leading-6 text-gray-900'>
                   Message
                 </label>
                 <div className='mt-2.5'>
@@ -194,8 +180,7 @@ export default function ContactPage() {
             <div className='mt-8 flex justify-end'>
               <button
                 type='submit'
-                className='rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
-              >
+                className='rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                 Send message
               </button>
             </div>
