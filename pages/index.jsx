@@ -201,7 +201,7 @@ const features = [
   {
     name: 'Coming Soon: Demographic Dashboard',
     description:
-      "We're always working to make First Property your ultimate real estate resource. That's why we're excited to announce our upcoming feature: the Demographic Dashboard. This innovative tool will provide you with rich demographic data at your fingertips. Understand the population's age, income levels, household size, and much more in your targeted areas. Whether you're considering a new investment or advising a client, our Demographic Dashboard will provide key insights to make the most informed decisions. Stay tuned for the unveiling of this feature – a game-changer in tailoring your real estate strategies!",
+      "We're always working to make First Property your ultimate real estate resource. That's why we're excited to announce our upcoming feature: the Demographic Dashboard. This innovative tool will provide you with rich demographic data at your fingertips. Understand the population's age, income levels, household size, and much more in your targeted areas. Whether you're considering a new investment or advising a client, our Demographic Dashboard will provide key insights to make the most informed decisions.",
     icon: FingerPrintIcon,
   },
 ]

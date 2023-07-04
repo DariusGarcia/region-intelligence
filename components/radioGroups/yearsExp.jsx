@@ -1,4 +1,4 @@
-export default function RadioGroup({ onInputChange }) {
+export default function YearsExpRadioGroup({ onInputChange }) {
   function handleChange(event) {
     const value = event.target.value
     onInputChange(value)
@@ -7,7 +7,7 @@ export default function RadioGroup({ onInputChange }) {
   return (
     <fieldset>
       <legend className='text-base font-semibold text-gray-900'>
-        Select a background
+        How many years of experience do you have in the real estate industry?
       </legend>
       <div className='mt-4 divide-y divide-gray-200 border-b border-t border-gray-200'>
         {sides.map((side, sideIdx) => (
@@ -15,8 +15,7 @@ export default function RadioGroup({ onInputChange }) {
             <div className='min-w-0 flex-1 text-sm leading-6'>
               <label
                 htmlFor={`side-${side.id}`}
-                className='select-none font-medium text-gray-900'
-              >
+                className='select-none font-medium text-gray-900'>
                 {side.name}
               </label>
             </div>
@@ -39,10 +38,9 @@ export default function RadioGroup({ onInputChange }) {
 }
 
 const sides = [
-  { id: 1, name: 'Home Builder' },
-  { id: 2, name: 'Contractor' },
-  { id: 3, name: 'Land Owner' },
-  { id: 4, name: 'Investor' },
-  { id: 5, name: 'Realtor' },
-  { id: 6, name: 'Other' },
+  { id: 1, name: 'Less than 1 year' },
+  { id: 2, name: '1-3 years' },
+  { id: 3, name: '4-6 years' },
+  { id: 4, name: '7-10 years' },
+  { id: 5, name: 'More than 10 years' },
 ]
