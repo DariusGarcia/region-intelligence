@@ -29,9 +29,12 @@ export default function LandingHeader({ scrollToTarget }) {
                   Empower Your Real Estate Journey
                 </h1>
                 <p className='mt-6 text-lg leading-8 text-gray-600'>
-                  First Property: Simple, quick, insightful. Your key to smarter
-                  decision-making in property development. Join today and
-                  revolutionize your real estate journey
+                  First Property:{' '}
+                  <span className='italic text-blue-600'>
+                    Simple, quick, insightful
+                  </span>
+                  . Your key to smarter decision-making in property development.
+                  Join today and revolutionize your real estate journey.
                 </p>
                 <div className='mt-10 flex items-center gap-x-6'>
                   <Link
@@ -48,16 +51,23 @@ export default function LandingHeader({ scrollToTarget }) {
                 </div>
               </div>
             </m.div>
-            <div className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
-              <Image
-                className=' w-full rounded-lg  bg-gray-50 lg:h-full'
-                src='/updatedMap.png'
-                alt='landing'
-                height={1000}
-                width={1000}
-                priority
-              />
-            </div>
+
+            <m.div
+              initial='hidden'
+              animate='visible'
+              viewport={{ once: true, amount: 0.8 }}
+              className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
+              <m.div variants={cardVariantsHorizontal}>
+                <Image
+                  className=' w-full rounded-lg  bg-gray-50 lg:h-full'
+                  src='/updatedMap.png'
+                  alt='landing'
+                  height={1000}
+                  width={1000}
+                  priority
+                />
+              </m.div>
+            </m.div>
           </m.div>{' '}
         </AnimatePresence>
       </div>
@@ -72,6 +82,22 @@ const cardVariants = {
   },
   visible: {
     y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+}
+
+const cardVariantsHorizontal = {
+  hidden: {
+    x: 200,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
     opacity: 1,
     transition: {
       type: 'spring',
