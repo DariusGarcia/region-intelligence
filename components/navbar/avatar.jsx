@@ -36,7 +36,7 @@ export default function Avatar({ name }) {
                 My profile
               </Link>
               <button
-                className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                className='font-semibold leading-6 text-gray-900 hover:text-blue-600'
                 onClick={logout}>
                 Logout <span aria-hidden='true'>&rarr;</span>
               </button>
