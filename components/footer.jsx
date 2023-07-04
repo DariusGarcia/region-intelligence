@@ -103,12 +103,11 @@ const footerNavigation = {
   support: [
     { name: 'Contact Us', href: '/contact' },
     { name: 'Pricing', href: '/pricing' },
-    // { name: 'Documentation', href: '#' },
   ],
   company: [{ name: 'About us', href: '/' }],
   legal: [
     { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Privacy', href: '/company/privacy' },
+    { name: 'Terms', href: '/company/terms-and-conditions' },
   ],
 }
