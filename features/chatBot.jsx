@@ -37,8 +37,7 @@ export default function ChatBot() {
             <p className='w-full'>AI ChatBot</p>
             <button
               className='w-max hover:opacity-50 transition ease-out'
-              onClick={() => setVisible(!visible)}
-            >
+              onClick={() => setVisible(!visible)}>
               Close
             </button>
           </div>

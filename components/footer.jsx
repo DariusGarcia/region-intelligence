@@ -98,15 +98,20 @@ const footerNavigation = {
     { name: 'Map View', href: '/current-planning-developments/map-view' },
     { name: 'Land Directory', href: '/current-planning-developments' },
     { name: 'Demo', href: '/demo' },
+    { name: 'My profile', href: '/profile' },
     // { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
     { name: 'Contact Us', href: '/contact' },
     { name: 'Pricing', href: '/pricing' },
   ],
-  company: [{ name: 'About us', href: '/' }],
+
+  company: [
+    { name: 'About us', href: '/' },
+    { name: 'FAQ', href: '/company/faq' },
+  ],
   legal: [
-    { name: 'Claim', href: '#' },
+    // { name: 'Claim', href: '#' },
     { name: 'Privacy', href: '/company/privacy' },
     { name: 'Terms', href: '/company/terms-and-conditions' },
   ],
