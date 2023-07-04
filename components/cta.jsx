@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function Cta() {
   return (
-    <div className='bg-white mt-12 md:mt-24'>
-      <div className='mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex flex-col gap-8 lg:items-center lg:justify-between lg:px-8'>
+    <div className='bg-white mt-12 md:mt-36'>
+      <div className='mx-auto max-w-7xl px-6 lg:flex flex-col gap-8 lg:items-center lg:justify-between lg:px-8'>
         <h2 className='text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl'>
           Ready to dive in?
           <br />

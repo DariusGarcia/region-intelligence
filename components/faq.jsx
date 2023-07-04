@@ -23,7 +23,7 @@ export default function Faq() {
 const faqs = [
   {
     id: 1,
-    question: '1.	What is the planning map and what is its purpose? ',
+    question: 'What is the planning map and what is its purpose? ',
     answer:
       'Our tool is a comprehensive real estate platform specifically designed for real estate professionals in Southern California. It provides exclusive access to current planning developments, parcel-specific zoning information, and landmark locations, thereby equipping professionals with vital insights into the local real estate market. Giving professionals the opportunity to save time in their due diligence process. ',
   },
