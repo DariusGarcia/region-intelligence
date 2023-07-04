@@ -8,6 +8,7 @@ import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
 import ErrorPage from '../error'
 import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
+import FeedbackPopup from '@/features/feedbackPopup'
 
 export default function MapsPage() {
   const session = useSession()
@@ -107,6 +108,7 @@ export default function MapsPage() {
               <title>First Property - Maps</title>
             </Head>
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
+              <FeedbackPopup />
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City Planning Guide
               </h1>
