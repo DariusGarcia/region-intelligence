@@ -86,7 +86,7 @@ const cardVariants = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 0.8,
+      duration: 1,
     },
   },
 }
@@ -102,7 +102,8 @@ const cardVariantsHorizontal = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 0.8,
+      duration: 1,
+      delay: 0.2,
     },
   },
 }
