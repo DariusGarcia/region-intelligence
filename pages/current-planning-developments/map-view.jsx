@@ -9,6 +9,9 @@ import DataTable from '@/components/dataTables/dataTable'
 import ErrorPage from '../error'
 import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
 import FeedbackPopup from '@/features/feedbackPopup'
+import FeedBackBanner from '@/components/alerts/FeedBackbanner'
+
+const appId = process.env.NEXT_PUBLIC_ARCGIS_APP_ID
 
 export default function MapsPage() {
   const session = useSession()
@@ -107,6 +110,7 @@ export default function MapsPage() {
             <Head>
               <title>First Property - Maps</title>
             </Head>
+            <FeedBackBanner />
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
               <FeedbackPopup />
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
@@ -131,13 +135,15 @@ export default function MapsPage() {
               </div> */}
               {/* New map iFrame */}
               <section className='h-full w-full mt-12'>
-                <iframe
-                  src='https://ucirvine.maps.arcgis.com/apps/instant/sidebar/index.html?appid=c0d456660cd54723a4b760db84883624'
-                  frameBorder='0'
-                  className='w-full h-[90vh] rounded-md'
-                  allowFullScreen>
-                  iFrames are not supported on this page.
-                </iframe>
+                {appId && (
+                  <iframe
+                    src={`https://ucirvine.maps.arcgis.com/apps/instant/sidebar/index.html?appid=${appId}`}
+                    frameBorder='0'
+                    className='w-full h-[90vh] rounded-md'
+                    allowFullScreen>
+                    iFrames are not supported on this page.
+                  </iframe>
+                )}
               </section>
               <section className='mt-8 md:mt-24 w-full flex flex-col items-center '>
                 <div>
