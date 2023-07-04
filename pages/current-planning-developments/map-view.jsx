@@ -135,7 +135,7 @@ export default function MapsPage() {
               </div> */}
               {/* New map iFrame */}
               <section className='h-full w-full mt-12'>
-                {appId && (
+                {appId ? (
                   <iframe
                     src={`https://ucirvine.maps.arcgis.com/apps/instant/sidebar/index.html?appid=${appId}`}
                     frameBorder='0'
@@ -143,6 +143,10 @@ export default function MapsPage() {
                     allowFullScreen>
                     iFrames are not supported on this page.
                   </iframe>
+                ) : (
+                  <h2 className='p-2 font-bold text-center bg-red-500 text-white '>
+                    Error: Missing ARC GIS API Key
+                  </h2>
                 )}
               </section>
               <section className='mt-8 md:mt-24 w-full flex flex-col items-center '>

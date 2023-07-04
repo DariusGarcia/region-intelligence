@@ -26,7 +26,7 @@ export default function ProfilePage() {
 
   return (
     <>
-      <div className='min-h-full bg-stone-50'>
+      <div className='min-h-full '>
         <div className=''>
           <div className='bg-blue-600 pb-32'>
             <header className='py-10'>
