@@ -4,8 +4,8 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 
 export default function LandingHeader({ scrollToTarget }) {
   return (
-    <div className='relative bg-white '>
-      <div className='mx-auto flex flex-wrap lg:px-8'>
+    <div className='relative bg-white max-w-[100vw] w-full'>
+      <div className='mx-auto flex flex-wrap lg:px-8 w-full'>
         <AnimatePresence>
           <m.div
             initial='hidden'
@@ -56,7 +56,7 @@ export default function LandingHeader({ scrollToTarget }) {
               initial='hidden'
               animate='visible'
               viewport={{ once: true, amount: 0.8 }}
-              className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
+              className='relative mt-12 md:mt-24 mb-24 md:mb-0 relative'>
               <m.div variants={cardVariantsHorizontal}>
                 <Image
                   className=' w-full rounded-lg  bg-gray-50 lg:h-full'
@@ -93,7 +93,7 @@ const cardVariants = {
 
 const cardVariantsHorizontal = {
   hidden: {
-    x: 200,
+    x: -200,
     opacity: 0,
   },
   visible: {
