@@ -63,7 +63,7 @@ export default function PricingPage() {
                     </m.div>
                   </m.div>
                 </AnimatePresence>
-                <div className='relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-2'>
+                <div className='relative mx-auto mt-10 flex items-center justify-center  gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none '>
                   <svg
                     viewBox='0 0 1208 1024'
                     aria-hidden='true'
@@ -83,7 +83,7 @@ export default function PricingPage() {
                     </defs>
                   </svg>
                   <div
-                    className='hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10'
+                    className='hidden lg:absolute lg:inset-x-px justify-center items-center lg:bottom-0 lg:top-4 lg:flex lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10'
                     aria-hidden='true'
                   />
                   {pricing.tiers.map((tier) => (
@@ -242,7 +242,7 @@ export default function PricingPage() {
                                     {section.features.map((feature) => (
                                       <div
                                         key={feature.name}
-                                        className='flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-2 sm:px-0'>
+                                        className='flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-1 sm:px-0'>
                                         <dt className='pr-4 text-gray-600'>
                                           {feature.name}
                                         </dt>
@@ -313,7 +313,7 @@ export default function PricingPage() {
                     Feature comparison
                   </h2>
 
-                  <div className='grid grid-cols-3 gap-x-8 border-t border-gray-900/10 before:block'>
+                  <div className='grid grid-cols-2 gap-x-8 border-t border-gray-900/10 before:block'>
                     {pricing.tiers.map((tier) => (
                       <div key={tier.id} aria-hidden='true' className='-mt-px'>
                         <div
@@ -347,7 +347,7 @@ export default function PricingPage() {
                         <div className='relative -mx-8 mt-10'>
                           {/* Fake card backgrounds */}
                           <div
-                            className='absolute inset-x-8 inset-y-0 grid grid-cols-3 gap-x-8 before:block'
+                            className='absolute inset-x-8 inset-y-0 -m-2 gap-x-8 before:block'
                             aria-hidden='true'>
                             <div className='h-full w-full rounded-lg bg-white shadow-sm' />
                             <div className='h-full w-full rounded-lg bg-white shadow-sm' />
@@ -428,7 +428,7 @@ export default function PricingPage() {
 
                           {/* Fake card borders */}
                           <div
-                            className='pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-3 gap-x-8 before:block'
+                            className='pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-2 gap-x-8 before:block'
                             aria-hidden='true'>
                             {pricing.tiers.map((tier) => (
                               <div
@@ -477,60 +477,82 @@ const pricing = {
         'Basic analytics',
       ],
     },
-    {
-      name: 'Scale',
-      id: 'tier-scale',
-      href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
-      featured: true,
-      description: 'The best financial services for your thriving business.',
-      price: { monthly: '$10', annually: '$120' },
-      mainFeatures: [
-        'Access  to current developments',
-        'Access to CEQA listings',
-        'Advanced analytics',
-        'CEQA topic modelings',
-        'Insightful demographic data',
-        'Local data extraction',
-      ],
-    },
+    // {
+    //   name: 'Scale',
+    //   id: 'tier-scale',
+    //   href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
+    //   featured: true,
+    //   description: 'The best financial services for your thriving business.',
+    //   price: { monthly: '$10', annually: '$120' },
+    //   mainFeatures: [
+    //     'Access  to current developments',
+    //     'Access to CEQA listings',
+    //     'Advanced analytics',
+    //     'CEQA topic modelings',
+    //     'Insightful demographic data',
+    //     'Local data extraction',
+    //   ],
+    // },
   ],
   sections: [
     {
-      name: 'Catered for business',
+      name: 'Access to ',
       features: [
         {
-          name: 'Tax Savings',
+          name: 'Current Planning Developments - Get exclusive, up-to-date data gathered municipal cities across Southern California. Allowing exploration of a wide range of information about current planning developments',
           tiers: { Starter: true, Scale: true },
         },
         {
-          name: 'Easy to use accounting',
+          name: 'What projects are currently in the planning phase and where they are located.',
           tiers: { Starter: true, Scale: true },
         },
         {
-          name: 'Multi-accounts',
-          tiers: {
-            Starter: '3 accounts',
-            Scale: 'Unlimited accounts',
-          },
+          name: 'Who is applying for planning permission, including details about the applicant, and contact information directly to the city planner',
+          tiers: { Starter: true, Scale: true },
         },
         {
-          name: 'Invoicing',
-          tiers: {
-            Starter: '3 invoices',
-            Scale: 'Unlimited invoices',
-          },
+          name: 'What type of development is being planned, whether it is residential, commercial, mixed-use, etc',
+          tiers: { Starter: true, Scale: true },
         },
         {
-          name: 'Exclusive offers',
-          tiers: { Starter: false, Scale: true },
+          name: 'Parcel Information - Get access to specific zoning information for every piece of property and land in Southern California.',
+          tiers: { Starter: true, Scale: true },
         },
         {
-          name: '6 months free advisor',
-          tiers: { Starter: false, Scale: true },
+          name: 'Specific zoning designations, allowing users to determine what types of development are allowed on a parcel. ',
+          tiers: { Starter: true, Scale: true },
         },
         {
-          name: 'Mobile and web access',
-          tiers: { Starter: false, Scale: true },
+          name: 'Hazards, such as flood zones or seismic risk areas, to inform decision-making around safety and insurance.',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: 'ADU eligibility, to signal the potential for property expansion or additional rental income. ',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: "Parcel Size and Assessor's Parcel Number information, providing the official identification of the parcel and its size, which can be crucial for development possibilities.",
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: 'Landmark Locations - This feature enables users to understand the neighborhood around a specific location',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: 'Nearby amenities such as grocery stores, restaurants, and entertainment centers, which can make a property more attractive to potential renters or buyers.',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: 'Proximity to transportation options such as bus stops, metro stations, or freeways, which can be significant factor in property/land value',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: 'Location of industrial sites',
+          tiers: { Starter: true, Scale: true },
+        },
+        {
+          name: "Other notable landmarks and features in the area that could impact the property's appeal, such as parks, schools, or historical sites.",
+          tiers: { Starter: true, Scale: true },
         },
       ],
     },
@@ -544,26 +566,6 @@ const pricing = {
         {
           name: 'Instant notifications',
           tiers: { Starter: true, Scale: true },
-        },
-        {
-          name: 'Budgeting tools',
-          tiers: { Starter: true, Scale: true },
-        },
-        {
-          name: 'Digital receipts',
-          tiers: { Starter: true, Scale: true },
-        },
-        {
-          name: 'Pots to separate money',
-          tiers: { Starter: false, Scale: true },
-        },
-        {
-          name: 'Free bank transfers',
-          tiers: { Starter: false, Scale: true },
-        },
-        {
-          name: 'Business debit card',
-          tiers: { Starter: false, Scale: true },
         },
       ],
     },

@@ -96,7 +96,7 @@ export default function LandingPage() {
               {/* <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
                 The essentials to provide your best work for clients.
               </p> */}
-              <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 gap-x-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
+              <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 gap-x-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-1'>
                 {tiers.map((tier, tierIdx) => (
                   <div
                     key={tier.id}
@@ -155,7 +155,7 @@ export default function LandingPage() {
                       className={classNames(
                         tier.mostPopular
                           ? 'bg-blue-600 text-white shadow-sm hover:bg-blue-500'
-                          : 'text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300',
+                          : 'bg-blue-600 text-white ring-1 ring-inset ring-blue-200 hover:ring-blue-300',
                         'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                       )}>
                       {tier.priceMonthly === 'Free'
@@ -219,22 +219,22 @@ const tiers = [
     ],
     mostPopular: false,
   },
-  {
-    name: 'Scale',
-    id: 'tier-startup',
-    href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
-    priceMonthly: '$10',
-    description: 'A plan that scales with your rapidly growing business.',
-    features: [
-      'Access  to current developments',
-      'Access to CEQA listings',
-      'Advanced analytics',
-      'CEQA topic modelings',
-      'Insightful demographic data',
-      'Local data extraction',
-    ],
-    mostPopular: true,
-  },
+  // {
+  //   name: 'Scale',
+  //   id: 'tier-startup',
+  //   href: 'https://buy.stripe.com/test_5kA4iG4RRahKbyUeUV',
+  //   priceMonthly: '$10',
+  //   description: 'A plan that scales with your rapidly growing business.',
+  //   features: [
+  //     'Access  to current developments',
+  //     'Access to CEQA listings',
+  //     'Advanced analytics',
+  //     'CEQA topic modelings',
+  //     'Insightful demographic data',
+  //     'Local data extraction',
+  //   ],
+  //   mostPopular: true,
+  // },
 ]
 
 function classNames(...classes) {
