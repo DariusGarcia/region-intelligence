@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Questions from '@/components/questions'
 import ErrorWarning from '@/components/alerts/error'
+import PrivacyPolicyAlert from '@/components/alerts/privacyPolicyAlert'
 
 export default function SignupPage() {
   const session = useSession()
@@ -24,9 +25,11 @@ export default function SignupPage() {
   const [city, setCity] = useState('')
   const [foundUs, setFoundUs] = useState('')
   const [communicationMethod, setCommunicationMethod] = useState('')
+  const [privacyPolicy, setPrivacyPolicy] = useState(false)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+  const [showPrivacyPolicyAlert, setShowPrivacyPolicyAlert] = useState(false)
 
   useEffect(() => {
     if (session) {
@@ -61,9 +64,17 @@ export default function SignupPage() {
   const handleIdealToolChange = (value) => {
     setIdealTool(value)
   }
+  const handlePrivacyPolicyAccept = (value) => {
+    setPrivacyPolicy(value)
+  }
+  console.log({ priv: String(privacyPolicy) })
 
   async function handleSignUp(e) {
     e.preventDefault()
+    setShowPrivacyPolicyAlert(true)
+    if (!privacyPolicy) {
+      return
+    }
     setLoading(true)
     const { data, error } = await supabase.auth.signUp({
       email: email,
@@ -82,6 +93,7 @@ export default function SignupPage() {
           city: city,
           found_us: foundUs,
           communication_method: communicationMethod,
+          privacy_policy: privacyPolicy,
         },
       },
     })
@@ -102,6 +114,8 @@ export default function SignupPage() {
         <title>First Property - Signup</title>
       </Head>
       <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
+        <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} />
+
         <div className='sm:mx-auto sm:w-full sm:max-w-lg'>
           <h1 className='text-2xl font-bold text-center'>First Property</h1>
           <h2 className='mt-4 md:mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-600'>
