@@ -15,11 +15,15 @@ export default function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [industry, setIndustry] = useState('')
+  const [industryRole, setIndustryRole] = useState('')
+  const [yearsExperience, setYearsExperience] = useState('')
+  const [primaryPurpose, setPrimaryPurpose] = useState('')
+  const [challengesOvercome, setChallengesOvercome] = useState('')
+  const [otherTools, setOtherTools] = useState('')
+  const [idealTool, setIdealTool] = useState('')
   const [city, setCity] = useState('')
   const [foundUs, setFoundUs] = useState('')
   const [communicationMethod, setCommunicationMethod] = useState('')
-  const [background, setBackground] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
@@ -30,9 +34,6 @@ export default function SignupPage() {
     }
   }, [session])
 
-  const handleIndustryChange = (value) => {
-    setIndustry(value)
-  }
   const handleCityChange = (value) => {
     setCity(value)
   }
@@ -42,8 +43,23 @@ export default function SignupPage() {
   const handleCommunicationMethodChange = (value) => {
     setCommunicationMethod(value)
   }
-  const handleBackgroundChange = (value) => {
-    setBackground(value)
+  const handleIndustryRoleChange = (value) => {
+    setIndustryRole(value)
+  }
+  const handleYearsOfExperienceChange = (value) => {
+    setYearsExperience(value)
+  }
+  const handlePrimaryPurposeChange = (value) => {
+    setPrimaryPurpose(value)
+  }
+  const handleChallengesOvercomeChange = (value) => {
+    setChallengesOvercome(value)
+  }
+  const handleOtherToolsChange = (value) => {
+    setOtherTools(value)
+  }
+  const handleIdealToolChange = (value) => {
+    setIdealTool(value)
   }
 
   async function handleSignUp(e) {
@@ -57,11 +73,15 @@ export default function SignupPage() {
           first_name: firstName,
           last_name: lastName,
           phone_number: phoneNumber,
-          industry: industry,
+          industry_role: industryRole,
+          years_experience: yearsExperience,
+          primary_purpose: primaryPurpose,
+          challenges_overcome: challengesOvercome,
+          other_tools: otherTools,
+          ideal_tool: idealTool,
           city: city,
           found_us: foundUs,
           communication_method: communicationMethod,
-          background: background,
         },
       },
     })
@@ -190,11 +210,15 @@ export default function SignupPage() {
               </div>
             </div>
             <Questions
-              onIndustryChange={handleIndustryChange}
+              onIndustryRoleChange={handleIndustryRoleChange}
+              onYearsOfExperienceChange={handleYearsOfExperienceChange}
+              onPrimaryPurposeChange={handlePrimaryPurposeChange}
               onCityChange={handleCityChange}
               onFoundUsChange={handleFoundUsChange}
               onCommunicationMethodChange={handleCommunicationMethodChange}
-              onBackgroundChange={handleBackgroundChange}
+              onChallengesOvercomeChange={handleChallengesOvercomeChange}
+              onOtherToolsChange={handleOtherToolsChange}
+              onIdealToolChange={handleIdealToolChange}
             />
             <div>
               {error && <ErrorWarning message={error.message} />}
