@@ -242,12 +242,22 @@ export default function SignupPage() {
                 type='submit'
                 onClick={handleSignUp}
                 disabled={
+                  firstName === '' ||
+                  lastName === '' ||
+                  phoneNumber === '' ||
+                  email === '' ||
+                  password === '' ||
                   industryRole === '' ||
                   yearsExperience === '' ||
                   primaryPurpose === '' ||
                   loading
                 }
                 className={
+                  firstName === '' ||
+                  lastName === '' ||
+                  phoneNumber === '' ||
+                  email === '' ||
+                  password === '' ||
                   industryRole === '' ||
                   yearsExperience === '' ||
                   primaryPurpose === ''
