@@ -223,7 +223,7 @@ export default function Navbar() {
               <Link href='/' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>First Property</span>
                 <p
-                  className='text-md font-semibold leading-6 text-gray-900'
+                  className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
                   First Property
                 </p>
