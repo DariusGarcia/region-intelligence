@@ -3,7 +3,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Router from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
-import Questions from '@/components/questions'
+import Questions from '@/features/auth/signUpQuestions'
 import ErrorWarning from '@/components/alerts/error'
 import PrivacyPolicyAlert from '@/components/alerts/privacyPolicyAlert'
 

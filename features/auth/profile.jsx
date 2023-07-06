@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
-import RadioGroup from '../components/radioGroups/radioGroup'
-import BackgroundSelectMenu from './selectMenus/selectMenu'
-import SuccessNotification from './notifications/successNotification'
+import RadioGroup from '../../components/radioGroups/radioGroup'
+import BackgroundSelectMenu from '../../components/selectMenus/selectMenu'
+import SuccessNotification from '../../components/notifications/successNotification'
 
 export default function Profile() {
   const supabase = useSupabaseClient()

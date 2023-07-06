@@ -193,7 +193,7 @@ export default function Navbar() {
             </Transition>
           </Popover>
         </Popover.Group>
-        <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+        <div className='hidden lg:flex lg:flex-1 lg:justify-center'>
           {user ? (
             <Avatar name={avatarName} />
           ) : (
