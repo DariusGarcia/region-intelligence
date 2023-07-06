@@ -13,9 +13,9 @@ export default function Avatar({ name }) {
   return (
     <>
       {name && (
-        <button
+        <div
           onClick={() => setToggle(!toggle)}
-          className='relative inline-block'>
+          className='relative inline-block cursor-pointer'>
           <p
             className={
               !toggle
@@ -32,17 +32,17 @@ export default function Avatar({ name }) {
               </p>
               <Link
                 href='/profile'
-                className='hover:text-gray-600 z-50 transition ease-out font-medium'>
+                className='text-gray-900 hover:text-blue-600 z-50 transition ease-out font-medium'>
                 My profile
               </Link>
               <button
-                className='font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                className='font-semibold leading-6 text-gray-900 hover:text-blue-600 transition ease-out'
                 onClick={logout}>
                 Logout <span aria-hidden='true'>&rarr;</span>
               </button>
             </div>
           )}
-        </button>
+        </div>
       )}
     </>
   )
