@@ -12,7 +12,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
         <title>First Property - Home</title>
         <meta name='description' content={headerText.subtitle1Description} />
       </Head>
-      <div className='flex justify-center mt-4 md:mt-12 px-4'>
+      <div className='flex justify-center mt-8 md:mt-12 px-4'>
         <div className='flex flex-col items-center'>
           <div className='md:max-w-7xl justify-center'>
             <h1 className='text-3xl md:text-5xl font-bold  '>
@@ -29,8 +29,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
                   <FaMapMarkerAlt className='w-full text-center text-6xl text-blue-600 mb-2' />
                   <Link
                     href='/land-directory/map-view'
-                    className='text-blue-600 hover:text-blue-500 text-xl'
-                  >
+                    className='text-blue-600 hover:text-blue-500 text-xl'>
                     Interactive map
                   </Link>
                   <p className=''>
@@ -42,8 +41,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
                   <IoIosListBox className='w-full text-center text-6xl text-blue-600 mb-2' />
                   <Link
                     href='/land-directory'
-                    className='text-blue-600 hover:text-blue-500 text-xl'
-                  >
+                    className='text-blue-600 hover:text-blue-500 text-xl'>
                     Monthly development project reports
                   </Link>
                   <p className=''>

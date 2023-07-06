@@ -207,7 +207,7 @@ export default function MapsPage() {
                   />
                 )}
               {success && <SuccessNotification message={success} />}
-              <h1 className='flex justify-center font-bold text-3xl mb-8'>
+              <h1 className='flex justify-center font-bold text-3xl md:mb-8'>
                 City Planning Guide
               </h1>
               {/**

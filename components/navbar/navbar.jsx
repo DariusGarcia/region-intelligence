@@ -72,7 +72,12 @@ export default function Navbar() {
             </p>
           </Link>
         </div>
-        {/* Mobile nav bar */}
+        {/**
+         *
+         *
+         *  Desktop nav bar
+         *
+         * */}
         <div className='flex lg:hidden'>
           <button
             type='button'
@@ -200,6 +205,13 @@ export default function Navbar() {
           )}
         </div>
       </nav>
+      {/**
+       *
+       *
+       *   Mobile navbar
+       *
+       *
+       *  */}
       <Dialog
         as='div'
         className='lg:hidden'
@@ -211,7 +223,9 @@ export default function Navbar() {
             <div className='flex items-center justify-between'>
               <Link href='/' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>First Property</span>
-                <p className='text-md font-semibold leading-6 text-gray-900'>
+                <p
+                  className='text-md font-semibold leading-6 text-gray-900'
+                  onClick={() => setMobileMenuOpen(false)}>
                   First Property
                 </p>
               </Link>
@@ -229,7 +243,9 @@ export default function Navbar() {
               </p>
 
               <div className='-my-6 divide-y divide-gray-500/10'>
-                <div className='space-y-2 py-6'>
+                <div
+                  className='space-y-2 py-6'
+                  onClick={() => setMobileMenuOpen(false)}>
                   {currentPlanningDevelopments.map((item) => (
                     <Link
                       key={item.name}
@@ -248,6 +264,7 @@ export default function Navbar() {
                 <div className='space-y-2 py-6'>
                   <Link
                     href='/pricing'
+                    onClick={() => setMobileMenuOpen(false)}
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     Pricing
                   </Link>
@@ -258,12 +275,14 @@ export default function Navbar() {
                   </Link> */}
                   <Link
                     href='/profile'
+                    onClick={() => setMobileMenuOpen(false)}
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     My profile
                   </Link>
 
                   {company.map((item) => (
                     <Link
+                      onClick={() => setMobileMenuOpen(false)}
                       key={item.name}
                       href={item.href}
                       className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
@@ -271,7 +290,7 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </div>
-                <div className='py-6'>
+                <div className='py-6' onClick={() => setMobileMenuOpen(false)}>
                   {user ? (
                     <button
                       className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
@@ -293,6 +312,7 @@ export default function Navbar() {
             {callsToAction.map((item) => (
               <a
                 key={item.name}
+                onClick={() => setMobileMenuOpen(false)}
                 href={item.href}
                 className='p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100'>
                 {item.name}
