@@ -34,16 +34,29 @@ export default function ListViewPage() {
   }, [id])
 
   const pages = [
-    { name: 'Land Directory', href: '/land-directory', current: false },
-    { name: 'List View', href: '/land-directory', current: false },
+    {
+      name: 'Current planning developments',
+      href: '/current-planning-developments',
+      current: false,
+    },
+    {
+      name: 'List View',
+      href: '/current-planning-developments',
+      current: false,
+    },
+    {
+      name: 'Project information',
+      href: '',
+      current: false,
+    },
   ]
 
   return (
     <>
-      {' '}
       {cityProject && (
         <div className='flex  justify-center pt-12 px-4 bg-stone-50 pb-8'>
           <div className='max-w-7xl'>
+            {/* Breadcrumb */}
             <nav className='flex mb-8 mx-4 md:mx-0' aria-label='Breadcrumb'>
               <ol role='list' className='flex items-center space-x-4'>
                 <li>
@@ -67,8 +80,7 @@ export default function ListViewPage() {
                       <a
                         href={page.href}
                         className='ml-4 text-sm font-medium text-gray-500 hover:text-gray-700'
-                        aria-current={page.current ? 'page' : undefined}
-                      >
+                        aria-current={page.current ? 'page' : undefined}>
                         {page.name}
                       </a>
                     </div>
@@ -85,9 +97,8 @@ export default function ListViewPage() {
                 {cityProject && <LeftAlignedCard data={cityProject} />}
                 <div className='my-12  flex justify-center'>
                   <Link
-                    href='/land-directory'
-                    className='bg-blue-600 hover:bg-blue-500 font-semibold transition ease-out text-white p-2 rounded-md'
-                  >
+                    href='/current-planning-developments'
+                    className='bg-blue-600 hover:bg-blue-500 font-semibold transition ease-out text-white p-2 rounded-md'>
                     Back to major planning projects
                   </Link>
                 </div>

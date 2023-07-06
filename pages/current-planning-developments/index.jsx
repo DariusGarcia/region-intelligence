@@ -28,7 +28,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
                 <article className='flex flex-col gap-2  justify-center p-4 border   rounded-md'>
                   <FaMapMarkerAlt className='w-full text-center text-6xl text-blue-600 mb-2' />
                   <Link
-                    href='/land-directory/map-view'
+                    href='/current-planning-developments/map-view'
                     className='text-blue-600 hover:text-blue-500 text-xl'>
                     Interactive map
                   </Link>
@@ -40,7 +40,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
                 <article className='flex flex-col gap-2 justify-center p-4 border  rounded-md'>
                   <IoIosListBox className='w-full text-center text-6xl text-blue-600 mb-2' />
                   <Link
-                    href='/land-directory'
+                    href='/current-planning-developments'
                     className='text-blue-600 hover:text-blue-500 text-xl'>
                     Monthly development project reports
                   </Link>

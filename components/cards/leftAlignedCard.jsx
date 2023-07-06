@@ -1,6 +1,5 @@
 import capitalizeWords from '@/utils/capitalizeWords'
 import extractPhoneNumber from '@/utils/extractPhoneNumber'
-import { PaperClipIcon } from '@heroicons/react/20/solid'
 
 export default function LeftAlignedCard({ data }) {
   return (
@@ -78,8 +77,7 @@ export default function LeftAlignedCard({ data }) {
                   <dd className='mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0'>
                     <a
                       href={`tel: ${extractPhoneNumber(item.plannerPhone)}`}
-                      className='text-blue-500 underline hover:text-blue-400'
-                    >
+                      className='text-blue-500 underline hover:text-blue-400'>
                       {extractPhoneNumber(item.plannerPhone)}
                     </a>
                   </dd>
@@ -91,8 +89,7 @@ export default function LeftAlignedCard({ data }) {
                   <dd className='mt-1 text-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0'>
                     <a
                       href={`mailto: ${item.plannerEmail}`}
-                      className='text-blue-500 underline hover:text-blue-400'
-                    >
+                      className='text-blue-500 underline hover:text-blue-400'>
                       {item.plannerEmail}
                     </a>
                   </dd>
