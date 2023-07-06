@@ -189,12 +189,14 @@ export default function MapsPage() {
             <Head>
               <title>First Property - Maps</title>
             </Head>
-            {!loading && toggleFeedbackPopup && feedbackSubmitted !== true && (
-              <FeedBackBanner
-                bannerToggleFeedbackPopup={handleBannerFeedbackToggle}
-              />
-            )}
-            <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
+            <div className='max-w-[100vw] w-full flex flex-col justify-center px-2 md:px-8'>
+              {!loading &&
+                toggleFeedbackPopup &&
+                feedbackSubmitted !== true && (
+                  <FeedBackBanner
+                    bannerToggleFeedbackPopup={handleBannerFeedbackToggle}
+                  />
+                )}
               {!loading &&
                 feedbackPopupOpen === true &&
                 feedbackSubmitted !== true && (
@@ -207,7 +209,7 @@ export default function MapsPage() {
                   />
                 )}
               {success && <SuccessNotification message={success} />}
-              <h1 className='flex justify-center font-bold text-3xl md:mb-8'>
+              <h1 className='flex justify-center font-bold text-3xl md:mb-8 mt-2 md:mt-12'>
                 City Planning Guide
               </h1>
               {/**
