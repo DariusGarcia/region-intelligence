@@ -143,7 +143,7 @@ export default function SignupPage() {
                       id='first-name'
                       required={true}
                       autoComplete='given-name'
-                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                       onChange={(e) => setFirstName(e.target.value)}
                     />
                   </div>
@@ -162,7 +162,7 @@ export default function SignupPage() {
                       id='last-name'
                       required={true}
                       autoComplete='family-name'
-                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                       onChange={(e) => setLastName(e.target.value)}
                     />
                   </div>
@@ -237,7 +237,20 @@ export default function SignupPage() {
               onIdealToolChange={handleIdealToolChange}
             />
             <div>
+              {/* Error messages */}
               {error && <ErrorWarning message={error.message} />}
+              {firstName === '' ||
+              lastName === '' ||
+              phoneNumber === '' ||
+              email === '' ||
+              password === '' ||
+              industryRole === '' ||
+              yearsExperience === '' ||
+              primaryPurpose === '' ? (
+                <p className='mb-2 text-sm text-red-600 font-medium'>
+                  Please fill out all required fields.
+                </p>
+              ) : null}
               <button
                 type='submit'
                 onClick={handleSignUp}
@@ -260,7 +273,8 @@ export default function SignupPage() {
                   password === '' ||
                   industryRole === '' ||
                   yearsExperience === '' ||
-                  primaryPurpose === ''
+                  primaryPurpose === '' ||
+                  loading
                     ? 'flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                     : 'flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                 }>
