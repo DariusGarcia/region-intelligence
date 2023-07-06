@@ -26,7 +26,7 @@ export default function Avatar({ name }) {
           </p>
           <span className='absolute right-0 top-0 block h-3.5 w-3.5 rounded-full bg-red-400 ring-2 ring-white'></span>
           {toggle && (
-            <div className='absolute flex flex-col justify-center items-start gap-2 mt-2 text-md bg-gray-50 p-2 py-4 rounded-md w-36 h-max cursor-default z-50'>
+            <div className='absolute flex flex-col justify-center items-start gap-2 mt-2 text-md bg-gray-50 border border-gray-500 p-2 py-4 rounded-md w-36 h-max cursor-default z-50'>
               <p className='bg-red-100 border border-red-500 p-1  rounded-md'>
                 Free tier
               </p>

@@ -66,9 +66,13 @@ export default function Navbar() {
             <span className='sr-only'>First Property</span>
             <p className='text-lg font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
               First Property
+              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+                Beta
+              </span>
             </p>
           </Link>
         </div>
+        {/* Mobile nav bar */}
         <div className='flex lg:hidden'>
           <button
             type='button'
@@ -96,7 +100,7 @@ export default function Navbar() {
               leave='transition ease-in duration-150'
               leaveFrom='opacity-100 translate-y-0'
               leaveTo='opacity-0 translate-y-1'>
-              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5'>
+              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg'>
                 <div className='p-4'>
                   {currentPlanningDevelopments.map((item) => (
                     <div
@@ -190,7 +194,7 @@ export default function Navbar() {
           ) : (
             <a
               href='/login'
-              className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
+              className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
               Log in <span aria-hidden='true'>&rarr;</span>
             </a>
           )}
@@ -206,7 +210,7 @@ export default function Navbar() {
           <div className='p-6'>
             <div className='flex items-center justify-between'>
               <Link href='/' className='-m-1.5 p-1.5'>
-                <span className='sr-only'>Your Company</span>
+                <span className='sr-only'>First Property</span>
                 <p className='text-md font-semibold leading-6 text-gray-900'>
                   First Property
                 </p>

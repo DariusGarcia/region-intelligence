@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 
+/**
+ *
+ * BUG: fix pagination issue where first and pages don't work
+ *
+ *
+ *
+ *
+ */
 const Pagination = ({ items, itemsPerPage, children }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
@@ -77,8 +85,7 @@ const Pagination = ({ items, itemsPerPage, children }) => {
             className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
               !canGoToPreviousPage && 'opacity-50 cursor-not-allowed'
             }`}
-            disabled={!canGoToPreviousPage}
-          >
+            disabled={!canGoToPreviousPage}>
             Previous
           </a>
           <a
@@ -87,8 +94,7 @@ const Pagination = ({ items, itemsPerPage, children }) => {
             className={`relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
               !canGoToNextPage && 'opacity-50 cursor-not-allowed'
             }`}
-            disabled={!canGoToNextPage}
-          >
+            disabled={!canGoToNextPage}>
             Next
           </a>
         </div>
@@ -105,16 +111,14 @@ const Pagination = ({ items, itemsPerPage, children }) => {
           <div>
             <nav
               className='isolate inline-flex -space-x-px rounded-md shadow-sm'
-              aria-label='Pagination'
-            >
+              aria-label='Pagination'>
               <a
                 href='#'
                 onClick={(event) => handlePageClick(event, currentPage - 1)}
                 className={`relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
                   !canGoToPreviousPage && 'opacity-50 cursor-not-allowed'
                 }`}
-                disabled={!canGoToPreviousPage}
-              >
+                disabled={!canGoToPreviousPage}>
                 <span className='sr-only'>Previous</span>
                 <ChevronLeftIcon className='h-5 w-5' aria-hidden='true' />
               </a>
@@ -132,8 +136,7 @@ const Pagination = ({ items, itemsPerPage, children }) => {
                         currentPage === page
                           ? 'bg-blue-600 text-white'
                           : 'text-gray-900'
-                      } ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-black focus:z-20 focus:outline-offset-0`}
-                    >
+                      } ring-1 ring-inset ring-gray-300 hover:bg-gray-50 hover:text-black focus:z-20 focus:outline-offset-0`}>
                       {page}
                     </a>
                   )}
@@ -145,8 +148,7 @@ const Pagination = ({ items, itemsPerPage, children }) => {
                 className={`relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
                   !canGoToNextPage && 'opacity-50 cursor-not-allowed'
                 }`}
-                disabled={!canGoToNextPage}
-              >
+                disabled={!canGoToNextPage}>
                 <span className='sr-only'>Next</span>
                 <ChevronRightIcon className='h-5 w-5' aria-hidden='true' />
               </a>

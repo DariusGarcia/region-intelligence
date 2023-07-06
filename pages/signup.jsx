@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Questions from '@/components/questions'
 import ErrorWarning from '@/components/alerts/error'
+import PrivacyPolicyAlert from '@/components/alerts/privacyPolicyAlert'
 
 export default function SignupPage() {
   const session = useSession()
@@ -15,14 +16,20 @@ export default function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [industry, setIndustry] = useState('')
+  const [industryRole, setIndustryRole] = useState('')
+  const [yearsExperience, setYearsExperience] = useState('')
+  const [primaryPurpose, setPrimaryPurpose] = useState('')
+  const [challengesOvercome, setChallengesOvercome] = useState('')
+  const [otherTools, setOtherTools] = useState('')
+  const [idealTool, setIdealTool] = useState('')
   const [city, setCity] = useState('')
   const [foundUs, setFoundUs] = useState('')
   const [communicationMethod, setCommunicationMethod] = useState('')
-  const [background, setBackground] = useState('')
+  const [privacyPolicy, setPrivacyPolicy] = useState(false)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+  const [showPrivacyPolicyAlert, setShowPrivacyPolicyAlert] = useState(false)
 
   useEffect(() => {
     if (session) {
@@ -30,9 +37,6 @@ export default function SignupPage() {
     }
   }, [session])
 
-  const handleIndustryChange = (value) => {
-    setIndustry(value)
-  }
   const handleCityChange = (value) => {
     setCity(value)
   }
@@ -42,12 +46,35 @@ export default function SignupPage() {
   const handleCommunicationMethodChange = (value) => {
     setCommunicationMethod(value)
   }
-  const handleBackgroundChange = (value) => {
-    setBackground(value)
+  const handleIndustryRoleChange = (value) => {
+    setIndustryRole(value)
   }
+  const handleYearsOfExperienceChange = (value) => {
+    setYearsExperience(value)
+  }
+  const handlePrimaryPurposeChange = (value) => {
+    setPrimaryPurpose(value)
+  }
+  const handleChallengesOvercomeChange = (value) => {
+    setChallengesOvercome(value)
+  }
+  const handleOtherToolsChange = (value) => {
+    setOtherTools(value)
+  }
+  const handleIdealToolChange = (value) => {
+    setIdealTool(value)
+  }
+  const handlePrivacyPolicyAccept = (value) => {
+    setPrivacyPolicy(value)
+  }
+  console.log({ priv: String(privacyPolicy) })
 
   async function handleSignUp(e) {
     e.preventDefault()
+    setShowPrivacyPolicyAlert(true)
+    if (!privacyPolicy) {
+      return
+    }
     setLoading(true)
     const { data, error } = await supabase.auth.signUp({
       email: email,
@@ -57,11 +84,16 @@ export default function SignupPage() {
           first_name: firstName,
           last_name: lastName,
           phone_number: phoneNumber,
-          industry: industry,
+          industry_role: industryRole,
+          years_experience: yearsExperience,
+          primary_purpose: primaryPurpose,
+          challenges_overcome: challengesOvercome,
+          other_tools: otherTools,
+          ideal_tool: idealTool,
           city: city,
           found_us: foundUs,
           communication_method: communicationMethod,
-          background: background,
+          privacy_policy: privacyPolicy,
         },
       },
     })
@@ -82,6 +114,8 @@ export default function SignupPage() {
         <title>First Property - Signup</title>
       </Head>
       <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
+        <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} />
+
         <div className='sm:mx-auto sm:w-full sm:max-w-lg'>
           <h1 className='text-2xl font-bold text-center'>First Property</h1>
           <h2 className='mt-4 md:mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-600'>
@@ -190,11 +224,15 @@ export default function SignupPage() {
               </div>
             </div>
             <Questions
-              onIndustryChange={handleIndustryChange}
+              onIndustryRoleChange={handleIndustryRoleChange}
+              onYearsOfExperienceChange={handleYearsOfExperienceChange}
+              onPrimaryPurposeChange={handlePrimaryPurposeChange}
               onCityChange={handleCityChange}
               onFoundUsChange={handleFoundUsChange}
               onCommunicationMethodChange={handleCommunicationMethodChange}
-              onBackgroundChange={handleBackgroundChange}
+              onChallengesOvercomeChange={handleChallengesOvercomeChange}
+              onOtherToolsChange={handleOtherToolsChange}
+              onIdealToolChange={handleIdealToolChange}
             />
             <div>
               {error && <ErrorWarning message={error.message} />}

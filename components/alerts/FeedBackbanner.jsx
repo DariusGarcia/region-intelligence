@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 
-export default function FeedBackBanner() {
+export default function feedbackCommentFeedBackBanner({
+  bannerToggleFeedbackPopup,
+}) {
   const [showBanner, setShowBanner] = useState(true)
 
   return (
@@ -39,14 +41,17 @@ export default function FeedBackBanner() {
                 aria-hidden='true'>
                 <circle cx={1} cy={1} r={1} />
               </svg>
-              Please fill out this short feedback survey. We value your feedback
-              and plan to make changes accordingly!
+              Please fill out this short feedback survey. We value your input
+              and will use it to enhance our platform.
             </p>
-            <a
-              href='#'
+            <button
+              onClick={() => {
+                bannerToggleFeedbackPopup(true)
+                setShowBanner(true)
+              }}
               className='flex-none rounded-full bg-blue-600 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900'>
               Fill out now <span aria-hidden='true'>&rarr;</span>
-            </a>
+            </button>
           </div>
           <div className='flex flex-1 justify-end'>
             <button
