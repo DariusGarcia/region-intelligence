@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
-import { createClient } from '@supabase/supabase-js'
-import { useSession } from '@supabase/auth-helpers-react'
+import {
+  useSession,
+  useSupabaseClient,
+  useUser,
+} from '@supabase/auth-helpers-react'
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
@@ -10,15 +13,14 @@ import ErrorPage from '../error'
 import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
 import FeedbackPopup from '@/features/feedbackPopup'
 import FeedBackBanner from '@/components/alerts/FeedBackbanner'
+import SuccessNotification from '@/components/notifications/successNotification'
 
 const appId = process.env.NEXT_PUBLIC_ARCGIS_APP_ID
 
 export default function MapsPage() {
   const session = useSession()
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  )
+  const supabase = useSupabaseClient()
+  const user = useUser()
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -30,12 +32,49 @@ export default function MapsPage() {
   }, [session])
 
   const [permitData, setPermitData] = useState([])
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [success, setSuccess] = useState('')
   const [cities, setCities] = useState(['All'])
   const [projectStatuses, setProjectStatuses] = useState(['All'])
   const [selectedCity, setSelectedCity] = useState('All cities')
   const [selectedProjectStatus, setSelectedProjectStatus] = useState('All')
+  const [feedbackRating, setFeedbackRating] = useState(null)
+  const [feedbackComment, setFeedbackComment] = useState(null)
+  const [feedbackRefer, setFeedbackRefer] = useState(null)
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false)
+  const [toggleFeedbackPopup, setToggleFeedbackPopup] = useState(false)
+  const [feedbackPopupOpen, setFeedbackPopupOpen] = useState(false)
+
+  useEffect(() => {
+    async function checkIfFeedbackAlreadySubmitted() {
+      setLoading(true)
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('feedback_submitted')
+          .eq('id', user.id)
+          .single()
+
+        if (error) {
+          setError(error.message)
+          console.warn(error)
+        } else if (data.feedback_submitted !== 'true') {
+          setFeedbackSubmitted(false)
+          setToggleFeedbackPopup(true)
+        } else if (data.feedback_submitted === 'true') {
+          setFeedbackSubmitted(true)
+        }
+
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // Only run query once user is logged in.
+    if (user) checkIfFeedbackAlreadySubmitted()
+  }, [])
 
   useEffect(() => {
     setLoading(true)
@@ -94,13 +133,53 @@ export default function MapsPage() {
     setSelectedCity(city)
   }
 
-  function handleStatusSelection(status) {
-    setSelectedProjectStatus(status)
-    setSelectedMarker(null)
-    setSelectedMarkerData(null)
+  if (error) return <ErrorPage errorMessage={error.message} />
+
+  const handleFeedbackRatingChange = (value) => {
+    setFeedbackRating(value)
+  }
+  const handleFeedbackCommentChange = (value) => {
+    setFeedbackComment(value)
+  }
+  const handleFeedbackReferChange = (value) => {
+    setFeedbackRefer(value)
+  }
+  const handleBannerFeedbackToggle = (value) => {
+    setFeedbackPopupOpen(value)
+  }
+  const handleFeedbackSubmit = () => {
+    // Implement the logic to submit the user feedback data
+    updateUserFeedback()
+    setToggleFeedbackPopup(false)
+    setFeedbackPopupOpen(false)
   }
 
-  if (error) return <ErrorPage errorMessage={error.message} />
+  const handleFeedbackClose = (value) => {
+    setFeedbackPopupOpen(value)
+  }
+
+  async function updateUserFeedback() {
+    if (!user) return
+    setLoading(true)
+    const updates = {
+      id: user.id,
+      feedback_rating: String(feedbackRating),
+      feedback_comment: feedbackComment,
+      feedback_refer: feedbackRefer,
+      feedback_submitted: true,
+      updated_at: new Date(),
+    }
+
+    let { error } = await supabase.from('profiles').upsert(updates)
+
+    if (error) {
+      alert(error.message)
+    } else {
+      setSuccess('Feedback submitted!')
+      setToggleFeedbackPopup(false)
+    }
+    setLoading(false)
+  }
 
   const renderMap = () => {
     return (
@@ -110,13 +189,31 @@ export default function MapsPage() {
             <Head>
               <title>First Property - Maps</title>
             </Head>
-            <FeedBackBanner />
+            {!loading && toggleFeedbackPopup && feedbackSubmitted !== true && (
+              <FeedBackBanner
+                bannerToggleFeedbackPopup={handleBannerFeedbackToggle}
+              />
+            )}
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
-              <FeedbackPopup />
+              {!loading &&
+                feedbackPopupOpen === true &&
+                feedbackSubmitted !== true && (
+                  <FeedbackPopup
+                    onFeedbackRatingChange={handleFeedbackRatingChange}
+                    onFeedbackCommentChange={handleFeedbackCommentChange}
+                    onFeedbackReferChange={handleFeedbackReferChange}
+                    onFeedbackSubmit={handleFeedbackSubmit}
+                    onFeedbackClose={handleFeedbackClose}
+                  />
+                )}
+              {success && <SuccessNotification message={success} />}
               <h1 className='flex justify-center font-bold text-3xl mb-8'>
                 City Planning Guide
               </h1>
-              {/* Select menus */}
+              {/**
+               *    Select menus
+               *
+               * */}
               {/* <div className='flex flex-col md:flex-row justify-center gap-4 w-full items-center'>
                 <div className='flex flex-col w-72 cursor-pointer'>
                   <CitySelectMenu

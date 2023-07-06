@@ -1,66 +1,43 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import {
-  LinkIcon,
-  PlusIcon,
-  QuestionMarkCircleIcon,
-} from '@heroicons/react/20/solid'
 
-const team = [
-  {
-    name: 'Tom Cook',
-    email: 'tom.cook@example.com',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Whitney Francis',
-    email: 'whitney.francis@example.com',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Leonard Krasner',
-    email: 'leonard.krasner@example.com',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Floyd Miles',
-    email: 'floyd.miles@example.com',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Emily Selman',
-    email: 'emily.selman@example.com',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-]
-
-export default function FeedbackPopup() {
+export default function FeedbackPopup({
+  onFeedbackRatingChange,
+  onFeedbackCommentChange,
+  onFeedbackReferChange,
+  onFeedbackSubmit,
+  onFeedbackClose,
+}) {
   const [open, setOpen] = useState(true)
+  const [feedbackRating, setFeedbackRating] = useState('')
+  const [feedbackComment, setFeedbackComment] = useState('')
+  const [feedbackRefer, setFeedbackRefer] = useState('Very likely')
+
+  function handleFeedbackRatingChange(event) {
+    const value = event.target.value
+    setFeedbackRating(value)
+    onFeedbackRatingChange(value)
+  }
+
+  function handleFeedbackCommentChange(event) {
+    const value = event.target.value
+    setFeedbackComment(value)
+    onFeedbackCommentChange(value)
+  }
+
+  function handleFeedbackReferChange(event) {
+    const value = event.target.value
+    setFeedbackRefer(value)
+    onFeedbackReferChange(value)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    // Pass the collected values to the onFeedbackSubmit callback function
+    onFeedbackSubmit(feedbackRating, feedbackComment, feedbackRefer)
+    setOpen(false)
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -79,7 +56,9 @@ export default function FeedbackPopup() {
                 leaveFrom='translate-x-0'
                 leaveTo='translate-x-full'>
                 <Dialog.Panel className='pointer-events-auto w-screen max-w-2xl'>
-                  <form className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
+                  <form
+                    onSubmit={handleSubmit}
+                    className='flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
                     <div className='flex-1'>
                       {/* Header */}
                       <div className='bg-gray-300 px-4 py-6 sm:px-6'>
@@ -97,7 +76,10 @@ export default function FeedbackPopup() {
                             <button
                               type='button'
                               className='text-gray-400 hover:text-gray-500'
-                              onClick={() => setOpen(false)}>
+                              onClick={() => {
+                                setOpen(false)
+                                onFeedbackClose(false)
+                              }}>
                               <span className='sr-only'>Close panel</span>
                               <XMarkIcon
                                 className='h-6 w-6'
@@ -126,10 +108,12 @@ export default function FeedbackPopup() {
                                   className='relative flex items-start'>
                                   <div className='absolute flex h-6 items-center'>
                                     <input
-                                      id='public-access'
-                                      name='privacy'
-                                      aria-describedby='public-access-description'
+                                      id='feedback-rating'
+                                      name='feedback-rating'
+                                      aria-describedby='feedback-rating'
                                       type='radio'
+                                      value={item.rating}
+                                      onChange={handleFeedbackRatingChange}
                                       className='h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-600'
                                       defaultChecked={
                                         item.defaultChecked === true
@@ -153,11 +137,11 @@ export default function FeedbackPopup() {
                             </div>
                           </div>
                         </fieldset>
-                        {/* Feedback about platform */}
+                        {/* Feedback comment about platform */}
                         <div className='space-y-2 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5'>
                           <div>
                             <label
-                              htmlFor='project-description'
+                              htmlFor='feedback-comment'
                               className='block text-sm font-medium leading-6 text-gray-900 sm:mt-1.5'>
                               Leave a comment about how we could improve our
                               platform.
@@ -165,20 +149,21 @@ export default function FeedbackPopup() {
                           </div>
                           <div className='sm:col-span-2'>
                             <textarea
-                              id='project-description'
-                              name='project-description'
+                              id='feedback-comment'
+                              name='feedback-comment'
                               rows={3}
+                              onChange={handleFeedbackCommentChange}
                               className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                               defaultValue={''}
                             />
                           </div>
                         </div>
 
-                        {/* Project name */}
+                        {/* How likely to refer someone */}
                         <div className='space-y-2 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5'>
                           <div>
                             <label
-                              htmlFor='project-name'
+                              htmlFor='feedback-refer'
                               className='block text-sm font-medium leading-6 text-gray-900 sm:mt-1.5'>
                               How likely are you to refer this platform to a
                               colleague or friend?
@@ -186,15 +171,17 @@ export default function FeedbackPopup() {
                           </div>
                           <div className='sm:col-span-2'>
                             <label
-                              htmlFor='location'
+                              htmlFor='feedback-refer'
                               className='block text-sm font-medium leading-6 text-gray-900'>
                               Location
                             </label>
                             <select
-                              id='location'
-                              name='location'
+                              id='feedback-refer'
+                              name='feedback-refer'
+                              onChange={handleFeedbackReferChange}
                               className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
-                              defaultValue='Very likely'>
+                              defaultValue='Please select'>
+                              <option>Please select</option>
                               <option>Very likely</option>
                               <option>Likely</option>
                               <option>Maybe</option>
@@ -261,7 +248,8 @@ const rating = [
     id: 5,
     rating: 5,
     name: 'Very Good',
-    defaultChecked: true,
+    defaultChecked: false,
   },
 ]
+
 const reverseRating = rating.reverse()
