@@ -3,14 +3,15 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Router from 'next/router'
 import Link from 'next/link'
 import Head from 'next/head'
-import Questions from '@/features/auth/signUpQuestions'
+import SignUpQuestions from '@/features/auth/signUpQuestions'
 import ErrorWarning from '@/components/alerts/error'
 import PrivacyPolicyAlert from '@/components/alerts/privacyPolicyAlert'
+import SuccessNotification from '@/components/notifications/successNotification'
 
 export default function SignupPage() {
   const session = useSession()
   const supabase = useSupabaseClient()
-  // condense this into one state object
+  // TODO: condense this into one state object
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -37,37 +38,36 @@ export default function SignupPage() {
     }
   }, [session])
 
-  const handleCityChange = (value) => {
+  function handleCityChange(value) {
     setCity(value)
   }
-  const handleFoundUsChange = (value) => {
+  function handleFoundUsChange(value) {
     setFoundUs(value)
   }
-  const handleCommunicationMethodChange = (value) => {
+  function handleCommunicationMethodChange(value) {
     setCommunicationMethod(value)
   }
-  const handleIndustryRoleChange = (value) => {
+  function handleIndustryRoleChange(value) {
     setIndustryRole(value)
   }
-  const handleYearsOfExperienceChange = (value) => {
+  function handleYearsOfExperienceChange(value) {
     setYearsExperience(value)
   }
-  const handlePrimaryPurposeChange = (value) => {
+  function handlePrimaryPurposeChange(value) {
     setPrimaryPurpose(value)
   }
-  const handleChallengesOvercomeChange = (value) => {
+  function handleChallengesOvercomeChange(value) {
     setChallengesOvercome(value)
   }
-  const handleOtherToolsChange = (value) => {
+  function handleOtherToolsChange(value) {
     setOtherTools(value)
   }
-  const handleIdealToolChange = (value) => {
+  function handleIdealToolChange(value) {
     setIdealTool(value)
   }
-  const handlePrivacyPolicyAccept = (value) => {
+  function handlePrivacyPolicyAccept(value) {
     setPrivacyPolicy(value)
   }
-  console.log({ priv: String(privacyPolicy) })
 
   async function handleSignUp(e) {
     e.preventDefault()
@@ -115,7 +115,9 @@ export default function SignupPage() {
       </Head>
       <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
         <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} />
-
+        {success && (
+          <SuccessNotification message='Account created successfully' />
+        )}
         <div className='sm:mx-auto sm:w-full sm:max-w-lg'>
           <h1 className='text-2xl font-bold text-center'>First Property</h1>
           <h2 className='mt-4 md:mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-600'>
@@ -223,7 +225,7 @@ export default function SignupPage() {
                 />
               </div>
             </div>
-            <Questions
+            <SignUpQuestions
               onIndustryRoleChange={handleIndustryRoleChange}
               onYearsOfExperienceChange={handleYearsOfExperienceChange}
               onPrimaryPurposeChange={handlePrimaryPurposeChange}

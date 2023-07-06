@@ -1,4 +1,6 @@
-export default function Questions({
+import { useState } from 'react'
+
+export default function SignUpQuestions({
   onIndustryRoleChange,
   onYearsOfExperienceChange,
   onPrimaryPurposeChange,
@@ -9,10 +11,24 @@ export default function Questions({
   onFoundUsChange,
   onCommunicationMethodChange,
 }) {
+  const [industryRole, setIndustryRole] = useState('')
+  const [primaryPurpose, setPrimaryPurpose] = useState('')
+  const [toggleIndustryRoleOther, setToggleIndustryRoleOther] = useState(false)
+  const [togglePrimaryPurposeOther, setTogglePrimaryPurposeOther] =
+    useState(false)
+
   function handleIndustryRoleChange(event) {
     const value = event.target.value
-    onIndustryRoleChange(value)
+    if (value === 'Other') {
+      setToggleIndustryRoleOther(true)
+      onIndustryRoleChange(industryRole)
+    } else {
+      setIndustryRole('')
+      setToggleIndustryRoleOther(false)
+      onIndustryRoleChange(value)
+    }
   }
+
   function handleYearsOfExperienceChange(event) {
     const value = event.target.value
     onYearsOfExperienceChange(value)
@@ -20,8 +36,14 @@ export default function Questions({
 
   function handlePrimaryPurposeChange(event) {
     const value = event.target.value
-    console.log({ years: value })
-    onPrimaryPurposeChange(value)
+    if (value === 'Other') {
+      setTogglePrimaryPurposeOther(true)
+      onPrimaryPurposeChange(primaryPurpose)
+    } else {
+      setPrimaryPurpose('')
+      setTogglePrimaryPurposeOther(false)
+      onPrimaryPurposeChange(value)
+    }
   }
 
   return (
@@ -48,12 +70,30 @@ export default function Questions({
                 className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
                 onChange={handleIndustryRoleChange}
                 required>
-                {industryRole.map((industry, industryIdx) => (
+                {industryRoleOptions.map((industry, industryIdx) => (
                   <option key={industryIdx} value={industry.name}>
                     {industry.name}
                   </option>
                 ))}
               </select>
+              {toggleIndustryRoleOther && (
+                <div className='mt-4'>
+                  <label
+                    htmlFor='industry-role-other'
+                    name='industry-role-other'
+                    className='block text-sm font-medium leading-6 text-gray-900'>
+                    Other: please enter your role in the real estate industry.
+                  </label>
+                  <div className='mt-2 flex items-center gap-x-3'>
+                    <input
+                      name='industry-role-other'
+                      type='text'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+                      onChange={(e) => onIndustryRoleChange(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
             {/* years of experience radio group */}
             <div className='my-8'>
@@ -96,6 +136,24 @@ export default function Questions({
                   </option>
                 ))}
               </select>
+              {togglePrimaryPurposeOther && (
+                <div className='mt-4'>
+                  <label
+                    htmlFor='primary-purpose-other'
+                    name='primary-purpose-other'
+                    className='block text-sm font-medium leading-6 text-gray-900'>
+                    Other: please enter your primary purpose for using our tool.
+                  </label>
+                  <div className='mt-2 flex items-center gap-x-3'>
+                    <input
+                      name='primary-purpose-other'
+                      type='text'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+                      onChange={(e) => onPrimaryPurposeChange(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
             {/* challenges looking to overcome textarea */}
             <div className='w-full my-4'>
@@ -217,7 +275,7 @@ export default function Questions({
   )
 }
 
-const industryRole = [
+const industryRoleOptions = [
   { id: 0, name: 'Please select' },
   { id: 1, name: 'Real Estate Agent' },
   { id: 2, name: 'Broker' },
