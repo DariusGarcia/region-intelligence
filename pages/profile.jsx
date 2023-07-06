@@ -47,7 +47,7 @@ export default function ProfilePage() {
             </header>
           </div>
 
-          <main className='-mt-32 '>
+          <main className='-mt-48 '>
             <div className='mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 rounded-md'>
               {/* Your content */}
               {session && (

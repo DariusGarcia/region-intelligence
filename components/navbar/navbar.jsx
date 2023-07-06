@@ -96,7 +96,6 @@ export default function Navbar() {
                 aria-hidden='true'
               />
             </Popover.Button>
-
             <Transition
               as={Fragment}
               enter='transition ease-out duration-200'
