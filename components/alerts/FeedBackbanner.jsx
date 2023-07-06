@@ -57,9 +57,12 @@ export default function feedbackCommentFeedBackBanner({
             <button
               type='button'
               onClick={() => setShowBanner(false)}
-              className='-m-3 p-3 focus-visible:outline-offset-[-4px]'>
+              className='-m-3 p-3 focus-visible:outline-offset-[-4px] hover:bg-gray-200 rounded-full transition ease-out hover:scale-95'>
               <span className='sr-only'>Dismiss</span>
-              <XMarkIcon className='h-5 w-5 text-gray-900' aria-hidden='true' />
+              <XMarkIcon
+                className='h-5 w-5 hover:text-gray-700 transition ease-out text-gray-900'
+                aria-hidden='true'
+              />
             </button>
           </div>
         </div>

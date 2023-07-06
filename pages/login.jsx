@@ -18,7 +18,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (session) {
-      Router.push('/')
+      Router.push('/current-planning-developments/map-view')
     }
   }, [session])
 
@@ -68,8 +68,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor='email'
-                className='block text-sm font-medium leading-6 text-gray-900'
-              >
+                className='block text-sm font-medium leading-6 text-gray-900'>
                 Email address
               </label>
               <div className='mt-2'>
@@ -89,15 +88,13 @@ export default function LoginPage() {
               <div className='flex items-center justify-between'>
                 <label
                   htmlFor='password'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
+                  className='block text-sm font-medium leading-6 text-gray-900'>
                   Password
                 </label>
                 <div className='text-sm'>
                   <button
                     onClick={handleResetPassword}
-                    className='font-semibold text-blue-600 hover:text-blue-500'
-                  >
+                    className='font-semibold text-blue-600 hover:text-blue-500'>
                     Forgot password?
                   </button>
                 </div>
@@ -119,8 +116,7 @@ export default function LoginPage() {
               <button
                 type='submit'
                 onClick={handleSignIn}
-                className='flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
-              >
+                className='flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                 Sign in
               </button>
             </div>
@@ -130,8 +126,7 @@ export default function LoginPage() {
             Not a member?{' '}
             <Link
               href='/signup'
-              className='font-semibold leading-6 text-blue-600 hover:text-blue-500'
-            >
+              className='font-semibold leading-6 text-blue-600 hover:text-blue-500'>
               Create an account
             </Link>
           </p>
