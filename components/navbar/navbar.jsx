@@ -225,7 +225,10 @@ export default function Navbar() {
                 <p
                   className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
-                  First Property
+                  First Property{' '}
+                  <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+                    Beta
+                  </span>
                 </p>
               </Link>
               <button
