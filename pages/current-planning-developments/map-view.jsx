@@ -189,13 +189,15 @@ export default function MapsPage() {
             <Head>
               <title>First Property - Maps</title>
             </Head>
-            <div className='max-w-[100vw] w-full flex flex-col justify-center px-2 md:px-8'>
+            <div className='max-w-[100vw] flex flex-col justify-center px-2 md:px-8'>
               {!loading &&
                 toggleFeedbackPopup &&
                 feedbackSubmitted !== true && (
-                  <FeedBackBanner
-                    bannerToggleFeedbackPopup={handleBannerFeedbackToggle}
-                  />
+                  <div className='max-w-[100vw] w-full'>
+                    <FeedBackBanner
+                      bannerToggleFeedbackPopup={handleBannerFeedbackToggle}
+                    />
+                  </div>
                 )}
               {!loading &&
                 feedbackPopupOpen === true &&
