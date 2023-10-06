@@ -55,7 +55,13 @@ export default function ContactPage() {
                 </dt>
                 <dd>Cerritos, CA 90703</dd>
               </div>
-              <div className='flex gap-x-4'>
+              {/*
+               *
+               *
+               * Phone number and email
+               *
+               */}
+              {/* <div className='flex gap-x-4'>
                 <dt className='flex-none'>
                   <span className='sr-only'>Telephone</span>
                   <PhoneIcon
@@ -86,7 +92,7 @@ export default function ContactPage() {
                     jasotel1@uci.edu
                   </a>
                 </dd>
-              </div>
+              </div> */}
             </dl>
           </div>
         </div>

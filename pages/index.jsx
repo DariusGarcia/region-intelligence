@@ -50,7 +50,7 @@ export default function LandingPage() {
                   Gain insights quicker
                 </h2>
                 <p className='my-2 text-2xl font-bold tracking-tight text-white sm:text-4xl'>
-                  Everything you need to be up to date
+                  Power Your Due Diligence
                 </p>
                 <p className=' text-lg leading-8 text-white'>
                   With our platform, tap into a wealth of city data and urban
@@ -213,27 +213,27 @@ const cardVariants = {
 
 const features = [
   {
-    name: 'Urban Intelligence',
+    name: 'Zoning',
     description:
-      "With our platform, tap into a wealth of city data and urban development insights. Get the edge in understanding the dynamics of city planning and land use. Utilize powerful analytics to guide your decision-making process, ensuring you're always a step ahead.",
+      "Stay informed about the specific land-use regulations and restrictions in Southern California. Whether it's residential, commercial, or industrial zones, our platform provides up-to-date details to ensure compliance with local zoning ordinances.",
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'Permit Mastery',
+    name: 'Current Planning Developments',
     description:
-      'Our service takes the complexity out of permit navigation. Stay updated with real-time information on land development permits in Southern California. Make sense of current and upcoming developments with ease, enabling smoother project planning and execution.',
+      'Keep a finger on the pulse of the latest development projects taking shape in the region. Our comprehensive updates on planning endeavors can be a crucial asset for investors, homeowners, and developers alike.',
     icon: LockClosedIcon,
   },
   {
-    name: 'Efficient Workflow',
+    name: 'Parcel Information',
     description:
-      'Our platform streamlines the land development research process, eliminating the need for multiple databases and resources. With organized and easily navigable data at your disposal, you can focus on what truly matters - making informed and strategic decisions. ',
+      "Access detailed data on individual land parcels, from ownership to size dimensions. Whether you're looking to purchase or simply research, our platform offers an exhaustive database to cater to all your parcel-specific inquiries.",
     icon: ArrowPathIcon,
   },
   {
-    name: 'Coming Soon: Demographic Dashboard',
+    name: 'Landmarks',
     description:
-      "We're always working to make First Property your ultimate real estate resource. That's why we're excited to announce our upcoming feature: the Demographic Dashboard. This innovative tool will provide you with rich demographic data at your fingertips. Understand the population's age, income levels, household size, and much more in your targeted areas. Whether you're considering a new investment or advising a client, our Demographic Dashboard will provide key insights to make the most informed decisions.",
+      "Explore key points of interest throughout Southern California. Whether you're searching for nearby grocery stores, bars, gyms, or other amenities, our platform guides you to essential locations to enhance the due diligence process.",
     icon: FingerPrintIcon,
   },
 ]
