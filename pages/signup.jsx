@@ -81,18 +81,18 @@ export default function SignupPage() {
       password: password,
       options: {
         data: {
-          first_name: firstName,
-          last_name: lastName,
-          phone_number: phoneNumber,
-          industry_role: industryRole,
-          years_experience: yearsExperience,
-          primary_purpose: primaryPurpose,
-          challenges_overcome: challengesOvercome,
-          other_tools: otherTools,
-          ideal_tool: idealTool,
-          city: city,
-          found_us: foundUs,
-          communication_method: communicationMethod,
+          // first_name: firstName,
+          // last_name: lastName,
+          // phone_number: phoneNumber,
+          // industry_role: industryRole,
+          // years_experience: yearsExperience,
+          // primary_purpose: primaryPurpose,
+          // challenges_overcome: challengesOvercome,
+          // other_tools: otherTools,
+          // ideal_tool: idealTool,
+          // city: city,
+          // found_us: foundUs,
+          // communication_method: communicationMethod,
           privacy_policy: privacyPolicy,
         },
       },
@@ -128,7 +128,8 @@ export default function SignupPage() {
         <div className=' sm:mx-auto sm:w-full sm:max-w-xl '>
           <form className='space-y-6' action='#' method='POST'>
             {error && <ErrorWarning message={error.message} />}
-            <div className='flex flex-col mt-10  gap-x-6 gap-y-8 '>
+            {/* FIRST and LAST NAME */}
+            {/* <div className='flex flex-col mt-10  gap-x-6 gap-y-8 '>
               <div className='flex flex-col md:flex-row justify-between gap-4'>
                 <div className='w-full mb-2 md:mb-0'>
                   <label
@@ -185,7 +186,7 @@ export default function SignupPage() {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
             <div>
               <label
                 htmlFor='email'
@@ -225,7 +226,7 @@ export default function SignupPage() {
                 />
               </div>
             </div>
-            <SignUpQuestions
+            {/* <SignUpQuestions
               onIndustryRoleChange={handleIndustryRoleChange}
               onYearsOfExperienceChange={handleYearsOfExperienceChange}
               onPrimaryPurposeChange={handlePrimaryPurposeChange}
@@ -235,10 +236,30 @@ export default function SignupPage() {
               onChallengesOvercomeChange={handleChallengesOvercomeChange}
               onOtherToolsChange={handleOtherToolsChange}
               onIdealToolChange={handleIdealToolChange}
-            />
+            /> */}
             <div>
               {/* Error messages */}
-              {error && <ErrorWarning message={error.message} />}
+              <div>
+                {/* Error messages */}
+                {error && <ErrorWarning message={error.message} />}
+                {email === '' || password === '' ? (
+                  <p className='mb-2 text-sm text-red-600 font-medium'>
+                    Please fill out all required fields.
+                  </p>
+                ) : null}
+                <button
+                  type='submit'
+                  onClick={handleSignUp}
+                  disabled={email === '' || password === '' || loading}
+                  className={
+                    email === '' || password === '' || loading
+                      ? 'flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
+                      : 'flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
+                  }>
+                  Sign up
+                </button>
+              </div>
+              {/* {error && <ErrorWarning message={error.message} />}
               {firstName === '' ||
               lastName === '' ||
               phoneNumber === '' ||
@@ -279,7 +300,7 @@ export default function SignupPage() {
                     : 'flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'
                 }>
                 Sign up
-              </button>
+              </button> */}
             </div>
           </form>
 
