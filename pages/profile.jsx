@@ -18,7 +18,6 @@ export default function ProfilePage() {
     return () => clearTimeout(timeout) // Cleanup the timeout on component unmount
   }, [session])
 
-  // TODO: add logout button
   async function logout() {
     const { error } = await supabase.auth.signOut()
     if (error) console.log('Error logging out:', error.message)

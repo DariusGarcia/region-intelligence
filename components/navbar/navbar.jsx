@@ -192,9 +192,24 @@ export default function Navbar() {
             </Transition>
           </Popover>
         </Popover.Group>
-        <div className='hidden lg:flex lg:flex-1 lg:justify-center'>
+
+        {/*
+         * USER AVATAR
+         *
+         */}
+        {/*
+         *
+         * Change back to justify-center instead of justify-end when adding the avatar back instead of the logout button
+         *
+         */}
+        <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
           {user ? (
-            <Avatar name={avatarName} />
+            // <Avatar name={avatarName} />
+            <button
+              className='text-white border border-white p-1 px-2 rounded-md hover:opacity-80 transition ease-out'
+              onClick={logout}>
+              Logout
+            </button>
           ) : (
             <a
               href='/login'
