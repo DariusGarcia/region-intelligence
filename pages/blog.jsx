@@ -1,37 +1,50 @@
-import React from 'react'
 import ReactMarkdown from 'react-markdown'
-
-const customComponents = {
-  p: ({ node, ...props }) => <p className='text-gray-700' {...props} />,
-  h1: ({ node, ...props }) => (
-    <h1 className='text-2xl font-bold mt-4 mb-2' {...props} />
-  ),
-  ul: ({ node, ...props }) => <ul className='list-disc ml-4' {...props} />, // Apply a disc-style bullet point
-  li: ({ node, ...props }) => <li className='mb-2' {...props} />,
-  // Add styling for other Markdown elements as needed
-}
 
 function BlogPost({ markdownFiles }) {
   return (
-    <div className='w-full'>
-      <article>
-        <ReactMarkdown components={customComponents}>
-          {markdownFiles}
-        </ReactMarkdown>
-      </article>
+    <div className='w-full flex flex-col items-center'>
+      <section className='flex flex-col justify-center items-start'>
+        {markdownFiles.map((markdown, index) => (
+          <article
+            className='w-full max-w-[800px] mt-8 bg-gray-100 p-4 rounded-sm'
+            key={index}>
+            <ReactMarkdown components={customComponents}>
+              {markdown}
+            </ReactMarkdown>
+          </article>
+        ))}
+      </section>
     </div>
   )
 }
 
 export default BlogPost
 
-async function fetchMarkdownFiles() {
+// fetch markdown files from GitHub repo
+async function fetchMarkdownFileList() {
   const response = await fetch(
-    'https://raw.githubusercontent.com/DariusGarcia/markdown/main/post.md'
+    'https://api.github.com/repos/DariusGarcia/markdown/contents/'
   )
 
-  const markdownFiles = await response.text()
-  console.log(markdownFiles)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch file list: ${response.statusText}`)
+  }
+  const fileList = await response.json()
+  return fileList
+}
+
+async function fetchMarkdownFiles() {
+  const fileList = await fetchMarkdownFileList()
+  const markdownFiles = await Promise.all(
+    // filter for markdown files
+    fileList
+      .filter((file) => file.name.endsWith('.md'))
+      .map(async (file) => {
+        const response = await fetch(file.download_url)
+        return response.text()
+      })
+  )
+
   return markdownFiles
 }
 
@@ -42,4 +55,14 @@ export async function getStaticProps() {
       markdownFiles,
     },
   }
+}
+
+// markdown styling for blog post
+const customComponents = {
+  p: ({ node, ...props }) => <p className='text-gray-700' {...props} />,
+  h1: ({ node, ...props }) => (
+    <h1 className='text-2xl font-bold mt-4 mb-2' {...props} />
+  ),
+  ul: ({ node, ...props }) => <ul className='list-disc ml-4' {...props} />,
+  li: ({ node, ...props }) => <li className='mb-2' {...props} />,
 }
