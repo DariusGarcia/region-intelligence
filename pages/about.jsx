@@ -212,9 +212,9 @@ export default function AboutPage() {
                 <Image
                   src='/about/arcGISDemo.png'
                   alt='Product screenshot'
-                  className='w-full max-w-none rounded-xl shadow-md ring-1 ring-white/10 sm:w-[57rem] md:-ml-4 lg:-ml-0'
-                  width={2432}
-                  height={1442}
+                  className='w-full rounded-xl shadow-md ring-1 ring-white/10 sm:w-[96rem] md:-ml-4 lg:-ml-0'
+                  width={900}
+                  height={900}
                 />
               </div>
             </div>
@@ -250,11 +250,11 @@ export default function AboutPage() {
                     </dl>
                   </div>
                 </div>
-                <div className='flex items-start justify-end lg:order-first'>
+                <div className='flex items-start justify-start lg:order-first'>
                   <Image
                     src='/about/devBot.jpg'
                     alt='Product screenshot'
-                    className='w-full max-w-none rounded-md shadow-lg ring-1 ring-gray-400/10 sm:w-[40rem]'
+                    className='w-full rounded-md shadow-lg ring-1 ring-gray-400/10 sm:w-[30rem]'
                     width={600}
                     height={600}
                   />
