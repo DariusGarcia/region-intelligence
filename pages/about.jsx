@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -17,21 +18,24 @@ export default function AboutPage() {
           <div className='mx-auto max-w-7xl px-6 py-12 sm:py-40 lg:px-8'>
             <div className='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
               <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto'>
-                We’re a passionate group of people working from around the world
-                to build the future of ecommerce.
+                Bridging the Gap in Municipal Real-Estate Development
+                Information.
               </h1>
               <div className='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
                 <p className='text-lg leading-8 text-gray-600'>
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non
-                  deserunt sunt. Qui irure qui lorem cupidatat commodo.
+                  From City Planning to Residential Developments: Dive deep into
+                  detailed parcel data, site planning insights, and up-to-date
+                  licenses across Southern California municipalities. Serving
+                  Real-Estate Developers, City Planner Offices, and enthusiasts
+                  with comprehensive data on Development Projects and more.
                 </p>
               </div>
-              <img
-                src='https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80'
-                alt=''
-                className='mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36'
+              <Image
+                src='/about/aerialView.jpg'
+                width={800}
+                height={800}
+                alt='aerial view of LA'
+                className='aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2'
               />
             </div>
           </div>
@@ -40,18 +44,16 @@ export default function AboutPage() {
 
         {/* Timeline section */}
         <div className='mx-auto -mt-8 max-w-7xl px-6 lg:px-8'>
-          <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-4'>
+          <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
             {timeline.map((item) => (
               <div key={item.name}>
                 <time
                   dateTime={item.dateTime}
-                  className='flex items-center text-sm font-semibold leading-6 text-blue-600'
-                >
+                  className='flex items-center text-sm font-semibold leading-6 text-blue-600'>
                   <svg
                     viewBox='0 0 4 4'
                     className='mr-4 h-1 w-1 flex-none'
-                    aria-hidden='true'
-                  >
+                    aria-hidden='true'>
                     <circle cx={2} cy={2} r={2} fill='currentColor' />
                   </svg>
                   {item.date}
@@ -121,8 +123,7 @@ export default function AboutPage() {
             </div>
             <div
               className='absolute -top-24 right-0 -z-10 transform-gpu blur-3xl'
-              aria-hidden='true'
-            >
+              aria-hidden='true'>
               <div
                 className='aspect-[1404/767] w-[87.75rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25'
                 style={{
@@ -295,8 +296,7 @@ export default function AboutPage() {
                         <svg
                           viewBox='0 0 2 2'
                           className='h-0.5 w-0.5 flex-none fill-gray-300'
-                          aria-hidden='true'
-                        >
+                          aria-hidden='true'>
                           <circle cx={1} cy={1} r={1} />
                         </svg>
                         {opening.location}
@@ -308,8 +308,7 @@ export default function AboutPage() {
               <div className='mt-8 flex border-t border-gray-100 pt-8'>
                 <a
                   href='#'
-                  className='text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500'
-                >
+                  className='text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500'>
                   View all openings <span aria-hidden='true'>&rarr;</span>
                 </a>
               </div>
@@ -325,30 +324,37 @@ const timeline = [
   {
     name: 'Founded company',
     description:
-      'Nihil aut nam. Dignissimos a pariatur et quos omnis. Aspernatur asperiores et dolorem dolorem optio voluptate repudiandae.',
-    date: 'Aug 2021',
-    dateTime: '2021-08',
+      'In August 2023, a group of passionate real estate and tech enthusiasts came together to address the challenges faced by professionals in accessing municipal real-estate development information. Recognizing a gap in the market, they founded Region Intelligence with the aim to create an aggregated platform for this crucial data.',
+    date: 'Aug 2023',
+    dateTime: '2023-08',
   },
   {
-    name: 'Secured $500,000 in funding',
+    name: 'Developed Proof of Concept',
     description:
-      'Provident quia ut esse. Vero vel eos repudiandae aspernatur. Cumque minima impedit sapiente a architecto nihil.',
-    date: 'Dec 2021',
-    dateTime: '2021-12',
+      'By September, the team had already conceptualized a dynamic platform that could gather, analyze, and present municipal development data. Leveraging their combined expertise, they quickly developed a proof of concept, laying the foundation for what would become a game-changing tool in the real estate and urban planning sector.',
+    date: 'Sept 2023',
+    dateTime: '2023-9',
   },
   {
-    name: 'Released beta',
+    name: 'Developed beta',
     description:
-      'Sunt perspiciatis incidunt. Non necessitatibus aliquid. Consequatur ut officiis earum eum quia facilis. Hic deleniti dolorem quia et.',
-    date: 'Feb 2022',
-    dateTime: '2022-02',
+      'October witnessed rapid advancements as the team took feedback from the initial proof of concept and channeled it into the development of a beta version. This version offered enhanced data analytics capabilities, user-friendly interfaces, and robust integration with multiple municipal data sources.',
+    date: 'Oct 2023',
+    dateTime: '2023-10',
   },
   {
-    name: 'Global launch of product',
+    name: 'Beta Test',
     description:
-      'Ut ipsa sint distinctio quod itaque nam qui. Possimus aut unde id architecto voluptatem hic aut pariatur velit.',
-    date: 'Dec 2022',
-    dateTime: '2022-12',
+      'In November, the plan is to initiate a closed beta test, inviting industry professionals, city planners, and real estate firms to try out the platform. This period was marked by rigorous testing, feedback collection, and iterative improvements, ensuring that the platform met the highest standards of accuracy and usability.',
+    date: 'Nov 2023',
+    dateTime: '2023-11',
+  },
+  {
+    name: 'Launch',
+    description:
+      'Come December,  Region Intelligence is planning to officially launch its platform to the public. Offering unparalleled insights into municipal real-estate development, the platform quickly gained recognition as an indispensable tool for industry professionals, providing them with comprehensive, reliable, and easily accessible data.',
+    date: 'Dec 2023',
+    dateTime: '2023-12',
   },
 ]
 const jobOpenings = [
