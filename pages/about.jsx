@@ -53,6 +53,7 @@ export default function AboutPage() {
                 </div>
                 <Image
                   src='/about/aerialView.jpg'
+                  priority
                   width={800}
                   height={800}
                   alt='aerial view of LA'
