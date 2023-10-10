@@ -13,7 +13,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>First Property</title>
+        <title>Region Intelligence</title>
       </Head>
       <SessionContextProvider
         supabaseClient={supabase}

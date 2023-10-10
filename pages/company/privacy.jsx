@@ -6,8 +6,8 @@ const PrivacyPage = () => {
       <div className='max-w-7xl'>
         <h1 className='text-2xl font-bold mb-4'>Privacy Policy</h1>
         <p>
-          This Privacy Policy describes how First Property collects, uses, and
-          protects the personal information you provide on our website. By
+          This Privacy Policy describes how Region Intelligence collects, uses,
+          and protects the personal information you provide on our website. By
           accessing or using the website, you consent to the data practices
           described in this policy.
         </p>

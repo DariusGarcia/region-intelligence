@@ -24,12 +24,12 @@ const terms = [
   {
     id: 1,
     title: '1. Introduction',
-    text: 'These terms and conditions govern your use of First Property website and any related services provided by First Property. By accessing or using the website, you agree to comply with these terms and conditions.',
+    text: 'These terms and conditions govern your use of Region Intelligence website and any related services provided by Region Intelligence. By accessing or using the website, you agree to comply with these terms and conditions.',
   },
   {
     id: 2,
     title: '2. Intellectual Property Rights ',
-    text: 'All content on this website, including text, graphics, logos, images, and software, is the property of First Property and is protected by intellectual property laws. You may not reproduce, distribute, modify, or republish any content from this website without prior written consent from First Property.',
+    text: 'All content on this website, including text, graphics, logos, images, and software, is the property of Region Intelligence and is protected by intellectual property laws. You may not reproduce, distribute, modify, or republish any content from this website without prior written consent from Region Intelligence.',
   },
   {
     id: 3,
@@ -39,12 +39,12 @@ const terms = [
   {
     id: 4,
     title: '4. Third-Party Links',
-    text: 'This website may contain links to third-party websites that are not owned or controlled by First Property. We are not responsible for the content or privacy practices of these third-party websites. Your use of such websites is at your own risk.',
+    text: 'This website may contain links to third-party websites that are not owned or controlled by Region Intelligence. We are not responsible for the content or privacy practices of these third-party websites. Your use of such websites is at your own risk.',
   },
   {
     id: 5,
     title: '5. Disclaimer of Liability',
-    text: 'The information provided on this website is for general informational purposes only. We make no representations or warranties of any kind, express or implied, about the accuracy, completeness, reliability, or suitability of the information contained on the website. - In no event shall First Property be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of or in connection with the use of this website.',
+    text: 'The information provided on this website is for general informational purposes only. We make no representations or warranties of any kind, express or implied, about the accuracy, completeness, reliability, or suitability of the information contained on the website. - In no event shall Region Intelligence be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of or in connection with the use of this website.',
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const terms = [
   {
     id: 7,
     title: '7. Modifications',
-    text: 'First Property reserves the right to modify or replace these terms and conditions at any time. It is your responsibility to check this page periodically for any changes. Your continued use of the website after the modifications will constitute your acknowledgment and acceptance of the modified terms and conditions.',
+    text: 'Region Intelligence reserves the right to modify or replace these terms and conditions at any time. It is your responsibility to check this page periodically for any changes. Your continued use of the website after the modifications will constitute your acknowledgment and acceptance of the modified terms and conditions.',
   },
   {
     id: 8,

@@ -29,7 +29,7 @@ export default function LandingHeader({ scrollToTarget }) {
                   Empower Your Real Estate Journey
                 </h1>
                 <p className='mt-6 text-lg leading-8 text-gray-600'>
-                  First Property:{' '}
+                  Region Intelligence:{' '}
                   <span className='italic text-blue-600'>
                     Simple, quick, insightful
                   </span>

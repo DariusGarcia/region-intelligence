@@ -130,7 +130,7 @@ export default function MapsPage() {
         {permitData[0].lat !== 0 && !isLoading && (
           <>
             <Head>
-              <title>First Property - Maps</title>
+              <title>Region Intelligence - Maps</title>
             </Head>
             <div className='w-full flex flex-col justify-center mt-8 md:mt-12 px-2 md:px-8'>
               <h1 className='flex justify-center font-bold text-3xl mb-8'>

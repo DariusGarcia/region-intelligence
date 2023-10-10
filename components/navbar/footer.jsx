@@ -14,7 +14,7 @@ export default function Footer() {
             href='/'
             className='h-7 text-xl font-semibold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
             alt='Company name'>
-            First Property{' '}
+            Region Intelligence{' '}
             <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
               Beta
             </span>

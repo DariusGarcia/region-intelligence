@@ -52,7 +52,7 @@ export default function ProfilePage() {
               {session && (
                 <>
                   <Head>
-                    <title>First Property - Profile</title>
+                    <title>Region Intelligence - Profile</title>
                   </Head>
                   <div className='flex w-full mt-12 justify-center bg-white rounded-md py-4 md:py-12'>
                     <Profile />

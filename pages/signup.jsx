@@ -111,7 +111,7 @@ export default function SignupPage() {
   return (
     <>
       <Head>
-        <title>First Property - Signup</title>
+        <title>Region Intelligence - Signup</title>
       </Head>
       <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
         <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} />
@@ -119,7 +119,9 @@ export default function SignupPage() {
           <SuccessNotification message='Account created successfully' />
         )}
         <div className='sm:mx-auto sm:w-full sm:max-w-lg'>
-          <h1 className='text-2xl font-bold text-center'>First Property</h1>
+          <h1 className='text-2xl font-bold text-center'>
+            Region Intelligence
+          </h1>
           <h2 className='mt-4 md:mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-600'>
             Create your account
           </h2>

@@ -14,7 +14,7 @@ export default function PricingPage() {
   return (
     <>
       <Head>
-        <title>First Property - Pricing</title>
+        <title>Region Intelligence - Pricing</title>
       </Head>
       <div className='bg-white'>
         <main>

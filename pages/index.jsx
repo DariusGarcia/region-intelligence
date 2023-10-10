@@ -20,14 +20,14 @@ export default function LandingPage() {
   return (
     <>
       <Head>
-        <title>First Property - Home</title>
+        <title>Region Intelligence - Home</title>
         <meta
           name='description'
-          content=' No more navigating through complex research. With First Property,
+          content=' No more navigating through complex research. With Region Intelligence,
               everything you need is just a few clicks away. Our platform
               revolutionizes the way you access and handle vital information,
               making your decision-making process quicker and more informed.
-              Step into the future of property development - Join First Property
+              Step into the future of property development - Join Region Intelligence
               today!'
         />
       </Head>

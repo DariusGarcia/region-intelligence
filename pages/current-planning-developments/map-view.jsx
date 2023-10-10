@@ -187,7 +187,7 @@ export default function MapsPage() {
         {permitData[0].lat !== 0 && !isLoading && (
           <>
             <Head>
-              <title>First Property - Maps</title>
+              <title>Region Intelligence - Maps</title>
             </Head>
             <div className='max-w-[100vw] flex flex-col justify-center px-2 md:px-8'>
               {!loading &&

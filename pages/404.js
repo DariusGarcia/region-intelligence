@@ -12,7 +12,7 @@ export default function ErrorPage() {
     <div className='bg-white'>
       <main className='mx-auto w-full max-w-7xl px-6 pb-16 pt-10 lg:px-8'>
         <h1 className='w-full text-center font-bold text-4xl'>
-          First Property
+          Region Intelligence
         </h1>
         <div className='mx-auto mt-20 max-w-2xl text-center sm:mt-24'>
           <p className='text-2xl font-semibold leading-8 text-blue-600'>404</p>
@@ -71,7 +71,7 @@ export default function ErrorPage() {
       <footer className='border-t border-gray-100 py-6 sm:py-10'>
         <div className='mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 px-6 sm:flex-row lg:px-8'>
           <p className='text-sm leading-7 text-gray-400'>
-            &copy; First Property, Inc. All rights reserved.
+            &copy; Region Intelligence, Inc. All rights reserved.
           </p>
           <div className='hidden sm:block sm:h-7 sm:w-px sm:flex-none sm:bg-gray-200' />
           {/* <div className='flex gap-x-4'>
@@ -96,7 +96,7 @@ const links = [
     name: 'Home',
     href: '/',
     description:
-      'First Property: Simple, quick, insightful. Your key to smarter decision-making in property development. Join today and revolutionize your real estate journey.',
+      'Region Intelligence: Simple, quick, insightful. Your key to smarter decision-making in property development. Join today and revolutionize your real estate journey.',
     icon: HomeIcon,
   },
   {

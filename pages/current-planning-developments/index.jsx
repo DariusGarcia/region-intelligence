@@ -9,7 +9,7 @@ export default function LandDirectoryListViewPage({ cityProjects }) {
   return (
     <>
       <Head>
-        <title>First Property - Home</title>
+        <title>Region Intelligence - Home</title>
         <meta name='description' content={headerText.subtitle1Description} />
       </Head>
       <div className='flex justify-center mt-8 md:mt-12 px-4'>

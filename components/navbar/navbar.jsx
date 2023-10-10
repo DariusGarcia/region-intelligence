@@ -63,9 +63,9 @@ export default function Navbar() {
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
-            <span className='sr-only'>First Property</span>
+            <span className='sr-only'>Region Intelligence</span>
             <p className='text-lg font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-              First Property
+              Region Intelligence
               <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
                 Beta
               </span>
@@ -236,11 +236,11 @@ export default function Navbar() {
           <div className='p-6'>
             <div className='flex items-center justify-between'>
               <Link href='/' className='-m-1.5 p-1.5'>
-                <span className='sr-only'>First Property</span>
+                <span className='sr-only'>Region Intelligence</span>
                 <p
                   className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
-                  First Property{' '}
+                  Region Intelligence{' '}
                   <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
                     Beta
                   </span>
