@@ -1,20 +1,40 @@
+import Head from 'next/head'
 import ReactMarkdown from 'react-markdown'
 
 function BlogPost({ markdownFiles }) {
   return (
-    <div className='w-full flex flex-col items-center'>
-      <section className='flex flex-col justify-center items-start'>
-        {markdownFiles.map((markdown, index) => (
-          <article
-            className='w-full max-w-[800px] mt-8 bg-gray-100 p-4 rounded-sm'
-            key={index}>
-            <ReactMarkdown components={customComponents}>
-              {markdown}
-            </ReactMarkdown>
-          </article>
-        ))}
-      </section>
-    </div>
+    <>
+      <Head>
+        <title>
+          Region Intelligence - Blog | Our platform revolutionizes the way you
+          access and handle vital information, making your decision-making
+          process quicker and more informed. Step into the future of property
+          development.
+        </title>
+        <meta
+          name='description'
+          content=' No more navigating through complex research. With Region Intelligence,
+      everything you need is just a few clicks away. Our platform
+      revolutionizes the way you access and handle vital information,
+      making your decision-making process quicker and more informed.
+      Step into the future of property development - Join Region Intelligence
+      today!'
+        />
+      </Head>
+      <div className='w-full flex flex-col items-center'>
+        <section className='flex flex-col justify-center items-start'>
+          {markdownFiles.map((markdown, index) => (
+            <article
+              className='w-full max-w-[800px] mt-8 bg-gray-100 p-4 rounded-sm'
+              key={index}>
+              <ReactMarkdown components={customComponents}>
+                {markdown}
+              </ReactMarkdown>
+            </article>
+          ))}
+        </section>
+      </div>
+    </>
   )
 }
 
