@@ -185,8 +185,12 @@ export default function AboutPage() {
                       Our Data in Action
                     </p>
                     <p className='mt-6 text-lg leading-8 text-gray-300'>
-                      ArcGIS: Visual Representation of the Esri Project in
-                      Action
+                      <Link
+                        href='https://www.esri.com/en-us/arcgis/about-arcgis/overview'
+                        className='text-blue-500 underline hover:opacity-80'>
+                        Powered by ArcGIS
+                      </Link>
+                      : Visual Representation of the Esri Project in Action
                     </p>
                     <dl className='mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none'>
                       {features.map((feature) => (
