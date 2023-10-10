@@ -65,7 +65,7 @@ export default function AboutPage() {
           </div>
 
           {/* Timeline section */}
-          <div className='mx-auto -mt-8 max-w-7xl px-6 lg:px-8'>
+          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
               {timeline.map((item) => (
                 <div key={item.name}>
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </div>
 
           {/* Content section */}
-          <div className='bg-white py-12 md:py-32 md:mt-24'>
+          <div className='bg-white py-12 md:py-32 mt-24 md:mt-24'>
             <div className='mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5'>
               <div className='max-w-2xl xl:col-span-2'>
                 <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
@@ -174,7 +174,7 @@ export default function AboutPage() {
           </div>
 
           {/* Feature sections */}
-          <div className='overflow-hidden bg-gray-900 py-16 sm:py-32'>
+          <div className='overflow-hidden bg-gray-900 py-12 sm:py-32'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
               <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
                 <div className='lg:pr-8 lg:pt-4'>
@@ -219,7 +219,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className='overflow-hidden bg-gray-900 py-16 sm:py-32'>
+          <div className='overflow-hidden bg-gray-900 py-12 sm:py-32'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
               <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
                 <div className='lg:ml-auto lg:pl-4 lg:pt-4'>
@@ -316,7 +316,7 @@ export default function AboutPage() {
 
           {/* CTA section */}
           <div className='bg-white'>
-            <div className='px-6 py-24 sm:px-6 sm:py-24 lg:px-8'>
+            <div className='px-6 py-12 sm:px-6 sm:py-24 lg:px-8'>
               <div className='mx-auto max-w-2xl text-center'>
                 <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
                   Streamline Your Real Estate Workflow.
@@ -456,7 +456,7 @@ const people = [
     name: 'Darius Garcia Jr.',
     role: 'Software Engineer',
     imageUrl: '/about/portrait.jpg',
-    bio: "Darius is a Fullstack Developer who received his Business Economics Bachelor's degree from the University of California, Irvine. He also received a certificate for completing the Fullstack Web Developing bootcamp from UC Irvine as well. Darius currently works as a Coding Instructor, as well as a freelance web developer.",
+    bio: "Darius is a Fullstack Developer who received his Bachelor's degree in Business Economics from the University of California, Irvine. He also received a certificate for completing the Fullstack Web Developing bootcamp from UC Irvine. Darius currently works as a coding instructor, as well as a freelance web developer.",
     // twitterUrl: '#',
     linkedinUrl: '#',
   },
