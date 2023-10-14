@@ -66,6 +66,7 @@ export default function AboutPage() {
 
           {/* Timeline section */}
           <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+            <h2 className='mb-8 text-3xl font-bold'>Our Timeline</h2>
             <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
               {timeline.map((item) => (
                 <div key={item.name}>
@@ -315,22 +316,22 @@ export default function AboutPage() {
           </div>
 
           {/* CTA section */}
-          <div className='bg-white'>
+          <div className=''>
             <div className='px-6 py-12 sm:px-6 sm:py-24 lg:px-8'>
-              <div className='mx-auto max-w-2xl text-center'>
-                <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+              <div className='mx-auto p-4 rounded-md py-8 max-w-2xl text-center bg-blue-600 '>
+                <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>
                   Streamline Your Real Estate Workflow.
                   <br />
                   Start using our app today.
                 </h2>
-                <p className='mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600'>
+                <p className='mx-auto mt-6 max-w-xl text-lg leading-8 text-white'>
                   Save hours in your week by trying our platform. Made and Built
                   for Real-Estate Professionals.
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <Link
                     href='/login'
-                    className='rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                    className='rounded-md bg-gray-200 px-3.5 py-2.5 text-sm font-semibold shadow-sm hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                     Get started
                   </Link>
                   <Link
