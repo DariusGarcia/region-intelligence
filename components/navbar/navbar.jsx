@@ -192,6 +192,13 @@ export default function Navbar() {
             </Transition>
           </Popover>
         </Popover.Group>
+        <Link
+          href='/blog'
+          className='flex items-center gap-x-1 text-sm leading-6 text-white hover:text-gray-300 transition ease-out'>
+          <p className='ml-12 flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Blog
+          </p>
+        </Link>
 
         {/*
          * USER AVATAR

@@ -28,13 +28,16 @@ const ptComponents = {
         <img
           alt={value.alt || ' '}
           loading='lazy'
-          src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+          className='my-12'
+          src={urlFor(value).width(500).height(300).fit('max').auto('format')}
         />
       )
     },
+    // Define how to render lists (ul) and list items (li)
+    bulletList: ({ children }) => <ul className=' list-disc'>{children}</ul>,
+    listItem: ({ children }) => <li className='list-disc '>{children}</li>,
   },
 }
-
 function BlogPost({ post }) {
   if (!post) {
     return null // Add a check to handle cases where 'post' is undefined
@@ -45,6 +48,7 @@ function BlogPost({ post }) {
     name = 'Missing name',
     categories,
     body = [],
+    publishedAt,
   } = post
   return (
     <>
@@ -65,21 +69,28 @@ function BlogPost({ post }) {
   today!'
         />
       </Head>
-      <div className='w-full flex flex-col items-center mt-12'>
-        <section className='flex flex-col justify-center items-start'>
-          <h1>{title}</h1>
-          <span>By {name}</span>
+      <div className='w-full flex flex-col items-center justify-center mt-12'>
+        <article className='w-full px-8 max-w-7xl flex flex-col justify-center items-start'>
           {categories && (
             <ul>
-              Posted in
               {categories.map((category) => (
-                <li key={category}>{category}</li>
+                <li
+                  className='font-semibold text-xs mb-2 bg-gray-200 p-2 rounded-full'
+                  key={category}>
+                  {category}
+                </li>
               ))}
             </ul>
           )}
-
-          <PortableText value={body} components={ptComponents} />
-        </section>
+          <header className='mb-12'>
+            <h1 className='text-3xl font-bold'>{title}</h1>
+            <span>By {name}</span>
+          </header>
+          {/* <span>{new Date(publishedAt).toDateString()}</span> */}
+          <div>
+            <PortableText value={body} components={ptComponents} />
+          </div>
+        </article>
       </div>
     </>
   )
@@ -90,7 +101,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "name": author->name,
   "categories": categories[]->title,
   "authorImage": author->image,
-  body
+  body,
+  publishedAt
 }`
 export async function getStaticPaths() {
   const paths = await client.fetch(

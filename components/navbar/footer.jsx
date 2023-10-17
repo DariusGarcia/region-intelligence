@@ -111,6 +111,7 @@ const footerNavigation = {
 
   company: [
     { name: 'About us', href: '/about' },
+    { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/company/faq' },
   ],
   legal: [
