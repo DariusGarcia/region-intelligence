@@ -35,7 +35,7 @@ export default function LandingPage() {
         <AnimatePresence>
           <main className='isolate w-full'>
             {/* Hero section */}
-            <div className='flex justify-center md:my-24 w-full'>
+            <div className='flex justify-center md:my-12 w-full'>
               <LandingHeader
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -44,7 +44,7 @@ export default function LandingPage() {
             </div>
 
             {/* Feature section */}
-            <div className='mx-auto  md:mt-32 p-4 py-8 px-6 sm:mt-56 lg:px-8 bg-gray-900'>
+            <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
               <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
                 <h2 className='text-xl font-semibold leading-7 text-blue-600'>
                   Gain insights quicker
@@ -98,7 +98,7 @@ export default function LandingPage() {
               <DemoVideo />
             </div>
             {/* Pricing section */}
-            <div className='py-12 md:py-24 sm:py-48 bg-stone-50'>
+            <div className='py-12 bg-stone-50'>
               <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                 <div className='mx-auto max-w-4xl text-center'>
                   <h2 className='text-base font-semibold leading-7 text-blue-600'>

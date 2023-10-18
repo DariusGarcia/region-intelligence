@@ -35,7 +35,7 @@ export default function AboutPage() {
               className='absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 sm:-mr-80 lg:-mr-96'
               aria-hidden='true'
             />
-            <div className='mx-auto max-w-7xl px-6 py-12 sm:py-40 lg:px-8'>
+            <div className='mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:px-8'>
               <div className='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8'>
                 <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto'>
                   Bridging the Gap in Municipal Real-Estate Development
@@ -53,9 +53,9 @@ export default function AboutPage() {
                 </div>
                 <Image
                   src='/about/aerialView.jpg'
-                  priority
-                  width={800}
-                  height={800}
+                  priority={true}
+                  width={1080}
+                  height={1280}
                   alt='aerial view of LA'
                   className='aspect-[6/5] w-full max-w-lg my-8 md:my-0 rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2'
                 />
@@ -97,7 +97,7 @@ export default function AboutPage() {
           </div>
 
           {/* Content section */}
-          <div className='bg-white py-12 md:py-32 mt-24 md:mt-24'>
+          <div className='bg-white py-12 mt-24 md:my-24'>
             <div className='mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5'>
               <div className='max-w-2xl xl:col-span-2'>
                 <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
@@ -175,7 +175,7 @@ export default function AboutPage() {
           </div>
 
           {/* Feature sections */}
-          <div className='overflow-hidden bg-gray-900 py-12 sm:py-32'>
+          <div className='overflow-hidden bg-gray-900 py-12 sm:py-12'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
               <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
                 <div className='lg:pr-8 lg:pt-4'>
@@ -216,11 +216,12 @@ export default function AboutPage() {
                   className='w-full rounded-xl shadow-md ring-1 ring-white/10 sm:w-[96rem] md:-ml-4 lg:-ml-0'
                   width={900}
                   height={900}
+                  priority={true}
                 />
               </div>
             </div>
           </div>
-          <div className='overflow-hidden bg-gray-900 py-12 sm:py-32'>
+          <div className='overflow-hidden bg-gray-900 py-12 '>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
               <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
                 <div className='lg:ml-auto lg:pl-4 lg:pt-4'>
@@ -258,6 +259,7 @@ export default function AboutPage() {
                     className='w-full rounded-md shadow-lg ring-1 ring-gray-400/10 sm:w-[30rem]'
                     width={600}
                     height={600}
+                    priority={true}
                   />
                 </div>
               </div>
@@ -265,7 +267,7 @@ export default function AboutPage() {
           </div>
           {/* Mission and values */}
           <div className='bg-white'>
-            <div className='mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8'>
+            <div className='mx-auto max-w-2xl px-4 py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
               <div className='mx-auto max-w-3xl text-center'>
                 <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
                   Our Mission and Values
@@ -302,9 +304,11 @@ export default function AboutPage() {
                         'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8'
                       )}>
                       <div className='aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100'>
-                        <img
+                        <Image
                           src={value.imageSrc}
                           alt={value.imageAlt}
+                          height={1280}
+                          width={1080}
                           className='object-cover object-center'
                         />
                       </div>
@@ -317,7 +321,7 @@ export default function AboutPage() {
 
           {/* CTA section */}
           <div className=''>
-            <div className='px-6 py-12 sm:px-6 sm:py-24 lg:px-8'>
+            <div className='px-6 py-12 sm:px-6 lg:px-8'>
               <div className='mx-auto p-4 rounded-md py-8 max-w-2xl text-center bg-blue-600 '>
                 <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>
                   Streamline Your Real Estate Workflow.
@@ -344,7 +348,7 @@ export default function AboutPage() {
             </div>
           </div>
           {/* Blog section */}
-          <div className='bg-stone-50 py-24 sm:py-32 mt-12'>
+          <div className='bg-stone-50 py-24 mt-12'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
               <div className='mx-auto max-w-2xl'>
                 <Link

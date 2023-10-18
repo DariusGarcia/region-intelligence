@@ -27,7 +27,7 @@ const Index = ({ posts }) => {
               From the RI Blog
             </h2>
             <p className='mt-2 text-lg leading-8 text-gray-600'>
-              Learn how to grow your business with our expert advice.
+              Learn about our how solutions can help your business problems.
             </p>
             <div className='mt-16 space-y-20 lg:mt-20 lg:space-y-20'>
               {posts.length > 0 &&

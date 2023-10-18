@@ -56,15 +56,15 @@ export default function LandingHeader({ scrollToTarget }) {
               initial='hidden'
               animate='visible'
               viewport={{ once: true, amount: 0.8 }}
-              className='relative mt-12 md:mt-24 mb-24 md:mb-0 relative'>
+              className='relative mt-12 md:mt-24 mb-24 md:mb-0'>
               <m.div variants={cardVariantsHorizontal}>
                 <Image
                   className=' w-full rounded-lg  bg-gray-50 lg:h-full'
                   src='/updatedMap.png'
                   alt='landing'
-                  height={1000}
-                  width={1000}
-                  priority
+                  height={1280}
+                  width={1080}
+                  priority={true}
                 />
               </m.div>
             </m.div>
