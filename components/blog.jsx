@@ -16,10 +16,9 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source)
 }
 
-const Index = ({ posts }) => {
+export default function BlogSection({ posts }) {
   return (
     <>
-      {' '}
       <div className='bg-white py-6 sm:py-12'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl lg:max-w-4xl'>
@@ -30,7 +29,7 @@ const Index = ({ posts }) => {
               Learn about our how solutions can help your business problems.
             </p>
             <div className='mt-16 space-y-20 lg:mt-20 lg:space-y-20'>
-              {posts.length > 0 &&
+              {posts?.length > 0 &&
                 posts.map(
                   ({
                     _id,
@@ -125,5 +124,3 @@ export async function getServerSideProps() {
     },
   }
 }
-
-export default Index
