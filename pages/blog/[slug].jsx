@@ -1,5 +1,5 @@
 import Head from 'next/head'
-
+import Link from 'next/link'
 import { createClient } from 'next-sanity'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
@@ -19,6 +19,9 @@ function urlFor(source) {
 }
 
 const ptComponents = {
+  block: {
+    normal: ({ children }) => <p className='leading-loose '>{children}</p>,
+  },
   types: {
     image: ({ value }) => {
       if (!value?.asset?._ref) {
@@ -28,13 +31,14 @@ const ptComponents = {
         <img
           alt={value.alt || ' '}
           loading='lazy'
-          className='my-12'
-          src={urlFor(value).width(500).height(300).fit('max').auto('format')}
+          className='my-12  '
+          src={urlFor(value).width(700).height(500).fit('max').auto('format')}
         />
       )
     },
     // Define how to render lists (ul) and list items (li)
     bulletList: ({ children }) => <ul className=' list-disc'>{children}</ul>,
+
     listItem: ({ children }) => <li className='list-disc '>{children}</li>,
   },
 }
@@ -48,6 +52,7 @@ function BlogPost({ post }) {
     name = 'Missing name',
     categories,
     body = [],
+    mainImage,
     publishedAt,
   } = post
   return (
@@ -69,28 +74,46 @@ function BlogPost({ post }) {
   today!'
         />
       </Head>
-      <div className='w-full flex flex-col items-center justify-center mt-12'>
-        <article className='w-full px-8 max-w-7xl flex flex-col justify-center items-start'>
-          {categories && (
-            <ul>
-              {categories.map((category) => (
-                <li
-                  className='font-semibold text-xs mb-2 bg-gray-200 p-2 rounded-full'
-                  key={category}>
-                  {category}
-                </li>
-              ))}
-            </ul>
-          )}
-          <header className='mb-12'>
-            <h1 className='text-3xl font-bold'>{title}</h1>
-            <span>By {name}</span>
-          </header>
-          {/* <span>{new Date(publishedAt).toDateString()}</span> */}
-          <div>
-            <PortableText value={body} components={ptComponents} />
-          </div>
-        </article>
+      <div className='bg-white py-6 sm:py-12'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+          <article className='mx-auto max-w-2xl lg:max-w-4xl'>
+            <Link
+              href='/blog'
+              className='font-bold underline text-2xl md:text-3xl mb-8 hover:text-blue-600'>
+              RI Blog
+            </Link>
+            {categories && (
+              <ul className='flex flex-row gap-2'>
+                {categories.map((category) => (
+                  <li
+                    className='font-semibold w-max mt-8 text-xs mb-2 bg-gray-100 p-2 rounded-full'
+                    key={category}>
+                    {category}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <header className='mb-8'>
+              <h1 className='text-3xl md:text-5xl font-bold'>{title}</h1>
+              <img
+                src={urlFor(mainImage)
+                  .width(1200)
+                  .height(800)
+                  .fit('max')
+                  .auto('format')}
+                alt={title}
+                className='my-12 rounded-md shadow-md'
+              />{' '}
+              <span className='font-bold text-2xl mb-4'>By {name}</span>
+              <p className='italic text-gray-600'>
+                {new Date(publishedAt).toDateString()}
+              </p>
+            </header>
+            <div>
+              <PortableText value={body} components={ptComponents} />
+            </div>
+          </article>
+        </div>
       </div>
     </>
   )
@@ -102,7 +125,8 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   "categories": categories[]->title,
   "authorImage": author->image,
   body,
-  publishedAt
+  publishedAt,
+  mainImage
 }`
 
 export async function getServerSidePaths() {
