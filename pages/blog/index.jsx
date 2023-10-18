@@ -44,18 +44,15 @@ const Index = ({ posts }) => {
                         key={_id}
                         className='relative isolate flex flex-col gap-8 lg:flex-row'>
                         <div className='relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-96 lg:shrink-0'>
-                          <Link
-                            href={`/blog/${encodeURIComponent(slug.current)}`}>
-                            <img
-                              src={urlFor(mainImage)
-                                .width(600)
-                                .height(400)
-                                .fit('max')
-                                .auto('format')}
-                              alt={title}
-                              className='absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover'
-                            />
-                          </Link>
+                          <img
+                            src={urlFor(mainImage)
+                              .width(600)
+                              .height(400)
+                              .fit('max')
+                              .auto('format')}
+                            alt={title}
+                            className='absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover'
+                          />
                           <div className='absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10' />
                         </div>
                         <div>
@@ -72,7 +69,7 @@ const Index = ({ posts }) => {
                             </a> */}
                           </div>
                           <div className='group relative max-w-xl'>
-                            <h3 className='mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600'>
+                            <h3 className='mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
                               <Link
                                 href={`/blog/${encodeURIComponent(
                                   slug.current

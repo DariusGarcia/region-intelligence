@@ -79,14 +79,14 @@ function BlogPost({ post }) {
           <article className='mx-auto max-w-2xl lg:max-w-4xl'>
             <Link
               href='/blog'
-              className='font-bold underline text-2xl md:text-3xl mb-8 hover:text-blue-600'>
+              className='font-bold underline text-2xl md:text-3xl mb-8 hover:text-blue-700'>
               RI Blog
             </Link>
             {categories && (
               <ul className='flex flex-row gap-2'>
                 {categories.map((category) => (
                   <li
-                    className='font-semibold w-max mt-8 text-xs mb-2 bg-gray-100 p-2 rounded-full'
+                    className='font-semibold w-max mt-8 text-xs mb-2 bg-blue-600 text-white p-2 rounded-full'
                     key={category}>
                     {category}
                   </li>
