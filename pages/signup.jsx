@@ -16,6 +16,8 @@ export default function SignupPage() {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('')
   const [industryRole, setIndustryRole] = useState('')
   const [yearsExperience, setYearsExperience] = useState('')
@@ -37,6 +39,10 @@ export default function SignupPage() {
       Router.push('/current-planning-developments/map-view')
     }
   }, [session])
+
+  function togglePasswordVisibility() {
+    setShowPassword(!showPassword)
+  }
 
   function handleCityChange(value) {
     setCity(value)
@@ -72,10 +78,18 @@ export default function SignupPage() {
   async function handleSignUp(e) {
     e.preventDefault()
     setShowPrivacyPolicyAlert(true)
+
     if (!privacyPolicy) {
       return
     }
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match')
+      return
+    }
+
     setLoading(true)
+
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
@@ -127,7 +141,7 @@ export default function SignupPage() {
           </h2>
         </div>
 
-        <div className=' sm:mx-auto sm:w-full sm:max-w-xl '>
+        <div className=' sm:mx-auto sm:w-full sm:max-w-3xl md:px-6 '>
           <form className='space-y-6' action='#' method='POST'>
             {error && <ErrorWarning message={error.message} />}
             {/* FIRST and LAST NAME */}
@@ -207,7 +221,7 @@ export default function SignupPage() {
                 />
               </div>
             </div>
-
+            {/* Password field */}
             <div>
               <div className='flex items-center justify-between'>
                 <label
@@ -216,15 +230,42 @@ export default function SignupPage() {
                   Password
                 </label>
               </div>
-              <div className='mt-2'>
+              <div className='flex flex-row justify-start mt-2 relative rounded-md shadow-sm'>
                 <input
                   id='password'
                   name='password'
-                  type='password'
-                  autoComplete='current-password'
-                  required={true}
+                  type={showPassword ? 'text' : 'password'}
+                  autoComplete='new-password'
+                  required
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                   onChange={(e) => setPassword(e.target.value)}
+                />
+                {/* <span className='  pl-3 flex items-center'>
+                  <button
+                    type='button'
+                    className='text-gray-500 sm:text-sm sm:leading-5'
+                    onClick={togglePasswordVisibility}>
+                    {showPassword ? 'Hide' : 'Show'}
+                  </button>
+                </span> */}
+              </div>
+            </div>
+            {/* Confirm Password Field */}
+            <div>
+              <label
+                htmlFor='confirm-password'
+                className='block text-sm font-medium leading-6 text-gray-900'>
+                Confirm Password
+              </label>
+              <div className='mt-2 relative rounded-md shadow-sm'>
+                <input
+                  id='confirm-password'
+                  name='confirm-password'
+                  type='password'
+                  autoComplete='new-password'
+                  required
+                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
             </div>
