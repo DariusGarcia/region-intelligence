@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { createClient } from 'next-sanity'
-import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
@@ -112,15 +111,4 @@ export default function BlogSection({ posts }) {
       </div>
     </>
   )
-}
-
-export async function getServerSideProps() {
-  const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-      `)
-  return {
-    props: {
-      posts,
-    },
-  }
 }
