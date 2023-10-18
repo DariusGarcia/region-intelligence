@@ -150,12 +150,6 @@ export default function Navbar() {
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             Pricing
           </Link> */}
-          {/* <Link
-            href='/ceqa'
-            className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'>
-            CEQA
-          </Link> */}
-
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
               Company
@@ -190,7 +184,12 @@ export default function Navbar() {
                 ))}
               </Popover.Panel>
             </Transition>
-          </Popover>
+          </Popover>{' '}
+          <Link
+            href='/blog'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Blog
+          </Link>
         </Popover.Group>
 
         {/*
