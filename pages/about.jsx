@@ -412,7 +412,7 @@ const people = [
     imageUrl: '/about/julianPortrait.JPG',
     bio: "Julian is a data science expert who received a Master's degree in Business Analytics from the University of California, Irvine. Coming from a family background in real-estate development, Julian is determined to provide a service that connects the information gap between bureaucratic organizations, the private sector, and the public.",
     // twitterUrl: '#',
-    linkedinUrl: '#',
+    linkedinUrl: 'https://www.linkedin.com/in/julian-sotelo-553252173/',
   },
   {
     name: 'Darius Garcia Jr.',
@@ -420,7 +420,7 @@ const people = [
     imageUrl: '/about/portrait.jpg',
     bio: "Darius is a Fullstack Developer who received his Bachelor's degree in Business Economics from the University of California, Irvine. He also received a certificate for completing the Fullstack Web Developing bootcamp from UC Irvine. Darius currently works as a coding instructor, as well as a freelance web developer.",
     // twitterUrl: '#',
-    linkedinUrl: '#',
+    linkedinUrl: 'https://www.linkedin.com/in/darius-garcia/',
   },
 ]
 
