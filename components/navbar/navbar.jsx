@@ -410,10 +410,10 @@ const company = [
   //   description:
   //     'Looking for you next career opportunity? See all of our open positions',
   // },
-  // {
-  //   name: 'Blog',
-  //   href: '/blog',
-  //   description:
-  //     'Read our latest announcements and get perspectives from our team',
-  // },
+  {
+    name: 'Blog',
+    href: '/blog',
+    description:
+      'Read our latest announcements and get perspectives from our team',
+  },
 ]
