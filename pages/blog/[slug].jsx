@@ -4,6 +4,7 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
+import Image from 'next/image'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -31,8 +32,8 @@ const ptComponents = {
         <img
           alt={value.alt || ' '}
           loading='lazy'
-          className='my-12  '
-          src={urlFor(value).width(700).height(500).fit('max').auto('format')}
+          className='my-12 border-2 '
+          src={urlFor(value).width(900).height(700).fit('max').auto('format')}
         />
       )
     },
@@ -94,7 +95,9 @@ function BlogPost({ post }) {
               </ul>
             )}
             <header className='mb-8'>
+              {/* Blog title */}
               <h1 className='text-3xl md:text-5xl font-bold'>{title}</h1>
+              {/* Main image */}
               <img
                 src={urlFor(mainImage)
                   .width(1200)
@@ -104,12 +107,23 @@ function BlogPost({ post }) {
                 alt={title}
                 className='my-12 rounded-md shadow-md'
               />{' '}
-              <span className='font-bold text-2xl mb-4'>By {name}</span>
+              {/* Author */}
+              <div className='flex flex-row gap-4 items-center mb-2'>
+                <Image
+                  src='/about/julianPortrait.JPG'
+                  height={50}
+                  width={50}
+                  className='rounded-full'
+                />
+                <span className='font-bold text-2xl mb-4'>{name}</span>
+              </div>
+              {/* Published at */}
               <p className='italic text-gray-600'>
                 {new Date(publishedAt).toDateString()}
               </p>
             </header>
             <div>
+              {/* Blog body */}
               <PortableText value={body} components={ptComponents} />
             </div>
           </article>

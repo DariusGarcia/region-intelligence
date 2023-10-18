@@ -12,6 +12,7 @@ import {
 import { CheckIcon } from '@heroicons/react/20/solid'
 import DemoVideo from '@/components/demo/demo'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
+import FeatureSection from '@/components/featureSection'
 
 export default function LandingPage() {
   const targetRef = useRef(null)
@@ -94,9 +95,11 @@ export default function LandingPage() {
             </div>
 
             {/* Testimonial section */}
-            <div className='md:mt-36 mt-24 justify-center'>
+            <div className='md:my-36 my-24 justify-center'>
               <DemoVideo />
             </div>
+            {/* Feature sections */}
+            <FeatureSection />
             {/* Pricing section */}
             <div className='py-12 bg-stone-50'>
               <div className='mx-auto max-w-7xl px-6 lg:px-8'>
