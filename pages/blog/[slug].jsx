@@ -21,20 +21,22 @@ function urlFor(source) {
 
 const portableTextComponents = {
   block: {
-    normal: ({ children }) => <p className='leading-loose '>{children}</p>,
+    normal: ({ children }) => <p className='leading-loose mt-2'>{children}</p>,
     h1: ({ children }) => (
-      <h1 className='text-5xl leading-loose'>{children}</h1>
+      <h1 className='text-5xl leading-relaxed'>{children}</h1>
     ),
     h2: ({ children }) => (
-      <h2 className='text-4xl leading-loose'>{children}</h2>
+      <h2 className='text-4xl leading-relaxed mt-3'>{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className='text-3xl leading-loose'>{children}</h3>
+      <h3 className='text-3xl leading-relaxed mt-3'>{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className='text-2xl leading-loose'>{children}</h4>
+      <h4 className='text-2xl leading-relaxed mt-3'>{children}</h4>
     ),
-    h5: ({ children }) => <h5 className='text-xl leading-loose'>{children}</h5>,
+    h5: ({ children }) => (
+      <h5 className='text-xl leading-relaxed mt-3'>{children}</h5>
+    ),
     quote: ({ children }) => (
       <quote className='leading-loose'>{children}</quote>
     ),
