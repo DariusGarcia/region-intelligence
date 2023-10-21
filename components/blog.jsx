@@ -27,7 +27,8 @@ export default function BlogSection({ posts }) {
               From the RI Blog
             </Link>
             <p className='mt-2 text-lg leading-8 text-gray-600'>
-              Learn about our how solutions can help your business problems.
+              Learn about how our solutions can help solve your business
+              problems.
             </p>
             <div className='mt-16 space-y-20 lg:mt-20 lg:space-y-20'>
               {posts?.length > 0 &&
