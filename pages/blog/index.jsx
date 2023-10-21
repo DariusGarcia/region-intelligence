@@ -2,6 +2,7 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import BlogSection from '@/components/blog'
 
+// refactor this client to a separate component
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 const client = createClient({
@@ -19,6 +20,7 @@ export async function getServerSideProps() {
   const posts = await client.fetch(groq`
       *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
       `)
+
   return {
     props: {
       posts,

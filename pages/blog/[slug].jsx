@@ -19,9 +19,25 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source)
 }
 
-const ptComponents = {
+const portableTextComponents = {
   block: {
     normal: ({ children }) => <p className='leading-loose '>{children}</p>,
+    h1: ({ children }) => (
+      <h1 className='text-5xl leading-loose'>{children}</h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className='text-4xl leading-loose'>{children}</h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className='text-3xl leading-loose'>{children}</h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className='text-2xl leading-loose'>{children}</h4>
+    ),
+    h5: ({ children }) => <h5 className='text-xl leading-loose'>{children}</h5>,
+    quote: ({ children }) => (
+      <quote className='leading-loose'>{children}</quote>
+    ),
   },
   types: {
     image: ({ value }) => {
@@ -32,17 +48,23 @@ const ptComponents = {
         <img
           alt={value.alt || ' '}
           loading='lazy'
-          className='my-12 border-2 '
+          className='my-12 border-2 w-full'
           src={urlFor(value).width(900).height(700).fit('max').auto('format')}
         />
       )
     },
     // Define how to render lists (ul) and list items (li)
-    bulletList: ({ children }) => <ul className=' list-disc'>{children}</ul>,
-
-    listItem: ({ children }) => <li className='list-disc '>{children}</li>,
+    bulletList: ({ children }) => (
+      (<ul className='leading-loose list-disc'>{children}</ul>),
+      (<li className='leading-loose list-disc '>{children}</li>)
+    ),
+    listItem: ({ children }) => (
+      (<li className='leading-loose list-disc '>{children}</li>),
+      (<ul className='leading-loose list-disc'>{children}</ul>)
+    ),
   },
 }
+
 function BlogPost({ post }) {
   if (!post) {
     return null // Add a check to handle cases where 'post' is undefined
@@ -67,12 +89,12 @@ function BlogPost({ post }) {
         </title>
         <meta
           name='description'
-          content=' No more navigating through complex research. With Region Intelligence,
-  everything you need is just a few clicks away. Our platform
-  revolutionizes the way you access and handle vital information,
-  making your decision-making process quicker and more informed.
-  Step into the future of property development - Join Region Intelligence
-  today!'
+          content='No more navigating through complex research. With Region Intelligence,
+            everything you need is just a few clicks away. Our platform
+            revolutionizes the way you access and handle vital information,
+            making your decision-making process quicker and more informed.
+            Step into the future of property development - Join Region Intelligence
+            today!'
         />
       </Head>
       <div className='bg-white py-6 sm:py-12'>
@@ -80,43 +102,38 @@ function BlogPost({ post }) {
           <article className='mx-auto max-w-2xl lg:max-w-4xl'>
             <Link
               href='/blog'
-              className='font-bold underline text-2xl md:text-3xl mb-8 hover:text-blue-700'>
+              className='font-bold border-b-4 border-gray-200 text-2xl md:text-3xl mb-8 hover:text-blue-700 hover:border-blue-700'>
               RI Blog
             </Link>
-            {categories && (
-              <ul className='flex flex-row gap-2'>
-                {categories.map((category) => (
-                  <li
-                    className='font-semibold w-max mt-8 text-xs mb-2 bg-blue-600 text-white p-2 rounded-full'
-                    key={category}>
-                    {category}
-                  </li>
-                ))}
-              </ul>
-            )}
+
             <header className='mb-8'>
               {/* Blog title */}
-              <h1 className='text-3xl md:text-5xl font-bold'>{title}</h1>
+              <h1 className='mt-8 text-3xl md:text-5xl font-bold'>{title}</h1>
+              {categories && (
+                <ul className='mt-4 flex flex-row flex-wrap items-center justify-start gap-2'>
+                  {categories.map((category) => (
+                    <li
+                      className='p-2 w-max text-xs bg-blue-600 text-white rounded-full font-semibold'
+                      key={category}>
+                      {category}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {/* Main image */}
-              <img
-                src={urlFor(mainImage)
-                  .width(1200)
-                  .height(800)
-                  .fit('max')
-                  .auto('format')}
-                alt={title}
-                className='my-12 rounded-md shadow-md'
-              />{' '}
-              {/* Author */}
-              <div className='flex flex-row gap-4 items-center mb-2'>
-                <Image
-                  src='/about/julianPortrait.JPG'
-                  height={50}
-                  width={50}
-                  className='rounded-full'
+              <div className='flex justify-center items-center'>
+                <img
+                  src={urlFor(mainImage)
+                    .width(1200)
+                    .height(800)
+                    .fit('max')
+                    .auto('format')}
+                  alt={title}
+                  className='my-8 rounded-md shadow-md'
                 />
-                <span className='font-bold text-2xl mb-4'>{name}</span>
               </div>
+              {/* Author */}
+              <span className='font-bold text-2xl mb-4'>{name}</span>
               {/* Published at */}
               <p className='italic text-gray-600'>
                 {new Date(publishedAt).toDateString()}
@@ -124,7 +141,7 @@ function BlogPost({ post }) {
             </header>
             <div>
               {/* Blog body */}
-              <PortableText value={body} components={ptComponents} />
+              <PortableText value={body} components={portableTextComponents} />
             </div>
           </article>
         </div>
