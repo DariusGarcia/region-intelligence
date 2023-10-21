@@ -1,18 +1,18 @@
+import React, { useRef } from 'react'
 import Head from 'next/head'
+import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
 import Faq from '@/components/faq'
 import LandingHeader from '@/components/header/landingHeader'
 import Cta from '@/components/cta'
-import React, { useRef } from 'react'
+import DemoVideo from '@/components/demo/demo'
+import FeatureSection from '@/components/featureSection'
+import { CheckIcon } from '@heroicons/react/20/solid'
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
   FingerPrintIcon,
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
-import { CheckIcon } from '@heroicons/react/20/solid'
-import DemoVideo from '@/components/demo/demo'
-import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
-import FeatureSection from '@/components/featureSection'
 
 export default function LandingPage() {
   const targetRef = useRef(null)
@@ -198,22 +198,6 @@ export default function LandingPage() {
   )
 }
 
-const cardVariants = {
-  hidden: {
-    y: 200,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      bounce: 0.4,
-      duration: 1,
-    },
-  },
-}
-
 const features = [
   {
     name: 'Zoning',
@@ -240,6 +224,7 @@ const features = [
     icon: FingerPrintIcon,
   },
 ]
+
 const tiers = [
   {
     name: 'Starter',
@@ -271,6 +256,22 @@ const tiers = [
   //   mostPopular: true,
   // },
 ]
+
+const cardVariants = {
+  hidden: {
+    y: 200,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 1,
+    },
+  },
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

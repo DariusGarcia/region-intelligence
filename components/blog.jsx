@@ -21,9 +21,11 @@ export default function BlogSection({ posts }) {
       <div className='bg-white py-6 sm:py-12'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl lg:max-w-4xl'>
-            <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+            <Link
+              href='/blog'
+              className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl hover:text-blue-700 border-b-4 border-gray-200 hover:border-blue-700'>
               From the RI Blog
-            </h2>
+            </Link>
             <p className='mt-2 text-lg leading-8 text-gray-600'>
               Learn about our how solutions can help your business problems.
             </p>
