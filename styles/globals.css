@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Lato&display=swap');
+
 html, body {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +12,13 @@ html, body {
 
 body {
   background: white;
+}
+
+.custom-bullet-list {
+  list-style: disc;
+  /* You can customize this further based on your design */
+  margin-left: 20px;
+  /* Adjust the indentation as needed */
 }
 
 .image-overlay {

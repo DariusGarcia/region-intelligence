@@ -20,6 +20,17 @@ function urlFor(source) {
 }
 
 const portableTextComponents = {
+  list: {
+    // Ex. 1: customizing common list types
+    bullet: ({ children }) => (
+      <ul className='list-disc my-3 ml-8 md:ml-12 leading-loose'>{children}</ul>
+    ),
+    number: ({ children }) => (
+      <ol className='my-3 ml-8 md:ml-12 leading-loose list-decimal'>
+        {children}
+      </ol>
+    ),
+  },
   block: {
     normal: ({ children }) => <p className='leading-loose mt-2'>{children}</p>,
     h1: ({ children }) => (
@@ -56,14 +67,6 @@ const portableTextComponents = {
       )
     },
     // Define how to render lists (ul) and list items (li)
-    bulletList: ({ children }) => (
-      (<ul className='leading-loose list-disc'>{children}</ul>),
-      (<li className='leading-loose list-disc '>{children}</li>)
-    ),
-    listItem: ({ children }) => (
-      (<li className='leading-loose list-disc '>{children}</li>),
-      (<ul className='leading-loose list-disc'>{children}</ul>)
-    ),
   },
 }
 
@@ -141,7 +144,7 @@ function BlogPost({ post }) {
                 {new Date(publishedAt).toDateString()}
               </p>
             </header>
-            <div>
+            <div className='font-Lato'>
               {/* Blog body */}
               <PortableText value={body} components={portableTextComponents} />
             </div>

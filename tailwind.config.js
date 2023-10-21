@@ -6,6 +6,9 @@ module.exports = {
     './features/**/*.{js,jsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      Lato: ['Lato', 'itim', 'system-ui'],
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
