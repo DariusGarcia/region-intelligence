@@ -4,7 +4,6 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
-import Image from 'next/image'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -19,9 +18,9 @@ function urlFor(source) {
   return imageUrlBuilder(client).image(source)
 }
 
+// custom styling for Portable Text heading and list elements
 const portableTextComponents = {
   list: {
-    // Ex. 1: customizing common list types
     bullet: ({ children }) => (
       <ul className='list-disc my-3 ml-8 md:ml-12 leading-loose'>{children}</ul>
     ),
@@ -66,11 +65,10 @@ const portableTextComponents = {
         />
       )
     },
-    // Define how to render lists (ul) and list items (li)
   },
 }
 
-function BlogPost({ post }) {
+export default function BlogPost({ post }) {
   if (!post) {
     return null // Add a check to handle cases where 'post' is undefined
   }
@@ -186,5 +184,3 @@ export async function getServerSideProps(context) {
     },
   }
 }
-
-export default BlogPost
