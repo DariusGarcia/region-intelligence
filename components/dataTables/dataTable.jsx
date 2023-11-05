@@ -54,17 +54,16 @@ export default function DataTable({ permits }) {
           }}
         />
 
-        <header className='grid grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2 font-medium justify-center text-center'>
+        <header className='grid grid-cols-4 sm:grid-cols-5 w-full gap-2 border mt-4 p-2 rounded-sm border-b-2 font-medium justify-center items-center text-center'>
           <div className='absolute right-40 pb-24 bottom-50 '>
             {isHovered && <StatusModal />}
           </div>
-          <p className='text-left w-full'>Project Name</p>
-          <p className='text-left w-full'>Address</p>
+          <p className='text-left w-full'>Project ID</p>
+          <p className='text-left w-full hidden sm:block'>Address</p>
           <p className='text-left w-full'>City</p>
           <p className='text-left w-full'>Applicant</p>
-          <div className='flex flex-row w-full gap-2 justify-center items-center '>
-            {' '}
-            <p className='text-left '>Status</p>{' '}
+          <div className='flex flex-row w-full gap-2 items-center'>
+            <p className='text-left '>Status</p>
             <p className='flex flex-row w-min cursor-pointer '>
               <QuestionMarkCircleIcon
                 className='h-7 w-7 text-black hover:text-gray-400 hover:scale-105 transition ease-out'
@@ -80,7 +79,7 @@ export default function DataTable({ permits }) {
               {currentPageItems.map((item) => (
                 <li
                   key={item.id}
-                  className='grid grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'>
+                  className='grid grid-cols-4 sm:grid-cols-5 w-full gap-2 border p-2 hover:bg-gray-50'>
                   <Link
                     className='text-sm text-blue-600 hover:text-blue-500 underline flex flex-col gap-2'
                     href={`/current-planning-developments/list-view/${item.id}`}>
@@ -91,7 +90,9 @@ export default function DataTable({ permits }) {
                     </p>
                   </Link>
 
-                  <p className='text-sm'>{item.projectLocations}</p>
+                  <p className='text-sm hidden sm:block'>
+                    {item.projectLocations}
+                  </p>
                   <p className='text-sm'>{item.city}, CA</p>
                   <p className='text-sm'>{capitalizeWords(item.applicant)}</p>
                   <p className='text-sm'>{item.projectStatus}</p>

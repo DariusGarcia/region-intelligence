@@ -254,6 +254,21 @@ export default function Navbar() {
               </button>
             </div>
             <div className='mt-6 flow-root'>
+              <div className='py-4' onClick={() => setMobileMenuOpen(false)}>
+                {user ? (
+                  <button
+                    className='text-base font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                    onClick={logout}>
+                    Logout <span aria-hidden='true'>&rarr;</span>
+                  </button>
+                ) : (
+                  <Link
+                    href='/login'
+                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
+                    Log in <span aria-hidden='true'>&rarr;</span>
+                  </Link>
+                )}
+              </div>
               <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900'>
                 Current Planning Developments
               </p>
@@ -305,21 +320,6 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
-                </div>
-                <div className='py-6' onClick={() => setMobileMenuOpen(false)}>
-                  {user ? (
-                    <button
-                      className='text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600'
-                      onClick={logout}>
-                      Logout <span aria-hidden='true'>&rarr;</span>
-                    </button>
-                  ) : (
-                    <Link
-                      href='/login'
-                      className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                      Log in <span aria-hidden='true'>&rarr;</span>
-                    </Link>
-                  )}
                 </div>
               </div>
             </div>

@@ -101,7 +101,7 @@ const footerNavigation = {
     { name: 'Map View', href: '/current-planning-developments/map-view' },
     { name: 'Land Directory', href: '/current-planning-developments' },
     { name: 'Demo', href: '/demo' },
-    { name: 'My profile', href: '/profile' },
+    { name: 'My Profile', href: '/profile' },
     // { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
