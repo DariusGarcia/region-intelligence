@@ -51,13 +51,29 @@ export default function SignUpQuestions({
       <div className='space-y-12'>
         <div className='border-b border-gray-900/10 pb-12'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
-            Additional Information
+            Tell Us About Yourself
           </h2>
           <p className='mt-1 text-sm leading-6 text-gray-600'>
             Please answer these questions so that we can get to know you better.
           </p>
           {/* industry role select menu */}
-          <div className='mt-10 '>
+          <div className='mt-10'>
+            {/* Name of company */}
+            <div className='my-8'>
+              <label
+                htmlFor='companyName'
+                className='block text-sm font-medium leading-6 text-gray-900'>
+                Company Name
+              </label>
+              <input
+                id='companyName'
+                name='companyName'
+                type='text'
+                className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
+                onChange={handleYearsOfExperienceChange}
+                required
+              />
+            </div>
             <div>
               <label
                 htmlFor='industry'
@@ -95,27 +111,99 @@ export default function SignUpQuestions({
                 </div>
               )}
             </div>
-            {/* years of experience radio group */}
+            {/* Phone Number input field */}
             <div className='my-8'>
               <label
                 htmlFor='experience'
                 className='block text-sm font-medium leading-6 text-gray-900'>
-                How many years of experience do you have in the real estate
-                industry? (Required)
+                Phone Number
               </label>
-              <select
+              <input
                 id='experience'
                 name='experience'
+                type='tel'
                 className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
                 onChange={handleYearsOfExperienceChange}
+                required
+              />
+            </div>
+            {/* Size of organization radio group */}
+            <div className='my-8'>
+              <label
+                htmlFor='purpose'
+                className='block text-sm font-medium leading-6 text-gray-900'>
+                Size of the organization (Required)
+              </label>
+              <select
+                id='purpose'
+                name='purpose'
+                className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
+                onChange={handlePrimaryPurposeChange}
                 required>
-                {yearsExpOptions.map((experience, experienceIdx) => (
-                  <option key={experienceIdx} value={experience.name}>
-                    {experience.name}
+                {organizationSize.map((purpose, purposeIdx) => (
+                  <option key={purposeIdx} value={purpose.name}>
+                    {purpose.name}
                   </option>
                 ))}
               </select>
+              {togglePrimaryPurposeOther && (
+                <div className='mt-4'>
+                  <label
+                    htmlFor='primary-purpose-other'
+                    name='primary-purpose-other'
+                    className='block text-sm font-medium leading-6 text-gray-900'>
+                    Other: please enter your primary purpose for using our tool.
+                  </label>
+                  <div className='mt-2 flex items-center gap-x-3'>
+                    <input
+                      name='primary-purpose-other'
+                      type='text'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+                      onChange={(e) => onPrimaryPurposeChange(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
+            {/* Average number of projects radio group */}
+            <div className='my-8'>
+              <label
+                htmlFor='purpose'
+                className='block text-sm font-medium leading-6 text-gray-900'>
+                Average number of projects at any given time (Required)
+              </label>
+              <select
+                id='purpose'
+                name='purpose'
+                className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
+                onChange={handlePrimaryPurposeChange}
+                required>
+                {numberOfProjects.map((purpose, purposeIdx) => (
+                  <option key={purposeIdx} value={purpose.name}>
+                    {purpose.name}
+                  </option>
+                ))}
+              </select>
+              {togglePrimaryPurposeOther && (
+                <div className='mt-4'>
+                  <label
+                    htmlFor='primary-purpose-other'
+                    name='primary-purpose-other'
+                    className='block text-sm font-medium leading-6 text-gray-900'>
+                    Other: please enter your primary purpose for using our tool.
+                  </label>
+                  <div className='mt-2 flex items-center gap-x-3'>
+                    <input
+                      name='primary-purpose-other'
+                      type='text'
+                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+                      onChange={(e) => onPrimaryPurposeChange(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* primary purpose radio group */}
             <div className='my-8'>
               <label
@@ -155,119 +243,6 @@ export default function SignUpQuestions({
                 </div>
               )}
             </div>
-            {/* challenges looking to overcome textarea */}
-            <div className='w-full my-4'>
-              <label
-                htmlFor='challenges'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                What challenges are you hoping to overcome by using our tool?
-                (Optional)
-              </label>
-              <div className='mt-2 flex items-center gap-x-3'>
-                <textarea
-                  id='challenges'
-                  name='challenges'
-                  onChange={(e) => onChallengesOvercomeChange(e.target.value)}
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                  defaultValue={''}
-                />
-              </div>
-            </div>
-            {/* other tools textarea */}
-            <div className='w-full my-4'>
-              <label
-                htmlFor='challenges'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                Do you use any other real estate tools, platforms, or software?
-                If so, which ones? (Optional)
-              </label>
-              <div className='mt-2 flex items-center gap-x-3'>
-                <textarea
-                  id='challenges'
-                  name='other tools'
-                  onChange={(e) => onOtherToolsChange(e.target.value)}
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                  defaultValue={''}
-                />
-              </div>
-            </div>
-            {/* ideal tool textarea */}
-            <div className='w-full my-4'>
-              <label
-                htmlFor='challenges'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                What would an ideal real estate tool look like for you?
-                (Optional)
-              </label>
-              <div className='mt-2 flex items-center gap-x-3'>
-                <textarea
-                  id='challenges'
-                  name='idea tool'
-                  onChange={(e) => onIdealToolChange(e.target.value)}
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                  defaultValue={''}
-                />
-              </div>
-            </div>
-            {/* city based in input field */}
-            <section className='flex flex-col gap-8'>
-              <div className='w-full'>
-                <label
-                  htmlFor='city'
-                  className='block text-sm font-medium leading-6 text-gray-900'>
-                  What city are you based in? (Optional)
-                </label>
-                <div className='mt-2 flex items-center gap-x-3'>
-                  <input
-                    id='city'
-                    name='city'
-                    className='block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                    defaultValue={''}
-                    onChange={(e) => onCityChange(e.target.value)}
-                  />
-                </div>
-              </div>
-              {/* how user found us input field */}
-              <div className=''>
-                <label
-                  htmlFor='find-out'
-                  name='foundUs'
-                  className='block text-sm font-medium leading-6 text-gray-900'>
-                  How did you find out about us? (Optional)
-                </label>
-                <div className='mt-2 flex items-center gap-x-3'>
-                  <input
-                    name='find-out'
-                    type='text'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                    onChange={(e) => onFoundUsChange(e.target.value)}
-                  />
-                </div>
-              </div>
-              {/* communication method select field */}
-              <div className='col-span-full'>
-                <label
-                  htmlFor='cover-photo'
-                  className='block text-sm font-medium leading-6 text-gray-900'>
-                  Preferred method of communication (Optional)
-                </label>
-                <div className=' flex justify-center rounded-lg '>
-                  <select
-                    id='location'
-                    name='location'
-                    defaultChecked={'Please select'}
-                    className='mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6'
-                    onChange={(e) =>
-                      onCommunicationMethodChange(e.target.value)
-                    }>
-                    <option>Please select</option>
-                    <option>Phone Call</option>
-                    <option>Text message</option>
-                    <option>Email</option>
-                  </select>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>
@@ -277,26 +252,37 @@ export default function SignUpQuestions({
 
 const industryRoleOptions = [
   { id: 0, name: 'Please select' },
-  { id: 1, name: 'Real Estate Agent' },
-  { id: 2, name: 'Broker' },
-  { id: 3, name: 'Property Manger' },
-  { id: 4, name: 'Property Developer' },
-  { id: 5, name: 'Other' },
+  { id: 1, name: 'Developer' },
+  { id: 2, name: 'Contractor' },
+  { id: 3, name: 'Agent' },
+  { id: 4, name: 'Planner' },
+  { id: 5, name: 'Architect' },
+  { id: 6, name: 'Other' },
 ]
 
 const mainPurposeOptions = [
   { id: 0, name: 'Please select' },
-  { id: 1, name: 'Parcel information / Property research' },
-  { id: 2, name: 'City planning listings' },
-  { id: 3, name: 'Market trends analysis' },
-  { id: 4, name: 'Other' },
+  { id: 1, name: 'Environmental Compliance and Risk Assessment' },
+  { id: 2, name: 'Compliance Monitoring and Governance' },
+  { id: 3, name: 'Real Estate Portfolio Management' },
+  { id: 4, name: 'Market trends analysis' },
+  { id: 5, name: 'Other' },
 ]
 
-const yearsExpOptions = [
+const organizationSize = [
   { id: 0, name: 'Please select' },
-  { id: 1, name: 'Less than 1 year' },
-  { id: 2, name: '1-3 years' },
-  { id: 3, name: '4-6 years' },
-  { id: 4, name: '7-10 years' },
-  { id: 5, name: 'More than 10 years' },
+  { id: 1, name: '1-10' },
+  { id: 2, name: '11-50' },
+  { id: 3, name: '51-100' },
+  { id: 4, name: '101+' },
+  { id: 5, name: 'Other' },
+]
+
+const numberOfProjects = [
+  { id: 0, name: 'Please select' },
+  { id: 1, name: '1-2' },
+  { id: 2, name: '3-8' },
+  { id: 3, name: '9-20' },
+  { id: 4, name: '20+' },
+  { id: 5, name: 'Other' },
 ]

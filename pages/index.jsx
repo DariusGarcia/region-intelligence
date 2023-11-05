@@ -45,12 +45,21 @@ export default function LandingPage() {
             </div>
 
             {/* Feature section */}
-            <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
-              <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
+            <div className='relative mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
+              {/*
+               * TODO:
+               *   - diagonal line
+               *
+               */}
+
+              {/* <div className='z-5 absolute top-0 left-0 w-full h-full bg-gray-900 transform -skew-y-12'></div> */}
+              <div
+                className='z-50 mx-auto max-w-2xl lg:text-center'
+                ref={targetRef}>
                 <h2 className='text-xl font-semibold leading-7 text-blue-600'>
                   Gain insights quicker
                 </h2>
-                <p className='my-2 text-2xl font-bold tracking-tight text-white sm:text-4xl'>
+                <p className='z-50 my-2 text-2xl font-bold tracking-tight text-white sm:text-4xl'>
                   Power Your Due Diligence
                 </p>
                 <p className=' text-lg leading-8 text-white'>
