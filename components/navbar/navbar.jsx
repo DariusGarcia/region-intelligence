@@ -308,7 +308,7 @@ export default function Navbar() {
                     href='/profile'
                     onClick={() => setMobileMenuOpen(false)}
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                    My profile
+                    My Profile
                   </Link>
 
                   {company.map((item) => (
@@ -399,7 +399,7 @@ const company = [
       'Learn more about our company values and mission to empower others',
   },
   {
-    name: 'Contact Us',
+    name: 'Contact',
     href: '/contact',
     description:
       'Get in touch with our dedicated support team for any questions or inquiries',
