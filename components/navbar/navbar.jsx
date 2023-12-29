@@ -57,7 +57,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-blue-600 z-50'>
+    <header className='bg-indigo-600 z-50'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 '
         aria-label='Global'>
@@ -66,7 +66,7 @@ export default function Navbar() {
             <span className='sr-only'>Region Intelligence</span>
             <p className='text-lg font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
               Region Intelligence
-              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+              <span className='inline-flex ml-2 items-center rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-700'>
                 Beta
               </span>
             </p>
@@ -90,7 +90,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-gray-300 text-white transition ease-out'>
-              Current Planning Developments
+              Product Demo
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-white'
                 aria-hidden='true'
@@ -112,7 +112,7 @@ export default function Navbar() {
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'>
                       <div className='mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
+                          className='h-6 w-6 text-gray-600 group-hover:text-indigo-600'
                           aria-hidden='true'
                         />
                       </div>
@@ -188,7 +188,17 @@ export default function Navbar() {
           <Link
             href='/blog'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-            Blog
+            RI Blog
+          </Link>
+          <Link
+            href='/resources'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Resources
+          </Link>
+          <Link
+            href='/company/about'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            About Us
           </Link>
         </Popover.Group>
 
@@ -205,14 +215,14 @@ export default function Navbar() {
           {user ? (
             // <Avatar name={avatarName} />
             <button
-              className='text-white border border-white p-1 px-2 rounded-md hover:opacity-80 transition ease-out'
+              className='text-black bg-white rounded-full border border-white p-1 px-2 hover:opacity-80 transition ease-out'
               onClick={logout}>
               Logout
             </button>
           ) : (
             <a
               href='/login'
-              className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+              className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out bg-white p-2 rounded-full px-6'>
               Log in <span aria-hidden='true'>&rarr;</span>
             </a>
           )}
@@ -237,10 +247,10 @@ export default function Navbar() {
               <Link href='/' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>Region Intelligence</span>
                 <p
-                  className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
+                  className='font-bold leading-6 text-indigo-600 text-xl hover:text-indigo-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
                   Region Intelligence{' '}
-                  <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+                  <span className='inline-flex ml-2 items-center rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-700'>
                     Beta
                   </span>
                 </p>
@@ -257,14 +267,14 @@ export default function Navbar() {
               <div className='py-4' onClick={() => setMobileMenuOpen(false)}>
                 {user ? (
                   <button
-                    className='text-base font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                    className='text-base font-semibold leading-6 text-gray-900 hover:text-indigo-600'
                     onClick={logout}>
                     Logout <span aria-hidden='true'>&rarr;</span>
                   </button>
                 ) : (
                   <Link
                     href='/login'
-                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
+                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 bg-white'>
                     Log in <span aria-hidden='true'>&rarr;</span>
                   </Link>
                 )}
@@ -284,7 +294,7 @@ export default function Navbar() {
                       className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       <div className='flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
+                          className='h-6 w-6 text-gray-600 group-hover:text-indigo-600'
                           aria-hidden='true'
                         />
                       </div>
@@ -411,7 +421,7 @@ const company = [
   //     'Looking for you next career opportunity? See all of our open positions',
   // },
   {
-    name: 'Blog',
+    name: 'RI Blog',
     href: '/blog',
     description:
       'Read our latest announcements and get perspectives from our team',

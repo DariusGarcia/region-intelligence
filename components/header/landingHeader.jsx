@@ -11,7 +11,7 @@ export default function LandingHeader({ scrollToTarget }) {
             initial='hidden'
             animate='visible'
             viewport={{ once: true, amount: 0.8 }}
-            className='px-6 sm:pb-32 lg:px-0  flex flex-col items-center gap-4 '>
+            className='px-6 sm:pb-32 lg:px-0 flex md:flex-row flex-col items-center gap-4'>
             <m.div variants={cardVariants}>
               <div className='flex flex-col justify-center mx-auto max-w-2xl lg:mx-0'>
                 <div className='hidden sm:mt-32 md:mt-0 sm:flex '>
@@ -19,7 +19,7 @@ export default function LandingHeader({ scrollToTarget }) {
                     Explore our journey.{' '}
                     <Link
                       href='/about'
-                      className='whitespace-nowrap font-semibold text-blue-600'>
+                      className='whitespace-nowrap font-semibold text-indigo-600'>
                       <span className='absolute inset-0' aria-hidden='true' />
                       Read more <span aria-hidden='true'>&rarr;</span>
                     </Link>
@@ -30,7 +30,7 @@ export default function LandingHeader({ scrollToTarget }) {
                 </h1>
                 <p className='mt-6 text-lg leading-8 text-gray-600'>
                   Region Intelligence:{' '}
-                  <span className='italic text-blue-600'>
+                  <span className='italic text-indigo-600'>
                     Simple, quick, insightful
                   </span>
                   . Your key to smarter decision-making in property development.
@@ -39,7 +39,7 @@ export default function LandingHeader({ scrollToTarget }) {
                 <div className='mt-10 flex items-center gap-x-6'>
                   <Link
                     href='/signup'
-                    className='rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                    className='rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
                     Get started
                   </Link>
                   <button
@@ -60,7 +60,7 @@ export default function LandingHeader({ scrollToTarget }) {
               <m.div variants={cardVariantsHorizontal}>
                 <Image
                   className=' w-full rounded-lg  bg-gray-50 lg:h-full'
-                  src='/updatedMap.png'
+                  src='/landingPageImage.png'
                   alt='landing'
                   height={1280}
                   width={1080}

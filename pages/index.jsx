@@ -5,6 +5,7 @@ import Faq from '@/components/faq'
 import LandingHeader from '@/components/header/landingHeader'
 import Cta from '@/components/cta'
 import DemoVideo from '@/components/demo/demo'
+import LandingDemo from '@/components/demo/landingDemo'
 import FeatureSection from '@/components/featureSection'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import {
@@ -94,9 +95,10 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Testimonial section */}
+            {/* Demo section */}
             <div className='md:my-36 my-24 justify-center'>
-              <DemoVideo />
+              <LandingDemo />
+              {/* <DemoVideo /> */}
             </div>
             {/* Feature sections */}
             <FeatureSection />
