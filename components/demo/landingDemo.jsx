@@ -13,12 +13,12 @@ export default function LandingDemo() {
           </h3>
           <Link
             href='/demo'
-            className='px-6 bg-indigo-600 text-white rounded-full p-2'>
+            className='px-6 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full p-2 transition ease-out'>
             Explore Demo
           </Link>
           <section className='flex  md:flex-row w-full mt-12 max-w-2xl'>
             <Image src='/demoImage.png' width={300} height={300} />
-            <div className='md:ml-8 md:pl-6 md:p-4 bg-gray-900 flex flex-col gap-6 text-white md:rounded-r-xl md:py-8'>
+            <div className='md:ml-8 md:pl-6 md:p-4 bg-gray-800 flex flex-col gap-6 text-white md:rounded-r-xl md:py-8'>
               <p className='w-max text-xs bg-gray-400 rounded-full p-2'>
                 Case Study
               </p>
@@ -27,7 +27,7 @@ export default function LandingDemo() {
               </p>
               <Link
                 href='#'
-                className='w-max bg-indigo-600 rounded-full p-2 px-4 '>
+                className='w-max bg-indigo-600 hover:bg-indigo-500 rounded-full p-2 px-4 transition ease-out'>
                 {' '}
                 View Case Study
               </Link>

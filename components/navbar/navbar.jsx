@@ -90,7 +90,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-gray-300 text-white transition ease-out'>
-              Product Demo
+              Products
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-white'
                 aria-hidden='true'
@@ -186,6 +186,11 @@ export default function Navbar() {
             </Transition>
           </Popover>{' '}
           <Link
+            href='/why-us'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Why RI
+          </Link>
+          <Link
             href='/blog'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             RI Blog
@@ -194,11 +199,6 @@ export default function Navbar() {
             href='/resources'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             Resources
-          </Link>
-          <Link
-            href='/about'
-            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-            About Us
           </Link>
         </Popover.Group>
 
