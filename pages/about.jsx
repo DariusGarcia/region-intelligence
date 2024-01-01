@@ -209,10 +209,19 @@ export default function AboutPage({ posts }) {
           <section className='mt-12 bg-red-500 h-full w-full '>
             <BlogSection posts={posts} />
           </section>
-          <section className='w-full flex'>
+          <section className='w-full flex justify-center mt-12'>
             <div className='max-w-7xl w-full'>
               <div className='w-full'>
-                <h3 className='uppercase text-3xl '>Related Links</h3>
+                <h3 className='uppercase text-3xl mb-8 '>Related Links</h3>
+                <ul className='flex flex-col gap-8'>
+                  {links.map((link) => (
+                    <li
+                      id={link.id}
+                      className='underline font-semibold hover:opacity-75'>
+                      <Link href={link.href}>{link.title}</Link>
+                    </li>
+                  ))}
+                </ul>
                 {/* Add your content or components related to "Related Links" here */}
               </div>
             </div>
@@ -233,6 +242,25 @@ export async function getServerSideProps() {
     },
   }
 }
+
+const links = [
+  {
+    id: 0,
+    title: 'Getting Started with Region Intelligence',
+    href: '/company/faq',
+  },
+  {
+    id: 1,
+    title:
+      'How we leverage Artificial Intelligence to power your due diligence',
+    href: '/company/faq',
+  },
+  {
+    id: 2,
+    title: 'How to use our products - a beginners guide',
+    href: '/company/faq',
+  },
+]
 
 const timeline = [
   {
