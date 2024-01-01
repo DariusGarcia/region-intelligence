@@ -57,7 +57,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-indigo-600 z-50'>
+    <header className='bg-[#4200FF] z-50'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 '
         aria-label='Global'>

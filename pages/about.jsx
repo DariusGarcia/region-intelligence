@@ -46,12 +46,12 @@ export default function AboutPage({ posts }) {
               aria-hidden='true'
             />
             <div className='mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:px-8 flex '>
-              <div className='mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8  items-center'>
-                <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto uppercase '>
-                  Region Intelligence
-                </h1>
-                <div className='mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1'>
-                  <p className='text-lg leading-8 text-gray-600 uppercase'>
+              <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
+                <div className='mt-6 max-w-xl lg:mt-0 flex flex-col gap-8 justify-center w-full'>
+                  <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
+                    Region Intelligence
+                  </h1>
+                  <p className='text-lg leading-8 text-gray-600 uppercase font-semibold'>
                     Based in Los Angeles
                   </p>
                 </div>
@@ -61,7 +61,7 @@ export default function AboutPage({ posts }) {
                   width={1080}
                   height={1280}
                   alt='aerial view of LA'
-                  className='aspect-[6/5] w-full max-w-lg my-8 md:my-0 rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2'
+                  className='aspect-[6/5] w-full max-w-lg my-8 md:my-0 rounded-2xl object-cover sm:mt-16 lg:mt-0 xl:row-span-2 xl:row-end-2'
                 />
               </div>
             </div>
@@ -69,10 +69,10 @@ export default function AboutPage({ posts }) {
           </div>
 
           {/* Principles section */}
-          <div className='w-full flex justify-center bg-blue-950 text-white my-12 '>
+          <div className='w-full flex justify-center bg-[#102143] text-white my-12 '>
             <div className='max-w-7xl px-6'>
               <section className='flex flex-col justify-center gap-8 py-8'>
-                <p className='text-orange-500'>The Mission</p>
+                <p className='text-orange-500 font-semibold'>The Mission</p>
                 {mission.map((item) => (
                   <article key={item.title} className='py-8'>
                     <p className='text-3xl uppercase font-semibold'>
@@ -209,7 +209,7 @@ export default function AboutPage({ posts }) {
           <section className='mt-12 bg-red-500 h-full w-full '>
             <BlogSection posts={posts} />
           </section>
-          <section className='w-full flex justify-center mt-12'>
+          <section className='w-full flex justify-center mt-12 px-6 border-t-2 pt-6'>
             <div className='max-w-7xl w-full'>
               <div className='w-full'>
                 <h3 className='uppercase text-3xl mb-8 '>Related Links</h3>
