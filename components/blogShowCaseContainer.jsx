@@ -64,7 +64,7 @@ export default function BlogShowCaseContainer({ posts }) {
                               className='text-gray-500 italic'>
                               {new Date(publishedAt).toDateString()}
                             </time>
-                            <p className='relative z-10 rounded-full px-3 py-1.5 font-medium text-black w-full'>
+                            <div className='relative z-10 rounded-full px-3 py-1.5 font-medium text-black w-full'>
                               {categories.map((category) => (
                                 <span
                                   className='p-2 w-max text-xs bg-blue-600 text-white rounded-full font-semibold'
@@ -72,7 +72,7 @@ export default function BlogShowCaseContainer({ posts }) {
                                   {/* {category} */}
                                 </span>
                               ))}
-                            </p>
+                            </div>
                           </div>
                           <div className='group relative max-w-xl'>
                             <h3 className='mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
@@ -96,13 +96,13 @@ export default function BlogShowCaseContainer({ posts }) {
                                     className='h-10 w-10 rounded-full bg-gray-50'
                                   /> */}
                               <div className='text-sm leading-6'>
-                                <p className='font-semibold text-gray-900'>
+                                <div className='font-semibold text-gray-900'>
                                   <p>
                                     <span className='absolute inset-0' />
                                     Julian Sotelo
                                   </p>
                                   <p>Founder / CEO</p>
-                                </p>
+                                </div>
                                 {/* <p className='text-gray-600'>
                                       {post.author.role}
                                     </p> */}

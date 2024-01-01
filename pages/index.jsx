@@ -161,14 +161,14 @@ export default function LandingPage({ posts }) {
                         <p className='mt-4 text-sm leading-6 text-gray-600'>
                           {tier.description}
                         </p>
-                        <p className='mt-6 flex items-baseline gap-x-1'>
+                        <div className='mt-6 flex items-baseline gap-x-1'>
                           <span className='text-4xl font-bold tracking-tight text-gray-900'>
                             {tier.priceMonthly}
                           </span>
                           <span className='text-sm font-semibold leading-6 text-gray-600'>
                             {tier.priceMonthly === 'Free' ? '' : '/month'}
                           </span>
-                        </p>
+                        </div>
                         <ul
                           role='list'
                           className='mt-8 space-y-3 text-sm leading-6 text-gray-600'>
