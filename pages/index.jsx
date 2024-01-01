@@ -115,9 +115,9 @@ export default function LandingPage({ posts }) {
             </div>
             <BlogShowCaseContainer posts={posts} />
             {/* Feature sections */}
-            <FeatureSection />
+            {/* <FeatureSection /> */}
             {/* Pricing section */}
-            <div className='py-12 bg-stone-50'>
+            {/* <div className='py-12 bg-stone-50'>
               <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                 <div className='mx-auto max-w-4xl text-center'>
                   <h2 className='text-base font-semibold leading-7 text-indigo-600'>
@@ -127,9 +127,7 @@ export default function LandingPage({ posts }) {
                     Affordable pricing plans for&nbsp;all&nbsp;
                   </p>
                 </div>
-                {/* <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
-                The essentials to provide your best work for clients.
-              </p> */}
+
                 <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 gap-x-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-1'>
                   {tiers.map((tier, tierIdx) => (
                     <div
@@ -200,10 +198,10 @@ export default function LandingPage({ posts }) {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* FAQs */}
-            <Faq />
+            {/* <Faq />  */}
 
             {/* CTA section */}
             <Cta />
