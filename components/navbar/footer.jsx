@@ -12,10 +12,10 @@ export default function Footer() {
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <Link
             href='/'
-            className='h-7 text-xl font-semibold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
+            className='h-7 text-xl font-bold hover:underline leading-6 text-indigo-600 hover:text-indigo-500 transition ease-out'
             alt='Company name'>
             Region Intelligence{' '}
-            <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+            <span className='inline-flex ml-2 items-center rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-700'>
               Beta
             </span>
           </Link>

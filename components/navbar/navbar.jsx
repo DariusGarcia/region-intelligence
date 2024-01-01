@@ -196,7 +196,7 @@ export default function Navbar() {
             Resources
           </Link>
           <Link
-            href='/company/about'
+            href='/about'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             About Us
           </Link>
@@ -215,14 +215,14 @@ export default function Navbar() {
           {user ? (
             // <Avatar name={avatarName} />
             <button
-              className='text-black bg-white rounded-full border border-white p-1 px-2 hover:opacity-80 transition ease-out'
+              className='text-black bg-white rounded-full border  font-semibold border-white p-1 px-2 hover:opacity-80 transition ease-out'
               onClick={logout}>
               Logout
             </button>
           ) : (
             <a
               href='/login'
-              className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out bg-white p-2 rounded-full px-6'>
+              className='text-sm font-semibold leading-6  text-black hover:text-gray-300 transition ease-out bg-white p-2 rounded-full px-6'>
               Log in <span aria-hidden='true'>&rarr;</span>
             </a>
           )}

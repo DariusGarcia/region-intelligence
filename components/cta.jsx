@@ -9,13 +9,18 @@ export default function CTA() {
             Ready to dive in?
           </h2>
           <p className='mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300 font-medium'>
-            Start your free trial today
+            Get started or schedule a demo
           </p>
           <div className='mt-10 flex items-center justify-center gap-x-6'>
             <Link
               href='/signup'
               className='rounded-md bg-blue-600 w-48 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'>
               Get started
+            </Link>
+            <Link
+              href='/signup'
+              className='rounded-md  w-48 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'>
+              Schedule Demo
             </Link>
           </div>
         </div>
