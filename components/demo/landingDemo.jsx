@@ -13,7 +13,7 @@ export default function LandingDemo() {
           </h3>
           <Link
             href='/demo'
-            className='px-6 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full p-2 transition ease-out'>
+            className='px-6 bg-blue-600 hover:bg-blue-500 text-white rounded-full p-2 transition ease-out'>
             Explore Demo
           </Link>
           <section className='flex  md:flex-row w-full mt-12 max-w-2xl'>
@@ -27,7 +27,7 @@ export default function LandingDemo() {
               </p>
               <Link
                 href='#'
-                className='w-max bg-indigo-600 hover:bg-indigo-500 rounded-full p-2 px-4 transition ease-out'>
+                className='w-max bg-blue-600 hover:bg-blue-500 rounded-full p-2 px-4 transition ease-out'>
                 {' '}
                 View Case Study
               </Link>

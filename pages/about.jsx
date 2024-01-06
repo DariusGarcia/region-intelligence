@@ -95,7 +95,7 @@ export default function AboutPage({ posts }) {
                 <div key={item.name}>
                   <time
                     dateTime={item.dateTime}
-                    className='flex items-center text-sm font-semibold leading-6 text-indigo-600'>
+                    className='flex items-center text-sm font-semibold leading-6 text-blue-600'>
                     <svg
                       viewBox='0 0 4 4'
                       className='mr-4 h-1 w-1 flex-none'

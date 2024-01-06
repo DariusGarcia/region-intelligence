@@ -64,15 +64,15 @@ export default function BlogShowCaseContainer({ posts }) {
                               className='text-gray-500 italic'>
                               {new Date(publishedAt).toDateString()}
                             </time>
-                            <div className='relative z-10 rounded-full px-3 py-1.5 font-medium text-black w-full'>
+                            {/* <div className='relative z-10 rounded-full px-3 py-1.5 font-medium text-black w-full'>
                               {categories.map((category) => (
                                 <span
                                   className='p-2 w-max text-xs bg-blue-600 text-white rounded-full font-semibold'
                                   key={category}>
-                                  {/* {category} */}
+                                  
                                 </span>
                               ))}
-                            </div>
+                            </div> */}
                           </div>
                           <div className='group relative max-w-xl'>
                             <h3 className='mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>

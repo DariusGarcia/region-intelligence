@@ -12,6 +12,7 @@ import {
   XMarkIcon,
   MapIcon,
   ListBulletIcon,
+  HomeIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChevronDownIcon,
@@ -66,7 +67,7 @@ export default function Navbar() {
             <span className='sr-only'>Region Intelligence</span>
             <p className='text-lg font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
               Region Intelligence
-              <span className='inline-flex ml-2 items-center rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-700'>
+              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
                 Beta
               </span>
             </p>
@@ -112,7 +113,7 @@ export default function Navbar() {
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'>
                       <div className='mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-indigo-600'
+                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
                           aria-hidden='true'
                         />
                       </div>
@@ -247,10 +248,10 @@ export default function Navbar() {
               <Link href='/' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>Region Intelligence</span>
                 <p
-                  className='font-bold leading-6 text-indigo-600 text-xl hover:text-indigo-500 hover:underline transition ease-out'
+                  className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
                   Region Intelligence{' '}
-                  <span className='inline-flex ml-2 items-center rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-700'>
+                  <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
                     Beta
                   </span>
                 </p>
@@ -267,7 +268,7 @@ export default function Navbar() {
               <div className='py-4' onClick={() => setMobileMenuOpen(false)}>
                 {user ? (
                   <button
-                    className='text-base font-semibold leading-6 text-gray-900 hover:text-indigo-600'
+                    className='text-base font-semibold leading-6 text-gray-900 hover:text-blue-600'
                     onClick={logout}>
                     Logout <span aria-hidden='true'>&rarr;</span>
                   </button>
@@ -294,7 +295,7 @@ export default function Navbar() {
                       className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       <div className='flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-indigo-600'
+                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
                           aria-hidden='true'
                         />
                       </div>
@@ -352,6 +353,13 @@ export default function Navbar() {
 }
 
 const currentPlanningDevelopments = [
+  {
+    name: 'Dashboard',
+    description:
+      'Explore a comprehensive overview of pending city permits with key insights.',
+    href: '/dashboard',
+    icon: HomeIcon,
+  },
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',

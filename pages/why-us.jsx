@@ -33,12 +33,12 @@ export default function whyUs() {
             <div className='flex flex-row gap-8 z-50 items-center mt-6 md:mt-0'>
               <Link
                 href='#'
-                className='bg-indigo-600 w-max rounded-md text-white p-2 z-50 transition ease-out hover:bg-indigo-500'>
+                className='bg-blue-600 w-max rounded-md text-white p-2 z-50 transition ease-out hover:bg-blue-500'>
                 What We Offer
               </Link>
               <Link
                 href='/about'
-                className='border-indigo-600 w-max rounded-md border-2 hover:bg-indigo-600 hover:text-white p-2 z-50 transition ease-out'>
+                className='border-blue-600 w-max rounded-md border-2 hover:bg-blue-600 hover:text-white p-2 z-50 transition ease-out'>
                 About Us
               </Link>
             </div>
@@ -72,7 +72,7 @@ export default function whyUs() {
           </h3>
           <div className='flex flex-col gap-6 md:mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 col-span-1'>
-              <p className='text-indigo-600 font-semibold text-lg'>OVERVIEW</p>
+              <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
               <p className='font-semibold text-lg'>
                 LEVERAGE OUR PROPRIETARY MODELS TO GUIDE YOUR DUE DILIGENCE
                 PROCESS.
@@ -99,7 +99,7 @@ export default function whyUs() {
                   <p className='font-semibold'>VIEW CASE STUDY</p>
                   <Link
                     href='/explore'
-                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-indigo-600 hover:bg-indigo-500 transition ease-out'>
+                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-blue-600 hover:bg-blue-500 transition ease-out'>
                     Explore{' '}
                   </Link>
                 </div>
@@ -116,7 +116,7 @@ export default function whyUs() {
           </h3>
           <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1'>
-              <p className='text-indigo-600 font-semibold text-lg'>OVERVIEW</p>
+              <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
               <p className='font-semibold text-lg'>
                 STAY UP TO DATE ON WHAT'S NEW FOR EVERY CITY.
               </p>
@@ -143,7 +143,7 @@ export default function whyUs() {
                   <p className='font-semibold'>VIEW CASE STUDY</p>
                   <Link
                     href='/explore'
-                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-indigo-600 hover:bg-indigo-500 transition ease-out'>
+                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-blue-600 hover:bg-blue-500 transition ease-out'>
                     Explore{' '}
                   </Link>
                 </div>
@@ -160,7 +160,7 @@ export default function whyUs() {
           </h3>
           <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1'>
-              <p className='text-indigo-600 font-semibold text-lg'>OVERVIEW</p>
+              <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
               <p className='font-semibold text-lg uppercase'>
                 Navigate the southern california zoning ever changing landscape.
               </p>
@@ -185,7 +185,7 @@ export default function whyUs() {
                   <p className='font-semibold'>VIEW CASE STUDY</p>
                   <Link
                     href='/explore'
-                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-indigo-600 hover:bg-indigo-500 transition ease-out'>
+                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-blue-600 hover:bg-blue-500 transition ease-out'>
                     Explore{' '}
                   </Link>
                 </div>
@@ -202,7 +202,7 @@ export default function whyUs() {
           </h3>
           <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1'>
-              <p className='text-indigo-600 font-semibold text-lg'>OVERVIEW</p>
+              <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
               <p className='font-semibold text-lg uppercase'>
                 We know time is money.
               </p>
@@ -229,7 +229,7 @@ export default function whyUs() {
                   <p className='font-semibold'>VIEW CASE STUDY</p>
                   <Link
                     href='/explore'
-                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-indigo-600 hover:bg-indigo-500 transition ease-out'>
+                    className=' p-2 rounded-full w-24 items-center flex justify-center bg-blue-600 hover:bg-blue-500 transition ease-out'>
                     Explore{' '}
                   </Link>
                 </div>

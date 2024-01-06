@@ -15,7 +15,7 @@ export default function FeatureSection() {
           <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
             <div className='lg:pr-8 lg:pt-4'>
               <div className='lg:max-w-lg'>
-                <h2 className='text-base font-semibold leading-7 text-indigo-500'>
+                <h2 className='text-base font-semibold leading-7 text-blue-500'>
                   Platform Insights
                 </h2>
                 <p className='mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl'>
@@ -24,7 +24,7 @@ export default function FeatureSection() {
                 <div className='mt-6 text-lg leading-8 text-gray-300'>
                   <Link
                     href='https://www.esri.com/en-us/arcgis/about-arcgis/overview'
-                    className='text-indigo-500 underline hover:opacity-80'>
+                    className='text-blue-500 underline hover:opacity-80'>
                     Powered by ArcGIS
                   </Link>
                   : Visual Representation of the Esri Project in Action
@@ -34,7 +34,7 @@ export default function FeatureSection() {
                     <div key={feature.name} className='relative pl-9'>
                       <dt className='inline font-semibold text-white'>
                         <feature.icon
-                          className='absolute left-1 top-1 h-5 w-5 text-indigo-500'
+                          className='absolute left-1 top-1 h-5 w-5 text-blue-500'
                           aria-hidden='true'
                         />
                         {feature.name}
@@ -61,7 +61,7 @@ export default function FeatureSection() {
           <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
             <div className='lg:ml-auto lg:pl-4 lg:pt-4'>
               <div className='lg:max-w-lg'>
-                <h2 className='text-base font-semibold leading-7 text-indigo-500'>
+                <h2 className='text-base font-semibold leading-7 text-blue-500'>
                   Instant support
                 </h2>
                 <p className='mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl'>
@@ -76,7 +76,7 @@ export default function FeatureSection() {
                     <div key={feature.name} className='relative pl-9'>
                       <dt className='inline font-semibold text-white'>
                         <feature.icon
-                          className='absolute left-1 top-1 h-5 w-5 text-indigo-500'
+                          className='absolute left-1 top-1 h-5 w-5 text-blue-500'
                           aria-hidden='true'
                         />
                         {feature.name}
