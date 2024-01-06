@@ -1,5 +1,11 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import {
+  useSession,
+  useSupabaseClient,
+  useUser,
+} from '@supabase/auth-helpers-react'
+import Router from 'next/router'
 import {
   Bars3Icon,
   BellIcon,
@@ -18,11 +24,57 @@ import {
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import { IoMdSettings } from 'react-icons/io'
+import { IoMdPaper, IoMdSettings } from 'react-icons/io'
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import { FaHome } from 'react-icons/fa'
 
 export default function DashboardHome() {
+  const session = useSession()
+  const supabase = useSupabaseClient()
+  const user = useUser()
+  const [first_name, setFirstName] = useState(null)
+  const [last_name, setLastName] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!session) {
+        Router.push('/login')
+      }
+    }, 100)
+    return () => clearTimeout(timeout)
+  }, [session])
+
+  useEffect(() => {
+    async function loadData() {
+      setLoading(true)
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single()
+
+        if (error) {
+          setError(error.message)
+          console.warn(error)
+        } else if (data) {
+          setFirstName(data.first_name)
+          setLastName(data.last_name)
+        }
+
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // Only run query once user is logged in.
+    if (user) loadData()
+  }, [user])
+
+  console.log(first_name, last_name)
   return (
     <>
       <div>
@@ -161,7 +213,7 @@ export default function DashboardHome() {
         {/* Static sidebar for desktop */}
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4'>
+          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 px-6 pb-4'>
             <div className='flex h-16 shrink-0 items-center'>
               <p className='font-semibold'>Region Intelligence</p>
             </div>
@@ -300,7 +352,7 @@ export default function DashboardHome() {
                       <span
                         className='ml-4 text-sm font-semibold leading-6 text-gray-900'
                         aria-hidden='true'>
-                        Tom Cook
+                        {first_name} {last_name}
                       </span>
                       <ChevronDownIcon
                         className='ml-2 h-5 w-5 text-gray-400'
@@ -369,6 +421,102 @@ export default function DashboardHome() {
                   </div>
                 </div>
               </section>
+              <section className='flex flex-col md:flex-row justify-between pt-6 gap-6'>
+                <article className='w-full bg-gray-100 p-2 rounded-xl'>
+                  <h2 className='text-2xl font-semibold pl-6'>Discover </h2>
+                  <div className='flex flex-col gap-2 rounded-lg p-2 '>
+                    {discover.map((item) => (
+                      <article
+                        key={item.id}
+                        className='w-full bg-gray-100 p-2 rounded-xl'>
+                        <div className='flex flex-col gap-6 rounded-lg p-2'>
+                          <div className='flex flex-row gap-2 p-2 bg-white rounded-lg'>
+                            <p>{item.icon}</p>
+                            <div>
+                              <p className='font-semibold text-lg'>
+                                {item.title}
+                              </p>
+                              <div className='flex flex-row gap-2'>
+                                {item.categories.map((category, index) => (
+                                  <p
+                                    key={index}
+                                    className={`bg-gray-200 px-2 p-1 text-xs text-white rounded-full ${item.categoryColors[index]}`}>
+                                    {category}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </article>
+                <article className='w-full bg-gray-100 p-2 rounded-xl'>
+                  <h2 className='text-2xl font-semibold pl-6'>
+                    Project Updates
+                  </h2>
+                  <div className='mt-6'>
+                    <ul className='flex flex-col gap-6'>
+                      <li className='w-full bg-white rounded-xl p-2'>
+                        <div className='flex flex-row gap-2 item-center h-full'>
+                          <p className='flex h-full item-center'>
+                            <FaHome size={30} />
+                          </p>
+                          <div className='flex flex-row gap-2'>
+                            <div>
+                              <p>Buena Park</p>
+                              <p>CU-27-1</p>
+                            </div>
+                            <div className='grid grid-cols-2 justify-between '>
+                              <p className='font-semibold'>ADU</p>
+                              <ArrowRightIcon />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li className='w-full bg-white rounded-xl p-2'>
+                        <div className='flex flex-row gap-2'>
+                          <p>
+                            {' '}
+                            <FaHome size={30} />
+                          </p>
+                          <div className='flex flex-row gap-2'>
+                            <div>
+                              <p>Buena Park</p>
+                              <p>CU-27-1</p>
+                            </div>
+                            <div>
+                              <p className='font-semibold'>ADU</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li className='w-full bg-white rounded-xl p-2'>
+                        <div className='flex flex-row gap-2'>
+                          <p>
+                            {' '}
+                            <FaHome size={30} />
+                          </p>
+                          <div className='flex flex-row gap-2'>
+                            <div>
+                              <p>Buena Park</p>
+                              <p>CU-27-1</p>
+                            </div>
+                            <div>
+                              <p className='font-semibold'>ADU</p>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+                <article className='w-full bg-gray-100 p-2 rounded-xl'>
+                  <h2 className='text-2xl font-semibold pl-6'>RI Analysis</h2>
+                  <div className=''></div>
+                </article>
+              </section>
             </div>
           </main>
         </div>
@@ -381,6 +529,7 @@ const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
   { name: 'Dashboards', href: '#', icon: UsersIcon, current: false },
   { name: 'Housing Element', href: '#', icon: HomeModernIcon, current: false },
+  { name: 'The RI Blog', href: '/blog', icon: IoMdPaper, current: false },
   //   { name: 'Settings', href: '#', icon: IoMdSettings, current: false },
   //   { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
   //   { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
@@ -395,6 +544,36 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
+const discover = [
+  {
+    id: 0,
+    title: 'Latest Blog Posts',
+    categories: ['New', 'Read'],
+    categoryColors: ['bg-orange-500', 'bg-blue-400'],
+    icon: 'icon',
+  },
+  {
+    id: 0,
+    title: 'Events & Webinars',
+    categories: ['Upcoming'],
+    categoryColors: ['bg-yellow-500'],
+    icon: 'icon',
+  },
+  {
+    id: 0,
+    title: 'RI Case Studies',
+    categories: ['Read', 'Upcoming'],
+    categoryColors: ['bg-blue-500', 'bg-yellow-500'],
+    icon: 'icon',
+  },
+  {
+    id: 0,
+    title: 'FAQs',
+    categories: ['Read'],
+    categoryColors: ['bg-blue-500'],
+    icon: 'icon',
+  },
+]
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
