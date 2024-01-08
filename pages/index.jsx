@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import Head from 'next/head'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
 import Faq from '@/components/faq'
-import LandingHeader from '@/components/header/landingHeader'
 import Cta from '@/components/cta'
 import DemoVideo from '@/components/demo/demo'
 import FeatureSection from '@/components/featureSection'
@@ -13,6 +12,7 @@ import {
   FingerPrintIcon,
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
+import LandingHeader from '@/components/header/landingHeader'
 
 export default function LandingPage() {
   const targetRef = useRef(null)
@@ -45,7 +45,7 @@ export default function LandingPage() {
             </div>
 
             {/* Feature section */}
-            <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
+            {/* <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
               <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
                 <h2 className='text-xl font-semibold leading-7 text-blue-600'>
                   Gain insights quicker
@@ -92,7 +92,7 @@ export default function LandingPage() {
                   ))}
                 </dl>
               </div>
-            </div>
+            </div> */}
 
             {/* Testimonial section */}
             <div className='md:my-36 my-24 justify-center'>
