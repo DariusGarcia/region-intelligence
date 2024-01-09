@@ -1,13 +1,9 @@
 import React, { useRef } from 'react'
 import Head from 'next/head'
-import { createClient } from 'next-sanity'
-import groq from 'groq'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
 import Faq from '@/components/faq'
-import LandingHeader from '@/components/header/landingHeader'
 import Cta from '@/components/cta'
 import DemoVideo from '@/components/demo/demo'
-import LandingDemo from '@/components/demo/landingDemo'
 import FeatureSection from '@/components/featureSection'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import {
@@ -16,22 +12,13 @@ import {
   FingerPrintIcon,
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
-
+import LandingHeader from '@/components/header/landingHeader'
 import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-
-const client = createClient({
-  projectId: projectId,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-})
-
-export default function LandingPage({ posts }) {
+export default function LandingPage() {
   const targetRef = useRef(null)
   const secondaryFeaturesControls = useAnimation()
-  console.log(posts)
+
   return (
     <>
       <Head>
@@ -59,7 +46,7 @@ export default function LandingPage({ posts }) {
             </div>
 
             {/* Feature section */}
-            <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
+            {/* <div className='mx-auto sm:mt-12 p-4 py-8 px-6 lg:px-8 bg-gray-900'>
               <div className='mx-auto max-w-2xl lg:text-center' ref={targetRef}>
                 <h2 className='text-xl font-semibold leading-7 text-blue-600'>
                   Gain insights quicker
@@ -106,14 +93,12 @@ export default function LandingPage({ posts }) {
                   ))}
                 </dl>
               </div>
-            </div>
+            </div> */}
 
-            {/* Demo section */}
+            {/* Testimonial section */}
             <div className='md:my-36 my-24 justify-center'>
-              <LandingDemo />
               {/* <DemoVideo /> */}
             </div>
-            <BlogShowCaseContainer posts={posts} />
             {/* Feature sections */}
             {/* <FeatureSection /> */}
             {/* Pricing section */}
@@ -127,7 +112,9 @@ export default function LandingPage({ posts }) {
                     Affordable pricing plans for&nbsp;all&nbsp;
                   </p>
                 </div>
-
+                <p className='mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600'>
+                The essentials to provide your best work for clients.
+              </p>
                 <div className='isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 gap-x-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-1'>
                   {tiers.map((tier, tierIdx) => (
                     <div
@@ -159,14 +146,14 @@ export default function LandingPage({ posts }) {
                         <p className='mt-4 text-sm leading-6 text-gray-600'>
                           {tier.description}
                         </p>
-                        <div className='mt-6 flex items-baseline gap-x-1'>
+                        <p className='mt-6 flex items-baseline gap-x-1'>
                           <span className='text-4xl font-bold tracking-tight text-gray-900'>
                             {tier.priceMonthly}
                           </span>
                           <span className='text-sm font-semibold leading-6 text-gray-600'>
                             {tier.priceMonthly === 'Free' ? '' : '/month'}
                           </span>
-                        </div>
+                        </p>
                         <ul
                           role='list'
                           className='mt-8 space-y-3 text-sm leading-6 text-gray-600'>
@@ -201,9 +188,10 @@ export default function LandingPage({ posts }) {
             </div> */}
 
             {/* FAQs */}
-            {/* <Faq />  */}
+            {/* <Faq /> */}
 
             {/* CTA section */}
+            <BlogShowCaseContainer />
             <Cta />
           </main>
         </AnimatePresence>
@@ -291,19 +279,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-// export async function getStaticProps() {
-//   return {
-//     props: {},
-//   }
-// }
-
-export async function getServerSideProps() {
-  const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-      `)
+export async function getStaticProps() {
   return {
-    props: {
-      posts,
-    },
+    props: {},
   }
 }

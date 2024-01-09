@@ -45,7 +45,7 @@ export default function whyUs() {
           </div>
           <div className='w-full items-end'>
             <Image
-              src='/about/aerialView.jpg'
+              src='/whyUs.png'
               priority={true}
               width={900}
               height={1100}
