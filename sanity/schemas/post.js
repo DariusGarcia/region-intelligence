@@ -8,6 +8,11 @@ export const post = {
       title: 'Title',
       type: 'string',
     },
+    { 
+      name: "description",
+      title: 'Description',
+      type: 'string',
+    },
     {
       name: 'slug',
       title: 'Slug',
@@ -59,6 +64,7 @@ export const post = {
   preview: {
     select: {
       title: 'title',
+      description: 'desciption',
       author: 'author.name',
       media: 'mainImage',
     },
