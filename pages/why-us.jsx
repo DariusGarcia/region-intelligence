@@ -13,7 +13,7 @@ export default function whyUs() {
           aria-hidden='true'
         />
 
-        <div className='mx-auto max-w-7xl px-6 pt-6 sm:py-12 z-50 lg:px-8 flex md:flex-row flex-col justify-between'>
+        <div className='mx-auto max-w-5xl px-6 pt-6 sm:py-12 z-50 lg:px-8 flex md:flex-row flex-col justify-between'>
           <div className='md:mx-auto w-full mt-6 lg:mx-0 z-50  lg:max-w-none flex flex-col justify-center gap-6'>
             <h2 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:col-span-2 xl:col-auto '>
               For Realtors

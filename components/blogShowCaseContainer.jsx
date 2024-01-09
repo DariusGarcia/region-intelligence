@@ -13,9 +13,9 @@ const client = createClient({
   useCdn: false,
 })
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source)
-}
+// -----------------------------------------------------
+//  TODO: Add category titles to each blog post article
+// -----------------------------------------------------
 
 export default function BlogShowCaseContainer({ posts }) {
   return (
@@ -62,12 +62,12 @@ export default function BlogShowCaseContainer({ posts }) {
                             <div className='group relative md:h-56 flex flex-col items-center justify-center'>
                             <img
                               src={urlFor(mainImage)
-                                .width(400)
-                                .height(600)
+                                .width(600)
+                                .height(800)
                                 .fit('max')
                                 .auto('format')}
                               alt={title}
-                              className='relative inset-0 aspect-[4/3] h-48 w-96 rounded-lg bg-gray-50 object-cover'
+                              className='relative inset-0 aspect-[6/5] h-56 w-96 rounded-lg bg-gray-50 object-cover'
                             />
                               <h3 className='text-xl mt-6 font-semibold leading-6 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
                                 <Link
@@ -104,4 +104,8 @@ export default function BlogShowCaseContainer({ posts }) {
       </div>
     </>
   )
+}
+
+function urlFor(source) {
+  return imageUrlBuilder(client).image(source)
 }

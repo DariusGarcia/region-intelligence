@@ -2,7 +2,7 @@ export default function LandingHeaderNew() {
   return (
     <div className='relative bg-white w-full'>
       {/* First Section */}
-      <div className='mx-auto my-2 md:my-0 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
+      <div className='mx-auto my-2 md:my-0 md:mb-12 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
         <div className='px-6 pb-12 pt-6 md:pt-10 sm:pb-32 lg:col-span-7 md:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden sm:flex'></div>
@@ -31,26 +31,26 @@ export default function LandingHeaderNew() {
             </div>
           </div>
         </div>
-        <div className='relative lg:col-span-4 lg:-mr-8  xl:inset-0 xl:left-1/2 xl:mr-0'>
+        <div className='flex items-center relative lg:col-span-4 lg:-mr-8  xl:inset-0 xl:left-1/2 xl:mr-0'>
           <img
-            className='  bg-gray-50 w-96 lg:absolute rounded-md'
+            className='w-96 lg:absolute rounded-md bg-gray-50'
             src='/landingHeader.png'
             alt='first section'
           />
         </div>
       </div>
       {/* Second section */}
-      <div className='bg-gray-100 w-full my-8 md:my-0'>
+      <div className='bg-gray-100 w-full my-8 md:my-12'>
         <div className='w-full bg-gray-50 max-w-none'>
         <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
-          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
+          <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
-              className='rounded-md w-96'
+              className='rounded-md w-96 md:w-full hidden bg-gray-100 md:block'
               src='/landingHeader2.png'
               alt='2nd section'
             />
           </div>
-          <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex lg:flex-col'>
+          <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col'>
             <div className='mx-auto max-w-2xl lg:mx-0'>
               <div className='hidden sm:flex'>
                 {/* Add any additional content you want to display on larger screens */}
@@ -78,11 +78,18 @@ export default function LandingHeaderNew() {
               </div>
             </div>
           </div>
+          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
+            <img
+                className='rounded-md w-96 block md:hidden'
+                src='/landingHeader2.png'
+                alt='2nd section'
+              />
+          </div>
           </div>
         </div>
       </div>
       {/* Third section */}
-      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 my-8 md:my-0'>
+      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 my-8 md:my-12'>
         <div className='px-6 pb-12 pt-10 lg:col-span-7 md:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
@@ -116,16 +123,16 @@ export default function LandingHeaderNew() {
         </div>
       </div>
       {/* Fourth section */}
-      <div className='bg-gray-100 w-full my-8 md:my-0'>
-      <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
-          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
+      <div className='bg-gray-100 w-full my-8 md:my-12'>
+      <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between'>
+          <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
-              className='bg-gray-100 rounded-md w-96'
+              className='bg-gray-100 rounded-md w-96 md:w-full hidden md:block'
               src='/landingHeader4.png'
               alt=''
             />
           </div>
-          <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex lg:flex-col'>
+          <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end lg:flex-col'>
             <div className='mx-auto max-w-2xl lg:mx-0'>
               <div className='hidden sm:flex'>
                 {/* Add any additional content you want to display on larger screens */}
@@ -149,6 +156,13 @@ export default function LandingHeaderNew() {
                 </a>
               </div>
             </div>
+          </div>
+          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
+            <img
+                className='rounded-md w-96 md:hidden block'
+                src='/landingHeader2.png'
+                alt='2nd section'
+              />
           </div>
         </div>
       </div>

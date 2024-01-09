@@ -1,21 +1,18 @@
 import React, { useRef } from 'react'
 import Head from 'next/head'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
-import Faq from '@/components/faq'
 import { createClient } from 'next-sanity'
 import groq from 'groq'
 import Cta from '@/components/cta'
-import DemoVideo from '@/components/demo/demo'
-import FeatureSection from '@/components/featureSection'
-import { CheckIcon } from '@heroicons/react/20/solid'
+import LandingHeader from '@/components/header/landingHeader'
+import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
   FingerPrintIcon,
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
-import LandingHeader from '@/components/header/landingHeader'
-import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
+
 
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID

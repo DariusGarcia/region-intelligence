@@ -1,6 +1,7 @@
 import ProductFeatures from "@/components/productFeatures";
 import Link from "next/link";
 import Head from 'next/head'
+import Image from 'next/image'
 import { createClient } from "next-sanity";
 import groq from "groq";
 import BlogSection from "@/components/blog";
@@ -192,9 +193,10 @@ export default function ProductsPage({ posts }) {
                     className="relative block w-full overflow-hidden rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     <span className="sr-only">
-                      Watch our video to learn more
+                      Watch our demo to learn more.
                     </span>
-                    <img className="w-full" src="/productsHeader.png" alt="" />
+                     <Image className="w-full" width={900} height={600}  priority style={{objectFit: "contain"}} src="/productsHeader.png" alt="product header" />
+
                   </button>
                 </div>
               </div>
