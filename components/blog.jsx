@@ -91,13 +91,13 @@ export default function BlogSection({ posts }) {
                                 className='h-10 w-10 rounded-full bg-gray-50'
                               /> */}
                               <div className='text-sm leading-6'>
-                                <p className='font-semibold text-gray-900'>
+                                <div className='font-semibold text-gray-900'>
                                   <p>
                                     <span className='absolute inset-0' />
                                     Julian Sotelo
                                   </p>
                                   <p>Founder / CEO</p>
-                                </p>
+                                </div>
                                 {/* <p className='text-gray-600'>
                                   {post.author.role}
                                 </p> */}

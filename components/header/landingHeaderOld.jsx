@@ -11,11 +11,19 @@ export default function LandingHeader({ scrollToTarget }) {
             initial='hidden'
             animate='visible'
             viewport={{ once: true, amount: 0.8 }}
+<<<<<<< HEAD
             className='px-6 sm:pb-32 lg:px-0  flex flex-col items-center gap-4 '>
             <m.div variants={cardVariants}>
               <div className='flex flex-col justify-center mx-auto max-w-2xl lg:mx-0'>
                 <div className='hidden sm:mt-32 md:mt-0 sm:flex '>
                   {/* <div className='relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+=======
+            className='px-6 sm:pb-32 lg:px-0 flex md:flex-row flex-col items-center gap-4'>
+            <m.div variants={cardVariants}>
+              <div className='flex flex-col justify-center mx-auto max-w-2xl lg:mx-0'>
+                <div className='hidden sm:mt-32 md:mt-0 sm:flex '>
+                  <div className='relative rounded-full px-3 py-1 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
+>>>>>>> dev
                     Explore our journey.{' '}
                     <Link
                       href='/about'
@@ -23,10 +31,17 @@ export default function LandingHeader({ scrollToTarget }) {
                       <span className='absolute inset-0' aria-hidden='true' />
                       Read more <span aria-hidden='true'>&rarr;</span>
                     </Link>
+<<<<<<< HEAD
                   </div> */}
                 </div>
                 <h1 className='mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 Bringing Innovation to Urban Landscapes
+=======
+                  </div>
+                </div>
+                <h1 className='mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
+                  Empower Your Real Estate Journey
+>>>>>>> dev
                 </h1>
                 <p className='mt-6 text-lg leading-8 text-gray-600'>
                   Region Intelligence:{' '}
@@ -39,7 +54,11 @@ export default function LandingHeader({ scrollToTarget }) {
                 <div className='mt-10 flex items-center gap-x-6'>
                   <Link
                     href='/signup'
+<<<<<<< HEAD
                     className='rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+=======
+                    className='rounded-md bg-[#000AFF] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+>>>>>>> dev
                     Get started
                   </Link>
                   <button
@@ -60,7 +79,11 @@ export default function LandingHeader({ scrollToTarget }) {
               <m.div variants={cardVariantsHorizontal}>
                 <Image
                   className=' w-full rounded-lg  bg-gray-50 lg:h-full'
+<<<<<<< HEAD
                   src='/updatedMap.png'
+=======
+                  src='/landingPageImage.png'
+>>>>>>> dev
                   alt='landing'
                   height={1280}
                   width={1080}

@@ -2,17 +2,17 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className='mx-auto mt-24 max-w-7xl px-6 lg:px-8 '>
+    <div className='mx-auto  max-w-7xl px-6 lg:px-8 '>
       <footer
         aria-labelledby='footer-heading'
-        className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'>
+        className='relative border-t border-gray-900/10 py-24  sm:py-32'>
         <h2 id='footer-heading' className='sr-only'>
           Footer
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <Link
             href='/'
-            className='h-7 text-xl font-semibold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
+            className='h-7 text-xl font-bold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
             alt='Company name'>
             Region Intelligence{' '}
             <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>

@@ -12,6 +12,7 @@ import {
   XMarkIcon,
   MapIcon,
   ListBulletIcon,
+  HomeIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChevronDownIcon,
@@ -57,7 +58,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-blue-600 z-50'>
+    <header className='bg-[#4200FF] z-50'>
       <nav
         className='mx-auto flex max-w-7xl items-center justify-between p-6 '
         aria-label='Global'>
@@ -90,7 +91,7 @@ export default function Navbar() {
         <Popover.Group className='hidden lg:flex lg:gap-x-12'>
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-gray-300 text-white transition ease-out'>
-              Current Planning Developments
+              Products
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-white'
                 aria-hidden='true'
@@ -109,7 +110,7 @@ export default function Navbar() {
                   {currentPlanningDevelopments.map((item) => (
                     <div
                       key={item.name}
-                      className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50'>
+                      className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 z-50'>
                       <div className='mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
                           className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
@@ -186,9 +187,19 @@ export default function Navbar() {
             </Transition>
           </Popover>{' '}
           <Link
+            href='/why-us'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Why RI
+          </Link>
+          <Link
             href='/blog'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-            Blog
+            RI Blog
+          </Link>
+          <Link
+            href='/resources'
+            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            Resources
           </Link>
         </Popover.Group>
 
@@ -205,14 +216,14 @@ export default function Navbar() {
           {user ? (
             // <Avatar name={avatarName} />
             <button
-              className='text-white border border-white p-1 px-2 rounded-md hover:opacity-80 transition ease-out'
+              className='text-black bg-white rounded-full border  font-semibold border-white p-1 px-2 hover:opacity-80 transition ease-out'
               onClick={logout}>
               Logout
             </button>
           ) : (
             <a
               href='/login'
-              className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+              className='text-sm font-semibold leading-6  text-black hover:text-gray-300 transition ease-out bg-white p-2 rounded-full px-6'>
               Log in <span aria-hidden='true'>&rarr;</span>
             </a>
           )}
@@ -264,7 +275,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href='/login'
-                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
+                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 bg-white'>
                     Log in <span aria-hidden='true'>&rarr;</span>
                   </Link>
                 )}
@@ -308,7 +319,7 @@ export default function Navbar() {
                     href='/profile'
                     onClick={() => setMobileMenuOpen(false)}
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                    My profile
+                    My Profile
                   </Link>
 
                   {company.map((item) => (
@@ -342,6 +353,13 @@ export default function Navbar() {
 }
 
 const currentPlanningDevelopments = [
+  {
+    name: 'Dashboard',
+    description:
+      'Explore a comprehensive overview of pending city permits with key insights.',
+    href: '/dashboard',
+    icon: HomeIcon,
+  },
   {
     name: 'Map View',
     description: 'View the locations of pending city permits',
@@ -399,7 +417,7 @@ const company = [
       'Learn more about our company values and mission to empower others',
   },
   {
-    name: 'Contact Us',
+    name: 'Contact',
     href: '/contact',
     description:
       'Get in touch with our dedicated support team for any questions or inquiries',
@@ -411,7 +429,7 @@ const company = [
   //     'Looking for you next career opportunity? See all of our open positions',
   // },
   {
-    name: 'Blog',
+    name: 'RI Blog',
     href: '/blog',
     description:
       'Read our latest announcements and get perspectives from our team',

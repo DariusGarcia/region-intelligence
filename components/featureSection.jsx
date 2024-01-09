@@ -21,14 +21,14 @@ export default function FeatureSection() {
                 <p className='mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl'>
                   Our Data in Action
                 </p>
-                <p className='mt-6 text-lg leading-8 text-gray-300'>
+                <div className='mt-6 text-lg leading-8 text-gray-300'>
                   <Link
                     href='https://www.esri.com/en-us/arcgis/about-arcgis/overview'
                     className='text-blue-500 underline hover:opacity-80'>
                     Powered by ArcGIS
                   </Link>
                   : Visual Representation of the Esri Project in Action
-                </p>
+                </div>
                 <dl className='mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none'>
                   {features.map((feature) => (
                     <div key={feature.name} className='relative pl-9'>
