@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
+import { Carousel } from 'antd';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -19,7 +20,7 @@ function urlFor(source) {
 export default function BlogShowCaseContainer({ posts }) {
   return (
     <>
-      <div className='py-6 sm:py-12 px-4 overflow-x-scroll scrollbar-visible'>
+      <div className='flex justify-center w-full py-6 sm:py-12 px-4 '>
         <div className='mx-auto max-w-7xl md:px-6'>
           <div className='mx-auto '>
             <Link
@@ -38,59 +39,63 @@ export default function BlogShowCaseContainer({ posts }) {
                 The RI Blog <span aria-hidden='true'>→</span>
               </Link>
             </div>
-            <div className='mt-16 overflow-x-scroll scrollbar-thumb-gray-500 hover:overflow-x-scroll scrollbar-track-gray-300 space-x-4 sm:space-x-8 lg:mt-20 flex flex-nowrap justify-start gap-4 lg:gap-8'>
-              {posts?.length > 0 &&
-                posts.map(
-                  ({
-                    _id,
-                    title = '',
-                    slug = '',
-                    publishedAt = '',
-                    mainImage,
-                    categories = '',
-                  }) =>
-                    slug && (
-                      <article
-                        key={_id}
-                        className='relative isolate flex hover:overflow-x-scroll flex-col overflow-x-visible gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 md:w-96 lg:w-1/2 min-w-[250px] max-w-full'>
+            <div className='mt-16 w-full max-w-4xl justify-center items-center bg-gray-50'>
+              <Carousel autoplay>
+                {posts?.length > 0 &&
+                  posts.map(
+                    ({
+                      _id,
+                      title = '',
+                      slug = '',
+                      publishedAt = '',
+                      mainImage,
+                      categories = '',
+                    }) =>
+                      slug && (
                         <div>
-                          <div className='flex items-center gap-x-4 text-xs'></div>
-                          <div className='group relative max-w-xl md:h-56'>
-                          <img
-                            src={urlFor(mainImage)
-                              .width(500)
-                              .height(300)
-                              .fit('max')
-                              .auto('format')}
-                            alt={title}
-                            className='relative inset-0 h-36 w-full rounded-2xl bg-gray-50 object-cover'
-                          />
-                            <h3 className='mt-3 text-xl font-semibold leading-6  group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
-                              <Link
-                                href={`/blog/${encodeURIComponent(
-                                  slug.current
-                                )}`}>
-                                <span className='absolute inset-0' />
-                                {title}
-                              </Link>
-                            </h3>
-                          </div>
-                          <div className='mt-6 flex items-end place-content-end h-max justify-end md:h-max border-t border-gray-900/5 pt-6'>
-                            <div className='relative gap-x-4'>
-                              <p className='text-gray-300 text-xs'>
-                                Posted:{' '}
-                                <time
-                                  dateTime={publishedAt}
-                                  className='text-gray-300 italic'>
-                                  {new Date(publishedAt).toDateString()}
-                                </time>
-                              </p>
+                        <article
+                          key={_id}
+                          className='relative isolate flex flex-col pt-6 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full min-w-[250px] '>
+                          <div>
+                            <div className='flex items-center gap-x-4 text-xs'></div>
+                            <div className='group relative md:h-56 flex flex-col items-center justify-center'>
+                            <img
+                              src={urlFor(mainImage)
+                                .width(400)
+                                .height(600)
+                                .fit('max')
+                                .auto('format')}
+                              alt={title}
+                              className='relative inset-0 aspect-[4/3] h-48 w-96 rounded-lg bg-gray-50 object-cover'
+                            />
+                              <h3 className='mt-3 text-xl font-semibold leading-6  group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
+                                <Link
+                                  href={`/blog/${encodeURIComponent(
+                                    slug.current
+                                  )}`}>
+                                  <span className='absolute inset-0' />
+                                  {title}
+                                </Link>
+                              </h3>
+                            </div>
+                            <div className='mt-6 flex items-center place-content-center h-max justify-center md:h-max border-t border-gray-900/5 py-6'>
+                              <div className='relative gap-x-4'>
+                                <p className='text-gray-300 text-xs'>
+                                  Posted:{' '}
+                                  <time
+                                    dateTime={publishedAt}
+                                    className='text-gray-300 italic'>
+                                    {new Date(publishedAt).toDateString()}
+                                  </time>
+                                </p>
+                              </div>
                             </div>
                           </div>
+                        </article>
                         </div>
-                      </article>
-                    )
-                )}
+                      )
+                  )}
+              </Carousel>
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ import {
 import LandingHeader from '@/components/header/landingHeader'
 import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
 
+
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 const client = createClient({
