@@ -7,7 +7,7 @@ export default function whyUs() {
   return (
     <div>
       {' '}
-      <div className='relative isolate border-b-2 pb-24 overflow-hidden bg-gradient-to-b from-blue-100/20 pt-8 '>
+      <div className='relative isolate pb-24 border-b-2 overflow-hidden bg-gradient-to-b from-blue-100/20 pt-8 '>
         <div
           className='absolute inset-y-0 right-1/2 -z-10  -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 sm:-mr-80 lg:-mr-96'
           aria-hidden='true'
@@ -65,19 +65,19 @@ export default function whyUs() {
         </div>
       </div>
       {/* LEVERAGE AI section */}
-      <section className='w-full flex justify-center border-b-2 pb-24 px-4 mt-24'>
-        <div className='max-w-7xl flex flex-col'>
+      <section className='w-full flex justify-center pb-24 px-4 mt-24 bg-gray-100 pt-12'>
+        <div className='max-w-7xl flex flex-col justify-center items-center '>
           <h3 className='text-3xl md:text-5xl font-semibold mb-6'>
             LEVERAGE AI IN YOUR DECISION MAKING PROCESS
           </h3>
-          <div className='flex flex-col gap-6 md:mt-12 md:grid md:grid-cols-3'>
-            <section className='flex flex-col gap-4 col-span-1'>
+          <div className='flex max-w-4xl flex-col gap-6 md:mt-12 md:grid md:grid-cols-3'>
+            <section className='flex flex-col gap-4 col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg'>
+              <p className='font-semibold text-lg w-48'>
                 LEVERAGE OUR PROPRIETARY MODELS TO GUIDE YOUR DUE DILIGENCE
                 PROCESS.
               </p>
-              <p className='font-semibold text-lg'>
+              <p className='font-semibold text-lg w-48'>
                 ACCESS A WEALTH OF INFORMATION AHEAD OF YOUR COMPETITORS
               </p>
               <p className='font-semibold text-md text-orange-500'>
@@ -109,18 +109,18 @@ export default function whyUs() {
         </div>
       </section>
       {/* MEASURE CHANGES section */}
-      <section className='w-full flex justify-center border-b-2 pb-24 mt-24 px-4'>
-        <div className='max-w-7xl flex flex-col'>
+      <section className='w-full flex justify-center pb-24 mt-24 pt-12 px-4 bg-gray-100'>
+        <div className='max-w-7xl flex flex-col justify-center items-center'>
           <h3 className='text-3xl md:text-5xl font-semibold'>
             MEASURE CHANGES WITHIN MUNICIPALITIES
           </h3>
-          <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
-            <section className='flex flex-col gap-4 md:col-span-1'>
+          <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
+            <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg'>
+              <p className='font-semibold text-lg w-48'>
                 STAY UP TO DATE ON WHAT'S NEW FOR EVERY CITY.
               </p>
-              <p className='font-semibold text-lg'>
+              <p className='font-semibold text-lg w-48'>
                 RECEIVE LIVE UPDATES WHEN NEW REGULATIONS PASS THAT MEET YOUR
                 INTEREST.
               </p>
@@ -153,18 +153,18 @@ export default function whyUs() {
         </div>
       </section>
       {/* LIVE DATA SECTION */}
-      <section className='w-full flex justify-center border-b-2 pb-24 mt-24 px-4'>
-        <div className='max-w-7xl flex flex-col'>
+      <section className='w-full flex justify-center pb-24 pt-12 mt-24 px-4 bg-gray-100'>
+        <div className='max-w-7xl flex flex-col justify-center items-center'>
           <h3 className='text-3xl md:text-5xl font-semibold'>
             LIVE DATA EVERY DAY
           </h3>
-          <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
-            <section className='flex flex-col gap-4 md:col-span-1'>
+          <div className='flex max-w-4xl  flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
+            <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg uppercase'>
+              <p className='font-semibold text-lg w-48 uppercase'>
                 Navigate the southern california zoning ever changing landscape.
               </p>
-              <p className='font-semibold text-lg uppercase'>
+              <p className='font-semibold text-lg w-48 uppercase'>
                 find specific zoning regulations & hazards across southern
                 california
               </p>
@@ -195,18 +195,18 @@ export default function whyUs() {
         </div>
       </section>
       {/* PERFORM DUE DILIGENCE section */}
-      <section className='w-full flex justify-center border-b-2 pb-24 mt-24 px-4'>
-        <div className='max-w-7xl flex flex-col'>
+      <section className='w-full flex justify-center pb-24 mt-24 px-4 bg-gray-100 pt-12'>
+        <div className='max-w-7xl flex flex-col justify-center items-center'>
           <h3 className='text-3xl md:text-5xl font-semibold uppercase'>
             perform due diligence on zoning hazards & more
           </h3>
-          <div className='flex flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
-            <section className='flex flex-col gap-4 md:col-span-1'>
+          <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
+            <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg uppercase'>
+              <p className='font-semibold text-lg w-48 uppercase'>
                 We know time is money.
               </p>
-              <p className='font-semibold text-lg uppercase'>
+              <p className='font-semibold text-lg w-48 uppercase'>
                 Find the latest zoning, hazards, and land-use analysis
                 pertaining to each parcel in southern california.
               </p>
