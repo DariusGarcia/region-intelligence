@@ -54,7 +54,9 @@ export default function LandingHeaderNew() {
               <div className='hidden sm:flex'>
                 {/* Add any additional content you want to display on larger screens */}
               </div>
-              <p className='text-orange-600 list-disc'>For Municipalities</p>
+              <p className='text-orange-600 font-semibold'>
+                For Municipalities
+              </p>
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 Fostering Innovation with Municipal Partnerships
               </h1>
@@ -81,7 +83,7 @@ export default function LandingHeaderNew() {
         <div className='px-6 pb-12 pt-10 lg:col-span-7 lg:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
-            <p className='text-orange-600 list-disc'>For Municipalities</p>
+            <p className='text-orange-600 font-semibold'>For Municipalities</p>
             <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Amplify Your Research
             </h1>
@@ -124,7 +126,7 @@ export default function LandingHeaderNew() {
               <div className='hidden sm:flex'>
                 {/* Add any additional content you want to display on larger screens */}
               </div>
-              <p className='text-orange-600 list-disc'>Why us?</p>
+              <p className='text-orange-600 font-semibold'>Why us?</p>
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 See How Our Data Can Help You
               </h1>
