@@ -8,7 +8,7 @@ import {
 
 export default function ProductFeatures() {
   return (
-    <div className='flex flex-col items-center  justify-center bg-gray-900 text-white w-full rounded-md px-4 md:px-0 mt-36 '>
+    <div className='flex flex-col items-center pt-4 md:pt-8 justify-center bg-gray-900 text-white w-full rounded-md px-4 md:px-0 mt-36 '>
       <div className='my-8 border-b-2 flex items-center justify-center text-center'>
         <h2 className='text-3xl md:text-4xl font-bold w-full flex items-center text-center pb-8'>
           Dashboard Core Capabilities
