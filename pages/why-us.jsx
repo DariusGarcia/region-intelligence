@@ -73,11 +73,11 @@ export default function whyUs() {
           <div className='flex max-w-4xl flex-col gap-6 md:mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg w-48'>
+              <p className='font-semibold text-lg w-full md:w-48'>
                 LEVERAGE OUR PROPRIETARY MODELS TO GUIDE YOUR DUE DILIGENCE
                 PROCESS.
               </p>
-              <p className='font-semibold text-lg w-48'>
+              <p className='font-semibold text-lg w-full md:w-48'>
                 ACCESS A WEALTH OF INFORMATION AHEAD OF YOUR COMPETITORS
               </p>
               <p className='font-semibold text-md text-orange-500'>
@@ -117,10 +117,10 @@ export default function whyUs() {
           <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg w-48'>
+              <p className='font-semibold text-lg w-full md:w-48'>
                 STAY UP TO DATE ON WHAT'S NEW FOR EVERY CITY.
               </p>
-              <p className='font-semibold text-lg w-48'>
+              <p className='font-semibold text-lg w-full md:w-48'>
                 RECEIVE LIVE UPDATES WHEN NEW REGULATIONS PASS THAT MEET YOUR
                 INTEREST.
               </p>
@@ -161,10 +161,10 @@ export default function whyUs() {
           <div className='flex max-w-4xl  flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg w-48 uppercase'>
+              <p className='font-semibold text-lg w-full md:w-48 uppercase'>
                 Navigate the southern california zoning ever changing landscape.
               </p>
-              <p className='font-semibold text-lg w-48 uppercase'>
+              <p className='font-semibold text-lg w-full md:w-48 uppercase'>
                 find specific zoning regulations & hazards across southern
                 california
               </p>
@@ -203,10 +203,10 @@ export default function whyUs() {
           <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>
               <p className='text-blue-600 font-semibold text-lg'>OVERVIEW</p>
-              <p className='font-semibold text-lg w-48 uppercase'>
+              <p className='font-semibold text-lg w-full md:w-48 uppercase'>
                 We know time is money.
               </p>
-              <p className='font-semibold text-lg w-48 uppercase'>
+              <p className='font-semibold text-lg w-full md:w-48 uppercase'>
                 Find the latest zoning, hazards, and land-use analysis
                 pertaining to each parcel in southern california.
               </p>
