@@ -195,7 +195,7 @@ export default function ProductsPage({ posts }) {
                     <span className="sr-only">
                       Watch our demo to learn more.
                     </span>
-                     <Image className="w-full" width={900} height={600}  priority style={{objectFit: "contain"}} src="/productsHeader.png" alt="product header" />
+                     <Image className="w-full" width={900} height={600} priority style={{objectFit: "contain"}} src="/productsHeader.png" alt="product header" />
 
                   </button>
                 </div>
@@ -205,7 +205,7 @@ export default function ProductsPage({ posts }) {
               <ProductFeatures />
             </section>
             <section>
-              <section className=" my-12 h-full flex justify-center w-full ">
+              <section className=" my-12 h-full flex justify-center w-full px-4 md:px-0 ">
                 <div className="max-w-7xl">
                   <BlogSection posts={posts} />
                 </div>

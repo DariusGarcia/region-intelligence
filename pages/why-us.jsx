@@ -50,7 +50,7 @@ export default function whyUs() {
               width={800}
               height={1200}
               alt='aerial view of LA'
-              className='aspect-[5/6] w-96 max-w-lg my-8 md:my-0 rounded-lg  md:mt-0 '
+              className=' w-96 max-w-lg my-8 md:my-0 rounded-lg md:mt-0 '
             />
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function whyUs() {
       {/* LEVERAGE AI section */}
       <section className='w-full flex justify-center pb-24 px-4 mt-24 bg-gray-100 pt-12'>
         <div className='max-w-7xl flex flex-col justify-center items-center '>
-          <h3 className='text-3xl md:text-5xl font-semibold mb-6'>
+          <h3 className='text-3xl md:text-5xl font-semibold mb-6 text-center'>
             LEVERAGE AI IN YOUR DECISION MAKING PROCESS
           </h3>
           <div className='flex max-w-4xl flex-col gap-6 md:mt-12 md:grid md:grid-cols-3'>
@@ -111,7 +111,7 @@ export default function whyUs() {
       {/* MEASURE CHANGES section */}
       <section className='w-full flex justify-center pb-24 mt-24 pt-12 px-4 bg-gray-100'>
         <div className='max-w-7xl flex flex-col justify-center items-center'>
-          <h3 className='text-3xl md:text-5xl font-semibold'>
+          <h3 className='text-3xl md:text-5xl font-semibold text-center'>
             MEASURE CHANGES WITHIN MUNICIPALITIES
           </h3>
           <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
@@ -155,7 +155,7 @@ export default function whyUs() {
       {/* LIVE DATA SECTION */}
       <section className='w-full flex justify-center pb-24 pt-12 mt-24 px-4 bg-gray-100'>
         <div className='max-w-7xl flex flex-col justify-center items-center'>
-          <h3 className='text-3xl md:text-5xl font-semibold'>
+          <h3 className='text-3xl md:text-5xl font-semibold text-center'>
             LIVE DATA EVERY DAY
           </h3>
           <div className='flex max-w-4xl  flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
@@ -197,8 +197,8 @@ export default function whyUs() {
       {/* PERFORM DUE DILIGENCE section */}
       <section className='w-full flex justify-center pb-24 mt-24 px-4 bg-gray-100 pt-12'>
         <div className='max-w-7xl flex flex-col justify-center items-center'>
-          <h3 className='text-3xl md:text-5xl font-semibold uppercase'>
-            perform due diligence on zoning hazards & more
+          <h3 className='text-3xl md:text-5xl font-semibold uppercase text-center'>
+            Perform due diligence on zoning hazards & more
           </h3>
           <div className='flex max-w-4xl flex-col gap-6 mt-12 md:grid md:grid-cols-3'>
             <section className='flex flex-col gap-4 md:col-span-1 bg-white p-6 rounded-md'>

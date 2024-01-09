@@ -13,7 +13,13 @@ const client = createClient({
 })
 
 export default function BlogPage({ posts }) {
-  return <BlogSection posts={posts} />
+  return (
+  <div className='px-4 md:px-0 flex justify-center'>
+    <div className='max-w-7xl'>
+        <BlogSection posts={posts} />
+    </div>
+  </div>
+  )
 }
 
 export async function getServerSideProps() {
