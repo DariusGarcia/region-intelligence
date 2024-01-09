@@ -13,8 +13,8 @@ export default function whyUs() {
           aria-hidden='true'
         />
 
-        <div className='mx-auto max-w-7xl px-6 pt-6 sm:py-12 z-50 lg:px-8 grid grid-cols-1 md:grid-cols-2'>
-          <div className='md:mx-auto max-w-2xl lg:mx-0 z-50 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 xl:grid-cols-1 xl:grid-rows-4 xl:gap-x-8'>
+        <div className='mx-auto max-w-7xl px-6 pt-6 sm:py-12 z-50 lg:px-8 flex md:flex-row flex-col justify-between'>
+          <div className='md:mx-auto w-full mt-6 lg:mx-0 z-50  lg:max-w-none flex flex-col justify-center gap-6'>
             <h2 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:col-span-2 xl:col-auto '>
               For Realtors
             </h2>
@@ -33,24 +33,24 @@ export default function whyUs() {
             <div className='flex flex-row gap-8 z-50 items-center mt-6 md:mt-0'>
               <Link
                 href='/products'
-                className='bg-blue-600 w-max rounded-md text-white p-2 z-50 transition ease-out hover:bg-blue-500'>
+                className='bg-blue-600 w-36 text-center rounded-md text-white p-2 z-50 transition ease-out hover:bg-blue-500'>
                 What We Offer
               </Link>
               <Link
                 href='/about'
-                className='border-blue-600 w-max rounded-md border-2 hover:bg-blue-600 hover:text-white p-2 z-50 transition ease-out'>
-                About Us
+                className=' w-max rounded-md hover:underline hover:opacity-75 p-2 z-50 transition ease-out'>
+                About Us <span aria-hidden='true'>→</span>
               </Link>
             </div>
           </div>
-          <div className='w-full items-end'>
+          <div className='w-full flex justify-end'>
             <Image
               src='/whyUs.png'
               priority={true}
-              width={900}
-              height={1100}
+              width={800}
+              height={1200}
               alt='aerial view of LA'
-              className='aspect-[4/3] w-full max-w-lg my-8 md:my-0 rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none'
+              className='aspect-[5/6] w-96 max-w-lg my-8 md:my-0 rounded-lg  md:mt-0 '
             />
           </div>
         </div>

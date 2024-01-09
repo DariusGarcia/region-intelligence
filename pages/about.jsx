@@ -71,8 +71,8 @@ export default function AboutPage({ posts }) {
           {/* Principles section */}
           <div className='w-full flex justify-center bg-gray-900 text-white my-12 '>
             <div className='max-w-7xl px-6'>
-              <section className='flex flex-col justify-center gap-4 py-8'>
-                <p className='text-orange-500 font-semibold'>The Mission</p>
+              <section className='flex flex-col justify-center gap-4 py-12'>
+               <ul className='list-disc ml-4'> <li className='text-orange-500 font-semibold'>The Mission</li></ul>
                 {mission.map((item) => (
                   <article key={item.title} className='py-4'>
                     <p className='text-3xl uppercase font-semibold'>
@@ -322,9 +322,9 @@ const mission = [
     id: 0,
     title: 'Our principles',
     body1:
-      'Region Intelligence big data analytics tool for real estate professionals. We empower our users with the ability to perform fast, thorough,  and insightful due diligence. ',
+      'Region Intelligence is at the forefront of facilitating growth and ease in urban environments by unifying city data into a single, accessible platform. Designed as a powerful big data analytics tool for real estate professionals, it enables users to conduct efficient, thorough, and insightful due diligence. The integration of this diverse city data not only streamlines the decision-making process but also opens up new opportunities for urban development and growth.',
     body2:
-      'Region Intelligence leverages proprietary artificial intelligence at the forefront of its products, giving users comfort with data-driven decision making, paving the way for a new generation of real estate professionals who want to spend less time in research, and more time getting the shovel in the dirt. ',
+      'With its proprietary artificial intelligence technology, Region Intelligence assures users of reliable, data-driven decisions, paving the way for a new era of real estate professionals. This approach is geared towards reducing time spent on research, thus accelerating the transition from planning to actual development, ultimately leading to more efficient and effective city growth and development. ',
   },
   {
     id: 1,

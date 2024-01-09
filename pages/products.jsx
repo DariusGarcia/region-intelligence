@@ -61,8 +61,8 @@ export default function ProductsPage({ posts }) {
       </div>
 
       <div className='relative pb-16 pt-6 sm:pb-24 lg:pb-32'>
-        <main className='mx-auto mt-6 max-w-7xl px-4 md:px-6 sm:mt-16'>
-          <div className='lg:grid lg:grid-cols-12 lg:gap-8'>
+        <main className='sm:mt-16'>
+          <div className='lg:grid lg:grid-cols-12 lg:gap-8 mx-auto mt-6 max-w-7xl px-4 md:px-6 '>
             <div className='sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:text-left'>
               <h1>
                 <span className='block text-base font-semibold text-gray-500 sm:text-lg lg:text-base xl:text-lg'>
@@ -176,8 +176,9 @@ export default function ProductsPage({ posts }) {
             <ProductFeatures />
           </section>
           <section>
-            <section className='my-12 h-full w-full '>
-              <BlogSection posts={posts} />
+            <section className=' my-12 h-full flex justify-center w-full '>
+              <div className=' max-w-7xl'>
+              <BlogSection posts={posts} /></div>
             </section>
             <CTA />
           </section>
