@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import Head from 'next/head'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
 import Faq from '@/components/faq'
+import { createClient } from 'next-sanity'
+import groq from 'groq'
 import Cta from '@/components/cta'
 import DemoVideo from '@/components/demo/demo'
 import FeatureSection from '@/components/featureSection'
@@ -15,7 +17,16 @@ import {
 import LandingHeader from '@/components/header/landingHeader'
 import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
 
-export default function LandingPage() {
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+
+const client = createClient({
+  projectId: projectId,
+  dataset: 'production',
+  apiVersion: '2022-03-25',
+  useCdn: false,
+})
+
+export default function LandingPage({ posts }) {
   const targetRef = useRef(null)
   const secondaryFeaturesControls = useAnimation()
 
@@ -96,9 +107,9 @@ export default function LandingPage() {
             </div> */}
 
             {/* Testimonial section */}
-            <div className='md:my-36 my-24 justify-center'>
-              {/* <DemoVideo /> */}
-            </div>
+            {/* <div className='md:my-36 my-24 justify-center'> */}
+            {/* <DemoVideo /> */}
+            {/* </div> */}
             {/* Feature sections */}
             {/* <FeatureSection /> */}
             {/* Pricing section */}
@@ -191,7 +202,9 @@ export default function LandingPage() {
             {/* <Faq /> */}
 
             {/* CTA section */}
-            <BlogShowCaseContainer />
+            <section className='mb-12'>
+              <BlogShowCaseContainer posts={posts} />
+            </section>
             <Cta />
           </main>
         </AnimatePresence>
@@ -279,8 +292,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
+  const posts = await client.fetch(groq`
+      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+      `)
   return {
-    props: {},
+    props: {
+      posts,
+    },
   }
 }

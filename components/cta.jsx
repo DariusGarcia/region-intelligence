@@ -18,7 +18,7 @@ export default function CTA() {
               Get started
             </Link>
             <Link
-              href='/signup'
+              href='/contact'
               className='rounded-md  w-48 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'>
               Schedule Demo
             </Link>

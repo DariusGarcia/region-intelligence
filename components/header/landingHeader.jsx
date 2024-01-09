@@ -1,7 +1,8 @@
 export default function LandingHeaderNew() {
   return (
     <div className='relative bg-white'>
-      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
+      {/* First Section */}
+      <div className='mx-auto my-8 md:my-0 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
         <div className='px-6 pb-12 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
@@ -39,7 +40,7 @@ export default function LandingHeaderNew() {
         </div>
       </div>
       {/* Second section */}
-      <div className='bg-gray-100 w-full'>
+      <div className='bg-gray-100 w-full my-8 md:my-0'>
         <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 '>
           <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
@@ -76,7 +77,7 @@ export default function LandingHeaderNew() {
         </div>
       </div>
       {/* Third section */}
-      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
+      <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 my-8 md:my-0'>
         <div className='px-6 pb-12 pt-10 lg:col-span-7 lg:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
@@ -109,7 +110,7 @@ export default function LandingHeaderNew() {
         </div>
       </div>
       {/* Fourth section */}
-      <div className='bg-gray-100 w-full'>
+      <div className='bg-gray-100 w-full my-8 md:my-0'>
         <div className='mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 '>
           <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
