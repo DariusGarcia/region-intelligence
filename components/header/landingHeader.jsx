@@ -31,7 +31,7 @@ export default function LandingHeaderNew() {
             </div>
           </div>
         </div>
-        <div className='flex items-center relative lg:col-span-4 lg:-mr-8  xl:inset-0 xl:left-1/2 xl:mr-0'>
+        <div className='flex justify-center items-center relative lg:col-span-4 lg:-mr-8  xl:inset-0 xl:left-1/2 xl:mr-0'>
           <img
             className='w-96 lg:absolute rounded-md bg-gray-50'
             src='/landingHeader.png'
@@ -41,7 +41,7 @@ export default function LandingHeaderNew() {
       </div>
       {/* Second section */}
       <div className='bg-gray-100 w-full my-8 md:my-12'>
-        <div className='w-full bg-gray-50 max-w-none'>
+        <div className='w-full bg-gray-100 max-w-none'>
         <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
           <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
@@ -56,7 +56,7 @@ export default function LandingHeaderNew() {
                 {/* Add any additional content you want to display on larger screens */}
               </div>
               <ul>
-              <li className='list-disc ml-4 text-orange-600 font-bold'>
+              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>
                 For Municipalities
               </li></ul>
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
@@ -72,13 +72,13 @@ export default function LandingHeaderNew() {
               <div className='mt-10 flex items-center gap-x-6'>
                 <a
                   href='/why-us'
-                  className='rounded-md w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                  className='rounded-md w-full md:w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                   Learn More <span aria-hidden='true'>→</span>
                 </a>
               </div>
             </div>
           </div>
-          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
+          <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
                 className='rounded-md w-96 block md:hidden'
                 src='/landingHeader2.png'
@@ -94,7 +94,7 @@ export default function LandingHeaderNew() {
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
             <ul>
-              <li className='list-disc ml-4 text-orange-600 font-bold'>For Municipalities</li></ul>
+              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>For Municipalities</li></ul>
             <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Amplify Your Research
             </h1>
@@ -108,13 +108,13 @@ export default function LandingHeaderNew() {
             <div className='mt-10 flex items-center gap-x-6'>
               <a
                 href='/why-us'
-                className='rounded-md w-48 text-center bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                className='rounded-md w-full md:w-48 text-center bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                 Why RI <span aria-hidden='true'>→</span>
               </a>
             </div>
           </div>
         </div>
-        <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:inset-0 xl:left-1/2 xl:mr-0'>
+        <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:inset-0 xl:left-1/2 xl:mr-0'>
           <img
             className='  bg-gray-50 w-96 lg:absolute rounded-md'
             src='/landingHeader3.png'
@@ -138,7 +138,7 @@ export default function LandingHeaderNew() {
                 {/* Add any additional content you want to display on larger screens */}
               </div>
               <ul>
-              <li className='list-disc ml-4 text-orange-600 font-bold'>Why us?</li></ul>
+              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>Why us?</li></ul>
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 See How Our Data Can Help You
               </h1>
@@ -151,16 +151,16 @@ export default function LandingHeaderNew() {
               <div className='mt-10 flex items-center gap-x-6'>
                 <a
                   href='/why-us'
-                  className='rounded-md w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                  className='rounded-md w-full md:w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
                   Explore <span aria-hidden='true'>→</span>
                 </a>
               </div>
             </div>
           </div>
-          <div className='relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
+          <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
                 className='rounded-md w-96 md:hidden block'
-                src='/landingHeader2.png'
+                src='/landingHeader4.png'
                 alt='2nd section'
               />
           </div>
