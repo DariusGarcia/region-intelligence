@@ -7,7 +7,7 @@ export default function whyUs() {
   return (
     <div>
       {' '}
-      <div className='relative isolate border-b-2 pb-24 overflow-hidden bg-gradient-to-b from-blue-100/20 '>
+      <div className='relative isolate border-b-2 pb-24 overflow-hidden bg-gradient-to-b from-blue-100/20 pt-8 '>
         <div
           className='absolute inset-y-0 right-1/2 -z-10  -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 sm:-mr-80 lg:-mr-96'
           aria-hidden='true'
@@ -32,7 +32,7 @@ export default function whyUs() {
             </h2>
             <div className='flex flex-row gap-8 z-50 items-center mt-6 md:mt-0'>
               <Link
-                href='#'
+                href='/products'
                 className='bg-blue-600 w-max rounded-md text-white p-2 z-50 transition ease-out hover:bg-blue-500'>
                 What We Offer
               </Link>
