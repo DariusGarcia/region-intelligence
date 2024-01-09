@@ -45,7 +45,7 @@ export default function AboutPage({ posts }) {
               className='absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 sm:-mr-80 lg:-mr-96'
               aria-hidden='true'
             />
-            <div className='mx-auto max-w-7xl px-6 py-12 sm:py-12 lg:px-8 flex '>
+            <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
               <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
                 <div className='mt-6 max-w-xl lg:mt-0 flex flex-col gap-8 justify-center w-full'>
                   <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
@@ -71,10 +71,10 @@ export default function AboutPage({ posts }) {
           {/* Principles section */}
           <div className='w-full flex justify-center bg-gray-900 text-white my-12 '>
             <div className='max-w-7xl px-6'>
-              <section className='flex flex-col justify-center gap-8 py-8'>
+              <section className='flex flex-col justify-center gap-4 py-8'>
                 <p className='text-orange-500 font-semibold'>The Mission</p>
                 {mission.map((item) => (
-                  <article key={item.title} className='py-8'>
+                  <article key={item.title} className='py-4'>
                     <p className='text-3xl uppercase font-semibold'>
                       {item.title}
                     </p>
@@ -88,7 +88,7 @@ export default function AboutPage({ posts }) {
             </div>
           </div>
           {/* Timeline section */}
-          <div className='mx-auto max-w-7xl px-6 lg:px-8 mb-24'>
+          <div className='mx-auto max-w-7xl px-6 lg:px-8  mt-24 border-b pb-24'>
             <h2 className='mb-8 text-3xl font-bold'>Our Timeline</h2>
             <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
               {timeline.map((item) => (
@@ -206,7 +206,7 @@ export default function AboutPage({ posts }) {
           </div> */}
 
           {/* Blog section */}
-          <section className='mt-12 bg-red-500 h-full w-full '>
+          <section className='md:mt-12 h-full w-full mt-8 px-4 '>
             <BlogSection posts={posts} />
           </section>
           <section className='w-full flex justify-center mt-12 px-6 border-t-2 pt-6'>

@@ -31,7 +31,7 @@ export default function BlogSection({ posts }) {
               Learn about how our solutions can help solve your business
               problems.
             </p>
-            <div className='mt-16 space-y-20 lg:mt-20 lg:space-y-20'>
+            <div className='mt-16 space-y-8 lg:mt-20 lg:space-y-20'>
               {posts?.length > 0 &&
                 posts.map(
                   ({
