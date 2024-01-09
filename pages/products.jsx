@@ -1,3 +1,4 @@
+import ProductFeatures from '@/components/productFeatures'
 import Link from 'next/link'
 
 export default function ProductsPage() {
@@ -158,6 +159,9 @@ export default function ProductsPage() {
               </div>
             </div>
           </div>
+          <section className='mt-12 mx-0'>
+            <ProductFeatures />
+          </section>
         </main>
       </div>
     </div>
