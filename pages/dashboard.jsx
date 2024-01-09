@@ -293,7 +293,7 @@ export default function DashboardHome() {
         </div>
 
         <div className='lg:pl-72'>
-          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+          <div className='sticky top-0 z-40 flex h-16 z-10 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
             <button
               type='button'
               className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
@@ -308,7 +308,7 @@ export default function DashboardHome() {
               aria-hidden='true'
             />
 
-            <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6'>
+            <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6 md:z-30 '>
               <form className='relative flex flex-1' action='#' method='GET'>
                 <label htmlFor='search-field' className='sr-only'>
                   Search for Projects
