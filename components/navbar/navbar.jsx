@@ -107,7 +107,7 @@ export default function Navbar() {
               leaveTo='opacity-0 translate-y-1'>
               <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg'>
                 <div className='p-4'>
-                  {currentPlanningDevelopments.map((item) => (
+                  {products.map((item) => (
                     <div
                       key={item.name}
                       className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 z-50'>
@@ -288,7 +288,7 @@ export default function Navbar() {
                 <div
                   className='space-y-2 py-6'
                   onClick={() => setMobileMenuOpen(false)}>
-                  {currentPlanningDevelopments.map((item) => (
+                  {products.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -352,7 +352,13 @@ export default function Navbar() {
   )
 }
 
-const currentPlanningDevelopments = [
+const products = [
+  {
+    name: 'Product Overview',
+    description: 'Explore our products.',
+    href: '/products',
+    icon: HomeIcon,
+  },
   {
     name: 'Dashboard',
     description:
