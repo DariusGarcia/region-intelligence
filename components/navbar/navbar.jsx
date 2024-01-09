@@ -281,7 +281,7 @@ export default function Navbar() {
                 )}
               </div>
               <p className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900'>
-                Current Planning Developments
+                Products
               </p>
 
               <div className='-my-6 divide-y divide-gray-500/10'>
@@ -417,8 +417,14 @@ const callsToAction = [
 ]
 const company = [
   {
-    name: 'About us',
+    name: 'About Us',
     href: '/about',
+    description:
+      'Learn more about our company values and mission to empower others',
+  },
+  {
+    name: 'Why Us',
+    href: '/why-us',
     description:
       'Learn more about our company values and mission to empower others',
   },

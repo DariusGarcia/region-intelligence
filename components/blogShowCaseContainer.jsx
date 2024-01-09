@@ -56,7 +56,7 @@ export default function BlogShowCaseContainer({ posts }) {
                         <div>
                         <article
                           key={_id}
-                          className='relative flex flex-col pt-6 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full md:min-w-[250px] '>
+                          className='relative flex flex-col py-12 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full md:min-w-[250px] '>
                           <div>
                             <div className='flex items-center gap-x-4 text-xs'></div>
                             <div className='group relative md:h-56 flex flex-col items-center justify-center'>

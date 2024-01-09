@@ -23,9 +23,9 @@ export default function Footer() {
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
-                <h3 className='text-sm font-semibold leading-6 text-gray-900'>
+                <Link href='/products' className='text-sm font-semibold leading-6 text-gray-900 hover:underline hover:opacity-70 transition ease-out'>
                   Products
-                </h3>
+                </Link>
                 <ul role='list' className='mt-6 space-y-4'>
                   {footerNavigation.projects.map((item) => (
                     <li key={item.name}>
@@ -112,7 +112,8 @@ const footerNavigation = {
   ],
 
   company: [
-    { name: 'About us', href: '/about' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Why Us', href: '/why-us' },
     { name: 'RI Blog', href: '/blog' },
     { name: 'FAQ', href: '/company/faq' },
   ],
