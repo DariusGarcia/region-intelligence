@@ -69,7 +69,7 @@ export default function AboutPage({ posts }) {
           </div>
 
           {/* Principles section */}
-          <div className='w-full flex justify-center bg-[#102143] text-white my-12 '>
+          <div className='w-full flex justify-center bg-gray-900 text-white my-12 '>
             <div className='max-w-7xl px-6'>
               <section className='flex flex-col justify-center gap-8 py-8'>
                 <p className='text-orange-500 font-semibold'>The Mission</p>
