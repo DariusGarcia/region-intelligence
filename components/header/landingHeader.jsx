@@ -2,14 +2,14 @@ export default function LandingHeaderNew() {
   return (
     <div className='relative bg-white w-full'>
       {/* First Section */}
-      <div className='mx-auto my-8 md:my-0 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
-        <div className='px-6 pb-12 pt-10 sm:pb-32 lg:col-span-7 md:px-0 xl:col-span-6'>
+      <div className='mx-auto my-2 md:my-0 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8'>
+        <div className='px-6 pb-12 pt-6 md:pt-10 sm:pb-32 lg:col-span-7 md:px-0 xl:col-span-6'>
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden sm:flex'></div>
             <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Bringing Innovation to Urban Landscapes
             </h1>
-            <p className='mt-16 text-lg leading-8 text-gray-600'>
+            <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
               <span className='italic text-blue-600'>
                 Simple, quick, insightful.
               </span>{' '}
@@ -62,7 +62,7 @@ export default function LandingHeaderNew() {
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 Fostering Innovation with Municipal Partnerships
               </h1>
-              <p className='mt-16 text-lg leading-8 text-gray-600'>
+              <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
                 Region Intelligence is at the forefront of uniting
                 municipalities through cutting-edge technology. We collaborate
                 with cities across Southern California to bring advanced data
@@ -91,7 +91,7 @@ export default function LandingHeaderNew() {
             <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Amplify Your Research
             </h1>
-            <p className='mt-16 text-lg leading-8 text-gray-600'>
+            <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
               Region Intelligence equips real estate professionals with dynamic
               tools for comprehensive market analysis. Dive into detailed
               demographics, land-use trends, and essential data points through
@@ -135,7 +135,7 @@ export default function LandingHeaderNew() {
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 See How Our Data Can Help You
               </h1>
-              <p className='mt-16 text-lg leading-8 text-gray-600'>
+              <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
                 Region Intelligence equips real estate experts with personalized
                 data points designed to meet their unique requirements. This
                 service augments their analytical skills, allowing for a more

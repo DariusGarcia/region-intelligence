@@ -21,8 +21,8 @@ export default function BlogShowCaseContainer({ posts }) {
   return (
     <>
       <div className='flex justify-center w-full py-6 sm:py-12 px-4 '>
-        <div className='mx-auto max-w-7xl md:px-6'>
-          <div className='mx-auto '>
+        <div className='mx-auto md:max-w-7xl w-full md:px-6'>
+          <div className='mx-auto w-full md:px-4'>
             <Link
               href='/blog'
               className='text-lg font-bold tracking-tight text-orange-600 sm:text-xl hover:text-orange-700  '>
@@ -39,7 +39,8 @@ export default function BlogShowCaseContainer({ posts }) {
                 The RI Blog <span aria-hidden='true'>→</span>
               </Link>
             </div>
-            <div className='mt-16 w-full max-w-4xl justify-center items-center bg-gray-50'>
+            <div className='flex flex-col justify-center items-center'>
+            <div className='mt-16 w-full max-w-7xl'>
               <Carousel autoplay>
                 {posts?.length > 0 &&
                   posts.map(
@@ -55,7 +56,7 @@ export default function BlogShowCaseContainer({ posts }) {
                         <div>
                         <article
                           key={_id}
-                          className='relative isolate flex flex-col pt-6 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full min-w-[250px] '>
+                          className='relative flex flex-col pt-6 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full md:min-w-[250px] '>
                           <div>
                             <div className='flex items-center gap-x-4 text-xs'></div>
                             <div className='group relative md:h-56 flex flex-col items-center justify-center'>
@@ -68,7 +69,7 @@ export default function BlogShowCaseContainer({ posts }) {
                               alt={title}
                               className='relative inset-0 aspect-[4/3] h-48 w-96 rounded-lg bg-gray-50 object-cover'
                             />
-                              <h3 className='mt-3 text-xl font-semibold leading-6  group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
+                              <h3 className='text-xl mt-6 font-semibold leading-6 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out'>
                                 <Link
                                   href={`/blog/${encodeURIComponent(
                                     slug.current
@@ -96,6 +97,7 @@ export default function BlogShowCaseContainer({ posts }) {
                       )
                   )}
               </Carousel>
+            </div>
             </div>
           </div>
         </div>
