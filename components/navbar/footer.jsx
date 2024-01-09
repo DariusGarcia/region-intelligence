@@ -98,9 +98,11 @@ export default function Footer() {
 
 const footerNavigation = {
   projects: [
-    { name: 'Map View', href: '/current-planning-developments/map-view' },
-    { name: 'Land Directory', href: '/current-planning-developments' },
+    // { name: 'Map View', href: '/current-planning-developments/map-view' },
+    // { name: 'Land Directory', href: '/current-planning-developments' },
+    { name: 'Product Overview', href: '/products' },
     { name: 'Demo', href: '/demo' },
+    { name: 'Deep Dive', href: '/products' },
     { name: 'My Profile', href: '/profile' },
     // { name: 'CEQA Map', href: '/ceqa' },
   ],
@@ -111,7 +113,7 @@ const footerNavigation = {
 
   company: [
     { name: 'About us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'RI Blog', href: '/blog' },
     { name: 'FAQ', href: '/company/faq' },
   ],
   legal: [

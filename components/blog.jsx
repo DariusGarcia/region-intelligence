@@ -19,12 +19,13 @@ export default function BlogSection({ posts }) {
   return (
     <>
       <div className='bg-white py-6 sm:py-12'>
-        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-          <div className='mx-auto max-w-2xl lg:max-w-4xl'>
+        <div className='mx-auto max-w-7xl'>
+          <div className='mx-auto '>
+            <p className='text-orange-600 font-semibold'>More Resources</p>
             <Link
               href='/blog'
               className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl hover:text-blue-700 border-b-4 border-gray-200 hover:border-blue-700'>
-              From the RI Blog
+              Uncharted Territory
             </Link>
             <p className='mt-2 text-lg leading-8 text-gray-600'>
               Learn about how our solutions can help solve your business
@@ -91,13 +92,13 @@ export default function BlogSection({ posts }) {
                                 className='h-10 w-10 rounded-full bg-gray-50'
                               /> */}
                               <div className='text-sm leading-6'>
-                                <div className='font-semibold text-gray-900'>
+                                {/* <div className='font-semibold text-gray-900'>
                                   <p>
                                     <span className='absolute inset-0' />
                                     Julian Sotelo
                                   </p>
                                   <p>Founder / CEO</p>
-                                </div>
+                                </div> */}
                                 {/* <p className='text-gray-600'>
                                   {post.author.role}
                                 </p> */}

@@ -1,7 +1,20 @@
 import ProductFeatures from '@/components/productFeatures'
 import Link from 'next/link'
+import { createClient } from 'next-sanity'
+import groq from 'groq'
+import BlogSection from '@/components/blog'
+import CTA from '@/components/cta'
 
-export default function ProductsPage() {
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+
+const client = createClient({
+  projectId: projectId,
+  dataset: 'production',
+  apiVersion: '2022-03-25',
+  useCdn: false,
+})
+
+export default function ProductsPage({ posts }) {
   return (
     <div className='relative overflow-hidden bg-white'>
       <div
@@ -162,8 +175,25 @@ export default function ProductsPage() {
           <section className='mt-12 mx-0'>
             <ProductFeatures />
           </section>
+          <section>
+            <section className='my-12 h-full w-full '>
+              <BlogSection posts={posts} />
+            </section>
+            <CTA />
+          </section>
         </main>
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const posts = await client.fetch(groq`
+        *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+        `)
+  return {
+    props: {
+      posts,
+    },
+  }
 }
