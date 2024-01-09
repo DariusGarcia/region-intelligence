@@ -5,7 +5,7 @@ export default function Footer() {
     <div className='mx-auto  max-w-7xl px-6 lg:px-8 '>
       <footer
         aria-labelledby='footer-heading'
-        className='relative border-t border-gray-900/10 py-24 sm:mt-56 sm:py-32'>
+        className='relative border-t border-gray-900/10 py-24  sm:py-32'>
         <h2 id='footer-heading' className='sr-only'>
           Footer
         </h2>
