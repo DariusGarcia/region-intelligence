@@ -77,7 +77,7 @@ const timeline = [
   },
   {
     id: 2,
-    title: 'Advanced to phone screening by',
+    title: 'Parcel Information',
     body1:
       'Access detailed data on individual land parcels, from hazards to size dimensions. ',
     body2: 'Great for when you need fast due diligence on a particular parcel.',
@@ -86,7 +86,7 @@ const timeline = [
   },
   {
     id: 3,
-    title: 'Completed phone screening with',
+    title: 'Current Planning Developments',
     body1: 'Who is building where? Who is building what?  ',
     body2:
       'Keep track of current planning developments as they happen. Providing you a wealth of knowledge of how municipalities are governing developments and how competitors are navigating the landscape. ',
@@ -95,7 +95,7 @@ const timeline = [
   },
   {
     id: 4,
-    title: 'Advanced to interview by',
+    title: 'Demographic & Land-Use Trends',
     body1:
       'Region Intelligence’s analytics gives you an added bonus of leveraging demographic trends in favorite areas.  ',
     body2:
@@ -105,7 +105,7 @@ const timeline = [
   },
   {
     id: 5,
-    title: 'Completed interview with',
+    title: 'The Future & Beyond',
     body1:
       "Region Intelligence's prospects are shining, with a steady stream of data enriching our databases every day, ensuring our dedication to delivering a superior user experience remains steadfast.",
     body2:
