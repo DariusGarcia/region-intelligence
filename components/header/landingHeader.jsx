@@ -45,8 +45,8 @@ export default function LandingHeaderNew() {
         <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
           <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
-              className='rounded-md w-96 md:w-full hidden bg-gray-100 md:block'
-              src='/landingHeader2.png'
+              className='rounded-md w-full md:w-full hidden bg-gray-100 md:block'
+              src='/landingHeader7.png'
               alt='2nd section'
             />
           </div>
@@ -80,8 +80,8 @@ export default function LandingHeaderNew() {
           </div>
           <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
             <img
-                className='rounded-md w-96 block md:hidden'
-                src='/landingHeader2.png'
+                className='rounded-md w-full block md:hidden'
+                src='/landingHeader7.png'
                 alt='2nd section'
               />
           </div>

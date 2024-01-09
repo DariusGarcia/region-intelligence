@@ -1,12 +1,27 @@
 import React from 'react'
 import Image from 'next/image'
+import Head from 'next/head'
 import Link from 'next/link'
 import CTA from '@/components/cta'
 
 export default function whyUs() {
   return (
+    <>
+     
+      <Head>
+        <title>Region Intelligence - Why Us</title>
+        <meta
+          name="description"
+          content=" No more navigating through complex research. With Region Intelligence,
+          everything you need is just a few clicks away. Our platform
+          revolutionizes the way you access and handle vital information,
+          making your decision-making process quicker and more informed.
+          Step into the future of property development - Join Region Intelligence
+          today!"
+        />
+      </Head>
     <div>
-      {' '}
+     
       <div className='relative isolate pb-24 border-b-2 overflow-hidden bg-gradient-to-b from-blue-100/20 pt-8 '>
         <div
           className='absolute inset-y-0 right-1/2 -z-10  -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 sm:-mr-80 lg:-mr-96'
@@ -239,6 +254,6 @@ export default function whyUs() {
         </div>
       </section>
       <CTA />
-    </div>
+    </div></>
   )
 }

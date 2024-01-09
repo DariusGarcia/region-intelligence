@@ -5,9 +5,6 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import BlogSection from '@/components/blog'
 
-import FeatureSection from '@/components/featureSection'
-import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
-
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 const client = createClient({
@@ -88,7 +85,7 @@ export default function AboutPage({ posts }) {
             </div>
           </div>
           {/* Timeline section */}
-          <div className='mx-auto max-w-7xl px-6 lg:px-8  mt-24 border-b pb-24'>
+          <div className='mx-auto max-w-7xl px-6 lg:px-8 mt-12 md:mt-24 border-b pb-24'>
             <h2 className='mb-8 text-3xl font-bold'>Our Timeline</h2>
             <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
               {timeline.map((item) => (
@@ -108,7 +105,7 @@ export default function AboutPage({ posts }) {
                       aria-hidden='true'
                     />
                   </time>
-                  <p className='mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900'>
+                  <p className='mt-6 text-xl font-semibold leading-8 tracking-tight text-gray-900'>
                     {item.name}
                   </p>
                   <p className='mt-1 text-base leading-7 text-gray-600'>
