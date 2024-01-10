@@ -41,8 +41,8 @@ export default function BlogShowCaseContainer({ posts }) {
                 The RI Blog <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <div className="mt-16 w-full max-w-7xl">
+            <div className="flex flex-col justify-center items-start">
+              <div className="mt-12 w-full max-w-7xl">
                 <Carousel autoplay>
                   {posts?.length > 0 &&
                     posts.map(
@@ -52,17 +52,18 @@ export default function BlogShowCaseContainer({ posts }) {
                         slug = "",
                         publishedAt = "",
                         mainImage,
+                        description = "",
                         categories = "",
                       }) =>
                         slug && (
-                          <div>
+                          <div className=''>
                             <article
                               key={_id}
-                              className="relative flex flex-col py-12 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full md:min-w-[250px] "
+                              className="relative flex flex-col md:py-0 items-center justify-center gap-8 lg:flex-row text-white rounded-xl bg-gray-900 p-4 w-full md:min-w-[250px] "
                             >
-                              <div>
-                                <div className="flex items-center gap-x-4 text-xs"></div>
-                                <div className="group relative h-56 md:h-56 flex flex-col items-center justify-center">
+                              <div className='h-full'>
+                                <div className="flex items-start gap-x-4 text-xs"></div>
+                                <div className="group relative min-h-[30rem] md:min-h-none flex flex-col items-center justify-center">
                                   <img
                                     src={urlFor(mainImage)
                                       .width(600)
@@ -72,7 +73,7 @@ export default function BlogShowCaseContainer({ posts }) {
                                     alt={title}
                                     className="relative inset-0 aspect-[6/5] h-56 w-96 rounded-lg bg-gray-50 object-cover"
                                   />
-                                  <h3 className="text-xl mt-6 font-semibold leading-6 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out">
+                                  <h3 className="text-xl mt-6 h-min font-semibold leading-6 group-hover:text-blue-700 group-hover:underline group-hover:transition group-hover:ease-out">
                                     <Link
                                       href={`/blog/${encodeURIComponent(
                                         slug.current
@@ -82,9 +83,9 @@ export default function BlogShowCaseContainer({ posts }) {
                                       {title}
                                     </Link>
                                   </h3>
+                                  <p className='md:w-96 mt-2 text-gray-400'>{description || ""}</p>
                                 </div>
-                                <div className="mt-6 flex items-center place-content-center h-max justify-center md:h-max border-t border-gray-900/5 py-6">
-                                  <div className="relative gap-x-4">
+                                <div className="relative gap-x-4 my-8 flex justify-center items-center">
                                     <p className="text-gray-300 text-xs">
                                       Posted:{" "}
                                       <time
@@ -95,7 +96,6 @@ export default function BlogShowCaseContainer({ posts }) {
                                       </time>
                                     </p>
                                   </div>
-                                </div>
                               </div>
                             </article>
                           </div>
