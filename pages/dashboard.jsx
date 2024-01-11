@@ -1,5 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { DownOutlined } from '@ant-design/icons'
+import { Dropdown, Space } from 'antd'
 import {
   useSession,
   useSupabaseClient,
@@ -38,6 +40,7 @@ export default function DashboardHome() {
   const [error, setError] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  // check if user is logged in
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (!session) {
@@ -47,6 +50,7 @@ export default function DashboardHome() {
     return () => clearTimeout(timeout)
   }, [session])
 
+  // fetch user info
   useEffect(() => {
     async function loadData() {
       setLoading(true)
@@ -74,7 +78,62 @@ export default function DashboardHome() {
     if (user) loadData()
   }, [user])
 
-  console.log(first_name, last_name)
+  // TODO: change nav links
+  const navDashboardsItems = [
+    {
+      label: <a href='/dashboard'>Environmental</a>,
+      key: '0',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>Demographics</a>,
+      key: '1',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>Land Use</a>,
+      key: '2',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>APN Insights</a>,
+      key: '3',
+    },
+  ]
+  const navHousingElementsItems = [
+    {
+      label: <a href='/dashboard'>Environmental</a>,
+      key: '0',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>Demographics</a>,
+      key: '1',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>Land Use</a>,
+      key: '2',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label: <a href='/dashboard'>APN Insights</a>,
+      key: '3',
+    },
+  ]
+
   return (
     <>
       <div>
@@ -221,7 +280,57 @@ export default function DashboardHome() {
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                 <li>
                   <ul role='list' className='-mx-2 space-y-1'>
-                    {navigation.map((item) => (
+                    <>
+                      <li key={'home'}>
+                        <a
+                          href={'/dashboard'}
+                          className={
+                            'bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                          }>
+                          <HomeIcon aria-hidden='true' className='w-6 h-6' />
+                          Home
+                        </a>
+                      </li>
+                      <li>
+                        <Dropdown
+                          menu={{
+                            items: navDashboardsItems,
+                          }}
+                          trigger={['click']}>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                            <Space>
+                              <span>
+                                <UsersIcon className='w-6' />
+                              </span>{' '}
+                              Dashboards
+                              <DownOutlined />
+                            </Space>
+                          </a>
+                        </Dropdown>
+                      </li>
+                      <li>
+                        <Dropdown
+                          menu={{
+                            items: navHousingElementsItems,
+                          }}
+                          trigger={['click']}>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                            <Space>
+                              <span>
+                                <HomeModernIcon className='w-6' />
+                              </span>{' '}
+                              Housing Element
+                              <DownOutlined />
+                            </Space>
+                          </a>
+                        </Dropdown>
+                      </li>
+                    </>
+                    {/* {navigation.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
@@ -243,7 +352,7 @@ export default function DashboardHome() {
                           {item.name}
                         </a>
                       </li>
-                    ))}
+                    ))} */}
                   </ul>
                 </li>
                 <li>
@@ -293,7 +402,7 @@ export default function DashboardHome() {
         </div>
 
         <div className='lg:pl-72'>
-          <div className='sticky top-0 z-40 flex h-16 z-10 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
             <button
               type='button'
               className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
