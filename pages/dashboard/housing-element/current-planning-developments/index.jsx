@@ -29,8 +29,9 @@ import Link from 'next/link'
 import { IoMdPaper, IoMdSettings } from 'react-icons/io'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { FaHome } from 'react-icons/fa'
+import CurrentPlanningDevelopmentsList from '../../currentPlanningDevelopmentsList'
 
-export default function DashboardHome() {
+export default function DashboardHousingCurrentPlanningDevelopments() {
   const session = useSession()
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -77,62 +78,6 @@ export default function DashboardHome() {
     // Only run query once user is logged in.
     if (user) loadData()
   }, [user])
-
-  // TODO: change nav links
-  const navDashboardsItems = [
-    {
-      label: <a href='/dashboard'>Environmental</a>,
-      key: '0',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>Demographics</a>,
-      key: '1',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>Land Use</a>,
-      key: '2',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>APN Insights</a>,
-      key: '3',
-    },
-  ]
-  const navHousingElementsItems = [
-    {
-      label: <a href='/dashboard'>Environmental</a>,
-      key: '0',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>Demographics</a>,
-      key: '1',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>Land Use</a>,
-      key: '2',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: <a href='/dashboard'>APN Insights</a>,
-      key: '3',
-    },
-  ]
 
   return (
     <>
@@ -285,7 +230,7 @@ export default function DashboardHome() {
                         <a
                           href={'/dashboard'}
                           className={
-                            'bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                            'text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           }>
                           <HomeIcon aria-hidden='true' className='w-6 h-6' />
                           Home
@@ -318,7 +263,7 @@ export default function DashboardHome() {
                           trigger={['click']}>
                           <a
                             onClick={(e) => e.preventDefault()}
-                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                            className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>
                             <Space>
                               <span>
                                 <HomeModernIcon className='w-6' />
@@ -499,132 +444,21 @@ export default function DashboardHome() {
             </div>
           </div>
           {/*
-          *****************************
+            *****************************
             *
             MAIN CONTENT
             *
-           *****************************
+            *****************************
            */}
           <main className='py-4'>
             <div className='px-4 sm:px-6 lg:px-8'>
-              <section>
-                <h1 className='text-3xl font-semibold'>
-                  Welcome to RI Analytics
+              <section className='border-b border-gray-300 pb-2'>
+                <h1 className='text-xl md:text-3xl font-semibold'>
+                  Current Planning Developments
                 </h1>
-                <p className='text-sm'>
-                  Create custom preferences to enhance your dashboard
-                  experience.
-                </p>
-                <div className='flex flex-row justify-between border-b-2 pb-12'>
-                  <div className='mt-12'></div>
-                  <div className='flex flex-row gap-4 text-white'>
-                    <div className='bg-blue-500 rounded-md p-4 flex items-center'>
-                      hi
-                    </div>
-                    <div className='bg-blue-500 rounded-md p-4 flex items-center'>
-                      hi
-                    </div>
-                    <div className='bg-blue-500 rounded-md p-4 flex items-center'>
-                      hi
-                    </div>
-                  </div>
-                </div>
               </section>
-              <section className='flex flex-col md:flex-row justify-between pt-6 gap-6'>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>Discover </h2>
-                  <div className='flex flex-col gap-2 rounded-lg p-2 '>
-                    {discover.map((item) => (
-                      <article
-                        key={item.id}
-                        className='w-full bg-gray-100 p-2 rounded-xl'>
-                        <div className='flex flex-col gap-6 rounded-lg p-2'>
-                          <div className='flex flex-row gap-2 p-2 bg-white rounded-lg'>
-                            <p>{item.icon}</p>
-                            <div>
-                              <p className='font-semibold text-lg'>
-                                {item.title}
-                              </p>
-                              <div className='flex flex-row gap-2'>
-                                {item.categories.map((category, index) => (
-                                  <p
-                                    key={index}
-                                    className={`bg-gray-200 px-2 p-1 text-xs text-white rounded-full ${item.categoryColors[index]}`}>
-                                    {category}
-                                  </p>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </article>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>
-                    Project Updates
-                  </h2>
-                  <div className='mt-6'>
-                    <ul className='flex flex-col gap-6'>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2 item-center h-full'>
-                          <p className='flex h-full item-center'>
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div className='grid grid-cols-2 justify-between '>
-                              <p className='font-semibold'>ADU</p>
-                              <ArrowRightIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2'>
-                          <p>
-                            {' '}
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div>
-                              <p className='font-semibold'>ADU</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2'>
-                          <p>
-                            {' '}
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div>
-                              <p className='font-semibold'>ADU</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </article>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>RI Analysis</h2>
-                  <div className=''></div>
-                </article>
+              <section className='w-full mt-4'>
+                <CurrentPlanningDevelopmentsList />
               </section>
             </div>
           </main>
@@ -633,6 +467,64 @@ export default function DashboardHome() {
     </>
   )
 }
+
+// SIDEBAR NAVIGATION LINKS DROPDOWN MENUS
+// TODO: change nav links
+const navDashboardsItems = [
+  {
+    label: <a href='/dashboard'>Environmental</a>,
+    key: '0',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>Demographics</a>,
+    key: '1',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>Land Use</a>,
+    key: '2',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>APN Insights</a>,
+    key: '3',
+  },
+]
+
+const navHousingElementsItems = [
+  {
+    label: <a href='/dashboard'>Current Planning</a>,
+    key: '0',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>Planning Map</a>,
+    key: '1',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>Land</a>,
+    key: '2',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: <a href='/dashboard'>Zoning Admin</a>,
+    key: '3',
+  },
+]
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -683,6 +575,7 @@ const discover = [
     icon: 'icon',
   },
 ]
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
