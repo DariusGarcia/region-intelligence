@@ -292,7 +292,14 @@ function classNames(...classes) {
 
 export async function getServerSideProps() {
   const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
+      *[_type == "post" && publishedAt < now()] { title,
+        "name": author->name,
+        "categories": categories[]->title,
+        "authorImage": author->image,
+        body,
+        slug,
+        publishedAt,
+        mainImage}  | order(publishedAt desc)
       `)
   return {
     props: {

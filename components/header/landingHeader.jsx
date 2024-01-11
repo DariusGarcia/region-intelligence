@@ -45,7 +45,7 @@ export default function LandingHeaderNew() {
           <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
             <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
               <img
-                className='rounded-md w-full md:w-full hidden bg-gray-100 md:block'
+                className='rounded-md w-full max-w-96 md:w-full hidden bg-gray-100 lg:block'
                 src='/fosteringInnovation.png'
                 alt='2nd section'
               />
@@ -81,7 +81,7 @@ export default function LandingHeaderNew() {
             </div>
             <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
               <img
-                className='rounded-md w-full block md:hidden'
+                className='rounded-md w-96  block lg:hidden'
                 src='/fosteringInnovation.png'
                 alt='2nd section'
               />
@@ -131,7 +131,7 @@ export default function LandingHeaderNew() {
         <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between'>
           <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
-              className='bg-gray-100 rounded-md w-96 md:w-full hidden md:block'
+              className='bg-gray-100 rounded-md w-96 max-w-96 md:w-full hidden lg:block'
               src='/landingHeader4.png'
               alt=''
             />
@@ -166,7 +166,7 @@ export default function LandingHeaderNew() {
           </div>
           <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
-              className='rounded-md w-96 md:hidden block'
+              className='rounded-md w-96 lg:hidden block'
               src='/landingHeader4.png'
               alt='2nd section'
             />

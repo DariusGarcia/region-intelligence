@@ -27,7 +27,7 @@ const portableTextComponents = {
     number: ({ children }) => (
       <ol className='my-3 ml-8 md:ml-12 leading-loose list-decimal'>
         {children}
-      </ol>
+      </ol>     
     ),
   },
   block: {
