@@ -42,49 +42,50 @@ export default function LandingHeaderNew() {
       {/* Second section */}
       <div className='bg-gray-100 w-full my-8 md:my-12'>
         <div className='w-full bg-gray-100 max-w-none'>
-        <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
-          <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
-            <img
-              className='rounded-md w-full md:w-full hidden bg-gray-100 md:block'
-              src='/landingHeader7.png'
-              alt='2nd section'
-            />
-          </div>
-          <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col'>
-            <div className='mx-auto max-w-2xl lg:mx-0'>
-              <div className='hidden sm:flex'>
-                {/* Add any additional content you want to display on larger screens */}
-              </div>
-              <ul>
-              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>
-                For Municipalities
-              </li></ul>
-              <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
-                Fostering Innovation with Municipal Partnerships
-              </h1>
-              <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
-                Region Intelligence is at the forefront of uniting
-                municipalities through cutting-edge technology. We collaborate
-                with cities across Southern California to bring advanced data
-                tools that enhance urban planning, promote sustainable growth,
-                and enable smart city initiatives.
-              </p>
-              <div className='mt-10 flex items-center gap-x-6'>
-                <a
-                  href='/why-us'
-                  className='rounded-md w-full md:w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
-                  Learn More <span aria-hidden='true'>→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
-            <img
-                className='rounded-md w-full block md:hidden'
-                src='/landingHeader7.png'
+          <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
+            <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
+              <img
+                className='rounded-md w-full md:w-full hidden bg-gray-100 md:block'
+                src='/fosteringInnovation.png'
                 alt='2nd section'
               />
-          </div>
+            </div>
+            <div className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col'>
+              <div className='mx-auto max-w-2xl lg:mx-0'>
+                <div className='hidden sm:flex'>
+                  {/* Add any additional content you want to display on larger screens */}
+                </div>
+                <ul>
+                  <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>
+                    For Municipalities
+                  </li>
+                </ul>
+                <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
+                  Fostering Innovation with Municipal Partnerships
+                </h1>
+                <p className='mt-8 md:mt-16 text-lg leading-8 text-gray-600'>
+                  Region Intelligence is at the forefront of uniting
+                  municipalities through cutting-edge technology. We collaborate
+                  with cities across Southern California to bring advanced data
+                  tools that enhance urban planning, promote sustainable growth,
+                  and enable smart city initiatives.
+                </p>
+                <div className='mt-10 flex items-center gap-x-6'>
+                  <a
+                    href='/why-us'
+                    className='rounded-md w-full md:w-48 text-center bg-white border border-black text-black px-3.5 py-2.5 text-sm font-semibold shadow-sm transition ease-out hover:text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+                    Learn More <span aria-hidden='true'>→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
+              <img
+                className='rounded-md w-full block md:hidden'
+                src='/fosteringInnovation.png'
+                alt='2nd section'
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -94,7 +95,10 @@ export default function LandingHeaderNew() {
           <div className='mx-auto max-w-2xl lg:mx-0'>
             <div className='hidden  sm:flex'></div>
             <ul>
-              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>For Municipalities</li></ul>
+              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>
+                For Municipalities
+              </li>
+            </ul>
             <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
               Amplify Your Research
             </h1>
@@ -124,7 +128,7 @@ export default function LandingHeaderNew() {
       </div>
       {/* Fourth section */}
       <div className='bg-gray-100 w-full my-8 md:my-12'>
-      <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between'>
+        <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between'>
           <div className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
               className='bg-gray-100 rounded-md w-96 md:w-full hidden md:block'
@@ -138,7 +142,10 @@ export default function LandingHeaderNew() {
                 {/* Add any additional content you want to display on larger screens */}
               </div>
               <ul>
-              <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>Why us?</li></ul>
+                <li className='list-disc ml-4 mb-4 text-orange-600 font-bold'>
+                  Why us?
+                </li>
+              </ul>
               <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
                 See How Our Data Can Help You
               </h1>
@@ -159,10 +166,10 @@ export default function LandingHeaderNew() {
           </div>
           <div className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
             <img
-                className='rounded-md w-96 md:hidden block'
-                src='/landingHeader4.png'
-                alt='2nd section'
-              />
+              className='rounded-md w-96 md:hidden block'
+              src='/landingHeader4.png'
+              alt='2nd section'
+            />
           </div>
         </div>
       </div>
