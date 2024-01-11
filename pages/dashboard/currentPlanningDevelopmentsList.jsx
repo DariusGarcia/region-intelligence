@@ -3,11 +3,11 @@ import { Dropdown, Space } from 'antd'
 
 const items = [
   {
-    label: <a href='https://www.antgroup.com'>1st menu item</a>,
+    label: <a href='#'>1st menu item</a>,
     key: '0',
   },
   {
-    label: <a href='https://www.aliyun.com'>2nd menu item</a>,
+    label: <a href='#'>2nd menu item</a>,
     key: '1',
   },
   {
@@ -90,9 +90,7 @@ export default function CurrentPlanningDevelopmentsList() {
                     </td>
                     <td className='whitespace-nowrap px-3 py-5 text-sm text-gray-500'>
                       <div className='text-gray-900'>{person.title}</div>
-                      <div className='mt-1 text-black'>
-                        {person.department} hi
-                      </div>
+                      <div className='mt-1 text-black'>{person.department}</div>
                     </td>{' '}
                     <td className='whitespace-nowrap px-3 py-5 text-xs text-black'>
                       {person.role}{' '}

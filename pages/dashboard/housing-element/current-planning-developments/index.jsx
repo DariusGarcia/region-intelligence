@@ -138,62 +138,62 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
                       <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                         <li>
                           <ul role='list' className='-mx-2 space-y-1'>
-                            {navigation.map((item) => (
-                              <li key={item.name}>
+                            <>
+                              <li key={'home'}>
                                 <a
-                                  href={item.href}
-                                  className={classNames(
-                                    item.current
-                                      ? 'bg-gray-50 text-blue-600'
-                                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
-                                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                                  )}>
-                                  <item.icon
-                                    className={classNames(
-                                      item.current
-                                        ? 'text-blue-600'
-                                        : 'text-gray-400 group-hover:text-blue-600',
-                                      'h-6 w-6 shrink-0'
-                                    )}
+                                  href={'/dashboard'}
+                                  className={
+                                    'text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                  }>
+                                  <HomeIcon
                                     aria-hidden='true'
+                                    className='w-6 h-6'
                                   />
-                                  {item.name}
+                                  Home
                                 </a>
                               </li>
-                            ))}
+                              <li>
+                                <Dropdown
+                                  menu={{
+                                    items: navDashboardsItems,
+                                  }}
+                                  trigger={['click']}>
+                                  <a
+                                    onClick={(e) => e.preventDefault()}
+                                    className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                                    <Space>
+                                      <span>
+                                        <UsersIcon className='w-6' />
+                                      </span>{' '}
+                                      Dashboards
+                                      <DownOutlined />
+                                    </Space>
+                                  </a>
+                                </Dropdown>
+                              </li>
+                              <li>
+                                <Dropdown
+                                  menu={{
+                                    items: navHousingElementsItems,
+                                  }}
+                                  trigger={['click']}>
+                                  <a
+                                    onClick={(e) => e.preventDefault()}
+                                    className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>
+                                    <Space>
+                                      <span>
+                                        <HomeModernIcon className='w-6' />
+                                      </span>{' '}
+                                      Housing Element
+                                      <DownOutlined />
+                                    </Space>
+                                  </a>
+                                </Dropdown>
+                              </li>
+                            </>
                           </ul>
                         </li>
-                        <li>
-                          {/* TEAMS SECTION NAV BAR MOBILE */}
-                          {/* <div className='text-xs font-semibold leading-6 text-gray-400'>
-                            Your teams
-                          </div>
-                          <ul role='list' className='-mx-2 mt-2 space-y-1'>
-                            {teams.map((team) => (
-                              <li key={team.name}>
-                                <a
-                                  href={team.href}
-                                  className={classNames(
-                                    team.current
-                                      ? 'bg-gray-50 text-blue-600'
-                                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
-                                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                                  )}>
-                                  <span
-                                    className={classNames(
-                                      team.current
-                                        ? 'text-blue-600 border-blue-600'
-                                        : 'text-gray-400 border-gray-200 group-hover:border-blue-600 group-hover:text-blue-600',
-                                      'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                                    )}>
-                                    {team.initial}
-                                  </span>
-                                  <span className='truncate'>{team.name}</span>
-                                </a>
-                              </li>
-                            ))}
-                          </ul> */}
-                        </li>
+                        <li></li>
                         <li className='mt-auto'>
                           <a
                             href='#'
@@ -500,28 +500,32 @@ const navDashboardsItems = [
 
 const navHousingElementsItems = [
   {
-    label: <a href='/dashboard'>Current Planning</a>,
+    label: (
+      <a href='/dashboard/housing-element/current-planning-developments'>
+        Current Planning
+      </a>
+    ),
     key: '0',
   },
   {
     type: 'divider',
   },
   {
-    label: <a href='/dashboard'>Planning Map</a>,
+    label: <a href='/dashboard/housing-element/'>Planning Map</a>,
     key: '1',
   },
   {
     type: 'divider',
   },
   {
-    label: <a href='/dashboard'>Land</a>,
+    label: <a href='/dashboard/housing-element/'>Land</a>,
     key: '2',
   },
   {
     type: 'divider',
   },
   {
-    label: <a href='/dashboard'>Zoning Admin</a>,
+    label: <a href='/dashboard/housing-element/'>Zoning Admin</a>,
     key: '3',
   },
 ]
