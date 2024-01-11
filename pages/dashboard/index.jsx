@@ -154,6 +154,7 @@ export default function DashboardHome() {
                               <Dropdown
                                 menu={{
                                   items: navDashboardsItems,
+                                  style: { textAlign: 'center' },
                                 }}
                                 trigger={['click']}>
                                 <a
@@ -173,6 +174,7 @@ export default function DashboardHome() {
                               <Dropdown
                                 menu={{
                                   items: navHousingElementsItems,
+                                  style: { textAlign: 'center' },
                                 }}
                                 trigger={['click']}>
                                 <a
@@ -266,6 +268,7 @@ export default function DashboardHome() {
                       <Dropdown
                         menu={{
                           items: navDashboardsItems,
+                          style: { textAlign: 'center' },
                         }}
                         trigger={['click']}>
                         <a
@@ -285,6 +288,7 @@ export default function DashboardHome() {
                       <Dropdown
                         menu={{
                           items: navHousingElementsItems,
+                          style: { textAlign: 'center' },
                         }}
                         trigger={['click']}>
                         <a
