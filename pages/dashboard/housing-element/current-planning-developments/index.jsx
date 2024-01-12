@@ -166,7 +166,7 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
                                     aria-hidden='true'
                                     className='w-6 h-6'
                                   />
-                                  4redfcv Home
+                                  Home
                                 </a>
                               </li>
                               <li>
