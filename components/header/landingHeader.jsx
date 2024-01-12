@@ -48,7 +48,7 @@ export default function LandingHeaderNew() {
             initial="hidden"
             animate="visible"
             viewport={{ once: true, amount: 0.8 }}
-            variants={cardVariantsHorizontal}
+            variants={cardVariantsHorizontalFromLeft}
             className="flex justify-center items-center relative lg:col-span-4 lg:-mr-8  xl:inset-0 xl:left-1/2 xl:mr-0"
           > 
               <img
@@ -69,8 +69,14 @@ export default function LandingHeaderNew() {
                   alt="2nd section"
                 />
               </div>
-              <div className="px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col">
-                <div className="mx-auto max-w-2xl lg:mx-0">
+              <m.div
+                  initial="hidden"
+                  animate="visible"
+                  viewport={{ once: true, amount: 0.8 }}
+                  className="px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col">
+                <m.div
+            variants={cardVariants}
+             className="mx-auto max-w-2xl lg:mx-0">
                   <div className="hidden sm:flex">
                     {/* Add any additional content you want to display on larger screens */}
                   </div>
@@ -97,15 +103,20 @@ export default function LandingHeaderNew() {
                       Learn More <span aria-hidden="true">→</span>
                     </a>
                   </div>
-                </div>
-              </div>
-              <div className="flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center ">
+                </m.div>
+              </m.div>
+              <m.div
+            initial="hidden"
+            animate="visible"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={cardVariantsHorizontalFromRight}
+            className="flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center ">
                 <img
                   className="rounded-md w-96 block lg:hidden"
                   src="/fosteringInnovation.png"
                   alt="2nd section"
                 />
-              </div>
+              </m.div>
             </div>
           </div>
         </div>
@@ -217,9 +228,26 @@ const cardVariants = {
   },
 };
 
-const cardVariantsHorizontal = {
+const cardVariantsHorizontalFromLeft = {
   hidden: {
     x: 200,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 1,
+      delay: 0.2,
+    },
+  },
+};
+
+const cardVariantsHorizontalFromRight = {
+  hidden: {
+    x: -200,
     opacity: 0,
   },
   visible: {
