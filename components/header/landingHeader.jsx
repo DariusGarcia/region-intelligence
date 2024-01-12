@@ -1,8 +1,12 @@
 import { motion as m, AnimatePresence } from 'framer-motion'
 
+// ------------------------------------------------------------------------------------------------------------------------------------
+// TODO: fix responsiveness on ipads
+// ------------------------------------------------------------------------------------------------------------------------------------
+
 export default function LandingHeaderNew() {
   return (
-    <div className='relative overflow-hidden bg-white'>
+    <div className='relative w-full overflow-hidden bg-white'>
       <m.div
         initial='hidden'
         animate='visible'
@@ -58,7 +62,7 @@ export default function LandingHeaderNew() {
           className='mx-auto my-2 md:my-0 md:mb-12 max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 overflow-hidden'>
           <m.div
             variants={cardVariants}
-            className='px-6 pb-12 pt-6 md:pt-10 sm:pb-32 lg:col-span-7 md:px-0 xl:col-span-6'>
+            className='px-6 pb-12 pt-6 md:pt-0 lg:pt-10 sm:pb-32 lg:col-span-7 md:px-0 xl:col-span-6'>
             <div className='mx-auto max-w-2xl lg:mx-0'>
               <div className='hidden sm:flex'></div>
               <h1 className=' text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl'>
@@ -100,7 +104,7 @@ export default function LandingHeaderNew() {
           </m.div>
         </m.div>
         {/* Second section */}
-        <div className=' z-50 bg-gray-100 w-full my-8 md:my-12'>
+        <div className='z-50 bg-gray-100 w-full my-8 md:my-12'>
           <div className='w-full bg-gray-100 max-w-none'>
             <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
               <m.div
@@ -119,7 +123,7 @@ export default function LandingHeaderNew() {
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.2 }}
-                className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col'>
+                className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end lg:flex-col'>
                 <m.div
                   variants={cardVariants}
                   className='mx-auto max-w-2xl lg:mx-0'>

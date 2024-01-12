@@ -16,7 +16,7 @@ const client = createClient({
 export default function BlogShowCaseContainer({ posts }) {
   return (
     <>
-      <div className='flex justify-center w-full py-6 sm:py-12 px-4'>
+      <div className='flex justify-center w-full py-6 sm:pb-12 px-4'>
         <div className='mx-auto md:max-w-7xl w-full md:px-6'>
           <div className='mx-auto w-full md:px-4'>
             <Link
