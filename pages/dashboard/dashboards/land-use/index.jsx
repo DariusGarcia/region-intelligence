@@ -29,6 +29,7 @@ import Link from 'next/link'
 import { IoMdPaper, IoMdSettings } from 'react-icons/io'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { FaHome } from 'react-icons/fa'
+import TotalPopulationBarChart from './totalPopulationBarChart'
 
 export default function DashboardLandUse() {
   const session = useSession()
@@ -141,7 +142,7 @@ export default function DashboardLandUse() {
                               <a
                                 href={'/dashboard'}
                                 className={
-                                  'bg-gray-50 text-blue-600 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                  'cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                 }>
                                 <HomeIcon
                                   aria-hidden='true'
@@ -159,7 +160,7 @@ export default function DashboardLandUse() {
                                 trigger={['click']}>
                                 <a
                                   onClick={(e) => e.preventDefault()}
-                                  className='text-gray-700 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                                  className='bg-gray-50 text-blue-600 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
                                   <Space>
                                     <span>
                                       <UsersIcon className='w-6' />
@@ -258,7 +259,7 @@ export default function DashboardLandUse() {
                       <a
                         href={'/dashboard'}
                         className={
-                          'bg-gray-50 text-blue-600 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                          ' cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                         }>
                         <HomeIcon aria-hidden='true' className='w-6 h-6' />
                         Home
@@ -273,7 +274,7 @@ export default function DashboardLandUse() {
                         trigger={['click']}>
                         <a
                           onClick={(e) => e.preventDefault()}
-                          className='text-gray-700 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                          className='bg-gray-50 text-blue-600 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
                           <Space>
                             <span>
                               <UsersIcon className='w-6' />
@@ -516,6 +517,9 @@ export default function DashboardLandUse() {
                       <h2 className='font-bold text-3xl'>
                         Trends and Forecasts
                       </h2>
+                      <article className='mt-6 bg-gray-100 rounded-2xl px-2 pb-4 md:p-4'>
+                        <TotalPopulationBarChart />
+                      </article>
                     </section>
                   </div>
                 </div>
@@ -546,7 +550,7 @@ const navDashboardsItems = [
     type: 'divider',
   },
   {
-    label: <a href='/dashboard'>Land Use</a>,
+    label: <a href='/dashboard/dashboards/land-use'>Land Use</a>,
     key: '2',
   },
   {

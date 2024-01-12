@@ -490,7 +490,7 @@ const navDashboardsItems = [
     type: 'divider',
   },
   {
-    label: <a href='/dashboard'>Land Use</a>,
+    label: <a href='/dashboard/dashboards/land-use'>Land Use</a>,
     key: '2',
   },
   {
