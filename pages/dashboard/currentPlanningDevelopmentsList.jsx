@@ -87,7 +87,12 @@ const columns = [
     key: 'role',
     render: (text, record) => (
       <Space size='middle'>
-        <p className='inline-flex justify-center items-center rounded-full bg-orange-50 px-2 md:w-24 w-16 text-center py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/20'>
+        <p
+          className={`inline-flex justify-center items-center rounded-full px-2 ${
+            text === 'Status'
+              ? 'bg-blue-50 text-blue-700 ring-blue-600/20' // Set the background color to blue if role is 'Status'
+              : 'bg-orange-50 text-orange-700 ring-orange-600/20' // Otherwise, use the original color
+          } md:w-24 w-16 text-center py-1 text-xs font-medium ring-1 ring-inset `}>
           {text}
         </p>
       </Space>
@@ -123,7 +128,7 @@ const currentPlanningDevelopments = [
     name: 'APN(s): 2342342',
     title: 'CU-37-1',
     department: 'Santa Ana, CA',
-    role: 'New',
+    role: 'Status',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
@@ -139,7 +144,7 @@ const currentPlanningDevelopments = [
     name: 'APN(s): 9078975',
     title: 'CU-24-1',
     department: 'La Mirada, CA',
-    role: 'New',
+    role: 'Status',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
