@@ -60,7 +60,7 @@ export default function Navbar() {
   return (
     <header className='bg-blue-600 z-50'>
       <nav
-        className='mx-auto flex max-w-7xl items-center justify-between p-6 '
+        className='mx-auto flex max-w-7xl items-center justify-between p-6 md:pl-8 '
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
@@ -212,11 +212,11 @@ export default function Navbar() {
          * Change back to justify-center instead of justify-end when adding the avatar back instead of the logout button
          *
          */}
-        <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+        <div className='hidden lg:flex lg:flex-1 lg:justify-end '>
           {user ? (
             // <Avatar name={avatarName} />
             <button
-              className='text-black bg-white rounded-full border  font-semibold border-white p-1 px-2 hover:opacity-80 transition ease-out'
+              className='text-black bg-white rounded-full border  font-semibold border-white p-1 px-2 hover:bg-gray-200 shadow-xl transition ease-out'
               onClick={logout}>
               Logout
             </button>

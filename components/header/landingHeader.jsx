@@ -2,7 +2,53 @@ import { motion as m, AnimatePresence } from 'framer-motion'
 
 export default function LandingHeaderNew() {
   return (
-    <div className='relative bg-white w-full'>
+    <div className='relative overflow-hidden bg-white'>
+      <m.div
+        initial='hidden'
+        animate='visible'
+        viewport={{ once: true, amount: 0.8 }}
+        variants={cardVariantsHorizontalFromLeft}
+        className='hidden lg:absolute lg:inset-0 lg:block'
+        aria-hidden='true'>
+        <svg
+          className='absolute left-1/2 top-0 -translate-y-8 translate-x-64 transform'
+          width={640}
+          height={784}
+          fill='none'
+          viewBox='0 0 640 784'>
+          <defs>
+            <pattern
+              id='9ebea6f4-a1f5-4d96-8c4e-4c2abf658047'
+              x={118}
+              y={0}
+              width={20}
+              height={20}
+              patternUnits='userSpaceOnUse'>
+              <rect
+                x={0}
+                y={0}
+                width={4}
+                height={4}
+                className='text-gray-200'
+                fill='currentColor'
+              />
+            </pattern>
+          </defs>
+          <rect
+            y={72}
+            width={640}
+            height={540}
+            className='text-gray-50'
+            fill='currentColor'
+          />
+          <rect
+            x={118}
+            width={404}
+            height={600}
+            fill='url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)'
+          />
+        </svg>
+      </m.div>
       <AnimatePresence>
         {/* First Section */}
         <m.div
@@ -54,7 +100,7 @@ export default function LandingHeaderNew() {
           </m.div>
         </m.div>
         {/* Second section */}
-        <div className='bg-gray-100 w-full my-8 md:my-12'>
+        <div className=' z-50 bg-gray-100 w-full my-8 md:my-12'>
           <div className='w-full bg-gray-100 max-w-none'>
             <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
               <m.div

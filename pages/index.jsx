@@ -13,8 +13,6 @@ import {
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
 
-
-
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
 const client = createClient({
