@@ -53,7 +53,7 @@ export default function AboutPage({ posts }) {
                   </p>
                 </div>
                 <Image
-                  src='/about-us-image.png'
+                  src='/about/about-us-image.png'
                   priority={true}
                   width={1080}
                   height={1280}
@@ -69,7 +69,10 @@ export default function AboutPage({ posts }) {
           <div className='w-full flex justify-center bg-gray-900 text-white my-12 '>
             <div className='max-w-7xl px-6'>
               <section className='flex flex-col justify-center gap-4 py-12'>
-               <ul className='list-disc ml-4'> <li className='text-orange-500 font-semibold'>The Mission</li></ul>
+                <ul className='list-disc ml-4'>
+                  {' '}
+                  <li className='text-orange-500 font-semibold'>The Mission</li>
+                </ul>
                 {mission.map((item) => (
                   <article key={item.title} className='py-4'>
                     <p className='text-3xl uppercase font-semibold'>

@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { DownOutlined } from '@ant-design/icons'
@@ -11,7 +12,7 @@ import Router from 'next/router'
 import {
   navDashboardsItems,
   navHousingElementsItems,
-} from '../../navigationLinksData'
+} from '../../../../components/navbar/navigationLinksData'
 import {
   Bars3Icon,
   BellIcon,
@@ -85,6 +86,18 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
 
   return (
     <>
+      <Head>
+        <title>RI Dashboard - Current Planning Developments</title>
+        <meta
+          name='description'
+          content=' No more navigating through complex research. With Region Intelligence,
+    everything you need is just a few clicks away. Our platform
+    revolutionizes the way you access and handle vital information,
+    making your decision-making process quicker and more informed.
+    Step into the future of property development - Join Region Intelligence
+    today!'
+        />
+      </Head>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
