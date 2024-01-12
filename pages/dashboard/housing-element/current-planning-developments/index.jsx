@@ -9,6 +9,10 @@ import {
 } from '@supabase/auth-helpers-react'
 import Router from 'next/router'
 import {
+  navDashboardsItems,
+  navHousingElementsItems,
+} from '../../navigationLinksData'
+import {
   Bars3Icon,
   BellIcon,
   CalendarIcon,
@@ -471,68 +475,6 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
     </>
   )
 }
-
-// SIDEBAR NAVIGATION LINKS DROPDOWN MENUS
-// TODO: change nav links
-const navDashboardsItems = [
-  {
-    label: <a href='/dashboard'>Environmental</a>,
-    key: '0',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard'>Demographics</a>,
-    key: '1',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard/dashboards/land-use'>Land Use</a>,
-    key: '2',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard'>APN Insights</a>,
-    key: '3',
-  },
-]
-
-const navHousingElementsItems = [
-  {
-    label: (
-      <a href='/dashboard/housing-element/current-planning-developments'>
-        Current Planning
-      </a>
-    ),
-    key: '0',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard/housing-element/'>Planning Map</a>,
-    key: '1',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard/housing-element/'>Land</a>,
-    key: '2',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: <a href='/dashboard/housing-element/'>Zoning Admin</a>,
-    key: '3',
-  },
-]
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
