@@ -21,7 +21,7 @@ export default function CurrentPlanningDevelopmentsList() {
   const totalItems = currentPlanningDevelopments.length
 
   return (
-    <div className='px-4'>
+    <div className='md:px-4'>
       <div className='flex flex-row items-start mb-6 justify-between sm:items-center'>
         <div className='sm:flex-auto'>
           <p className='mt-2 text-sm text-gray-700 font-semibold'>
@@ -44,11 +44,13 @@ export default function CurrentPlanningDevelopmentsList() {
           </Dropdown>
         </div>
       </div>
-      <Table
-        dataSource={currentItems}
-        columns={columns}
-        pagination={false} // Disable default table pagination
-      />
+      <div className='table-container overflow-x-auto'>
+        <Table
+          dataSource={currentItems}
+          columns={columns}
+          pagination={false} // Disable default table pagination
+        />
+      </div>
       <section className='w-full flex mt-6 justify-center'>
         <Pagination
           current={currentPage}
@@ -71,11 +73,13 @@ const columns = [
     title: 'ID',
     dataIndex: 'title',
     key: 'title',
+    render: (text, record) => <p className='w-max'>{text}</p>,
   },
   {
     title: 'City',
     dataIndex: 'department',
     key: 'department',
+    render: (text, record) => <p className='w-max'>{text}</p>,
   },
   {
     title: 'Status',
@@ -83,7 +87,7 @@ const columns = [
     key: 'role',
     render: (text, record) => (
       <Space size='middle'>
-        <p className='inline-flex justify-center items-center rounded-full bg-orange-50 px-2 md:w-24 w-12 text-center py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/20'>
+        <p className='inline-flex justify-center items-center rounded-full bg-orange-50 px-2 md:w-24 w-16 text-center py-1 text-xs font-medium text-orange-700 ring-1 ring-inset ring-orange-600/20'>
           {text}
         </p>
       </Space>
@@ -93,7 +97,7 @@ const columns = [
     title: 'Action',
     key: 'action',
     render: (text, record) => (
-      <Button className='rounded-full'>View Details</Button>
+      <Button className='rounded-full text-xs'>View Details</Button>
     ),
   },
 ]
