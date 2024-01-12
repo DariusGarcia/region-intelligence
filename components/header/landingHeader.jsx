@@ -59,8 +59,8 @@ export default function LandingHeaderNew() {
             <div className='mx-auto max-w-7xl lg:flex lg:flex-row lg:justify-between lg:px-8 '>
               <m.div
                 initial='hidden'
-                animate='visible'
-                viewport={{ once: true, amount: 0.8 }}
+                whileInView='visible'
+                viewport={{ once: true, amount: 0.2 }}
                 variants={cardVariantsHorizontalFromRight}
                 className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
                 <img
@@ -71,8 +71,8 @@ export default function LandingHeaderNew() {
               </m.div>
               <m.div
                 initial='hidden'
-                animate='visible'
-                viewport={{ once: true, amount: 0.8 }}
+                whileInView='visible'
+                viewport={{ once: true, amount: 0.2 }}
                 className='px-6 pb-12 pt-10 lg:col-span-8 md:px-0 xl:col-span-6 lg:flex justify-end w-full items-end  lg:flex-col'>
                 <m.div
                   variants={cardVariants}
@@ -104,8 +104,8 @@ export default function LandingHeaderNew() {
               </m.div>
               <m.div
                 initial='hidden'
-                animate='visible'
-                viewport={{ once: true, amount: 0.8 }}
+                whileInView='visible'
+                viewport={{ once: true, amount: 0.2 }}
                 variants={cardVariantsHorizontalFromRight}
                 className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
                 <img
