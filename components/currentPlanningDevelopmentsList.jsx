@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
-import { Dropdown, Space, Pagination, Table, Button } from 'antd'
+import { Dropdown, Space, Pagination, Table, Button, Carousel } from 'antd'
+import Image from 'next/image'
 
 const pageSize = 5
 
@@ -65,13 +66,131 @@ export default function CurrentPlanningDevelopmentsList() {
           onClick={() => {
             setExpandedRowKey(expandedRowKey === record.key ? null : record.key) // Toggle expanded row key
           }}>
-          View Details
+          {expandedRowKey === record.key ? 'Close' : 'View Details'}
         </Button> // Set the expanded row key on click
       ),
     },
     Table.EXPAND_COLUMN,
   ]
 
+  // "view details" expanded row content
+  const expandableRowRender = (record) => {
+    const articlesContent = [
+      {
+        buttons: [
+          { key: 1, text: 'Overview' },
+          { key: 2, text: 'Land & Property' },
+          { key: 3, text: 'Regulations' },
+          { key: 4, text: 'Full Report' },
+        ],
+      },
+      {
+        gridContent: [
+          { key: 5, label: 'City Name', value: 'Buena Park' },
+          { key: 6, label: 'Applicant', value: 'John Doe' },
+          { key: 7, label: 'State', value: 'California' },
+          { key: 8, label: 'APN(s)', value: '8675309' },
+          { key: 9, label: 'Location', value: '9047 The Wave' },
+          { key: 10, label: 'Permit', value: record.title },
+          {
+            key: 11,
+            label: 'Description',
+            value:
+              'The applicant wants to build an ADU on an existing 1800 sqft lot.',
+          },
+        ],
+      },
+      {
+        images: 'fasdfasdfa',
+      },
+    ]
+
+    return (
+      <section className='h-full flex flex-col md:flex-row justify-between items-start'>
+        {articlesContent.map((content, index) => (
+          <>
+            <article
+              key={index}
+              className='flex flex-col gap-4  justify-center rounded-xl'>
+              <div className='flex flex-col gap-0 bg-gray-100 rounded-xl w-full px-2 '>
+                {content.buttons &&
+                  content.buttons.map((button) => (
+                    <Button
+                      key={button.key}
+                      className='flex items-center text-center justify-center p-2 my-4 rounded-xl bg-white'>
+                      {button.text}
+                    </Button>
+                  ))}
+              </div>
+            </article>
+            <article className=''>
+              <>
+                {content.gridContent && (
+                  <div
+                    className={`grid grid-cols-1 md:grid-cols-3 gap-4  ${
+                      content.gridContent.length === 1
+                        ? 'grid-cols-1'
+                        : 'grid-cols-1 md:grid-cols-3 '
+                    } bg-gray-100 p-2  justify-center rounded-xl`}>
+                    {content.gridContent.map((item, index) => (
+                      <div
+                        key={item.key}
+                        className={`flex flex-col shadow-md bg-white p-2 rounded-xl ${
+                          content.gridContent.length === 1 &&
+                          index === content.gridContent.length - 1
+                            ? 'col-span-full'
+                            : ''
+                        }`}>
+                        <p className='font-semibold italic text-sm'>
+                          {item.label}
+                        </p>
+                        <p>{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            </article>
+            <article className='w-56'>
+              {/* Image carousel */}
+              {content.images && (
+                <Carousel dotPosition={'top'} autoplay>
+                  <div>
+                    <Image
+                      width={400}
+                      height={400}
+                      src='/about/about-us-image.png'
+                      className=''></Image>
+                  </div>
+                  <div>
+                    <Image
+                      width={200}
+                      height={200}
+                      src='/productsHeader.png'
+                      className=''></Image>
+                  </div>
+                  <div>
+                    <Image
+                      width={200}
+                      height={200}
+                      src='/productsHeader.png'
+                      className=''></Image>
+                  </div>
+                  <div>
+                    <Image
+                      width={200}
+                      height={200}
+                      src='/productsHeader.png'
+                      className=''></Image>
+                  </div>
+                </Carousel>
+              )}
+            </article>
+          </>
+        ))}
+      </section>
+    )
+  }
   return (
     <div className='md:px-4'>
       <div className='flex flex-row items-start mb-6 justify-between sm:items-center'>
@@ -100,27 +219,34 @@ export default function CurrentPlanningDevelopmentsList() {
         <Table
           dataSource={currentItems}
           columns={columns}
+          // This handles the "view details" expanded row
           expandable={{
             expandedRowKeys: [expandedRowKey], // Pass the expanded row key
-            expandedRowRender: (record) => (
-              <p style={{ margin: 0 }}>{record.title}</p>
-            ),
+            expandedRowRender: expandableRowRender,
             onExpand: (expanded, record) => {
               if (!expanded) {
                 setExpandedRowKey(null) // Reset expanded row key if collapse row
               }
             },
+            onRow: (record) => ({
+              onClick: () => {
+                setExpandedRowKey(
+                  record.key === expandedRowKey ? null : record.key
+                )
+              },
+              className:
+                record.key === expandedRowKey ? 'bg-red-500' : 'bg-red-500',
+            }),
             rowExpandable: (record) => record.name !== 'Not Expandable',
-            expandIcon: ({ expanded, onExpand, record }) =>
-              expanded ? (
-                <Button
-                  className='hidden w-0'
-                  onClick={(e) => onExpand(record, e)}></Button>
-              ) : (
-                <Button
-                  className='hidden w-0'
-                  onClick={(e) => onExpand(record, e)}></Button>
-              ),
+            expandIcon: (
+              { expanded } // Remove onExpand from here
+            ) => (
+              <Button
+                className='hidden w-0 '
+                onClick={() => setExpandedRowKey(null)}>
+                {expanded ? 'Close' : 'View Details'}
+              </Button>
+            ),
           }}
           pagination={false} // Disable default table pagination
         />
@@ -138,6 +264,7 @@ export default function CurrentPlanningDevelopmentsList() {
   )
 }
 
+// Mock data
 const currentPlanningDevelopments = [
   {
     key: 1,
@@ -537,6 +664,7 @@ const currentPlanningDevelopments = [
   },
 ]
 
+// Filter Projects dropdown menu items
 const items = [
   {
     key: '0',
