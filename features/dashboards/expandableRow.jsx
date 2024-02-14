@@ -3,7 +3,12 @@ import { Button, Carousel } from 'antd'
 import Image from 'next/image'
 
 export default function ExpandableRow({ record }) {
-  const [selectedButton, setSelectedButton] = useState(null)
+  // State to keep track of the selected button in the extended row
+  const [selectedButton, setSelectedButton] = useState(1)
+
+  const handleButtonClick = (buttonKey) => {
+    setSelectedButton(buttonKey)
+  }
 
   const articlesContent = [
     {
@@ -52,10 +57,6 @@ export default function ExpandableRow({ record }) {
       images: 'fasdfasdfa',
     },
   ]
-
-  const handleButtonClick = (buttonKey) => {
-    setSelectedButton(buttonKey)
-  }
 
   const OverviewComponent = ({ content }) => {
     return (
@@ -116,7 +117,7 @@ export default function ExpandableRow({ record }) {
   }
 
   return (
-    <section className='h-full flex flex-col md:flex-row justify-between items-start'>
+    <section className='h-full flex flex-col md:flex-row justify-between items-start xl:w-[90%]'>
       {articlesContent.map((content, index) => (
         <React.Fragment key={index}>
           {content.buttons && (
