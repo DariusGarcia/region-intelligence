@@ -34,7 +34,7 @@ import Link from 'next/link'
 import { IoMdPaper, IoMdSettings } from 'react-icons/io'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { FaHome } from 'react-icons/fa'
-import CurrentPlanningDevelopmentsList from '../../currentPlanningDevelopmentsList'
+import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
 
 export default function DashboardHousingCurrentPlanningDevelopments() {
   const session = useSession()
@@ -47,14 +47,14 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // check if user is logged in
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!session) {
-        Router.push('/login')
-      }
-    }, 100)
-    return () => clearTimeout(timeout)
-  }, [session])
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     if (!session) {
+  //       Router.push('/login')
+  //     }
+  //   }, 100)
+  //   return () => clearTimeout(timeout)
+  // }, [session])
 
   // fetch user info
   useEffect(() => {
@@ -472,7 +472,7 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
             *****************************
            */}
           <main className='py-4'>
-            <div className='px-4 sm:px-6 lg:px-8'>
+            <div className='px-4 sm:px-4 lg:px-2'>
               <section className='border-b border-gray-300 pb-2'>
                 <h1 className='text-xl md:text-3xl font-semibold'>
                   Current Planning Developments

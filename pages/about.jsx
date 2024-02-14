@@ -44,11 +44,11 @@ export default function AboutPage({ posts }) {
             />
             <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
               <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
-                <div className='mt-6 max-w-xl lg:mt-0 flex flex-col gap-8 justify-center w-full'>
-                  <h1 className='max-w-2xl text-4xl font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
+                <div className='mt-6 max-w-3xl lg:mt-0 flex flex-col gap-8 justify-center w-full'>
+                  <h1 className='max-w-4xl text-3xl md:text-6xl font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
                     Region Intelligence
                   </h1>
-                  <p className='text-lg leading-8 text-gray-600 uppercase font-semibold'>
+                  <p className='pl-1 text-lg leading-8 text-gray-600 uppercase font-semibold'>
                     Based in Los Angeles
                   </p>
                 </div>
