@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { Radio } from 'antd'
-import { CheckIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, DocumentPlusIcon } from '@heroicons/react/20/solid'
+import {
+  IoIosCheckmarkCircleOutline,
+  IoMdCheckmarkCircle,
+} from 'react-icons/io'
+import { ThreeDRotation, ThreeGMobiledataTwoTone } from '@mui/icons-material'
+import { EllipsisHorizontalCircleIcon } from '@heroicons/react/24/outline'
 
 export default function ExpandableRowADUStandards({ record }) {
   const [value, setValue] = useState(1)
@@ -21,7 +27,14 @@ export default function ExpandableRowADUStandards({ record }) {
         <div className='flex flex-col gap-12'>
           {ADUStandards.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
-              <item.icon className='w-5 h-5 text-green-500' />
+              <span
+                className={`w-10 h-10 text-black p-2 flex items-center justify-center rounded-lg ${
+                  item.icon === EllipsisHorizontalCircleIcon
+                    ? 'bg-red-300'
+                    : 'bg-green-300'
+                }`}>
+                <item.icon className='w-6 h-6' />
+              </span>
               <span>{item.text}</span>
             </div>
           ))}
@@ -34,7 +47,14 @@ export default function ExpandableRowADUStandards({ record }) {
         <div className='flex flex-col gap-12 max-h-[300px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
           {hazards.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
-              <item.icon className='w-5 h-5 text-green-500' />
+              <span
+                className={`w-10 h-10 text-black p-2 flex items-center justify-center rounded-lg ${
+                  item.icon === EllipsisHorizontalCircleIcon
+                    ? 'bg-red-300'
+                    : 'bg-green-300'
+                }`}>
+                <item.icon className='w-6 h-6' />
+              </span>
               <span>{item.text}</span>
             </div>
           ))}
@@ -47,7 +67,14 @@ export default function ExpandableRowADUStandards({ record }) {
         <div className='flex flex-col gap-12 max-h-[300px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
           {areaAnalysis.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
-              <item.icon className='w-5 h-5 text-green-500' />
+              <span
+                className={`w-10 h-10 text-black p-2 flex items-center justify-center rounded-lg ${
+                  item.icon === EllipsisHorizontalCircleIcon
+                    ? 'bg-red-300'
+                    : 'bg-green-300'
+                }`}>
+                <item.icon className='w-6 h-6' />
+              </span>
               <span>{item.text}</span>
             </div>
           ))}
@@ -60,7 +87,14 @@ export default function ExpandableRowADUStandards({ record }) {
         <div className='flex flex-col gap-12'>
           {environmentalAnalysis.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
-              <item.icon className='w-5 h-5 text-green-500' />
+              <span
+                className={`w-10 h-10 text-black p-2 flex items-center justify-center rounded-lg ${
+                  item.icon === EllipsisHorizontalCircleIcon
+                    ? 'bg-red-300'
+                    : 'bg-green-300'
+                }`}>
+                <item.icon className='w-6 h-6' />
+              </span>
               <span>{item.text}</span>
             </div>
           ))}
@@ -102,74 +136,74 @@ const ADUStandards = [
     title: 'Buena Park ADU Standards Check',
     id: 1,
     text: 'Meets Lot Coverage Requirement',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 2,
     text: 'Meets Rear Yard Coverage Requirement',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 3,
     text: 'Does Not Meet Setback Requirements',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 4,
     text: 'Does Not Meet Parking Requirements',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 5,
     text: 'Meets Front Yard Landscape Requirements',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
 ]
 const hazards = [
   {
     id: 1,
     text: 'This Parcel is built on an earthquake fault line.',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 2,
     text: 'Flooding Risk in a 2 - Meter Sea Rise',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 3,
     text: 'Fire Hazard Parcel',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 4,
     text: 'Flooding Risk in a 1 - Meter Sea Rise',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 5,
     text: 'Liquefaction Zone Parcel',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 6,
     text: 'Flooding Risk in a 1 - Meter Sea Rise',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 7,
     text: 'Liquefaction Zone Parcel',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 8,
     text: 'Land Slide Hazard Parcel',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 9,
     text: 'Flooding Hazard',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
 ]
 const areaAnalysis = [
@@ -177,52 +211,52 @@ const areaAnalysis = [
     title: 'Grocery Within 1 Mile Radius',
     id: 1,
     text: 'Meets Lot Coverage Requirement',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 2,
     text: 'Healthcare Within 1 Mile Radius',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 3,
     text: 'Open Space Within 1 Mile Radius',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 4,
     text: 'High Quality Transit Area',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 5,
     text: 'Economic Opportunity Level',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 6,
     text: 'Located Within a Job Center',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 7,
     text: 'Absolute Constrain Area',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 8,
     text: 'Variable Constraint Area',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 9,
     text: 'Disadvantaged Community Area',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 10,
     text: 'Community of Concern Area',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
 ]
 
@@ -231,27 +265,27 @@ const environmentalAnalysis = [
     title: 'Buena Park ADU Standards Check',
     id: 1,
     text: 'Meets Lot Coverage Requirement',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 2,
     text: 'Meets Rear Yard Coverage Requirement',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
   {
     id: 3,
     text: 'Does Not Meet Setback Requirements',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 4,
     text: 'Does Not Meet Parking Requirements',
-    icon: CheckIcon,
+    icon: EllipsisHorizontalCircleIcon,
   },
   {
     id: 5,
     text: 'Meets Front Yard Landscape Requirements',
-    icon: CheckIcon,
+    icon: IoIosCheckmarkCircleOutline,
   },
 ]
 
