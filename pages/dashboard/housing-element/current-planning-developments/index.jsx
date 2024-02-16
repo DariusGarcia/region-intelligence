@@ -1,30 +1,29 @@
-import Head from 'next/head'
 import { Fragment, useState, useEffect } from 'react'
-import DashboardLayout from '@/components/layouts/dashboardLayout'
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import { DownOutlined } from '@ant-design/icons'
-import { Button, Dropdown, Space } from 'antd'
+import Router from 'next/router'
+import Link from 'next/link'
+import Image from 'next/image'
+import Head from 'next/head'
 import {
   useSession,
   useSupabaseClient,
   useUser,
 } from '@supabase/auth-helpers-react'
-import Router from 'next/router'
+import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
+import DashboardLayout from '@/components/layouts/dashboardLayout'
 import {
   navDashboardsItems,
   navHousingElementsItems,
 } from '../../../../components/navbar/navigationLinksData'
+import { Dialog, Menu, Transition } from '@headlessui/react'
+import { DownOutlined } from '@ant-design/icons'
+import { Button, Dropdown, Space } from 'antd'
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
   LightBulbIcon,
-  Square2StackIcon,
   UserIcon,
   UsersIcon,
   XMarkIcon,
@@ -34,23 +33,10 @@ import {
   HomeModernIcon,
   MagnifyingGlassIcon,
   PlusIcon,
-  QuestionMarkCircleIcon,
   Squares2X2Icon,
-  StarIcon,
 } from '@heroicons/react/20/solid'
-import Link from 'next/link'
-import { IoLogoFoursquare, IoMdPaper, IoMdSettings } from 'react-icons/io'
-import { ArrowRightIcon, SquaresPlusIcon } from '@heroicons/react/24/solid'
-import { FaFoursquare, FaHome } from 'react-icons/fa'
-import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
-import Image from 'next/image'
-import {
-  BarChart,
-  QuestionAnswerOutlined,
-  QuestionMarkOutlined,
-  SquareSharp,
-  StarOutline,
-} from '@mui/icons-material'
+import { IoMdPaper } from 'react-icons/io'
+import { BarChart, StarOutline } from '@mui/icons-material'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 
 export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
@@ -100,87 +86,6 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
     // Only run query once user is logged in.
     if (user) loadData()
   }, [user])
-
-  const navItems = {
-    mainLinks: [
-      { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon },
-      {
-        id: 2,
-        name: 'Current Agendas',
-        href: '/dashboard',
-        icon: UsersIcon,
-        active: true,
-      },
-      {
-        id: 3,
-        name: 'Land Use',
-        href: '/dashboard/housing-element/current-planning-developments',
-        icon: BarChart,
-        active: false,
-      },
-      {
-        id: 4,
-        name: 'Demographics',
-        href: '/blog',
-        icon: UsersIcon,
-        active: false,
-      },
-      {
-        id: 5,
-        name: 'My Reports',
-        href: '/settings',
-        icon: FolderIcon,
-        active: false,
-      },
-      {
-        id: 6,
-        name: 'Favorites',
-        href: '/documents',
-        icon: StarOutline,
-
-        active: false,
-      },
-      {
-        id: 7,
-        name: 'RI Blog',
-        href: '/reports',
-        icon: Squares2X2Icon,
-        active: false,
-      },
-    ],
-    subLinks1: [
-      {
-        id: 8,
-        name: 'Knowledge Base',
-        href: '/dashboard',
-        icon: HiOutlineQuestionMarkCircle,
-        active: false,
-      },
-      {
-        id: 9,
-        name: 'Product Updates',
-        href: '/dashboard',
-        icon: LightBulbIcon,
-        active: false,
-      },
-    ],
-    subLinks2: [
-      {
-        id: 10,
-        name: 'Personal Settings',
-        href: '/dashboard',
-        icon: UserIcon,
-        active: false,
-      },
-      {
-        id: 11,
-        name: 'Global Settings',
-        href: '/dashboard',
-        icon: Cog6ToothIcon,
-        active: false,
-      },
-    ],
-  }
 
   return (
     <>
@@ -424,6 +329,66 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     ))}
                   </ul>
                 </li>
+                <div className='mt-8'>
+                  <div className='relative '>
+                    <div className='mx-auto max-w-md  sm:max-w-3xl lg:max-w-7xl '>
+                      <div className='relative overflow-hidden rounded-2xl bg-blue-600 py-4 shadow-xl'>
+                        <div
+                          aria-hidden='true'
+                          className='absolute inset-0 -mt-72 sm:-mt-32 md:mt-0'>
+                          <svg
+                            className='absolute inset-0 h-full w-full'
+                            preserveAspectRatio='xMidYMid slice'
+                            fill='none'
+                            viewBox='0 0 1463 360'>
+                            <path
+                              className='text-blue-500 text-opacity-40'
+                              fill='currentColor'
+                              d='M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z'
+                            />
+                            <path
+                              className='text-blue-700 text-opacity-40'
+                              fill='currentColor'
+                              d='M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z'
+                            />
+                          </svg>
+                        </div>
+                        <div className='relative'>
+                          <div className='pl-4'>
+                            <h2 className='text-sm font-bold tracking-tight text-white '>
+                              Join Our Newsletter
+                            </h2>
+                            <p className='mt-2 max-w-2xl text-sm text-blue-200'>
+                              Discover new developments
+                            </p>
+                          </div>
+                          <form
+                            action='#'
+                            className='mt-6 sm:mx-auto sm:flex flex-col px-2 gap-4 sm:max-w-lg'>
+                            <div className='min-w-0 flex-1'>
+                              <label htmlFor='cta-email' className='sr-only'>
+                                Email address
+                              </label>
+                              <input
+                                id='cta-email'
+                                type='email'
+                                className='block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600'
+                                placeholder='Enter your email'
+                              />
+                            </div>
+                            <div className='mt-4 sm:mt-0'>
+                              <button
+                                type='submit'
+                                className='block w-full rounded-md border border-transparent bg-blue-500 px-2 py-3 text-md font-medium text-white shadow hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 '>
+                                Notify me
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </ul>
             </nav>
           </div>
@@ -561,6 +526,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
   )
 }
 
+// Define the page layout
 DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
   page
 ) {
@@ -569,6 +535,87 @@ DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
       <>{page}</>
     </DashboardLayout>
   )
+}
+
+const navItems = {
+  mainLinks: [
+    { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon },
+    {
+      id: 2,
+      name: 'Current Agendas',
+      href: '/dashboard',
+      icon: UsersIcon,
+      active: true,
+    },
+    {
+      id: 3,
+      name: 'Land Use',
+      href: '/dashboard/housing-element/current-planning-developments',
+      icon: BarChart,
+      active: false,
+    },
+    {
+      id: 4,
+      name: 'Demographics',
+      href: '/blog',
+      icon: UsersIcon,
+      active: false,
+    },
+    {
+      id: 5,
+      name: 'My Reports',
+      href: '/settings',
+      icon: FolderIcon,
+      active: false,
+    },
+    {
+      id: 6,
+      name: 'Favorites',
+      href: '/documents',
+      icon: StarOutline,
+
+      active: false,
+    },
+    {
+      id: 7,
+      name: 'RI Blog',
+      href: '/reports',
+      icon: Squares2X2Icon,
+      active: false,
+    },
+  ],
+  subLinks1: [
+    {
+      id: 8,
+      name: 'Knowledge Base',
+      href: '/dashboard',
+      icon: HiOutlineQuestionMarkCircle,
+      active: false,
+    },
+    {
+      id: 9,
+      name: 'Product Updates',
+      href: '/dashboard',
+      icon: LightBulbIcon,
+      active: false,
+    },
+  ],
+  subLinks2: [
+    {
+      id: 10,
+      name: 'Personal Settings',
+      href: '/dashboard',
+      icon: UserIcon,
+      active: false,
+    },
+    {
+      id: 11,
+      name: 'Global Settings',
+      href: '/dashboard',
+      icon: Cog6ToothIcon,
+      active: false,
+    },
+  ],
 }
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -584,6 +631,7 @@ const teams = [
   { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
   { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
 ]
+
 const userNavigation = [
   { name: 'Your profile', href: '/profile' },
   { name: 'Sign out', href: '#' },
@@ -623,5 +671,3 @@ const discover = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-
-// className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>
