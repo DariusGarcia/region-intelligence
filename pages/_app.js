@@ -10,6 +10,9 @@ import ChatBot from '@/features/chatBot'
 export default function MyApp({ Component, pageProps }) {
   const [supabase] = useState(() => createBrowserSupabaseClient())
 
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
     <>
       <Head>
@@ -18,10 +21,12 @@ export default function MyApp({ Component, pageProps }) {
       <SessionContextProvider
         supabaseClient={supabase}
         initialSession={pageProps.initialSession}>
-        <Navbar />
-        <ChatBot />
-        <Component {...pageProps} />
-        <Footer />
+        {getLayout(
+          <>
+            <ChatBot />
+            <Component {...pageProps} />
+          </>
+        )}
       </SessionContextProvider>
     </>
   )

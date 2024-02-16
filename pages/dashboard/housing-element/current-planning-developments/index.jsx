@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Fragment, useState, useEffect } from 'react'
+import DashboardLayout from '@/components/layouts/dashboardLayout'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
@@ -36,7 +37,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { FaHome } from 'react-icons/fa'
 import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
 
-export default function DashboardHousingCurrentPlanningDevelopments() {
+export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
   const session = useSession()
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -489,6 +490,15 @@ export default function DashboardHousingCurrentPlanningDevelopments() {
   )
 }
 
+DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
+  page
+) {
+  return (
+    <DashboardLayout>
+      <>{page}</>
+    </DashboardLayout>
+  )
+}
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
   { name: 'Dashboards', href: '#', icon: UsersIcon, current: false },

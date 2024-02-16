@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { createClient } from 'next-sanity'
 import groq from 'groq'
 import BlogSection from '@/components/blog'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -232,6 +233,13 @@ export default function AboutPage({ posts }) {
   )
 }
 
+AboutPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
+}
 export async function getServerSideProps() {
   const posts = await client.fetch(groq`
       *[_type == "post" && publishedAt < now()] | order(publishedAt desc)

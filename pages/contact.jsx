@@ -4,6 +4,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 export default function ContactPage() {
   return (
@@ -218,5 +219,13 @@ export default function ContactPage() {
         </div>
       </div>
     </>
+  )
+}
+
+ContactPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
   )
 }

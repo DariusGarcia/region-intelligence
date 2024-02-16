@@ -4,6 +4,7 @@ import Link from 'next/link'
 import DataTable from '@/components/dataTables/dataTable'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { IoIosListBox } from 'react-icons/io'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 export default function LandDirectoryListViewPage({ cityProjects }) {
   return (
@@ -104,4 +105,12 @@ const headerText = {
   subtitle1Description:
     'Below are some of the development projects in Orange County, California. The project links will take you to more detailed project descriptions, images, environmental documents, and supplementary information. If you would like additional information, feel free to contact our support team, or you may also contact the assigned case planner of the respective project.',
   subtitle2: 'Major Projects map and monthly development reports',
+}
+
+LandDirectoryListViewPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
 }

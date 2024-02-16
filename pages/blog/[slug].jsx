@@ -4,6 +4,7 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import { PortableText } from '@portabletext/react'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -27,7 +28,7 @@ const portableTextComponents = {
     number: ({ children }) => (
       <ol className='my-3 ml-8 md:ml-12 leading-loose list-decimal'>
         {children}
-      </ol>     
+      </ol>
     ),
   },
   block: {
@@ -68,7 +69,7 @@ const portableTextComponents = {
   },
 }
 
-export default function BlogPost({ post }) {
+export default function BlogPostPage({ post }) {
   if (!post) {
     return null // Add a check to handle cases where 'post' is undefined
   }
@@ -183,4 +184,12 @@ export async function getServerSideProps(context) {
       post,
     },
   }
+}
+
+BlogPostPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
 }

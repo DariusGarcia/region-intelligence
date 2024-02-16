@@ -78,7 +78,7 @@ export default function ExpandableRow({ record }) {
                     : ''
                 }`}>
                 <p className='font-semibold italic text-sm'>{item.label}</p>
-                <p>{item.value}</p>
+                <p className='w-72 md:w-full'>{item.value}</p>
               </div>
             ))}
           </div>
@@ -107,7 +107,7 @@ export default function ExpandableRow({ record }) {
                     : ''
                 }`}>
                 <p className='font-semibold italic text-sm'>{item.label}</p>
-                <p>{item.value}</p>
+                <p className='w-72 md:w-full'>{item.value}</p>
               </div>
             ))}
           </div>

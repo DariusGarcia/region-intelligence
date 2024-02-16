@@ -12,6 +12,7 @@ import {
   FingerPrintIcon,
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -209,6 +210,13 @@ export default function LandingPage({ posts }) {
   )
 }
 
+LandingPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
+}
 const features = [
   {
     name: 'Zoning',
