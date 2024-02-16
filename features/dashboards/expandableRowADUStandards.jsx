@@ -20,7 +20,7 @@ export default function ExpandableRowADUStandards({ record }) {
   ]
 
   return (
-    <div className='border-2 border-gray-100 p-4 rounded-md shadow-sm'>
+    <div className='border-2 border-gray-100 p-4 rounded-md'>
       <div className='px-4 sm:px-0'>
         <h3 className='text-base font-semibold leading-7 text-gray-900'>
           Buena Park ADU Standards Check
