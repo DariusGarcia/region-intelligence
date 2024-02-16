@@ -237,7 +237,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-56 lg:flex-col'>
+        <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 pb-4'>
             <Link
@@ -255,25 +255,20 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                 <li>
                   <ul role='list' className='-mx-2 space-y-1'>
                     {navItems.mainLinks.map((item) => (
-                      <>
-                        <li key={item.id}>
-                          <a
-                            href={'/dashboard'}
-                            className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
-                              item.active
-                                ? 'bg-blue-600 text-white '
-                                : 'hover:text-blue-600 hover:bg-gray-50'
-                            }`}>
-                            {item.icon && (
-                              <item.icon
-                                aria-hidden='true'
-                                className='w-6 h-6'
-                              />
-                            )}
-                            {item.name}
-                          </a>
-                        </li>
-                      </>
+                      <li key={item.id}>
+                        <a
+                          href={'/dashboard'}
+                          className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                            item.active
+                              ? 'bg-blue-600 text-white '
+                              : 'hover:text-blue-600 hover:bg-gray-50'
+                          }`}>
+                          {item.icon && (
+                            <item.icon aria-hidden='true' className='w-6 h-6' />
+                          )}
+                          {item.name}
+                        </a>
+                      </li>
                     ))}
                     <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
                       Other Information
@@ -394,7 +389,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
           </div>
         </div>
 
-        <div className='lg:pl-56'>
+        <div className='lg:pl-64'>
           <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
             <button
               type='button'
@@ -500,7 +495,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
            */}
           <main className='py-4'>
             <div className='px-4 sm:px-4 lg:px-2'>
-              <section className='md:ml-4 pb-2 flex flex-col md:flex-row justify-between'>
+              <section className='md:ml-8 pb-2 flex flex-col md:flex-row justify-between'>
                 <h1 className='text-xl md:text-2xl font-semibold'>
                   Current Planning Developments
                 </h1>

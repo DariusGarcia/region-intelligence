@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { DownOutlined } from '@ant-design/icons'
+
 import { Dropdown, Space, Pagination, Table, Button, Carousel } from 'antd'
 import Image from 'next/image'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 import ExpandableRow from './expandableRow'
+import FilterMenu from './filterMenu'
 
 const pageSize = 8
 
@@ -44,8 +45,8 @@ export default function CurrentPlanningDevelopmentsList() {
     },
     {
       title: 'City',
-      dataIndex: 'department',
-      key: 'department',
+      dataIndex: 'city',
+      key: 'city',
       render: (text, record) => <p className='w-max'>{text}</p>,
     },
     {
@@ -89,19 +90,7 @@ export default function CurrentPlanningDevelopmentsList() {
     <div className='md:px-4 md:ml-4 rounded-md md:border-2 border-gray-50 pt-4'>
       <div className='flex flex-row items-start mb-6 justify-between sm:items-center'>
         <div className=' sm:mt-0 sm:flex-none'>
-          <Dropdown
-            menu={{
-              items,
-            }}
-            trigger={['click']}>
-            <a
-              onClick={(e) => e.preventDefault()}
-              className='md:block rounded-md  px-3 py-2 text-center text-sm border-[1px] text-gray-400 hover:bg-gray-100 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer'>
-              <Space>
-                Filter Projects <DownOutlined />
-              </Space>
-            </a>
-          </Dropdown>
+          <FilterMenu projects={currentPlanningDevelopments} />
         </div>
       </div>
       <div className='table-container overflow-x-auto'>
@@ -166,7 +155,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -176,7 +165,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -186,7 +175,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'Status',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -196,7 +185,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -206,7 +195,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'Status',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -216,7 +205,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -226,7 +215,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -236,7 +225,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -246,7 +235,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -256,7 +245,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -266,7 +255,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -276,7 +265,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -286,7 +275,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -296,7 +285,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -306,7 +295,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -316,7 +305,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -326,7 +315,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -336,7 +325,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -346,7 +335,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -356,7 +345,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -366,7 +355,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -376,7 +365,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -386,7 +375,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -396,7 +385,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -406,7 +395,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -416,7 +405,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -426,7 +415,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -436,7 +425,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -446,7 +435,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -456,7 +445,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -466,7 +455,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -476,7 +465,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -486,7 +475,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -496,7 +485,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -506,7 +495,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -516,7 +505,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -526,7 +515,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -536,7 +525,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -546,7 +535,7 @@ const currentPlanningDevelopments = [
     name: '2342342',
     title: 'CU-37-1',
     applicant: 'Tom Anderson',
-    department: 'Santa Ana, CA',
+    city: 'Santa Ana, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -556,7 +545,7 @@ const currentPlanningDevelopments = [
     name: '1242354',
     title: 'CU-22-1',
     applicant: 'Tom Anderson',
-    department: 'Irvine, CA',
+    city: 'Irvine, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -566,7 +555,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -576,7 +565,7 @@ const currentPlanningDevelopments = [
     name: '8675309',
     title: 'CU-27-1',
     applicant: 'Tom Anderson',
-    department: 'Buena Park, CA',
+    city: 'Buena Park, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -586,7 +575,7 @@ const currentPlanningDevelopments = [
     name: '3534534',
     title: 'CU-17-1',
     applicant: 'Tom Anderson',
-    department: 'Cerritos, CA',
+    city: 'Cerritos, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -596,7 +585,7 @@ const currentPlanningDevelopments = [
     name: '9078975',
     title: 'CU-24-1',
     applicant: 'Tom Anderson',
-    department: 'La Mirada, CA',
+    city: 'La Mirada, CA',
     role: 'New',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
