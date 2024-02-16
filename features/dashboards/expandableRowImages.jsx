@@ -10,8 +10,8 @@ export default function ExpandableRowOverview() {
   ]
   return (
     <div className='flex flex-col gap-4 border-2 border-gray-100 p-4 rounded-md'>
-      <h1 className='text-lg font-bold'>Project Images</h1>
-      <article className='w-[24rem]'>
+      <h3 className='text-lg font-bold'>Project Images</h3>
+      <article className='w-[24rem] '>
         {articlesContent[0]?.images && (
           <Carousel dotPosition={'bottom'} autoplay>
             <div>
@@ -19,7 +19,7 @@ export default function ExpandableRowOverview() {
                 width={800}
                 height={400}
                 src='/landingHeader/home.jpg'
-                className=''
+                className='rounded-md'
               />
             </div>
             <div>
@@ -27,7 +27,7 @@ export default function ExpandableRowOverview() {
                 width={800}
                 height={400}
                 src='/landingHeader/home.jpg'
-                className=''
+                className='rounded-md'
               />
             </div>
             <div>
@@ -35,7 +35,7 @@ export default function ExpandableRowOverview() {
                 width={800}
                 height={400}
                 src='/landingHeader/home.jpg'
-                className=''
+                className='rounded-md'
               />
             </div>
             <div>
@@ -43,7 +43,7 @@ export default function ExpandableRowOverview() {
                 width={800}
                 height={400}
                 src='/landingHeader/home.jpg'
-                className=''
+                className='rounded-md shadow-lg'
               />
             </div>
           </Carousel>

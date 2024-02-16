@@ -10,7 +10,7 @@ export default function ExpandableRowOverview({ record }) {
     },
     { key: 6, label: 'Applicant', value: 'John Doe' },
     { key: 8, label: 'APN(s)', value: '8675309' },
-    { key: 9, label: 'Date', value: '9047 The Wave' },
+    { key: 9, label: 'Date', value: '2024-01-02' },
     {
       key: 11,
       label: 'Description',
@@ -21,11 +21,9 @@ export default function ExpandableRowOverview({ record }) {
   ]
 
   return (
-    <div className='border-2 border-gray-100 p-4 rounded-md'>
+    <div className='border-2 border-gray-100 p-4 rounded-mds'>
       <div className='px-4 sm:px-0'>
-        <h3 className='text-base font-semibold leading-7 text-gray-900'>
-          Overview
-        </h3>
+        <h3 className='text-lg font-bold leading-7 text-gray-900'>Overview</h3>
       </div>
       <div className='mt-0'>
         <dl className='grid grid-cols-1 sm:grid-cols-2'>
