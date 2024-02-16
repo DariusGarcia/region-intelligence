@@ -23,6 +23,9 @@ import {
   DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
+  LightBulbIcon,
+  Square2StackIcon,
+  UserIcon,
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
@@ -31,12 +34,24 @@ import {
   HomeModernIcon,
   MagnifyingGlassIcon,
   PlusIcon,
+  QuestionMarkCircleIcon,
+  Squares2X2Icon,
+  StarIcon,
 } from '@heroicons/react/20/solid'
 import Link from 'next/link'
-import { IoMdPaper, IoMdSettings } from 'react-icons/io'
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { FaHome } from 'react-icons/fa'
+import { IoLogoFoursquare, IoMdPaper, IoMdSettings } from 'react-icons/io'
+import { ArrowRightIcon, SquaresPlusIcon } from '@heroicons/react/24/solid'
+import { FaFoursquare, FaHome } from 'react-icons/fa'
 import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
+import Image from 'next/image'
+import {
+  BarChart,
+  QuestionAnswerOutlined,
+  QuestionMarkOutlined,
+  SquareSharp,
+  StarOutline,
+} from '@mui/icons-material'
+import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 
 export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
   const session = useSession()
@@ -85,6 +100,87 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
     // Only run query once user is logged in.
     if (user) loadData()
   }, [user])
+
+  const navItems = {
+    mainLinks: [
+      { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon },
+      {
+        id: 2,
+        name: 'Current Agendas',
+        href: '/dashboard',
+        icon: UsersIcon,
+        active: true,
+      },
+      {
+        id: 3,
+        name: 'Land Use',
+        href: '/dashboard/housing-element/current-planning-developments',
+        icon: BarChart,
+        active: false,
+      },
+      {
+        id: 4,
+        name: 'Demographics',
+        href: '/blog',
+        icon: UsersIcon,
+        active: false,
+      },
+      {
+        id: 5,
+        name: 'My Reports',
+        href: '/settings',
+        icon: FolderIcon,
+        active: false,
+      },
+      {
+        id: 6,
+        name: 'Favorites',
+        href: '/documents',
+        icon: StarOutline,
+
+        active: false,
+      },
+      {
+        id: 7,
+        name: 'RI Blog',
+        href: '/reports',
+        icon: Squares2X2Icon,
+        active: false,
+      },
+    ],
+    subLinks1: [
+      {
+        id: 8,
+        name: 'Knowledge Base',
+        href: '/dashboard',
+        icon: HiOutlineQuestionMarkCircle,
+        active: false,
+      },
+      {
+        id: 9,
+        name: 'Product Updates',
+        href: '/dashboard',
+        icon: LightBulbIcon,
+        active: false,
+      },
+    ],
+    subLinks2: [
+      {
+        id: 10,
+        name: 'Personal Settings',
+        href: '/dashboard',
+        icon: UserIcon,
+        active: false,
+      },
+      {
+        id: 11,
+        name: 'Global Settings',
+        href: '/dashboard',
+        icon: Cog6ToothIcon,
+        active: false,
+      },
+    ],
+  }
 
   return (
     <>
@@ -238,87 +334,46 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
         {/* Static sidebar for desktop */}
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-56 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 px-6 pb-4'>
-            <div className='flex h-16 shrink-0 items-center'>
-              <p className='font-semibold'>Region Intelligence</p>
-            </div>
-            <nav className='flex flex-1 flex-col'>
+          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 pb-4'>
+            <Link
+              href='/'
+              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
+              <div className='w-8 mr-2'>
+                <Image src='/logo.png' width={50} height={50} />
+              </div>
+              <p className='hover:underline font-semibold'>
+                Region Intelligence
+              </p>
+            </Link>
+            <nav className='flex flex-1 flex-col pl-6'>
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                 <li>
                   <ul role='list' className='-mx-2 space-y-1'>
-                    <>
-                      <li key={'home'}>
-                        <a
-                          href={'/dashboard'}
-                          className={
-                            'text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                          }>
-                          <HomeIcon aria-hidden='true' className='w-6 h-6' />
-                          Home
-                        </a>
-                      </li>
-                      <li>
-                        <Dropdown
-                          menu={{
-                            items: navDashboardsItems,
-                            style: { textAlign: 'center' },
-                          }}
-                          trigger={['click']}>
+                    {navItems.mainLinks.map((item) => (
+                      <>
+                        <li key={item.id}>
                           <a
-                            onClick={(e) => e.preventDefault()}
-                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
-                            <Space>
-                              <span>
-                                <UsersIcon className='w-6' />
-                              </span>{' '}
-                              Dashboards
-                              <DownOutlined />
-                            </Space>
+                            href={'/dashboard'}
+                            className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                              item.active
+                                ? 'bg-blue-600 text-white '
+                                : 'hover:text-blue-600 hover:bg-gray-50'
+                            }`}>
+                            {item.icon && (
+                              <item.icon
+                                aria-hidden='true'
+                                className='w-6 h-6'
+                              />
+                            )}
+                            {item.name}
                           </a>
-                        </Dropdown>
-                      </li>
-                      <li>
-                        <Dropdown
-                          menu={{
-                            items: navHousingElementsItems,
-                            style: { textAlign: 'center' },
-                          }}
-                          trigger={['click']}>
-                          <a
-                            onClick={(e) => e.preventDefault()}
-                            className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>
-                            <Space>
-                              <span>
-                                <HomeModernIcon className='w-6' />
-                              </span>{' '}
-                              Housing Element
-                              <DownOutlined />
-                            </Space>
-                          </a>
-                        </Dropdown>
-                      </li>
-                      <li>
-                        <Dropdown
-                          menu={{
-                            items: navHousingElementsItems,
-                            style: { textAlign: 'center' },
-                          }}
-                          trigger={['click']}>
-                          <a
-                            onClick={(e) => e.preventDefault()}
-                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
-                            <Space>
-                              <span>
-                                <HomeModernIcon className='w-6' />
-                              </span>{' '}
-                              The RI Blog
-                              <DownOutlined />
-                            </Space>
-                          </a>
-                        </Dropdown>
-                      </li>
-                    </>
-                    {/* {navigation.map((item) => (
+                        </li>
+                      </>
+                    ))}
+                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                      Other Information
+                    </p>
+                    {navItems.subLinks1.map((item) => (
                       <li key={item.name}>
                         <a
                           href={item.href}
@@ -340,49 +395,34 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                           {item.name}
                         </a>
                       </li>
-                    ))} */}
-                  </ul>
-                </li>
-                <li>
-                  {/* <div className='text-xs font-semibold leading-6 text-gray-400'>
-                    Your teams
-                  </div>
-                  <ul role='list' className='-mx-2 mt-2 space-y-1'>
-                    {teams.map((team) => (
-                      <li key={team.name}>
+                    ))}
+                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                      Settings
+                    </p>
+                    {navItems.subLinks2.map((item) => (
+                      <li key={item.name}>
                         <a
-                          href={team.href}
+                          href={item.href}
                           className={classNames(
-                            team.current
+                            item.current
                               ? 'bg-gray-50 text-blue-600'
                               : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}>
-                          <span
+                          <item.icon
                             className={classNames(
-                              team.current
-                                ? 'text-blue-600 border-blue-600'
-                                : 'text-gray-400 border-gray-200 group-hover:border-blue-600 group-hover:text-blue-600',
-                              'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                            )}>
-                            {team.initial}
-                          </span>
-                          <span className='truncate'>{team.name}</span>
+                              item.current
+                                ? 'text-blue-600'
+                                : 'text-gray-400 group-hover:text-blue-600',
+                              'h-6 w-6 shrink-0'
+                            )}
+                            aria-hidden='true'
+                          />
+                          {item.name}
                         </a>
                       </li>
                     ))}
-                  </ul> */}
-                </li>
-                <li className='mt-auto'>
-                  <a
-                    href='#'
-                    className='group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-blue-600'>
-                    <Cog6ToothIcon
-                      className='h-6 w-6 shrink-0 text-gray-400 group-hover:text-blue-600'
-                      aria-hidden='true'
-                    />
-                    Settings
-                  </a>
+                  </ul>
                 </li>
               </ul>
             </nav>
@@ -545,7 +585,7 @@ const teams = [
   { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
 ]
 const userNavigation = [
-  { name: 'Your profile', href: '#' },
+  { name: 'Your profile', href: '/profile' },
   { name: 'Sign out', href: '#' },
 ]
 
@@ -583,3 +623,5 @@ const discover = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
+// className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>

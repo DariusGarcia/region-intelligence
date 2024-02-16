@@ -148,6 +148,7 @@ export default function CurrentPlanningDevelopmentsList() {
           total={totalItems}
           onChange={handlePageChange}
         />
+        {/* TODO: make the total results accurate */}
         <div className='md:mr-8 flex m-auto md:m-0 md:block'>
           <p className='mt-2 text-sm text-gray-500 font-semibold'>
             230 Results
