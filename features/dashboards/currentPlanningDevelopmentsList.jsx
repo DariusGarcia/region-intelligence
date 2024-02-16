@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space, Pagination, Table, Button, Carousel } from 'antd'
 import Image from 'next/image'
+import { PaperClipIcon } from '@heroicons/react/20/solid'
 import ExpandableRow from './expandableRow'
 
-const pageSize = 5
+const pageSize = 8
 
 export default function CurrentPlanningDevelopmentsList() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -25,14 +26,20 @@ export default function CurrentPlanningDevelopmentsList() {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'APN(s)',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'ID',
+      title: 'Permit',
       dataIndex: 'title',
       key: 'title',
+      render: (text, record) => <p className='w-max'>{text}</p>,
+    },
+    {
+      title: 'Applicant',
+      dataIndex: 'applicant',
+      key: 'applicant',
       render: (text, record) => <p className='w-max'>{text}</p>,
     },
     {
@@ -42,7 +49,7 @@ export default function CurrentPlanningDevelopmentsList() {
       render: (text, record) => <p className='w-max'>{text}</p>,
     },
     {
-      title: 'Status',
+      title: 'Recent Update',
       dataIndex: 'role',
       key: 'role',
       render: (text, record) => (
@@ -59,11 +66,11 @@ export default function CurrentPlanningDevelopmentsList() {
       ),
     },
     {
-      title: 'Action',
+      title: '',
       key: 'action',
       render: (text, record) => (
         <Button
-          className='rounded-full text-xs'
+          className='rounded-sm text-xs text-blue-500'
           onClick={() => {
             setExpandedRowKey(expandedRowKey === record.key ? null : record.key) // Toggle expanded row key
           }}>
@@ -79,13 +86,8 @@ export default function CurrentPlanningDevelopmentsList() {
     return <ExpandableRow record={record} />
   }
   return (
-    <div className='md:px-4'>
+    <div className='md:px-4 md:ml-4 rounded-md md:border-2 border-gray-50 pt-4'>
       <div className='flex flex-row items-start mb-6 justify-between sm:items-center'>
-        <div className='sm:flex-auto'>
-          <p className='mt-2 text-sm text-gray-700 font-semibold'>
-            230 Projects
-          </p>
-        </div>
         <div className=' sm:mt-0 sm:flex-none'>
           <Dropdown
             menu={{
@@ -94,7 +96,7 @@ export default function CurrentPlanningDevelopmentsList() {
             trigger={['click']}>
             <a
               onClick={(e) => e.preventDefault()}
-              className='md:block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer'>
+              className='md:block rounded-md  px-3 py-2 text-center text-sm border-[1px] text-gray-400 hover:bg-gray-100 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer'>
               <Space>
                 Filter Projects <DownOutlined />
               </Space>
@@ -138,7 +140,7 @@ export default function CurrentPlanningDevelopmentsList() {
           pagination={false} // Disable default table pagination
         />
       </div>
-      <section className='w-full flex mt-6 justify-center'>
+      <section className='w-full flex flex-col md:flex-row gap-8 md:gap-0 mt-6 justify-between pb-8'>
         <Pagination
           current={currentPage}
           defaultCurrent={1}
@@ -146,6 +148,11 @@ export default function CurrentPlanningDevelopmentsList() {
           total={totalItems}
           onChange={handlePageChange}
         />
+        <div className='md:mr-8 flex m-auto md:m-0 md:block'>
+          <p className='mt-2 text-sm text-gray-500 font-semibold'>
+            230 Results
+          </p>
+        </div>
       </section>
     </div>
   )
@@ -155,8 +162,9 @@ export default function CurrentPlanningDevelopmentsList() {
 const currentPlanningDevelopments = [
   {
     key: 1,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -164,8 +172,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 2,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -173,8 +182,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 3,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'Status',
     image:
@@ -182,8 +192,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 4,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -191,8 +202,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 5,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'Status',
     image:
@@ -200,8 +212,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 6,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -209,8 +222,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 7,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -218,8 +232,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 8,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -227,8 +242,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 9,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -236,8 +252,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 10,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -245,8 +262,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 11,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -254,8 +272,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 12,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -263,8 +282,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 13,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -272,8 +292,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 14,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -281,8 +302,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 15,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -290,8 +312,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 16,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -299,8 +322,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 17,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -308,8 +332,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 18,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -317,8 +342,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 19,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -326,8 +352,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 20,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -335,8 +362,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 21,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -344,8 +372,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 22,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -353,8 +382,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 23,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -362,8 +392,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 24,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -371,8 +402,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 25,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -380,8 +412,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 26,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -389,8 +422,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 27,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -398,8 +432,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 28,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -407,8 +442,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 29,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -416,8 +452,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 30,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -425,8 +462,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 31,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -434,8 +472,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 32,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -443,8 +482,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 33,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -452,8 +492,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 34,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -461,8 +502,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 35,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -470,8 +512,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 36,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -479,8 +522,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 37,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -488,8 +532,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 38,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -497,8 +542,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 39,
-    name: 'APN(s): 2342342',
+    name: '2342342',
     title: 'CU-37-1',
+    applicant: 'Tom Anderson',
     department: 'Santa Ana, CA',
     role: 'New',
     image:
@@ -506,8 +552,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 40,
-    name: 'APN(s): 1242354',
+    name: '1242354',
     title: 'CU-22-1',
+    applicant: 'Tom Anderson',
     department: 'Irvine, CA',
     role: 'New',
     image:
@@ -515,8 +562,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 41,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:
@@ -524,8 +572,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 42,
-    name: 'APN(s): 8675309',
+    name: '8675309',
     title: 'CU-27-1',
+    applicant: 'Tom Anderson',
     department: 'Buena Park, CA',
     role: 'New',
     image:
@@ -533,8 +582,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 43,
-    name: 'APN(s): 3534534',
+    name: '3534534',
     title: 'CU-17-1',
+    applicant: 'Tom Anderson',
     department: 'Cerritos, CA',
     role: 'New',
     image:
@@ -542,8 +592,9 @@ const currentPlanningDevelopments = [
   },
   {
     key: 44,
-    name: 'APN(s): 9078975',
+    name: '9078975',
     title: 'CU-24-1',
+    applicant: 'Tom Anderson',
     department: 'La Mirada, CA',
     role: 'New',
     image:

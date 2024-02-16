@@ -3,7 +3,7 @@ import { Fragment, useState, useEffect } from 'react'
 import DashboardLayout from '@/components/layouts/dashboardLayout'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { DownOutlined } from '@ant-design/icons'
-import { Dropdown, Space } from 'antd'
+import { Button, Dropdown, Space } from 'antd'
 import {
   useSession,
   useSupabaseClient,
@@ -30,6 +30,7 @@ import {
   ChevronDownIcon,
   HomeModernIcon,
   MagnifyingGlassIcon,
+  PlusIcon,
 } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import { IoMdPaper, IoMdSettings } from 'react-icons/io'
@@ -296,6 +297,26 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                           </a>
                         </Dropdown>
                       </li>
+                      <li>
+                        <Dropdown
+                          menu={{
+                            items: navHousingElementsItems,
+                            style: { textAlign: 'center' },
+                          }}
+                          trigger={['click']}>
+                          <a
+                            onClick={(e) => e.preventDefault()}
+                            className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
+                            <Space>
+                              <span>
+                                <HomeModernIcon className='w-6' />
+                              </span>{' '}
+                              The RI Blog
+                              <DownOutlined />
+                            </Space>
+                          </a>
+                        </Dropdown>
+                      </li>
                     </>
                     {/* {navigation.map((item) => (
                       <li key={item.name}>
@@ -474,10 +495,20 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
            */}
           <main className='py-4'>
             <div className='px-4 sm:px-4 lg:px-2'>
-              <section className='border-b border-gray-300 pb-2'>
-                <h1 className='text-xl md:text-3xl font-semibold'>
+              <section className='md:ml-4 pb-2 flex flex-col md:flex-row justify-between'>
+                <h1 className='text-xl md:text-2xl font-semibold'>
                   Current Planning Developments
                 </h1>
+                <div className='flex flex-row justify-between md:justify-normal gap-4'>
+                  <Button className='mt-4 text-blue-500 rounded-md'>
+                    Export
+                  </Button>
+                  <Button
+                    type='secondary'
+                    className='mt-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md flex items-center'>
+                    <PlusIcon className='w-8 text-white' /> Add Report
+                  </Button>
+                </div>
               </section>
               <section className='w-full mt-4'>
                 <CurrentPlanningDevelopmentsList />
