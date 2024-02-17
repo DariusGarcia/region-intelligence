@@ -23,7 +23,9 @@ export default function Footer() {
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
-                <Link href='/products' className='text-sm font-semibold leading-6 text-gray-900 hover:underline hover:opacity-70 transition ease-out'>
+                <Link
+                  href='/products'
+                  className='text-sm font-semibold leading-6 text-gray-900 hover:underline hover:opacity-70 transition ease-out'>
                   Products
                 </Link>
                 <ul role='list' className='mt-6 space-y-4'>
@@ -100,6 +102,7 @@ const footerNavigation = {
   projects: [
     // { name: 'Map View', href: '/current-planning-developments/map-view' },
     // { name: 'Land Directory', href: '/current-planning-developments' },
+    { name: 'Dashboard', href: '/dashboard' },
     { name: 'Product Overview', href: '/products' },
     { name: 'Demo', href: '/demo' },
     { name: 'Deep Dive', href: '/products' },

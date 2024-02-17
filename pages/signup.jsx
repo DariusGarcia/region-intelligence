@@ -36,7 +36,7 @@ export default function SignupPage() {
 
   useEffect(() => {
     if (session) {
-      Router.push('/current-planning-developments/map-view')
+      Router.push('/dashboard')
     }
   }, [session])
 

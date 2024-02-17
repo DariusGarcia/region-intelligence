@@ -18,7 +18,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (session) {
-      Router.push('/current-planning-developments/map-view')
+      Router.push('/dashboard')
     }
   }, [session])
 
@@ -43,7 +43,7 @@ export default function LoginPage() {
       setSuccess(true)
       setSuccessMessage('Password reset email sent.')
       await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'http://localhost:3000/forgot-password',
+        redirectTo: 'https://regionintelligence.com/forgot-password',
       })
     }
   }

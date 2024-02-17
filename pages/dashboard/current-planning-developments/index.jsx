@@ -8,12 +8,12 @@ import {
   useSupabaseClient,
   useUser,
 } from '@supabase/auth-helpers-react'
-import CurrentPlanningDevelopmentsList from '../../../../features/dashboards/currentPlanningDevelopmentsList'
+import CurrentPlanningDevelopmentsList from '../../../features/dashboards/currentPlanningDevelopmentsList'
 import DashboardLayout from '@/components/layouts/dashboardLayout'
 import {
   navDashboardsItems,
   navHousingElementsItems,
-} from '../../../../components/navbar/navigationLinksData'
+} from '../../../components/navbar/navigationLinksData'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { DownOutlined } from '@ant-design/icons'
 import { Button, Dropdown, Space } from 'antd'
@@ -31,6 +31,7 @@ import {
 import {
   ChevronDownIcon,
   HomeModernIcon,
+  ListBulletIcon,
   MagnifyingGlassIcon,
   PlusIcon,
   Squares2X2Icon,
@@ -538,14 +539,14 @@ const navItems = {
     {
       id: 2,
       name: 'Current Agendas',
-      href: '/dashboard',
-      icon: UsersIcon,
+      href: '/dashboard/current-planning-developments',
+      icon: ListBulletIcon,
       active: true,
     },
     {
       id: 3,
       name: 'Land Use',
-      href: '/dashboard/housing-element/current-planning-developments',
+      href: '/dashboard/current-planning-developments',
       icon: BarChart,
       active: false,
     },

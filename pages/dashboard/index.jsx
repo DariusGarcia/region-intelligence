@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Button, Carousel } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
 import {
@@ -13,29 +15,39 @@ import {
   navDashboardsItems,
   navHousingElementsItems,
 } from '../../components/navbar/navigationLinksData'
+import Link from 'next/link'
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
+  LightBulbIcon,
+  UserIcon,
   UsersIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChevronDownIcon,
   HomeModernIcon,
+  ListBulletIcon,
   MagnifyingGlassIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/20/solid'
-import Link from 'next/link'
-import { IoMdPaper, IoMdSettings } from 'react-icons/io'
-import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { FaHome } from 'react-icons/fa'
+import { IoMdPaper, IoMdPeople } from 'react-icons/io'
+import {
+  ArrowRightAltOutlined,
+  BarChart,
+  LineAxisOutlined,
+  StarOutline,
+} from '@mui/icons-material'
+import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 
-export default function DashboardHome() {
+import Stats from '@/features/dashboards/home/stats'
+import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
+import DashboardLayout from '@/components/layouts/dashboardLayout'
+
+export default function DashboardHomePage() {
   const session = useSession()
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -46,14 +58,14 @@ export default function DashboardHome() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // check if user is logged in
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!session) {
-        Router.push('/login')
-      }
-    }, 100)
-    return () => clearTimeout(timeout)
-  }, [session])
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     if (!session) {
+  //       Router.push('/login')
+  //     }
+  //   }, 100)
+  //   return () => clearTimeout(timeout)
+  // }, [session])
 
   // fetch user info
   useEffect(() => {
@@ -82,6 +94,12 @@ export default function DashboardHome() {
     // Only run query once user is logged in.
     if (user) loadData()
   }, [user])
+
+  const articlesContent = [
+    {
+      images: 'fasdfasdfa',
+    },
+  ]
 
   return (
     <>
@@ -261,70 +279,45 @@ export default function DashboardHome() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
+        <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 px-6 pb-4'>
-            <div className='flex h-16 shrink-0 items-center'>
-              <p className='font-semibold'>Region Intelligence</p>
-            </div>
-            <nav className='flex flex-1 flex-col'>
+          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 pb-4'>
+            <Link
+              href='/'
+              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
+              <div className='w-8 mr-2'>
+                <Image src='/logo.png' width={50} height={50} />
+              </div>
+              <p className='hover:underline font-semibold'>
+                Region Intelligence
+              </p>
+            </Link>
+            <nav className='flex flex-1 flex-col pl-6'>
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
                 <li>
                   <ul role='list' className='-mx-2 space-y-1'>
-                    <li key={'home'}>
-                      <a
-                        href={'/dashboard'}
-                        className={
-                          'bg-gray-50 text-blue-600 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                        }>
-                        <HomeIcon aria-hidden='true' className='w-6 h-6' />
-                        Home
-                      </a>
-                    </li>
-                    <li>
-                      <Dropdown
-                        menu={{
-                          items: navDashboardsItems,
-                          style: { textAlign: 'center' },
-                        }}
-                        trigger={['click']}>
-                        <a
-                          onClick={(e) => e.preventDefault()}
-                          className='text-gray-700 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
-                          <Space>
-                            <span>
-                              <UsersIcon className='w-6' />
-                            </span>{' '}
-                            Dashboards
-                            <DownOutlined />
-                          </Space>
-                        </a>
-                      </Dropdown>
-                    </li>
-                    <li>
-                      <Dropdown
-                        menu={{
-                          items: navHousingElementsItems,
-                          style: { textAlign: 'center' },
-                        }}
-                        trigger={['click']}>
-                        <a
-                          onClick={(e) => e.preventDefault()}
-                          className=' text-gray-700 cursor-pointer transition ease-out hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
-                          <Space>
-                            <span>
-                              <HomeModernIcon className='w-6' />
-                            </span>{' '}
-                            Housing Element
-                            <DownOutlined />
-                          </Space>
-                        </a>
-                      </Dropdown>
-                    </li>
-
-                    {/* {navigation.map((item) => (
+                    {navItems.mainLinks.map((item) => (
+                      <li key={item.id}>
+                        <Link
+                          href={item.href}
+                          className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                            item.active
+                              ? 'bg-blue-600 text-white '
+                              : 'hover:text-blue-600 hover:bg-gray-50'
+                          }`}>
+                          {item.icon && (
+                            <item.icon aria-hidden='true' className='w-6 h-6' />
+                          )}
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                      Other Information
+                    </p>
+                    {navItems.subLinks1.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
                             item.current
@@ -342,58 +335,103 @@ export default function DashboardHome() {
                             aria-hidden='true'
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
-                    ))} */}
-                  </ul>
-                </li>
-                <li>
-                  {/* <div className='text-xs font-semibold leading-6 text-gray-400'>
-                    Your teams
-                  </div>
-                  <ul role='list' className='-mx-2 mt-2 space-y-1'>
-                    {teams.map((team) => (
-                      <li key={team.name}>
-                        <a
-                          href={team.href}
+                    ))}
+                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                      Settings
+                    </p>
+                    {navItems.subLinks2.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.href}
                           className={classNames(
-                            team.current
+                            item.current
                               ? 'bg-gray-50 text-blue-600'
                               : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}>
-                          <span
+                          <item.icon
                             className={classNames(
-                              team.current
-                                ? 'text-blue-600 border-blue-600'
-                                : 'text-gray-400 border-gray-200 group-hover:border-blue-600 group-hover:text-blue-600',
-                              'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                            )}>
-                            {team.initial}
-                          </span>
-                          <span className='truncate'>{team.name}</span>
-                        </a>
+                              item.current
+                                ? 'text-blue-600'
+                                : 'text-gray-400 group-hover:text-blue-600',
+                              'h-6 w-6 shrink-0'
+                            )}
+                            aria-hidden='true'
+                          />
+                          {item.name}
+                        </Link>
                       </li>
                     ))}
-                  </ul> */}
+                  </ul>
                 </li>
-                <li className='mt-auto'>
-                  <a
-                    href='#'
-                    className='group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-blue-600'>
-                    <Cog6ToothIcon
-                      className='h-6 w-6 shrink-0 text-gray-400 group-hover:text-blue-600'
-                      aria-hidden='true'
-                    />
-                    Settings
-                  </a>
-                </li>
+                <div className='mt-8'>
+                  <div className='relative '>
+                    <div className='mx-auto max-w-md  sm:max-w-3xl lg:max-w-7xl '>
+                      <div className='relative overflow-hidden rounded-2xl bg-blue-600 py-4 shadow-xl'>
+                        <div
+                          aria-hidden='true'
+                          className='absolute inset-0 -mt-72 sm:-mt-32 md:mt-0'>
+                          <svg
+                            className='absolute inset-0 h-full w-full'
+                            preserveAspectRatio='xMidYMid slice'
+                            fill='none'
+                            viewBox='0 0 1463 360'>
+                            <path
+                              className='text-blue-500 text-opacity-40'
+                              fill='currentColor'
+                              d='M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z'
+                            />
+                            <path
+                              className='text-blue-700 text-opacity-40'
+                              fill='currentColor'
+                              d='M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z'
+                            />
+                          </svg>
+                        </div>
+                        <div className='relative'>
+                          <div className='pl-4'>
+                            <h2 className='text-sm font-bold tracking-tight text-white '>
+                              Join Our Newsletter
+                            </h2>
+                            <p className='mt-2 max-w-2xl text-sm text-blue-200'>
+                              Discover new developments
+                            </p>
+                          </div>
+                          <form
+                            action='#'
+                            className='mt-6 sm:mx-auto sm:flex flex-col px-2 gap-4 sm:max-w-lg'>
+                            <div className='min-w-0 flex-1'>
+                              <label htmlFor='cta-email' className='sr-only'>
+                                Email address
+                              </label>
+                              <input
+                                id='cta-email'
+                                type='email'
+                                className='block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600'
+                                placeholder='Enter your email'
+                              />
+                            </div>
+                            <div className='mt-4 sm:mt-0'>
+                              <button
+                                type='submit'
+                                className='block w-full rounded-md border border-transparent bg-blue-500 px-2 py-3 text-md font-medium text-white shadow hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 '>
+                                Notify me
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </ul>
             </nav>
           </div>
         </div>
 
-        <div className='lg:pl-72'>
+        <div className='lg:pl-64'>
           <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
             <button
               type='button'
@@ -497,123 +535,190 @@ export default function DashboardHome() {
             *
            *****************************
            */}
-          <main className='py-4'>
+          <main className='py-4 bg-gray-50'>
             <div className='px-4 sm:px-6 lg:px-8'>
               <section>
-                <h1 className='text-3xl font-semibold'>
-                  Welcome to RI Analytics
+                <h1 className='text-2xl font-semibold mb-8'>
+                  Welcome {first_name}!
                 </h1>
-                <p className='text-sm'>
-                  Create custom preferences to enhance your dashboard
-                  experience.
-                </p>
-                <div className='flex flex-row justify-between border-b-2 pb-12'>
-                  <div className='mt-12'></div>
-                  <div className='flex flex-row gap-4 text-white'></div>
-                </div>
-              </section>
-              <section className='flex flex-col md:flex-row justify-between pt-6 gap-6'>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>Discover</h2>
-                  <div className='flex flex-col gap-2 rounded-lg p-2 '>
-                    {discover.map((item) => (
+                {/* First row */}
+                <div className='flex flex-col gap-8 md:gap-24 md:flex-row '>
+                  <article className='md:w-[30rem] border-2 p-4 rounded-md md:p-8 bg-white'>
+                    {' '}
+                    {articlesContent[0]?.images && (
+                      <Carousel dotPosition={'bottom'} autoplay>
+                        <div>
+                          <Image
+                            width={800}
+                            height={400}
+                            src='/landingHeader/home.jpg'
+                            className='rounded-md'
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            width={800}
+                            height={400}
+                            src='/landingHeader/home.jpg'
+                            className='rounded-md'
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            width={800}
+                            height={400}
+                            src='/landingHeader/home.jpg'
+                            className='rounded-md'
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            width={800}
+                            height={400}
+                            src='/landingHeader/home.jpg'
+                            className='rounded-md shadow-lg'
+                          />
+                        </div>
+                      </Carousel>
+                    )}
+                  </article>
+                  <section className='md:w-96 flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
+                    {dashboardText.map((item) => (
                       <article
                         key={item.id}
-                        className='w-full bg-gray-100 p-2 rounded-xl'>
-                        <div className='flex flex-col gap-6 rounded-lg p-2'>
-                          <div className='flex flex-row gap-2 p-2 bg-white rounded-lg'>
-                            <p>{item.icon}</p>
-                            <div>
-                              <p className='font-semibold text-lg'>
-                                {item.title}
-                              </p>
-                              <div className='flex flex-row gap-2'>
-                                {item.categories.map((category, index) => (
-                                  <p
-                                    key={index}
-                                    className={`bg-gray-200 px-2 p-1 text-xs text-white rounded-full ${item.categoryColors[index]}`}>
-                                    {category}
-                                  </p>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
+                        className='flex flex-row items-center gap-8 bg-white p-2 rounded-md shadow-md hover:shadow-none transition ease-out'>
+                        <div
+                          className={`flex items-center justify-center w-16 h-16 rounded-lg ${item.style}`}>
+                          <item.icon size={40} />
+                        </div>
+                        <div className=''>
+                          <p className='text-md font-semibold'>{item.title}</p>
+                          <p className='text-sm'>
+                            {item.description} <ArrowRightAltOutlined />
+                          </p>
                         </div>
                       </article>
                     ))}
-                  </div>
-                </article>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>
-                    Project Updates
-                  </h2>
-                  <div className='mt-6'>
-                    <ul className='flex flex-col gap-6'>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2 item-center h-full'>
-                          <p className='flex h-full item-center'>
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div className='grid grid-cols-2 justify-between '>
-                              <p className='font-semibold'>ADU</p>
-                              <ArrowRightIcon />
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2'>
-                          <p>
-                            {' '}
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div>
-                              <p className='font-semibold'>ADU</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li className='w-full bg-white rounded-xl p-2'>
-                        <div className='flex flex-row gap-2'>
-                          <p>
-                            {' '}
-                            <FaHome size={30} />
-                          </p>
-                          <div className='flex flex-row gap-2'>
-                            <div>
-                              <p>Buena Park</p>
-                              <p>CU-27-1</p>
-                            </div>
-                            <div>
-                              <p className='font-semibold'>ADU</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </article>
-                <article className='w-full bg-gray-100 p-2 rounded-xl'>
-                  <h2 className='text-2xl font-semibold pl-6'>RI Analysis</h2>
-                  <div className=''></div>
-                </article>
+                  </section>
+                </div>
               </section>
+              {/* Second Row - Stats */}
+              <Stats />
+              {/* Third Row - Latest Developments Table */}
+              <div className='mt-12'>
+                <h3 className='font-bold text-lg'>Latest Developments</h3>
+                <CurrentPlanningDevelopmentsList />
+              </div>
             </div>
           </main>
         </div>
       </div>
     </>
   )
+}
+
+const dashboardText = [
+  {
+    id: 1,
+    title: 'Customize Your Experience',
+    description: 'Personal Settings',
+    icon: IoMdPeople,
+    style: 'text-blue-600 bg-blue-200',
+  },
+  {
+    id: 2,
+    title: 'Latest Land Use Trends',
+    description: 'Personal Settings',
+    icon: LineAxisOutlined,
+    style: 'text-green-600 bg-green-200',
+  },
+  {
+    id: 3,
+    title: 'Recent Project Updates',
+    description: 'Personal Settings',
+    icon: HiOutlineClock,
+    style: 'text-red-600 bg-red-200',
+  },
+]
+const navItems = {
+  mainLinks: [
+    { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon, active: true },
+    {
+      id: 2,
+      name: 'Current Agendas',
+      href: '/dashboard/current-planning-developments',
+      icon: ListBulletIcon,
+      active: false,
+    },
+    {
+      id: 3,
+      name: 'Land Use',
+      href: '/dashboard/current-planning-developments',
+      icon: BarChart,
+      active: false,
+    },
+    {
+      id: 4,
+      name: 'Demographics',
+      href: '/blog',
+      icon: UsersIcon,
+      active: false,
+    },
+    {
+      id: 5,
+      name: 'My Reports',
+      href: '/settings',
+      icon: FolderIcon,
+      active: false,
+    },
+    {
+      id: 6,
+      name: 'Favorites',
+      href: '/documents',
+      icon: StarOutline,
+
+      active: false,
+    },
+    {
+      id: 7,
+      name: 'RI Blog',
+      href: '/reports',
+      icon: Squares2X2Icon,
+      active: false,
+    },
+  ],
+  subLinks1: [
+    {
+      id: 8,
+      name: 'Knowledge Base',
+      href: '/dashboard',
+      icon: HiOutlineQuestionMarkCircle,
+      active: false,
+    },
+    {
+      id: 9,
+      name: 'Product Updates',
+      href: '/dashboard',
+      icon: LightBulbIcon,
+      active: false,
+    },
+  ],
+  subLinks2: [
+    {
+      id: 10,
+      name: 'Personal Settings',
+      href: '/dashboard',
+      icon: UserIcon,
+      active: false,
+    },
+    {
+      id: 11,
+      name: 'Global Settings',
+      href: '/dashboard',
+      icon: Cog6ToothIcon,
+      active: false,
+    },
+  ],
 }
 
 const navigation = [
@@ -631,7 +736,7 @@ const teams = [
   { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
 ]
 const userNavigation = [
-  { name: 'Your profile', href: '#' },
+  { name: 'Your profile', href: '/profile' },
   { name: 'Sign out', href: '#' },
 ]
 
@@ -665,6 +770,15 @@ const discover = [
     icon: 'icon',
   },
 ]
+
+// Define the page layout
+DashboardHomePage.getLayout = function getLayout(page) {
+  return (
+    <DashboardLayout>
+      <>{page}</>
+    </DashboardLayout>
+  )
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

@@ -129,7 +129,7 @@ export default function CurrentPlanningDevelopmentsList() {
           pagination={false} // Disable default table pagination
         />
       </div>
-      <section className='w-full flex flex-col md:flex-row gap-8 md:gap-0 mt-6 justify-between pb-8'>
+      <section className='w-full flex flex-col md:flex-row gap-8 md:gap-0 mt-6 items-center md:items-baseline justify-between pb-8'>
         <Pagination
           current={currentPage}
           defaultCurrent={1}
