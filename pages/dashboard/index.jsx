@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import Stats from '@/features/dashboards/home/stats'
+import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
+import DashboardLayout from '@/components/layouts/dashboardLayout'
 import { Button, Carousel } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
@@ -42,10 +45,7 @@ import {
   StarOutline,
 } from '@mui/icons-material'
 import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-
-import Stats from '@/features/dashboards/home/stats'
-import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
-import DashboardLayout from '@/components/layouts/dashboardLayout'
+import { VscGraphLine } from 'react-icons/vsc'
 
 export default function DashboardHomePage() {
   const session = useSession()
@@ -584,7 +584,7 @@ export default function DashboardHomePage() {
                     {dashboardText.map((item) => (
                       <article
                         key={item.id}
-                        className='flex flex-row items-center gap-8 bg-white p-2 rounded-md shadow-md hover:shadow-none transition ease-out'>
+                        className='flex flex-row items-center gap-8 bg-white p-2 rounded-md shadow-md hover:shadow-none transition ease-out cursor-pointer'>
                         <div
                           className={`flex items-center justify-center w-16 h-16 rounded-lg ${item.style}`}>
                           <item.icon size={40} />
@@ -627,7 +627,7 @@ const dashboardText = [
     id: 2,
     title: 'Latest Land Use Trends',
     description: 'Personal Settings',
-    icon: LineAxisOutlined,
+    icon: VscGraphLine,
     style: 'text-green-600 bg-green-200',
   },
   {
@@ -644,7 +644,7 @@ const navItems = {
     {
       id: 2,
       name: 'Current Agendas',
-      href: '/dashboard/current-planning-developments',
+      href: '/dashboard/current-agendas',
       icon: ListBulletIcon,
       active: false,
     },
