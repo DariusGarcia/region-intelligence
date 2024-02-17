@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { ListBulletIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
-import { Button, Carousel } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
+import { BarChart, StarOutline } from '@mui/icons-material'
 import {
   useSession,
   useSupabaseClient,
@@ -16,35 +17,26 @@ import {
   navHousingElementsItems,
 } from '@/components/navbar/navigationLinksData'
 import Link from 'next/link'
+import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import {
   Bars3Icon,
   BellIcon,
   Cog6ToothIcon,
-  FolderIcon,
   HomeIcon,
   LightBulbIcon,
   UserIcon,
   UsersIcon,
+  FolderIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import {
   ChevronDownIcon,
   HomeModernIcon,
-  ListBulletIcon,
   MagnifyingGlassIcon,
-  Squares2X2Icon,
 } from '@heroicons/react/20/solid'
-import { IoMdPaper, IoMdPeople } from 'react-icons/io'
-import {
-  ArrowRightAltOutlined,
-  BarChart,
-  LineAxisOutlined,
-  StarOutline,
-} from '@mui/icons-material'
-import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-
-import Stats from '@/features/dashboards/home/stats'
-import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
+import { IoMdPeople } from 'react-icons/io'
+import { LineAxisOutlined } from '@mui/icons-material'
+import { HiOutlineClock } from 'react-icons/hi'
 import DashboardLayout from '@/components/layouts/dashboardLayout'
 
 export default function DashboardHomePage() {
@@ -645,41 +637,60 @@ const dashboardText = [
     style: 'text-red-600 bg-red-200',
   },
 ]
+
+const userNavigation = [
+  { name: 'Your profile', href: '/profile' },
+  { name: 'Sign out', href: '#' },
+]
+
+// Define the page layout
+DashboardHomePage.getLayout = function getLayout(page) {
+  return (
+    <DashboardLayout>
+      <>{page}</>
+    </DashboardLayout>
+  )
+}
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 const navItems = {
   mainLinks: [
     { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon, active: false },
     {
       id: 2,
       name: 'Current Agendas',
-      href: '/dashboard/current-planning-developments',
+      href: '/dashboard/current-agendas',
       icon: ListBulletIcon,
       active: false,
     },
     {
       id: 3,
       name: 'Land Use',
-      href: '/dashboard/current-planning-developments',
+      href: '/dashboard/land-use',
       icon: BarChart,
       active: false,
     },
     {
       id: 4,
       name: 'Demographics',
-      href: '/blog',
+      href: '/dashboard/demographics',
       icon: UsersIcon,
       active: false,
     },
     {
       id: 5,
       name: 'My Reports',
-      href: '/settings',
+      href: '/dashboard/reports',
       icon: FolderIcon,
       active: false,
     },
     {
       id: 6,
       name: 'Favorites',
-      href: '/documents',
+      href: '/dashboard/favorites',
       icon: StarOutline,
 
       active: false,
@@ -687,7 +698,7 @@ const navItems = {
     {
       id: 7,
       name: 'RI Blog',
-      href: '/reports',
+      href: '/blog',
       icon: Squares2X2Icon,
       active: false,
     },
@@ -703,7 +714,7 @@ const navItems = {
     {
       id: 9,
       name: 'Product Updates',
-      href: '/dashboard',
+      href: '/dashboard/product-updates',
       icon: LightBulbIcon,
       active: false,
     },
@@ -712,79 +723,16 @@ const navItems = {
     {
       id: 10,
       name: 'Personal Settings',
-      href: '/dashboard',
+      href: '/dashboard/personal-settings',
       icon: UserIcon,
       active: false,
     },
     {
       id: 11,
       name: 'Global Settings',
-      href: '/dashboard',
+      href: '/dashboard/global-settings',
       icon: Cog6ToothIcon,
       active: false,
     },
   ],
-}
-
-const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: true },
-  { name: 'Dashboards', href: '#', icon: UsersIcon, current: false },
-  { name: 'Housing Element', href: '#', icon: HomeModernIcon, current: false },
-  { name: 'The RI Blog', href: '/blog', icon: IoMdPaper, current: false },
-  //   { name: 'Settings', href: '#', icon: IoMdSettings, current: false },
-  //   { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  //   { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
-]
-const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-]
-const userNavigation = [
-  { name: 'Your profile', href: '/profile' },
-  { name: 'Sign out', href: '#' },
-]
-
-const discover = [
-  {
-    id: 0,
-    title: 'Latest Blog Posts',
-    categories: ['New', 'Read'],
-    categoryColors: ['bg-orange-500', 'bg-blue-400'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'Events & Webinars',
-    categories: ['Upcoming'],
-    categoryColors: ['bg-yellow-500'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'RI Case Studies',
-    categories: ['Read', 'Upcoming'],
-    categoryColors: ['bg-blue-500', 'bg-yellow-500'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'FAQs',
-    categories: ['Read'],
-    categoryColors: ['bg-blue-500'],
-    icon: 'icon',
-  },
-]
-
-// Define the page layout
-DashboardHomePage.getLayout = function getLayout(page) {
-  return (
-    <DashboardLayout>
-      <>{page}</>
-    </DashboardLayout>
-  )
-}
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
 }

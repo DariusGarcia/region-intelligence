@@ -651,28 +651,28 @@ const navItems = {
     {
       id: 3,
       name: 'Land Use',
-      href: '/dashboard/current-planning-developments',
+      href: '/dashboard/land-use',
       icon: BarChart,
       active: false,
     },
     {
       id: 4,
       name: 'Demographics',
-      href: '/blog',
+      href: '/dashboard/demographics',
       icon: UsersIcon,
       active: false,
     },
     {
       id: 5,
       name: 'My Reports',
-      href: '/settings',
+      href: '/dashboard/reports',
       icon: FolderIcon,
       active: false,
     },
     {
       id: 6,
       name: 'Favorites',
-      href: '/documents',
+      href: '/dashboard/favorites',
       icon: StarOutline,
 
       active: false,
@@ -680,7 +680,7 @@ const navItems = {
     {
       id: 7,
       name: 'RI Blog',
-      href: '/reports',
+      href: '/blog',
       icon: Squares2X2Icon,
       active: false,
     },
@@ -696,7 +696,7 @@ const navItems = {
     {
       id: 9,
       name: 'Product Updates',
-      href: '/dashboard',
+      href: '/dashboard/product-updates',
       icon: LightBulbIcon,
       active: false,
     },
@@ -705,7 +705,7 @@ const navItems = {
     {
       id: 10,
       name: 'Personal Settings',
-      href: '/dashboard',
+      href: '/dashboard/personal-settings',
       icon: UserIcon,
       active: false,
     },

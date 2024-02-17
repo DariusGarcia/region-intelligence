@@ -3,6 +3,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+
 import {
   useSession,
   useSupabaseClient,
@@ -520,6 +521,87 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
   )
 }
 
+const navItems = {
+  mainLinks: [
+    { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon, active: false },
+    {
+      id: 2,
+      name: 'Current Agendas',
+      href: '/dashboard/current-agendas',
+      icon: ListBulletIcon,
+      active: true,
+    },
+    {
+      id: 3,
+      name: 'Land Use',
+      href: '/dashboard/land-use',
+      icon: BarChart,
+      active: false,
+    },
+    {
+      id: 4,
+      name: 'Demographics',
+      href: '/dashboard/demographics',
+      icon: UsersIcon,
+      active: false,
+    },
+    {
+      id: 5,
+      name: 'My Reports',
+      href: '/dashboard/reports',
+      icon: FolderIcon,
+      active: false,
+    },
+    {
+      id: 6,
+      name: 'Favorites',
+      href: '/dashboard/favorites',
+      icon: StarOutline,
+
+      active: false,
+    },
+    {
+      id: 7,
+      name: 'RI Blog',
+      href: '/blog',
+      icon: Squares2X2Icon,
+      active: false,
+    },
+  ],
+  subLinks1: [
+    {
+      id: 8,
+      name: 'Knowledge Base',
+      href: '/dashboard/knowledge-base',
+      icon: HiOutlineQuestionMarkCircle,
+      active: false,
+    },
+    {
+      id: 9,
+      name: 'Product Updates',
+      href: '/dashboard/product-updates',
+      icon: LightBulbIcon,
+      active: false,
+    },
+  ],
+  subLinks2: [
+    {
+      id: 10,
+      name: 'Personal Settings',
+      href: '/dashboard/personal-settings',
+      icon: UserIcon,
+      active: false,
+    },
+    {
+      id: 11,
+      name: 'Global Settings',
+      href: '/dashboard/global-settings',
+      icon: Cog6ToothIcon,
+      active: false,
+    },
+  ],
+}
+
 // Define the page layout
 DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
   page
@@ -531,135 +613,9 @@ DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
   )
 }
 
-const navItems = {
-  mainLinks: [
-    { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon },
-    {
-      id: 2,
-      name: 'Current Agendas',
-      href: '/dashboard/current-planning-developments',
-      icon: ListBulletIcon,
-      active: true,
-    },
-    {
-      id: 3,
-      name: 'Land Use',
-      href: '/dashboard/current-planning-developments',
-      icon: BarChart,
-      active: false,
-    },
-    {
-      id: 4,
-      name: 'Demographics',
-      href: '/blog',
-      icon: UsersIcon,
-      active: false,
-    },
-    {
-      id: 5,
-      name: 'My Reports',
-      href: '/settings',
-      icon: FolderIcon,
-      active: false,
-    },
-    {
-      id: 6,
-      name: 'Favorites',
-      href: '/documents',
-      icon: StarOutline,
-
-      active: false,
-    },
-    {
-      id: 7,
-      name: 'RI Blog',
-      href: '/reports',
-      icon: Squares2X2Icon,
-      active: false,
-    },
-  ],
-  subLinks1: [
-    {
-      id: 8,
-      name: 'Knowledge Base',
-      href: '/dashboard',
-      icon: HiOutlineQuestionMarkCircle,
-      active: false,
-    },
-    {
-      id: 9,
-      name: 'Product Updates',
-      href: '/dashboard',
-      icon: LightBulbIcon,
-      active: false,
-    },
-  ],
-  subLinks2: [
-    {
-      id: 10,
-      name: 'Personal Settings',
-      href: '/dashboard',
-      icon: UserIcon,
-      active: false,
-    },
-    {
-      id: 11,
-      name: 'Global Settings',
-      href: '/dashboard',
-      icon: Cog6ToothIcon,
-      active: false,
-    },
-  ],
-}
-const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: true },
-  { name: 'Dashboards', href: '#', icon: UsersIcon, current: false },
-  { name: 'Housing Element', href: '#', icon: HomeModernIcon, current: false },
-  { name: 'The RI Blog', href: '/blog', icon: IoMdPaper, current: false },
-  //   { name: 'Settings', href: '#', icon: IoMdSettings, current: false },
-  //   { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  //   { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
-]
-const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-]
-
 const userNavigation = [
   { name: 'Your profile', href: '/profile' },
   { name: 'Sign out', href: '#' },
-]
-
-const discover = [
-  {
-    id: 0,
-    title: 'Latest Blog Posts',
-    categories: ['New', 'Read'],
-    categoryColors: ['bg-orange-500', 'bg-blue-400'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'Events & Webinars',
-    categories: ['Upcoming'],
-    categoryColors: ['bg-yellow-500'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'RI Case Studies',
-    categories: ['Read', 'Upcoming'],
-    categoryColors: ['bg-blue-500', 'bg-yellow-500'],
-    icon: 'icon',
-  },
-  {
-    id: 0,
-    title: 'FAQs',
-    categories: ['Read'],
-    categoryColors: ['bg-blue-500'],
-    icon: 'icon',
-  },
 ]
 
 function classNames(...classes) {
