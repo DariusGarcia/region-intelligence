@@ -19,23 +19,8 @@ export default function ExpandableRowOverview() {
                 width={800}
                 height={400}
                 src='/landingHeader/home.jpg'
-                className='rounded-md'
-              />
-            </div>
-            <div>
-              <Image
-                width={800}
-                height={400}
-                src='/landingHeader/home.jpg'
-                className='rounded-md'
-              />
-            </div>
-            <div>
-              <Image
-                width={800}
-                height={400}
-                src='/landingHeader/home.jpg'
-                className='rounded-md'
+                className='rounded-md shadow-lg'
+                loading='lazy'
               />
             </div>
             <div>
@@ -44,6 +29,25 @@ export default function ExpandableRowOverview() {
                 height={400}
                 src='/landingHeader/home.jpg'
                 className='rounded-md shadow-lg'
+                loading='lazy'
+              />
+            </div>
+            <div>
+              <Image
+                width={800}
+                height={400}
+                src='/landingHeader/home.jpg'
+                className='rounded-md shadow-lg'
+                loading='lazy'
+              />
+            </div>
+            <div>
+              <Image
+                width={800}
+                height={400}
+                src='/landingHeader/home.jpg'
+                className='rounded-md shadow-lg'
+                loading='lazy'
               />
             </div>
           </Carousel>
