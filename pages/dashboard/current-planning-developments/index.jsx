@@ -257,7 +257,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                   <ul role='list' className='-mx-2 space-y-1'>
                     {navItems.mainLinks.map((item) => (
                       <li key={item.id}>
-                        <a
+                        <Link
                           href={'/dashboard'}
                           className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
                             item.active
@@ -268,7 +268,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                             <item.icon aria-hidden='true' className='w-6 h-6' />
                           )}
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                     <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
@@ -276,14 +276,13 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     </p>
                     {navItems.subLinks1.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-gray-50 text-blue-600'
-                              : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
-                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                          )}>
+                          className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                            item.active
+                              ? 'bg-blue-600 text-white '
+                              : 'hover:text-blue-600 hover:bg-gray-50'
+                          }`}>
                           <item.icon
                             className={classNames(
                               item.current
@@ -294,7 +293,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                             aria-hidden='true'
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                     <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
@@ -302,14 +301,13 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     </p>
                     {navItems.subLinks2.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-gray-50 text-blue-600'
-                              : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
-                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                          )}>
+                          className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                            item.active
+                              ? 'bg-blue-600 text-white '
+                              : 'hover:text-blue-600 hover:bg-gray-50'
+                          }`}>
                           <item.icon
                             className={classNames(
                               item.current
@@ -320,7 +318,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                             aria-hidden='true'
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
