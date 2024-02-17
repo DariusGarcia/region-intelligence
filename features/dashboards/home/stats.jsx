@@ -7,7 +7,7 @@ import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 export default function Stats() {
   return (
     <div className='mt-12'>
-      <h3 className='text-lg font-bold leading-6 text-gray-900'>
+      <h3 className='text-lg font-bold leading-6  text-gray-900'>
         Development Activity
       </h3>
       <dl className='mt-5 grid grid-cols-1 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow md:grid-cols-4 md:divide-x md:divide-y-0'>

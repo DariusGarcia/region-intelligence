@@ -45,7 +45,7 @@ function classNames(...classes) {
 
 export default function Filter() {
   return (
-    <div className='bg-white'>
+    <div className='bg-white rounded-md'>
       {/* Filters */}
       <Disclosure
         as='section'

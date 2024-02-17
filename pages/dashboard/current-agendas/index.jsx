@@ -241,7 +241,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
         {/* Static sidebar for desktop */}
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 pb-4'>
+          <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-100 pb-4'>
             <Link
               href='/'
               className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
@@ -390,7 +390,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
         </div>
 
         <div className='lg:pl-64'>
-          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-6'>
             <button
               type='button'
               className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
@@ -494,12 +494,12 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
             *****************************
            */}
           <main className='py-4'>
-            <div className='px-4 sm:px-4 lg:px-2'>
-              <section className='md:ml-8 pb-2 flex flex-col md:flex-row justify-between'>
+            <div className='px-4 sm:px-4 lg:px-2 '>
+              <section className='md:ml-4 pb-2 flex flex-col md:flex-row justify-between'>
                 <h1 className='text-xl md:text-2xl font-semibold'>
                   Current Planning Developments
                 </h1>
-                <div className='flex flex-row justify-between md:justify-normal gap-4'>
+                <div className='flex flex-row justify-between md:justify-normal gap-4 md:pr-2'>
                   <Button className='mt-4 text-blue-500 rounded-md'>
                     Export
                   </Button>
@@ -510,7 +510,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                   </Button>
                 </div>
               </section>
-              <section className='w-full mt-4'>
+              <section className='w-full mt-4 md:ml-4 pr-2 md:pr-6'>
                 <CurrentPlanningDevelopmentsList />
               </section>
             </div>

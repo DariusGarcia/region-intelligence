@@ -81,9 +81,9 @@ export default function CurrentPlanningDevelopmentsList() {
     return <ExpandableRow record={record} />
   }
   return (
-    <div className='md:px-4 md:ml-4 rounded-md md:border-2 border-gray-50 pt-4'>
-      <div className='flex flex-row items-start mb-6 justify-between sm:items-center'>
-        <div className=' sm:mt-0 sm:flex-none w-full'>
+    <div className='rounded-md md:border-2 border-gray-50'>
+      <div className='flex flex-row items-start justify-between sm:items-center'>
+        <div className='sm:mt-0 sm:flex-none w-full'>
           {/* <FilterMenu projects={currentPlanningDevelopments} /> */}
           <Filter />
         </div>

@@ -281,7 +281,7 @@ export default function DashboardHomePage() {
         {/* Static sidebar for desktop */}
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-100 pb-4'>
+          <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
             <Link
               href='/'
               className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
@@ -533,15 +533,15 @@ export default function DashboardHomePage() {
             *
            *****************************
            */}
-          <main className='py-4 bg-gray-50'>
-            <div className='px-4 sm:px-6 lg:px-8'>
+          <main className='py-4 bg-gray-50 '>
+            <div className='px-4 sm:px-6 lg:px-8 '>
               <section>
                 <h1 className='text-2xl font-semibold mb-8'>
                   Welcome {first_name}!
                 </h1>
                 {/* First row */}
                 <div className='flex flex-col gap-8 md:gap-16 md:flex-row '>
-                  <article className='md:w-[48rem] border-2 p-4 rounded-md md:p-8 bg-white'>
+                  <article className='sm:w-[30rem] xl:w-[36rem] border-2 p-4 rounded-md md:p-8 bg-white'>
                     {' '}
                     {articlesContent[0]?.images && (
                       <Carousel dotPosition={'bottom'} autoplay>
@@ -604,7 +604,7 @@ export default function DashboardHomePage() {
               <Stats />
               {/* Third Row - Latest Developments Table */}
               <div className='mt-12'>
-                <h3 className='font-bold text-lg'>Latest Developments</h3>
+                <h3 className='font-bold text-lg mb-4'>Latest Developments</h3>
                 <CurrentPlanningDevelopmentsList />
               </div>
             </div>
