@@ -107,7 +107,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as='div'
-            className='relative z-50 lg:hidden'
+            className='relative z-50 lg:hidden '
             onClose={setSidebarOpen}>
             <Transition.Child
               as={Fragment}
@@ -152,7 +152,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className='flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4'>
+                  <div className='flex grow flex-col gap-y-5n bg-white px-6 pb-4'>
                     <div className='flex h-16 shrink-0 items-center'>
                       <p>Region Intelligence</p>
                     </div>
@@ -324,7 +324,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     ))}
                   </ul>
                 </li>
-                <div className='mt-8'>
+                {/* <div className='mt-8'>
                   <div className='relative '>
                     <div className='mx-auto max-w-md  sm:max-w-3xl lg:max-w-7xl '>
                       <div className='relative overflow-hidden rounded-2xl bg-blue-600 py-4 shadow-xl'>
@@ -383,7 +383,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </ul>
             </nav>
           </div>

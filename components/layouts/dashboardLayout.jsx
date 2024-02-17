@@ -7,7 +7,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <>
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

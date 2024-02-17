@@ -24,7 +24,7 @@ export default function ExpandableRowADUStandards({ record }) {
     1: (
       <>
         {/* Content for radio option 1 */}
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-4'>
           {ADUStandards.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
               <span
@@ -44,7 +44,7 @@ export default function ExpandableRowADUStandards({ record }) {
     2: (
       <>
         {/* Content for radio option 2 */}
-        <div className='flex flex-col gap-12 max-h-[300px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+        <div className='flex flex-col gap-4 max-h-[265px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
           {hazards.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
               <span
@@ -64,7 +64,7 @@ export default function ExpandableRowADUStandards({ record }) {
     3: (
       <>
         {/* Content for radio option 3 */}
-        <div className='flex flex-col gap-12 max-h-[300px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+        <div className='flex flex-col gap-4 max-h-[265px] md:w-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100 scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
           {areaAnalysis.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
               <span
@@ -84,7 +84,7 @@ export default function ExpandableRowADUStandards({ record }) {
     4: (
       <>
         {/* Content for radio option 3 */}
-        <div className='flex flex-col gap-12'>
+        <div className='flex flex-col gap-4'>
           {environmentalAnalysis.map((item) => (
             <div key={item.id} className='flex items-center gap-2'>
               <span
@@ -109,7 +109,9 @@ export default function ExpandableRowADUStandards({ record }) {
 
   return (
     <div className='border-2 border-gray-100 p-4 rounded-md h-full'>
-      <h1 className='font-bold text-lg mb-4'>{radioTitles[value]}</h1>
+      <h1 className='font-bold text-lg mb-4 border-b-2 border-black w-max'>
+        {radioTitles[value]}
+      </h1>
       <div className='mt-0'>
         <dl className='grid grid-cols-1 sm:grid-cols-2'>
           {/* Map over the array and render each item */}

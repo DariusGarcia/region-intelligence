@@ -364,7 +364,7 @@ export default function DashboardHomePage() {
                     ))}
                   </ul>
                 </li>
-                <div className='mt-8'>
+                {/* <div className='mt-8'>
                   <div className='relative '>
                     <div className='mx-auto max-w-md  sm:max-w-3xl lg:max-w-7xl '>
                       <div className='relative overflow-hidden rounded-2xl bg-blue-600 py-4 shadow-xl'>
@@ -421,9 +421,9 @@ export default function DashboardHomePage() {
                           </form>
                         </div>
                       </div>
-                    </div>
+                    </div> 
                   </div>
-                </div>
+                </div>*/}
               </ul>
             </nav>
           </div>
@@ -540,8 +540,8 @@ export default function DashboardHomePage() {
                   Welcome {first_name}!
                 </h1>
                 {/* First row */}
-                <div className='flex flex-col gap-8 md:gap-24 md:flex-row '>
-                  <article className='md:w-[30rem] border-2 p-4 rounded-md md:p-8 bg-white'>
+                <div className='flex flex-col gap-8 md:gap-16 md:flex-row '>
+                  <article className='md:w-[48rem] border-2 p-4 rounded-md md:p-8 bg-white'>
                     {' '}
                     {articlesContent[0]?.images && (
                       <Carousel dotPosition={'bottom'} autoplay>
@@ -580,7 +580,7 @@ export default function DashboardHomePage() {
                       </Carousel>
                     )}
                   </article>
-                  <section className='md:w-96 flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
+                  <section className='md:w-full flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
                     {dashboardText.map((item) => (
                       <article
                         key={item.id}

@@ -29,10 +29,14 @@ export default function ExpandableRowSupplement({ record }) {
       <div className='mt-0'>
         <dl className='grid grid-cols-1 sm:grid-cols-2'>
           {/* Map over the array and render each item */}
-          {overviewGridContent.map((item) => (
+          {overviewGridContent.map((item, index) => (
             <div
               key={item.key}
-              className='border-t border-gray-100 px-4 py-6 sm:col-span-1 sm:px-0'>
+              className={`border-t border-gray-100 px-4 py-6 sm:px-0 ${
+                index === overviewGridContent.length - 1
+                  ? 'sm:col-span-2'
+                  : 'sm:col-span-1'
+              }`}>
               <dt className='text-sm font-medium leading-6 text-gray-600'>
                 {item.label}
               </dt>
