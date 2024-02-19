@@ -12,7 +12,7 @@ export default function LandingHeaderNew() {
         animate='visible'
         viewport={{ once: true, amount: 0.8 }}
         variants={cardVariantsHorizontalFromLeft}
-        className='hidden lg:absolute lg:inset-0 lg:block'
+        className='hidden  lg:inset-0 lg:block'
         aria-hidden='true'>
         <svg
           className='absolute left-1/2 top-0 -translate-y-8 translate-x-64 transform'
