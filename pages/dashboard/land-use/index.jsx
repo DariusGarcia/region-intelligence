@@ -1,9 +1,10 @@
 import { Fragment, useState, useEffect } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { DownOutlined } from '@ant-design/icons'
-import { Dropdown, Space } from 'antd'
+import { Button, Dropdown, Space } from 'antd'
 import { ListBulletIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { BarChart, StarOutline } from '@mui/icons-material'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
@@ -33,8 +34,7 @@ import {
   HomeModernIcon,
   MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid'
-import Link from 'next/link'
-
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 import TotalPopulationBarChart from './totalPopulationBarChart'
 
 export default function DashboardLandUse() {
@@ -84,6 +84,11 @@ export default function DashboardLandUse() {
     // Only run query once user is logged in.
     if (user) loadData()
   }, [user])
+
+  async function logout() {
+    const { error } = await supabase.auth.signOut()
+    if (error) console.log('Error logging out:', error.message)
+  }
 
   return (
     <>
@@ -464,10 +469,9 @@ export default function DashboardLandUse() {
                 <Menu as='div' className='relative'>
                   <Menu.Button className='-m-1.5 flex items-center p-1.5'>
                     <span className='sr-only'>Open user menu</span>
-                    <img
-                      className='h-8 w-8 rounded-full bg-gray-50'
-                      src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-                      alt=''
+                    <UserCircleIcon
+                      className='h-10 w-10 text-gray-300'
+                      aria-hidden='true'
                     />
                     <span className='hidden lg:flex lg:items-center'>
                       <span
@@ -503,7 +507,16 @@ export default function DashboardLandUse() {
                             </a>
                           )}
                         </Menu.Item>
-                      ))}
+                      ))}{' '}
+                      <Menu.Item
+                        key={'logout'}
+                        className='w-max flex justify-center ml-3 mt-2'>
+                        <Button
+                          onClick={logout}
+                          className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                          Logout
+                        </Button>
+                      </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>

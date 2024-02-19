@@ -397,7 +397,7 @@ export default function PersonalSettingsPage() {
                   <Menu.Button className='-m-1.5 flex items-center p-1.5'>
                     <span className='sr-only'>Open user menu</span>
                     <UserCircleIcon
-                      className='h-12 w-12 text-gray-300'
+                      className='h-10 w-10 text-gray-300'
                       aria-hidden='true'
                     />
                     <span className='hidden lg:flex lg:items-center'>
