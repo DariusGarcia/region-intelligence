@@ -20,6 +20,7 @@ import {
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
 import Avatar from './avatar'
+import { Button } from 'antd'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -215,17 +216,17 @@ export default function Navbar() {
         <div className='hidden lg:flex lg:flex-1 lg:justify-end '>
           {user ? (
             // <Avatar name={avatarName} />
-            <button
-              className='text-black bg-white rounded-full border  font-semibold border-white p-1 px-2 hover:bg-gray-200 shadow-xl transition ease-out'
+            <Button
+              className='text-black bg-white rounded-sm border font-semibold border-white p-1 px-4 shadow-xl hover:shadow-none transition ease-out'
               onClick={logout}>
               Logout
-            </button>
+            </Button>
           ) : (
-            <a
-              href='/login'
-              className='text-sm font-semibold leading-6  text-black hover:text-gray-300 transition ease-out bg-white p-2 rounded-full px-6'>
-              Log in <span aria-hidden='true'>&rarr;</span>
-            </a>
+            <Button className='text-sm font-semibold leading-6 flex items-center justify-center text-black transition ease-out bg-white p-2 hover:shadow-none rounded-sm px-6'>
+              <a href='/login'>
+                Log in <span aria-hidden='true'>&rarr;</span>
+              </a>
+            </Button>
           )}
         </div>
       </nav>

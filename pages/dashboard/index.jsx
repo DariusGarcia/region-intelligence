@@ -57,15 +57,20 @@ export default function DashboardHomePage() {
   const [error, setError] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  async function logout() {
+    const { error } = await supabase.auth.signOut()
+    if (error) console.log('Error logging out:', error.message)
+  }
+
   // check if user is logged in
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     if (!session) {
-  //       Router.push('/login')
-  //     }
-  //   }, 100)
-  //   return () => clearTimeout(timeout)
-  // }, [session])
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!session) {
+        Router.push('/login')
+      }
+    }, 100)
+    return () => clearTimeout(timeout)
+  }, [session])
 
   // fetch user info
   useEffect(() => {
@@ -520,6 +525,15 @@ export default function DashboardHomePage() {
                           )}
                         </Menu.Item>
                       ))}
+                      <Menu.Item
+                        key={'logout'}
+                        className='w-max flex justify-center ml-3 mt-2'>
+                        <Button
+                          onClick={logout}
+                          className='block px-3 py-1 text-sm leading-6 text-gray-900'>
+                          Logout
+                        </Button>
+                      </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -733,10 +747,7 @@ const teams = [
   { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
   { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
 ]
-const userNavigation = [
-  { name: 'Your profile', href: '/profile' },
-  { name: 'Sign out', href: '#' },
-]
+const userNavigation = [{ name: 'Your profile', href: '/profile' }]
 
 const discover = [
   {
