@@ -38,6 +38,7 @@ import { IoMdPeople } from 'react-icons/io'
 import { LineAxisOutlined } from '@mui/icons-material'
 import { HiOutlineClock } from 'react-icons/hi'
 import DashboardLayout from '@/components/layouts/dashboardLayout'
+import { VscGraphLine } from 'react-icons/vsc'
 
 export default function DashboardHomePage() {
   const session = useSession()
@@ -617,7 +618,7 @@ const dashboardText = [
     title: 'Personal Settings',
     linkText: 'Read More',
     link1: '/#',
-    icon: LineAxisOutlined,
+    icon: VscGraphLine,
     style: 'text-green-600 bg-green-200',
   },
   {

@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-
+import React, { useState, useRef } from 'react'
 import { Dropdown, Space, Pagination, Table, Button, Carousel } from 'antd'
 import Image from 'next/image'
 import { PaperClipIcon } from '@heroicons/react/20/solid'
@@ -13,6 +12,11 @@ export default function CurrentPlanningDevelopmentsList() {
   const [currentPage, setCurrentPage] = useState(1)
   const [expandedRowKey, setExpandedRowKey] = useState(null)
 
+  const checkbox = useRef()
+  const [checked, setChecked] = useState(false)
+  const [indeterminate, setIndeterminate] = useState(false)
+  const [selectedProjects, setSelectedProjects] = useState([])
+
   const indexOfLastItem = currentPage * pageSize
   const indexOfFirstItem = indexOfLastItem - pageSize
   const currentItems = currentPlanningDevelopments.slice(
@@ -20,6 +24,7 @@ export default function CurrentPlanningDevelopmentsList() {
     indexOfLastItem
   )
 
+  console.log('checked:', selectedProjects)
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
@@ -27,6 +32,33 @@ export default function CurrentPlanningDevelopmentsList() {
   const totalItems = currentPlanningDevelopments.length
 
   const columns = [
+    {
+      title: (
+        <input
+          type='checkbox'
+          checked={checked}
+          ref={checkbox}
+          indeterminate={indeterminate}
+          onChange={toggleAll}
+        />
+      ),
+      dataIndex: 'name',
+      key: 'name',
+      render: (text, record) => (
+        <input
+          type='checkbox'
+          value={record.email}
+          checked={selectedProjects.includes(record)}
+          onChange={(e) =>
+            setSelectedProjects(
+              e.target.checked
+                ? [...selectedProjects, record]
+                : selectedProjects.filter((p) => p !== record)
+            )
+          }
+        />
+      ),
+    },
     {
       title: 'APN(s)',
       dataIndex: 'name',
@@ -75,6 +107,15 @@ export default function CurrentPlanningDevelopmentsList() {
     },
     Table.EXPAND_COLUMN,
   ]
+
+  // Function to handle selecting all items
+  function toggleAll() {
+    setSelectedProjects(
+      checked || indeterminate ? [] : currentPlanningDevelopments
+    )
+    setChecked(!checked && !indeterminate)
+    setIndeterminate(false)
+  }
 
   // "view details" expanded row content
   const expandableRowRender = (record) => {
@@ -135,7 +176,7 @@ export default function CurrentPlanningDevelopmentsList() {
         {/* TODO: make the total results accurate */}
         <div className='md:mr-8 flex m-auto md:m-0 md:block'>
           <p className='mt-2 text-sm text-gray-500 font-semibold'>
-            230 Results
+            {currentPlanningDevelopments.length} Results
           </p>
         </div>
       </section>
