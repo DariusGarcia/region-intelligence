@@ -100,6 +100,12 @@ const links = [
     icon: HomeIcon,
   },
   {
+    name: 'Dashboard',
+    href: '/dashboard',
+    description: 'Check out our dashboard for all recent city projects.',
+    icon: MapIcon,
+  },
+  {
     name: 'Map View',
     href: '/current-planning-developments/map-view',
     description:
