@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -10,15 +11,20 @@ export default function Footer() {
           Footer
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
-          <Link
-            href='/'
-            className='h-7 text-xl font-bold hover:underline leading-6 text-blue-600 hover:text-blue-500 transition ease-out'
-            alt='Company name'>
-            Region Intelligence{' '}
-            <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
-              Beta
-            </span>
-          </Link>
+          <div className='flex flex-row gap-2'>
+            <div className='w-8'>
+              <Image src='/logo.png' width={50} height={50} />
+            </div>
+            <Link
+              href='/'
+              className='h-7 text-xl font-bold hover:underline leading-6 hover:text-blue-500 transition ease-out'
+              alt='Company name'>
+              Region Intelligence{' '}
+              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
+                Beta
+              </span>
+            </Link>
+          </div>
 
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
@@ -106,7 +112,7 @@ const footerNavigation = {
     { name: 'Product Overview', href: '/products' },
     { name: 'Demo', href: '/demo' },
     { name: 'Deep Dive', href: '/products' },
-    { name: 'My Profile', href: '/profile' },
+    { name: 'My Profile', href: '/dashboard/personal-settings' },
     // { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
