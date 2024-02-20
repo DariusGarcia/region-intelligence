@@ -261,7 +261,7 @@ export default function PersonalSettingsPage() {
           <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
             <Link
               href='/'
-              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
+              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>
               <div className='w-8 mr-2'>
                 <Image src='/logo.png' width={50} height={50} />
               </div>

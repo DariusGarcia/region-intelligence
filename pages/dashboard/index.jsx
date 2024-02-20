@@ -236,37 +236,7 @@ export default function DashboardHomePage() {
                             </li>
                           </ul>
                         </li>
-                        <li>
-                          {/* TEAMS SECTION NAV BAR MOBILE */}
-                          {/* <div className='text-xs font-semibold leading-6 text-gray-400'>
-                            Your teams
-                          </div>
-                          <ul role='list' className='-mx-2 mt-2 space-y-1'>
-                            {teams.map((team) => (
-                              <li key={team.name}>
-                                <a
-                                  href={team.href}
-                                  className={classNames(
-                                    team.current
-                                      ? 'bg-gray-50 text-blue-600'
-                                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
-                                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                                  )}>
-                                  <span
-                                    className={classNames(
-                                      team.current
-                                        ? 'text-blue-600 border-blue-600'
-                                        : 'text-gray-400 border-gray-200 group-hover:border-blue-600 group-hover:text-blue-600',
-                                      'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                                    )}>
-                                    {team.initial}
-                                  </span>
-                                  <span className='truncate'>{team.name}</span>
-                                </a>
-                              </li>
-                            ))}
-                          </ul> */}
-                        </li>
+                        <li></li>
                         <li className='mt-auto'>
                           <a
                             href='#'
@@ -293,7 +263,7 @@ export default function DashboardHomePage() {
           <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
             <Link
               href='/'
-              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-2 '>
+              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>
               <div className='w-8 mr-2'>
                 <Image src='/logo.png' width={50} height={50} />
               </div>
