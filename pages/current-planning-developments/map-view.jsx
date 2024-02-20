@@ -9,7 +9,7 @@ import {
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
-import ErrorPage from '@/archivedPages/error'
+
 import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
 import FeedbackPopup from '@/features/feedbackPopup'
 import FeedBackBanner from '@/components/alerts/FeedBackbanner'
@@ -132,8 +132,6 @@ export default function MapsPage() {
   function handleCitySelection(city) {
     setSelectedCity(city)
   }
-
-  if (error) return <ErrorPage errorMessage={error.message} />
 
   const handleFeedbackRatingChange = (value) => {
     setFeedbackRating(value)
