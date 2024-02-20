@@ -9,7 +9,7 @@ import {
 import CitySelectMenu from '@/components/selectMenus/citySelectMenu'
 import { BounceLoader } from 'react-spinners'
 import DataTable from '@/components/dataTables/dataTable'
-import ErrorPage from '../error'
+import ErrorPage from '@/archivedPages/error'
 import StatusSelectMenu from '@/components/selectMenus/statusSelectMenu'
 import FeedbackPopup from '@/features/feedbackPopup'
 import FeedBackBanner from '@/components/alerts/FeedBackbanner'
