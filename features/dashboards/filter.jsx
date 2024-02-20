@@ -116,7 +116,7 @@ export default function Filter({ projects }) {
             </div>
             <div className='grid auto-rows-min grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-x-6'>
               <fieldset>
-                <legend className='block font-medium'>Size</legend>
+                <legend className='block font-medium'>Date</legend>
                 <div className='space-y-6 pt-6 sm:space-y-4 sm:pt-4'>
                   {filters.date.map((option, optionIdx) => (
                     <div
