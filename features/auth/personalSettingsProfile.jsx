@@ -77,7 +77,7 @@ export default function PersonalSettingsProfile() {
   return (
     <form onSubmit={updateProfile} className='max-w-7xl mb-12'>
       <div className='space-y-12'>
-        <div className='border-b border-gray-900/10 pb-12'>
+        <div className='border-b border-gray-900/10 pb-12 px-2 md:px-0'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             Profile Details
           </h2>
@@ -85,7 +85,7 @@ export default function PersonalSettingsProfile() {
             Enter your profile information
           </p>
 
-          <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+          <div className='mt-10 flex flex-col md:grid md:grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             <div className='sm:col-span-3'>
               <label
                 htmlFor='first-name'
@@ -268,7 +268,7 @@ export default function PersonalSettingsProfile() {
           </div>
         </div>
 
-        <div className='border-b border-gray-900/10 pb-12'>
+        <div className='border-b border-gray-900/10 pb-12 px-2 md:px-0'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             Notifications
           </h2>

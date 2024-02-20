@@ -158,85 +158,98 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className='flex grow flex-col gap-y-5n bg-white px-6 pb-4'>
-                    <div className='flex h-16 shrink-0 items-center'>
-                      <p>Region Intelligence</p>
+                  <div className='flex grow flex-col gap-y-5n bg-white md:px-6 pb-4'>
+                    <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
+                      <Link
+                        href='/'
+                        className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>
+                        <div className='w-8 mr-2'>
+                          <Image src='/logo.png' width={50} height={50} />
+                        </div>
+                        <p className='hover:underline font-semibold'>
+                          Region Intelligence
+                        </p>
+                      </Link>
+                      <nav className='flex flex-1 flex-col pl-6'>
+                        <ul
+                          role='list'
+                          className='flex flex-1 flex-col gap-y-7'>
+                          <li>
+                            <ul role='list' className='-mx-2 space-y-1'>
+                              {navItems.mainLinks.map((item) => (
+                                <li key={item.id}>
+                                  <Link
+                                    href={item.href}
+                                    className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                                      item.active
+                                        ? 'bg-blue-600 text-white '
+                                        : 'hover:text-blue-600 hover:bg-gray-50'
+                                    }`}>
+                                    {item.icon && (
+                                      <item.icon
+                                        aria-hidden='true'
+                                        className='w-6 h-6'
+                                      />
+                                    )}
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                              <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                                Other Information
+                              </p>
+                              {navItems.subLinks1.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                                      item.active
+                                        ? 'bg-blue-600 text-white '
+                                        : 'hover:text-blue-600 hover:bg-gray-50'
+                                    }`}>
+                                    <item.icon
+                                      className={classNames(
+                                        item.current
+                                          ? 'text-blue-600'
+                                          : 'text-gray-400 group-hover:text-blue-600',
+                                        'h-6 w-6 shrink-0'
+                                      )}
+                                      aria-hidden='true'
+                                    />
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                              <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                                Settings
+                              </p>
+                              {navItems.subLinks2.map((item) => (
+                                <li key={item.name}>
+                                  <Link
+                                    href={item.href}
+                                    className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                                      item.active
+                                        ? 'bg-blue-600 text-white '
+                                        : 'hover:text-blue-600 hover:bg-gray-50'
+                                    }`}>
+                                    <item.icon
+                                      className={classNames(
+                                        item.current
+                                          ? 'text-blue-600'
+                                          : 'text-gray-400 group-hover:text-blue-600',
+                                        'h-6 w-6 shrink-0'
+                                      )}
+                                      aria-hidden='true'
+                                    />
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        </ul>
+                      </nav>
                     </div>
-                    <nav className='flex flex-1 flex-col'>
-                      <ul role='list' className='flex flex-1 flex-col gap-y-7'>
-                        <li>
-                          <ul role='list' className='-mx-2 space-y-1'>
-                            <>
-                              <li key={'home'}>
-                                <a
-                                  href={'/dashboard'}
-                                  className={
-                                    'text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                                  }>
-                                  <HomeIcon
-                                    aria-hidden='true'
-                                    className='w-6 h-6'
-                                  />
-                                  Home
-                                </a>
-                              </li>
-                              <li>
-                                <Dropdown
-                                  menu={{
-                                    items: navDashboardsItems,
-                                    style: { textAlign: 'center' },
-                                  }}
-                                  trigger={['click']}>
-                                  <a
-                                    onClick={(e) => e.preventDefault()}
-                                    className='text-gray-700 cursor-pointer hover:text-blue-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'>
-                                    <Space>
-                                      <span>
-                                        <UsersIcon className='w-6' />
-                                      </span>{' '}
-                                      Dashboards
-                                      <DownOutlined />
-                                    </Space>
-                                  </a>
-                                </Dropdown>
-                              </li>
-                              <li>
-                                <Dropdown
-                                  menu={{
-                                    items: navHousingElementsItems,
-                                    style: { textAlign: 'center' },
-                                  }}
-                                  trigger={['click']}>
-                                  <a
-                                    onClick={(e) => e.preventDefault()}
-                                    className='bg-gray-50 text-blue-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold cursor-pointer '>
-                                    <Space>
-                                      <span>
-                                        <HomeModernIcon className='w-6' />
-                                      </span>{' '}
-                                      Housing Element
-                                      <DownOutlined />
-                                    </Space>
-                                  </a>
-                                </Dropdown>
-                              </li>
-                            </>
-                          </ul>
-                        </li>
-                        <li></li>
-                        <li className='mt-auto'>
-                          <a
-                            href='#'
-                            className='group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-blue-600'>
-                            <Cog6ToothIcon
-                              className='h-6 w-6 shrink-0 text-gray-400 group-hover:text-blue-600'
-                              aria-hidden='true'
-                            />
-                            Settings
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
