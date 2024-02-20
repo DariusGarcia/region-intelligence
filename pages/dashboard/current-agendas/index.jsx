@@ -98,7 +98,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
   return (
     <>
       <Head>
-        <title>RI Dashboard - Current Planning Developments</title>
+        <title>RI Dashboard - Current Agendas</title>
         <meta
           name='description'
           content=' No more navigating through complex research. With Region Intelligence,

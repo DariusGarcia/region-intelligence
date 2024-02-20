@@ -77,11 +77,11 @@ export default function SignupPage() {
 
   async function handleSignUp(e) {
     e.preventDefault()
-    setShowPrivacyPolicyAlert(true)
+    // setShowPrivacyPolicyAlert(true)
 
-    if (!privacyPolicy) {
-      return
-    }
+    // if (!privacyPolicy) {
+    //   return
+    // }
 
     if (password !== confirmPassword) {
       setError('Passwords do not match')
@@ -107,7 +107,7 @@ export default function SignupPage() {
           // city: city,
           // found_us: foundUs,
           // communication_method: communicationMethod,
-          privacy_policy: privacyPolicy,
+          // privacy_policy: privacyPolicy,
         },
       },
     })
@@ -128,7 +128,7 @@ export default function SignupPage() {
         <title>Region Intelligence - Signup</title>
       </Head>
       <div className='flex min-h-full flex-1 flex-col justify-center px-6 mt-4 md:py-12 lg:px-8 '>
-        <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} />
+        {/* <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} /> */}
         {success && (
           <SuccessNotification message='Account created successfully' />
         )}
