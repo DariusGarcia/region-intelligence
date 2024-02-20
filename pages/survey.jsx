@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { Button } from 'antd'
 import Steps from '@/features/survey/steps'
-import { CheckIcon } from '@heroicons/react/20/solid'
+import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import states from '@/features/survey/statesList'
 import { Checkbox } from 'antd'
 import { RadioGroup } from '@headlessui/react'
@@ -482,6 +482,22 @@ export default function SurveyPage() {
                               {feature}
                             </li>
                           ))}
+                          {tier.unavailableFeatures.map((feature) => (
+                            <li key={feature} className='flex gap-x-3'>
+                              {feature && (
+                                <XMarkIcon
+                                  className={classNames(
+                                    tier.featured
+                                      ? 'text-white'
+                                      : 'text-blue-600',
+                                    'h-6 w-5 flex-none'
+                                  )}
+                                  aria-hidden='true'
+                                />
+                              )}
+                              {feature}
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </>
@@ -517,7 +533,7 @@ const tiers = [
       '4 Monthly Reports',
       'Demographics Insights',
     ],
-    unavailableFeatures: ['Free Domain', 'Free Domain'],
+    unavailableFeatures: ['Live Land Pricing', 'Live Notifications'],
     featured: false,
     cta: 'Start now',
   },
@@ -535,6 +551,7 @@ const tiers = [
       'Live Land Pricing',
       'Live Notifications',
     ],
+    unavailableFeatures: [null],
     featured: true,
     cta: 'Start now',
   },
