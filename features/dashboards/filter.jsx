@@ -1,49 +1,37 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, FunnelIcon } from '@heroicons/react/20/solid'
 
-const filters = {
-  price: [
-    { value: '0', label: '$0 - $25', checked: false },
-    { value: '25', label: '$25 - $50', checked: false },
-    { value: '50', label: '$50 - $75', checked: false },
-    { value: '75', label: '$75+', checked: false },
-  ],
-  color: [
-    { value: 'white', label: 'White', checked: false },
-    { value: 'beige', label: 'Beige', checked: false },
-    { value: 'blue', label: 'Blue', checked: true },
-    { value: 'brown', label: 'Brown', checked: false },
-    { value: 'green', label: 'Green', checked: false },
-    { value: 'purple', label: 'Purple', checked: false },
-  ],
-  size: [
-    { value: 'xs', label: 'XS', checked: false },
-    { value: 's', label: 'S', checked: true },
-    { value: 'm', label: 'M', checked: false },
-    { value: 'l', label: 'L', checked: false },
-    { value: 'xl', label: 'XL', checked: false },
-    { value: '2xl', label: '2XL', checked: false },
-  ],
-  category: [
-    { value: 'all-new-arrivals', label: 'All New Arrivals', checked: false },
-    { value: 'tees', label: 'Tees', checked: false },
-    { value: 'objects', label: 'Objects', checked: false },
-    { value: 'sweatshirts', label: 'Sweatshirts', checked: false },
-    { value: 'pants-and-shorts', label: 'Pants & Shorts', checked: false },
-  ],
-}
-const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-]
+export default function Filter({ projects }) {
+  const [selectedFiltersCount, setSelectedFiltersCount] = useState(0)
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+  // Count the number of selected filters whenever projects or filters change
+  useEffect(() => {
+    let count = 0
+    Object.values(filters).forEach((filterGroup) => {
+      count += filterGroup.filter((filter) => filter.checked).length
+    })
+    setSelectedFiltersCount(count)
+  }, [projects, filters])
 
-export default function Filter() {
+  const uniqueCities = Array.from(
+    new Set(projects.map((project) => project.city))
+  )
+
+  uniqueCities.sort()
+
+  // Function to clear all selected filters
+  const clearAllFilters = () => {
+    const clearedFilters = { ...filters }
+    Object.keys(clearedFilters).forEach((key) => {
+      clearedFilters[key] = clearedFilters[key].map((filter) => ({
+        ...filter,
+        checked: false,
+      }))
+    })
+    setSelectedFiltersCount(0)
+  }
+
   return (
     <div className='bg-white rounded-md'>
       {/* Filters */}
@@ -62,11 +50,14 @@ export default function Filter() {
                   className='mr-2 h-5 w-5 flex-none text-gray-400 group-hover:text-gray-500'
                   aria-hidden='true'
                 />
-                2 Filters
+                {selectedFiltersCount} Filters
               </Disclosure.Button>
             </div>
             <div className='pl-6'>
-              <button type='button' className='text-gray-500'>
+              <button
+                type='button'
+                onClick={clearAllFilters}
+                className='text-gray-500'>
                 Clear all
               </button>
             </div>
@@ -78,31 +69,30 @@ export default function Filter() {
               <fieldset>
                 <legend className='block font-medium'>Cities</legend>
                 <div className='space-y-6 pt-6 sm:space-y-4 sm:pt-4'>
-                  {filters.price.map((option, optionIdx) => (
+                  {uniqueCities.map((option, optionIdx) => (
                     <div
                       key={option.value}
                       className='flex items-center text-base sm:text-sm'>
                       <input
                         id={`price-${optionIdx}`}
                         name='price[]'
-                        defaultValue={option.value}
+                        defaultValue={option}
                         type='checkbox'
                         className='h-4 w-4 flex-shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500'
-                        defaultChecked={option.checked}
                       />
                       <label
                         htmlFor={`price-${optionIdx}`}
                         className='ml-3 min-w-0 flex-1 text-gray-600'>
-                        {option.label}
+                        {option}
                       </label>
                     </div>
                   ))}
                 </div>
               </fieldset>
               <fieldset>
-                <legend className='block font-medium'>Color</legend>
+                <legend className='block font-medium'>Project Type</legend>
                 <div className='space-y-6 pt-6 sm:space-y-4 sm:pt-4'>
-                  {filters.color.map((option, optionIdx) => (
+                  {filters.projectType.map((option, optionIdx) => (
                     <div
                       key={option.value}
                       className='flex items-center text-base sm:text-sm'>
@@ -128,7 +118,7 @@ export default function Filter() {
               <fieldset>
                 <legend className='block font-medium'>Size</legend>
                 <div className='space-y-6 pt-6 sm:space-y-4 sm:pt-4'>
-                  {filters.size.map((option, optionIdx) => (
+                  {filters.date.map((option, optionIdx) => (
                     <div
                       key={option.value}
                       className='flex items-center text-base sm:text-sm'>
@@ -142,30 +132,6 @@ export default function Filter() {
                       />
                       <label
                         htmlFor={`size-${optionIdx}`}
-                        className='ml-3 min-w-0 flex-1 text-gray-600'>
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend className='block font-medium'>Category</legend>
-                <div className='space-y-6 pt-6 sm:space-y-4 sm:pt-4'>
-                  {filters.category.map((option, optionIdx) => (
-                    <div
-                      key={option.value}
-                      className='flex items-center text-base sm:text-sm'>
-                      <input
-                        id={`category-${optionIdx}`}
-                        name='category[]'
-                        defaultValue={option.value}
-                        type='checkbox'
-                        className='h-4 w-4 flex-shrink-0 rounded border-gray-300 text-blue-600 focus:ring-blue-500'
-                        defaultChecked={option.checked}
-                      />
-                      <label
-                        htmlFor={`category-${optionIdx}`}
                         className='ml-3 min-w-0 flex-1 text-gray-600'>
                         {option.label}
                       </label>
@@ -225,4 +191,24 @@ export default function Filter() {
       </Disclosure>
     </div>
   )
+}
+
+const filters = {
+  projectType: [
+    { value: 'residential', label: 'Residential', checked: false },
+    { value: 'commercial', label: 'Commercial', checked: false },
+    { value: 'rezoning', label: 'Rezoning', checked: false },
+  ],
+  date: [
+    { value: 'ascending', label: 'Ascending', checked: false },
+    { value: 'descending', label: 'Descending', checked: false },
+  ],
+}
+const sortOptions = [
+  { name: 'Newest', href: '#', current: true },
+  { name: 'Best Rating', href: '#', current: false },
+]
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
 }

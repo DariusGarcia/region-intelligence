@@ -126,7 +126,7 @@ export default function CurrentPlanningDevelopmentsList() {
       <div className='flex flex-row items-start justify-between sm:items-center'>
         <div className='sm:mt-0 sm:flex-none w-full'>
           {/* <FilterMenu projects={currentPlanningDevelopments} /> */}
-          <Filter />
+          <Filter projects={currentPlanningDevelopments} />
         </div>
       </div>
       <div className='table-container overflow-x-auto'>
