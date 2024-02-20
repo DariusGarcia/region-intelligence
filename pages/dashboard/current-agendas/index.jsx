@@ -628,7 +628,7 @@ DashboardHousingCurrentPlanningDevelopmentsPage.getLayout = function getLayout(
 }
 
 const userNavigation = [
-  { name: 'Your profile', href: '/profile' },
+  { name: 'Your profile', href: '/dashboard/personal-settings' },
   { name: 'Sign out', href: '#' },
 ]
 

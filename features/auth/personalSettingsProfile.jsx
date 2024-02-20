@@ -3,6 +3,7 @@ import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import SuccessNotification from '../../components/notifications/successNotification'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import { Button } from 'antd'
 
 export default function PersonalSettingsProfile() {
   const supabase = useSupabaseClient()
@@ -74,7 +75,7 @@ export default function PersonalSettingsProfile() {
     setLoading(false)
   }
   return (
-    <form onSubmit={updateProfile} className='max-w-7xl'>
+    <form onSubmit={updateProfile} className='max-w-7xl mb-12'>
       <div className='space-y-12'>
         <div className='border-b border-gray-900/10 pb-12'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
@@ -379,16 +380,17 @@ export default function PersonalSettingsProfile() {
       </div>
 
       <div className='mt-6 flex items-center justify-end gap-x-6'>
-        <button
+        <Button
+          secondary
           type='button'
-          className='text-sm font-semibold leading-6 text-gray-900'>
+          className='text-sm font-semibold leading-6 text-gray-900 '>
           <Link href='/dashboard'>Cancel</Link>
-        </button>
-        <button
+        </Button>
+        <Button
           type='submit'
-          className='rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600'>
+          className='bg-blue-600 text-white w-36 hover:bg-blue-500'>
           Save
-        </button>
+        </Button>
       </div>
     </form>
   )

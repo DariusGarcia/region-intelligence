@@ -582,7 +582,7 @@ export default function DashboardLandUse() {
 }
 
 const userNavigation = [
-  { name: 'Your profile', href: '#' },
+  { name: 'Your profile', href: '/dashboard/personal-settings' },
   { name: 'Sign out', href: '#' },
 ]
 
