@@ -85,7 +85,7 @@ export default function PersonalSettingsProfile() {
             Enter your profile information
           </p>
 
-          <div className='mt-10 flex flex-col md:grid md:grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+          <div className='mt-10 flex flex-col md:grid  gap-x-6 gap-y-8 md:grid-cols-6'>
             <div className='sm:col-span-3'>
               <label
                 htmlFor='first-name'
