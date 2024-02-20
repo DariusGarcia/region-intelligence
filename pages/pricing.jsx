@@ -467,7 +467,7 @@ const pricing = {
     {
       name: 'Starter',
       id: 'tier-starter',
-      href: '/current-planning-developments/map-view',
+      href: '#',
       featured: false,
       description: 'All your essential business finances, taken care of.',
       price: { monthly: 'Free', annually: 'Free' },

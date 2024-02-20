@@ -6,6 +6,7 @@ import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import states from '@/features/survey/statesList'
 import { Checkbox } from 'antd'
 import { RadioGroup } from '@headlessui/react'
+import Link from 'next/link'
 
 export default function SurveyPage() {
   const [currentStep, setCurrentStep] = useState(0)
@@ -230,11 +231,18 @@ export default function SurveyPage() {
                   ))}
                 </select>
               </div>
-              <Button
-                onClick={handleNextStep}
-                className='h-12 bg-blue-600 text-white'>
-                Next
-              </Button>
+              <div className='flex flex-row justify-between'>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36  text-blue-600'>
+                  Skip
+                </Button>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36 bg-blue-600 text-white'>
+                  Next
+                </Button>
+              </div>
             </form>
             <section className='mt-12 md:mt-0'>
               <Image
@@ -292,11 +300,18 @@ export default function SurveyPage() {
                   placeholder='Real Estate Development '
                 />
               </div>
-              <Button
-                onClick={handleNextStep}
-                className='h-12 bg-blue-600 text-white'>
-                Next
-              </Button>
+              <div className='flex flex-row justify-between'>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36  text-blue-600'>
+                  Skip
+                </Button>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36 bg-blue-600 text-white'>
+                  Next
+                </Button>
+              </div>
             </form>
             <section className='mt-12 md:mt-0'>
               <Image
@@ -350,11 +365,18 @@ export default function SurveyPage() {
               />
               <br />
               <br />
-              <Button
-                onClick={handleNextStep}
-                className='h-12 w-full mt-12 bg-blue-600 text-white'>
-                Next
-              </Button>
+              <div className='flex flex-row justify-between'>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36  text-blue-600'>
+                  Skip
+                </Button>
+                <Button
+                  onClick={handleNextStep}
+                  className='h-12 w-36 bg-blue-600 text-white'>
+                  Next
+                </Button>
+              </div>
             </div>
             <section className='mt-12 md:mt-0'>
               <Image
@@ -502,6 +524,13 @@ export default function SurveyPage() {
                       </div>
                     </>
                   ))}
+                </div>
+                <div className='flex flex-row justify-end w-full mt-12'>
+                  <Button
+                    onClick={handleNextStep}
+                    className='h-12 w-36 bg-blue-600 text-white'>
+                    <Link href='/dashboard'>Finish</Link>
+                  </Button>
                 </div>
               </div>
             </div>
