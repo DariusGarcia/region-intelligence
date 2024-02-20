@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, FunnelIcon } from '@heroicons/react/20/solid'
 
-export default function Filter({ projects }) {
+export default function FilterMenu({ projects }) {
   const [selectedFiltersCount, setSelectedFiltersCount] = useState(0)
 
   // Count the number of selected filters whenever projects or filters change

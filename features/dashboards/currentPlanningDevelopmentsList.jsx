@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react'
-import { Dropdown, Space, Pagination, Table, Button, Carousel } from 'antd'
-import Image from 'next/image'
-import { PaperClipIcon } from '@heroicons/react/20/solid'
+import { Space, Pagination, Table, Button, Carousel } from 'antd'
 import ExpandableRow from './expandableRow'
-import FilterMenu from './filterMenu'
-import Filter from './filter'
+import FilterMenu from './tableFilterMenu'
 
 const pageSize = 8
 
@@ -24,7 +21,6 @@ export default function CurrentPlanningDevelopmentsList() {
     indexOfLastItem
   )
 
-  console.log('checked:', selectedProjects)
   const handlePageChange = (page) => {
     setCurrentPage(page)
   }
@@ -126,7 +122,7 @@ export default function CurrentPlanningDevelopmentsList() {
       <div className='flex flex-row items-start justify-between sm:items-center'>
         <div className='sm:mt-0 sm:flex-none w-full'>
           {/* <FilterMenu projects={currentPlanningDevelopments} /> */}
-          <Filter projects={currentPlanningDevelopments} />
+          <FilterMenu projects={currentPlanningDevelopments} />
         </div>
       </div>
       <div className='table-container overflow-x-auto'>
@@ -669,24 +665,5 @@ const currentPlanningDevelopments = [
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-]
-
-// Filter Projects dropdown menu items
-const items = [
-  {
-    key: '0',
-    label: <a href='#'>1st menu item</a>,
-  },
-  {
-    key: '1',
-    label: <a href='#'>2nd menu item</a>,
-  },
-  {
-    key: '3',
-    type: 'divider',
-  },
-  {
-    label: '3rd menu item',
   },
 ]
