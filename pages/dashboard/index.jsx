@@ -5,7 +5,7 @@ import { Dialog, Menu, Transition } from '@headlessui/react'
 import Stats from '@/features/dashboards/home/stats'
 import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
 import DashboardLayout from '@/components/layouts/dashboardLayout'
-import { Button, Carousel } from 'antd'
+import { Button, Carousel, Spin } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { Dropdown, Space } from 'antd'
 import {
@@ -57,7 +57,6 @@ export default function DashboardHomePage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
   async function logout() {
     const { error } = await supabase.auth.signOut()
     if (error) console.log('Error logging out:', error.message)
@@ -106,6 +105,10 @@ export default function DashboardHomePage() {
       images: 'fasdfasdfa',
     },
   ]
+
+  const handleClick = (index) => {
+    setLoading(index) // Set loading state to true when link is clicked
+  }
 
   return (
     <>
@@ -595,7 +598,7 @@ export default function DashboardHomePage() {
                     )}
                   </article>
                   <section className='md:w-full flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
-                    {dashboardText.map((item) => (
+                    {dashboardText.map((item, index) => (
                       <article
                         key={item.id}
                         className='flex flex-row items-center gap-8 bg-white p-2 rounded-md shadow-md hover:shadow-none transition ease-out cursor-pointer'>
@@ -603,12 +606,23 @@ export default function DashboardHomePage() {
                           className={`flex items-center justify-center w-16 h-16 rounded-lg ${item.style}`}>
                           <item.icon size={40} />
                         </div>
-                        <div className=''>
-                          <p className='text-md font-semibold'>{item.title}</p>
-                          <p className='text-sm'>
-                            {item.description} <ArrowRightAltOutlined />
-                          </p>
-                        </div>
+                        {loading === index ? ( // Display loading spinner only for the item with the matching index
+                          <Spin />
+                        ) : (
+                          <Link
+                            href={`${item.href}`}
+                            className=''
+                            onClick={() => handleClick(index)}>
+                            {' '}
+                            {/* Pass index to handleClick */}
+                            <p className='text-md font-semibold'>
+                              {item.title}
+                            </p>
+                            <p className='text-sm'>
+                              {item.description} <ArrowRightAltOutlined />
+                            </p>
+                          </Link>
+                        )}
                       </article>
                     ))}
                   </section>
@@ -636,20 +650,23 @@ const dashboardText = [
     description: 'Personal Settings',
     icon: IoMdPeople,
     style: 'text-blue-600 bg-blue-200',
+    href: '/dashboard/personal-settings',
   },
   {
     id: 2,
     title: 'Latest Land Use Trends',
-    description: 'Personal Settings',
+    description: 'View recent land use data',
     icon: VscGraphLine,
     style: 'text-green-600 bg-green-200',
+    href: '/dashboard/land-use',
   },
   {
     id: 3,
     title: 'Recent Project Updates',
-    description: 'Personal Settings',
+    description: 'Up to date project information',
     icon: HiOutlineClock,
     style: 'text-red-600 bg-red-200',
+    href: '/dashboard',
   },
 ]
 const navItems = {
