@@ -217,7 +217,7 @@ export default function Navbar() {
           {user ? (
             // <Avatar name={avatarName} />
             <Button
-              className='text-black bg-white rounded-sm border font-semibold border-white p-1 px-4 shadow-xl hover:shadow-none transition ease-out'
+              className='text-sm font-semibold leading-6 flex items-center justify-center text-black transition ease-out bg-white p-2 hover:shadow-none rounded-sm px-6'
               onClick={logout}>
               Logout
             </Button>
