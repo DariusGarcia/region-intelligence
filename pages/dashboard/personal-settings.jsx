@@ -346,8 +346,8 @@ export default function PersonalSettingsPage() {
                             className={classNames(
                               item.current
                                 ? 'text-blue-600'
-                                : 'text-gray-400 group-hover:text-blue-600',
-                              'h-6 w-6 shrink-0'
+                                : 'text-gray-400 group-hover:text-blue-600 ',
+                              'h-6 w-6 shrink-0 '
                             )}
                             aria-hidden='true'
                           />

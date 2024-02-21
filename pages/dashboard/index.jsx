@@ -47,6 +47,7 @@ import {
 import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import { VscGraphLine } from 'react-icons/vsc'
 import { UserCircleIcon } from '@heroicons/react/24/solid'
+import ImageCarousel from '@/components/imageCarousel'
 
 export default function DashboardHomePage() {
   const session = useSession()
@@ -543,44 +544,9 @@ export default function DashboardHomePage() {
                 </h1>
                 {/* First row */}
                 <div className='flex flex-col gap-8 md:gap-16 md:flex-row '>
-                  <article className='sm:w-[30rem] xl:w-[36rem] border-2 p-4 rounded-md md:p-8 bg-white'>
-                    {' '}
-                    {articlesContent[0]?.images && (
-                      <Carousel dotPosition={'bottom'} autoplay>
-                        <div>
-                          <Image
-                            width={800}
-                            height={400}
-                            src='/landingHeader/home.jpg'
-                            className='rounded-md'
-                          />
-                        </div>
-                        <div>
-                          <Image
-                            width={800}
-                            height={400}
-                            src='/landingHeader/home.jpg'
-                            className='rounded-md'
-                          />
-                        </div>
-                        <div>
-                          <Image
-                            width={800}
-                            height={400}
-                            src='/landingHeader/home.jpg'
-                            className='rounded-md'
-                          />
-                        </div>
-                        <div>
-                          <Image
-                            width={800}
-                            height={400}
-                            src='/landingHeader/home.jpg'
-                            className='rounded-md shadow-lg'
-                          />
-                        </div>
-                      </Carousel>
-                    )}
+                  {/* IMAGE CAROUSEL COMPONENT */}
+                  <article className='sm:w-[30rem] xl:w-[36rem] border-2 rounded-md bg-white'>
+                    {articlesContent[0]?.images && <ImageCarousel />}
                   </article>
                   <section className='md:w-full flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
                     {dashboardText.map((item, index) => (

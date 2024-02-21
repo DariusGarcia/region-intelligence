@@ -78,7 +78,10 @@ export default function LoginPage() {
           />
         </div>
         <div className='flex min-h-full max-w-lg flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
-          <div className='sm:mx-auto sm:w-full'>
+          <div className='sm:mx-auto sm:w-full flex items-center flex-col'>
+            <div className='w-10 mb-8'>
+              <Image src='/logo.png' alt='logo' width={200} height={200} />
+            </div>
             <h1 className='font-bold text-center text-3xl'>Sign In</h1>
             <p className='mt-2 text-center text-lg leading-9 tracking-tight text-gray-900'>
               New to our product?{' '}

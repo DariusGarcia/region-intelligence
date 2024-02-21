@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Space, Pagination, Table, Button, Carousel } from 'antd'
+import { Space, Pagination, Table, Button, Carousel, Tag } from 'antd'
 import ExpandableRow from './expandableRow'
 import FilterMenu from './tableFilterMenu'
 
@@ -59,6 +59,21 @@ export default function CurrentPlanningDevelopmentsList() {
       title: 'APN(s)',
       dataIndex: 'name',
       key: 'name',
+      render: (text, record) => (
+        <div className='flex flex-row gap-2'>
+          <p className='w-max'>{text}</p>
+          {record.status === 'New' && (
+            <Tag className='px-3' color='orange'>
+              New
+            </Tag>
+          )}
+          {record.status === 'Update' && (
+            <Tag className='px-3' color='green'>
+              Update
+            </Tag>
+          )}
+        </div>
+      ),
     },
     {
       title: 'Permit',
@@ -189,6 +204,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -200,6 +216,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -211,6 +228,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'Status',
+    status: 'Update',
     recentUpdate: '1/23/24',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -222,6 +240,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -233,6 +252,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'Status',
+    status: 'Update',
     recentUpdate: '1/23/24',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -244,6 +264,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -255,6 +276,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -266,6 +288,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -277,6 +300,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -288,6 +312,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -299,6 +324,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -310,6 +336,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -321,6 +348,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -332,6 +360,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -343,6 +372,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -354,6 +384,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -365,6 +396,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -376,6 +408,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -387,6 +420,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -398,6 +432,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -409,6 +444,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -420,6 +456,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -431,6 +468,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -442,6 +480,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -453,6 +492,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -464,6 +504,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -475,6 +516,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -486,6 +528,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -497,6 +540,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -508,6 +552,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -519,6 +564,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -530,6 +576,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -541,6 +588,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -552,6 +600,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -563,6 +612,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -574,6 +624,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -585,6 +636,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -596,6 +648,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -607,6 +660,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Santa Ana, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -618,6 +672,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Irvine, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -629,6 +684,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -640,6 +696,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Buena Park, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -651,6 +708,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'Cerritos, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -662,6 +720,7 @@ const currentPlanningDevelopments = [
     applicant: 'Tom Anderson',
     city: 'La Mirada, CA',
     role: 'New',
+    status: 'New',
     recentUpdate: '11/16/2023',
     image:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
