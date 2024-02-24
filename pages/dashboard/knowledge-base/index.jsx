@@ -520,12 +520,10 @@ export default function DashboardHomePage() {
                     key={item.id}
                     className='flex flex-col justify-between p-4 rounded-md bg-white w-full'>
                     <div className='flex mb-6 w-full justify-center'>
-                      <item.icon size={90} />
+                      <Image src={item.icon} width={150} height={150} />
                     </div>
                     <div>
-                      <h2 className='font-semibold text-xl mb-4'>
-                        {item.title}
-                      </h2>
+                      <h2 className='font-bold text-xl mb-4'>{item.title}</h2>
                       <ul className='flex flex-col gap-4'>
                         <Link className='hover:underline ' href={item.link1}>
                           {item.linkText}
@@ -595,7 +593,7 @@ const dashboardText = [
     title: 'Getting Started',
     linkText: 'Read More',
     link1: '/#',
-    icon: IoMdPeople,
+    icon: '/pages.png',
     style: 'text-blue-600 bg-blue-200',
   },
   {
@@ -603,7 +601,7 @@ const dashboardText = [
     title: 'Personal Settings',
     linkText: 'Read More',
     link1: '/#',
-    icon: VscGraphLine,
+    icon: '/usersIcon.png',
     style: 'text-green-600 bg-green-200',
   },
   {
@@ -611,7 +609,7 @@ const dashboardText = [
     title: 'Billing',
     linkText: 'Read More',
     link1: '/#',
-    icon: HiOutlineClock,
+    icon: '/creditCardIcon.png',
     style: 'text-red-600 bg-red-200',
   },
   {
@@ -619,7 +617,7 @@ const dashboardText = [
     title: 'FAQ',
     linkText: 'Read More',
     link1: '/#',
-    icon: HiOutlineClock,
+    icon: '/faqIcon.png',
     style: 'text-red-600 bg-red-200',
   },
 ]
