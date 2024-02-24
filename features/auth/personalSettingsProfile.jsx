@@ -98,7 +98,6 @@ export default function PersonalSettingsProfile() {
       alert(error.message)
       displayError()
     } else {
-      setSuccess('Profile updated successfully')
       displaySuccess()
     }
     setLoading(false)
