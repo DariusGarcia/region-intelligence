@@ -5,7 +5,7 @@ import { createClient } from 'next-sanity'
 import groq from 'groq'
 import Cta from '@/components/cta'
 import LandingHeader from '@/components/header/landingHeader'
-import BlogShowCaseContainer from '@/components/blogShowCaseContainer'
+import BlogShowCaseContainer from '@/features/blog/blogShowCaseContainer'
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,

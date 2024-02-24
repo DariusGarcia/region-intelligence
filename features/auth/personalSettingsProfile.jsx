@@ -54,7 +54,7 @@ export default function PersonalSettingsProfile() {
   }, [user])
 
   async function updateProfile(e) {
-    e.preventDefault()
+    // e.preventDefault()
     if (!user) return
     setLoading(true)
 
@@ -64,7 +64,7 @@ export default function PersonalSettingsProfile() {
       first_name,
       phone_number,
       last_name,
-      avatar_url,
+      // avatar_url,
       updated_at: new Date(),
     }
 
@@ -163,13 +163,18 @@ export default function PersonalSettingsProfile() {
               </div>
             </div>
             <div className='col-span-full'>
-              <Avatar
+              {/*
+              ***************************************************
+               TODO: Fix mobile screen width of avatar component 
+               **************************************************
+              */}
+              {/* <Avatar
                 url={avatar_url}
                 size={150}
                 onUpload={(event, url) => {
                   updateProfile(event, url)
                 }}
-              />
+              /> */}
             </div>
             <div className='flex flex-col col-span-6 mb-12 border-t border-gray-900/10 pt-12'>
               <h2 className='text-base font-semibold leading-7 text-gray-900'>

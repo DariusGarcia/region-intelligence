@@ -30,7 +30,7 @@ export default function SurveyPage() {
 
   return (
     <>
-      <div className='overflow-hidden rounded-lg bg-white shadow'>
+      <div className='overflow-hidden rounded-lg bg-white'>
         <div className='flex justify-center mt-12 px-4 py-5 sm:px-6'>
           {/* Step counter */}
           <nav aria-label='Progress'>
