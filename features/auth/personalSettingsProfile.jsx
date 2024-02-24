@@ -3,8 +3,9 @@ import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import SuccessNotification from '../../components/notifications/successNotification'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { Button } from 'antd'
 import Avatar from '@/components/avatar'
+import { Button, message } from 'antd'
+import validatePhoneNumber from '@/utils/validatePhoneNumber'
 
 export default function PersonalSettingsProfile() {
   const supabase = useSupabaseClient()
@@ -21,6 +22,21 @@ export default function PersonalSettingsProfile() {
 
   const [avatar_url, setAvatarUrl] = useState(null)
   const [uploading, setUploading] = useState(false)
+  const [messageApi, contextHolder] = message.useMessage()
+
+  const displaySuccess = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Profile updated successfully',
+    })
+  }
+
+  const displayError = () => {
+    messageApi.open({
+      type: 'error',
+      content: error,
+    })
+  }
 
   useEffect(() => {
     async function loadData() {
@@ -55,6 +71,7 @@ export default function PersonalSettingsProfile() {
 
   async function updateProfile(e) {
     e.preventDefault()
+
     if (!user) return
     setLoading(true)
 
@@ -64,16 +81,26 @@ export default function PersonalSettingsProfile() {
       first_name,
       phone_number,
       last_name,
-      avatar_url,
+      // avatar_url,
       updated_at: new Date(),
+    }
+
+    // Validate phone number
+    if (!validatePhoneNumber(phone_number)) {
+      setError('Invalid phone number')
+      displayError()
+      setLoading(false)
+      return
     }
 
     let { error } = await supabase.from('profiles').upsert(updates)
 
     if (error) {
       alert(error.message)
+      displayError()
     } else {
       setSuccess('Profile updated successfully')
+      displaySuccess()
     }
     setLoading(false)
   }
@@ -162,7 +189,7 @@ export default function PersonalSettingsProfile() {
                 />
               </div>
             </div>
-            <div className='col-span-full'>
+            {/* <div className='col-span-full'>
               <Avatar
                 url={avatar_url}
                 size={150}
@@ -170,7 +197,7 @@ export default function PersonalSettingsProfile() {
                   updateProfile(event, url)
                 }}
               />
-            </div>
+            </div> */}
             <div className='flex flex-col col-span-6 mb-12 border-t border-gray-900/10 pt-12'>
               <h2 className='text-base font-semibold leading-7 text-gray-900'>
                 Regional Settings
@@ -352,14 +379,15 @@ export default function PersonalSettingsProfile() {
       </div>
 
       <div className='mt-6 flex items-center justify-end gap-x-6'>
+        {contextHolder}
         <Button
-          secondary
           type='button'
           className='text-sm font-semibold leading-6 text-gray-900 '>
           <Link href='/dashboard'>Cancel</Link>
         </Button>
         <Button
           type='submit'
+          onClick={updateProfile}
           className='bg-blue-600 text-white w-36 hover:bg-blue-500'>
           Save
         </Button>
