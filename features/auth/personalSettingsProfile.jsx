@@ -14,6 +14,7 @@ export default function PersonalSettingsProfile() {
   // TODO: condense this into one state object
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
+  const [success, setSuccess] = useState(null)
   const [username, setUsername] = useState(null)
   const [first_name, setFirstName] = useState(null)
   const [last_name, setLastName] = useState(null)
