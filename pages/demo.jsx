@@ -1,7 +1,7 @@
 import DemoVideo from '@/components/demo/demo'
 import React from 'react'
 
-const Demo = () => {
+export default function Demo() {
   return (
     <div className='md:mt-12 justify-center'>
       <h1 className='text-2xl font-bold text-center'>
@@ -11,5 +11,3 @@ const Demo = () => {
     </div>
   )
 }
-
-export default Demo
