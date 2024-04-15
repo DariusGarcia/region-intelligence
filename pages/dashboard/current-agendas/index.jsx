@@ -159,7 +159,7 @@ export default function DashboardHousingCurrentPlanningDevelopmentsPage() {
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className='flex grow flex-col gap-y-5n bg-white md:px-6 pb-4'>
-                    <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
+                    <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden border-r border-gray-200 bg-gray-100 pb-4'>
                       <Link
                         href='/'
                         className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>

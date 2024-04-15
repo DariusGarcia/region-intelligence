@@ -15,7 +15,7 @@ export default function ContactPage() {
         <meta
           name='description'
           content=' No more navigating through complex research. With Region Intelligence,
-      everything you need is just a few clicks away. Our platform
+      everything you need is just a few clicks away. Our platfor
       revolutionizes the way you access and handle vital information,
       making your decision-making process quicker and more informed.
       Step into the future of property development - Join Region Intelligence

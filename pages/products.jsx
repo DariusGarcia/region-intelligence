@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { createClient } from 'next-sanity'
 import groq from 'groq'
-import BlogSection from '@/components/blog'
+import BlogSection from '@/features/blog/blog'
 import CTA from '@/components/cta'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 

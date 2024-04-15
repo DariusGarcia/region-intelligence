@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity'
 import groq from 'groq'
-import BlogSection from '@/components/blog'
+import BlogSection from '@/features/blog/blog'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 
 // refactor this client to a separate component

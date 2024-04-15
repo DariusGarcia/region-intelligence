@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { createClient } from 'next-sanity'
 import groq from 'groq'
-import BlogSection from '@/components/blog'
+import BlogSection from '@/features/blog/blog'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
