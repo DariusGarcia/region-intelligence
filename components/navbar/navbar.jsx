@@ -130,7 +130,7 @@ export default function Navbar() {
                     </div>
                   ))}
                 </div>
-                <div className='grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50'>
+                {/* <div className='grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50'>
                   {callsToAction.map((item) => (
                     <Link
                       key={item.name}
@@ -143,7 +143,7 @@ export default function Navbar() {
                       {item.name}
                     </Link>
                   ))}
-                </div>
+                </div> */}
               </Popover.Panel>
             </Transition>
           </Popover>
@@ -154,7 +154,7 @@ export default function Navbar() {
           </Link> */}
           <Popover className='relative'>
             <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-              Company
+              About Us
               <ChevronDownIcon
                 className='h-5 w-5 flex-none text-white'
                 aria-hidden='true'
@@ -197,11 +197,11 @@ export default function Navbar() {
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             RI Blog
           </Link>
-          <Link
+          {/* <Link
             href='/resources'
             className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
             Resources
-          </Link>
+          </Link> */}
         </Popover.Group>
 
         {/*
@@ -336,7 +336,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className='sticky bottom-0 grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 text-center'>
+          {/* <div className='sticky bottom-0 grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 text-center'>
             {callsToAction.map((item) => (
               <a
                 key={item.name}
@@ -346,7 +346,7 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-          </div>
+          </div> */}
         </Dialog.Panel>
       </Dialog>
     </header>
@@ -367,18 +367,18 @@ const products = [
     href: '/dashboard',
     icon: HomeIcon,
   },
-  {
-    name: 'Map View',
-    description: 'View the locations of pending city permits',
-    href: '/current-planning-developments/map-view',
-    icon: MapIcon,
-  },
-  {
-    name: 'List View',
-    description: 'View the locations of pending city permits',
-    href: '/current-planning-developments',
-    icon: ListBulletIcon,
-  },
+  // {
+  //   name: 'Map View',
+  //   description: 'View the locations of pending city permits',
+  //   href: '/current-planning-developments/map-view',
+  //   icon: MapIcon,
+  // },
+  // {
+  //   name: 'List View',
+  //   description: 'View the locations of pending city permits',
+  //   href: '/current-planning-developments',
+  //   icon: ListBulletIcon,
+  // },
 ]
 const projects = [
   {
