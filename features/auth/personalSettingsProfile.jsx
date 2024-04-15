@@ -3,8 +3,10 @@ import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import SuccessNotification from '../../components/notifications/successNotification'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
-import { Button } from 'antd'
 import Avatar from '@/components/avatar'
+import { Button, message } from 'antd'
+import validatePhoneNumber from '@/utils/validatePhoneNumber'
+import { Tabs } from 'antd'
 
 export default function PersonalSettingsProfile() {
   const supabase = useSupabaseClient()
@@ -12,15 +14,29 @@ export default function PersonalSettingsProfile() {
   // TODO: condense this into one state object
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
+  const [success, setSuccess] = useState(null)
   const [username, setUsername] = useState(null)
   const [first_name, setFirstName] = useState(null)
   const [last_name, setLastName] = useState(null)
   const [phone_number, setPhone_number] = useState(null)
   const [error, setError] = useState(null)
-  const [success, setSuccess] = useState(null)
-
+  const [activeTab, setActiveTab] = useState('1')
   const [avatar_url, setAvatarUrl] = useState(null)
-  const [uploading, setUploading] = useState(false)
+  const [messageApi, contextHolder] = message.useMessage()
+
+  const displaySuccess = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'Profile updated successfully',
+    })
+  }
+
+  const displayError = () => {
+    messageApi.open({
+      type: 'error',
+      content: error,
+    })
+  }
 
   useEffect(() => {
     async function loadData() {
@@ -54,7 +70,12 @@ export default function PersonalSettingsProfile() {
   }, [user])
 
   async function updateProfile(e) {
+<<<<<<< HEAD
     // e.preventDefault()
+=======
+    e.preventDefault()
+
+>>>>>>> 05a4be1bd2f395d9b797f8fc53d7158574c3ce76
     if (!user) return
     setLoading(true)
 
@@ -68,26 +89,26 @@ export default function PersonalSettingsProfile() {
       updated_at: new Date(),
     }
 
+    // Validate phone number
+    if (!validatePhoneNumber(phone_number)) {
+      setError('Invalid phone number')
+      displayError()
+      setLoading(false)
+      return
+    }
+
     let { error } = await supabase.from('profiles').upsert(updates)
 
     if (error) {
       alert(error.message)
+      displayError()
     } else {
-      setSuccess('Profile updated successfully')
+      displaySuccess()
     }
     setLoading(false)
   }
-  return (
-    <form onSubmit={updateProfile} className='max-w-7xl mb-12'>
-      <div className='space-y-12'>
-        <div className='border-b border-gray-900/10 pb-12 px-2 md:px-0'>
-          <h2 className='text-base font-semibold leading-7 text-gray-900'>
-            Profile Details
-          </h2>
-          <p className='mt-1 text-sm leading-6 text-gray-600'>
-            Enter your profile information
-          </p>
 
+<<<<<<< HEAD
           <div className='mt-10 flex flex-col md:grid gap-x-6 gap-y-8 md:grid-cols-6'>
             <div className='sm:col-span-3'>
               <label
@@ -175,76 +196,173 @@ export default function PersonalSettingsProfile() {
                   updateProfile(event, url)
                 }}
               /> */}
-            </div>
-            <div className='flex flex-col col-span-6 mb-12 border-t border-gray-900/10 pt-12'>
-              <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                Regional Settings
-              </h2>
-              <p className='mt-1 text-sm leading-6 text-gray-600'>
-                Set your language and timezone
-              </p>
-              <div className='mt-6 flex flex-row justify-between'>
-                <div className='w-full'>
-                  <label
-                    htmlFor='country'
-                    className='block text-sm font-medium leading-6 text-gray-900'>
-                    Language
-                  </label>
-                  <div className='mt-2 w-full'>
-                    <select
-                      id='country'
-                      name='country'
-                      autoComplete='country-name'
-                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
-                      <option>English</option>
-                      <option>Spanish</option>
-                      <option>French</option>
-                      <option>German</option>
-                    </select>
-                  </div>
-                </div>
-                <div className='w-full'>
-                  <label
-                    htmlFor='country'
-                    className='block text-sm font-medium leading-6 text-gray-900'>
-                    Timezone
-                  </label>
-                  <div className='mt-2 w-full'>
-                    <select
-                      id='country'
-                      name='country'
-                      autoComplete='country-name'
-                      className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* username */}
-            {/* <div className='sm:col-span-4'>
-              <label
-                htmlFor='username'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                Username
-              </label>
-              <div className='mt-2'>
-                <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md'>
-                  <input
-                    type='text'
-                    name='username'
-                    id='username'
-                    autoComplete='username'
-                    className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
-                  />
-                </div>
-              </div>
-            </div> */}
-          </div>
-        </div>
+=======
+  const handleTabChange = (key) => {
+    setActiveTab(key)
+  }
 
+  const items = [
+    {
+      key: '1',
+      label: 'Profile',
+      children: (
+        <div className='mt-10 flex flex-col md:grid gap-x-6 gap-y-8 md:grid-cols-6'>
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='first-name'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              First name
+            </label>
+            <div className='mt-2'>
+              <input
+                type='text'
+                name='first-name'
+                id='first-name'
+                autoComplete='given-name'
+                value={first_name || ''}
+                onChange={(e) => setFirstName(e.target.value)}
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+>>>>>>> 05a4be1bd2f395d9b797f8fc53d7158574c3ce76
+            </div>
+          </div>
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='last-name'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Last name
+            </label>
+            <div className='mt-2'>
+              <input
+                type='text'
+                name='last-name'
+                id='last-name'
+                value={last_name || ''}
+                onChange={(e) => setLastName(e.target.value)}
+                autoComplete='family-name'
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+            </div>
+          </div>
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='email'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Email address
+            </label>
+            <div className='mt-2'>
+              <input
+                id='email'
+                name='email'
+                type='email'
+                disabled={true}
+                value={user?.email}
+                autoComplete='email'
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+            </div>
+          </div>{' '}
+          <div className='sm:col-span-3'>
+            {' '}
+            <label
+              htmlFor='email'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Phone Number
+            </label>
+            <div className='mt-2'>
+              <input
+                id='phone'
+                name='phone'
+                type='phone'
+                value={phone_number || ''}
+                onChange={(e) => setPhone_number(e.target.value)}
+                autoComplete='phone'
+                className='block pl-4 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+            </div>
+          </div>
+          {/* <div className='col-span-full'>
+    <Avatar
+      url={avatar_url}
+      size={150}
+      onUpload={(event, url) => {
+        updateProfile(event, url)
+      }}
+    />
+  </div> */}
+          <div className='flex flex-col col-span-6 mb-12 border-t border-gray-900/10 pt-12'>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              Regional Settings
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              Set your language and timezone
+            </p>
+            <div className='mt-6 flex flex-row justify-between'>
+              <div className='w-full'>
+                <label
+                  htmlFor='country'
+                  className='block text-sm font-medium leading-6 text-gray-900'>
+                  Language
+                </label>
+                <div className='mt-2 w-full'>
+                  <select
+                    id='country'
+                    name='country'
+                    autoComplete='country-name'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                    <option>German</option>
+                  </select>
+                </div>
+              </div>
+              <div className='w-full'>
+                <label
+                  htmlFor='country'
+                  className='block text-sm font-medium leading-6 text-gray-900'>
+                  Timezone
+                </label>
+                <div className='mt-2 w-full'>
+                  <select
+                    id='country'
+                    name='country'
+                    autoComplete='country-name'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
+                    <option>United States</option>
+                    <option>Canada</option>
+                    <option>Mexico</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* username */}
+          {/* <div className='sm:col-span-4'>
+    <label
+      htmlFor='username'
+      className='block text-sm font-medium leading-6 text-gray-900'>
+      Username
+    </label>
+    <div className='mt-2'>
+      <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md'>
+        <input
+          type='text'
+          name='username'
+          id='username'
+          autoComplete='username'
+          className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+        />
+      </div>
+    </div>
+  </div> */}
+        </div>
+      ),
+    },
+    {
+      key: '2',
+      label: 'Notifications',
+      children: (
         <div className='border-b border-gray-900/10 pb-12 px-2 md:px-0'>
           <h2 className='text-base font-semibold leading-7 text-gray-900'>
             Notifications
@@ -354,17 +472,55 @@ export default function PersonalSettingsProfile() {
             </fieldset>
           </div>
         </div>
+      ),
+    },
+    {
+      key: '3',
+      label: 'Account',
+      children: 'Account',
+    },
+    {
+      key: '4',
+      label: 'Security',
+      children: 'Security',
+    },
+  ]
+
+  return (
+    <form onSubmit={updateProfile} className='max-w-7xl mb-12'>
+      <div className='space-y-12'>
+        <div className='border-b border-gray-900/10 pb-12 px-2 md:px-0'>
+          <h2 className='text-xl font-bold leading-7 text-gray-900'>
+            Personal Settings
+          </h2>
+          <p className='mt-1 text-sm leading-6 text-gray-600'>
+            Enter your profile information
+          </p>
+          <section className='bg-white p-4 rounded-sm mt-6 shadow'>
+            <Tabs
+              defaultActiveKey='1'
+              items={items}
+              onChange={handleTabChange}
+              activeKey={activeTab}
+            />
+            {/* Profile Modal */}
+            <Tabs.TabPane tab='Profile' key='1'></Tabs.TabPane>
+            {/* Notifications modal */}
+            <Tabs.TabPane tab='Notifications' key='2'></Tabs.TabPane>
+          </section>
+        </div>
       </div>
 
       <div className='mt-6 flex items-center justify-end gap-x-6'>
+        {contextHolder}
         <Button
-          secondary
           type='button'
           className='text-sm font-semibold leading-6 text-gray-900 '>
           <Link href='/dashboard'>Cancel</Link>
         </Button>
         <Button
           type='submit'
+          onClick={updateProfile}
           className='bg-blue-600 text-white w-36 hover:bg-blue-500'>
           Save
         </Button>
