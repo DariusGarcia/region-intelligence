@@ -13,6 +13,7 @@ import {
   LockClosedIcon,
 } from '@heroicons/react/24/outline'
 import DefaultLayout from '@/components/layouts/defaultLayout'
+import LandingHeaderNew from '@/components/header/landingHeaderNew'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -41,11 +42,11 @@ export default function LandingPage({ posts }) {
               today!'
         />
       </Head>
-      <div className='bg-white w-full'>
+      <div className='bg-gray-200 w-full'>
         <AnimatePresence>
           <main className='isolate w-full'>
             {/* Hero section */}
-            <div className='flex justify-center md:my-12 w-full'>
+            <div className='flex justify-center md:py-12 w-full'>
               <LandingHeader
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
