@@ -129,19 +129,19 @@ export default function SignupPage() {
       <Head>
         <title>Region Intelligence - Signup</title>
       </Head>
-      <div className='flex min-h-full flex-1'>
+      <div className='flex min-h-full w-full justify-center'>
         {/* <PrivacyPolicyAlert onPrivacyPolicyAccept={handlePrivacyPolicyAccept} /> */}
         <div className='flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
           <div className=' mx-auto w-full max-w-4xl lg:w-[48rem] '>
-            <div className='flex  flex-col items-center'>
+            <div className='flex justify-center flex-col items-center '>
               <Image
-                className='h-10 w-auto'
-                src='/logo.png'
+                className=''
+                src='/GrayscaleLogo.svg'
                 alt='Region Intelligence'
-                width={200}
+                width={400}
                 height={200}
               />
-              <h2 className='mt-8 text-2xl md:text-3xl font-bold leading-9 tracking-tight text-gray-900'>
+              <h2 className='text-2xl md:text-3xl font-bold leading-9 tracking-tight text-gray-900'>
                 Create an Account
               </h2>
               <p className='mt-2 text-sm leading-6 text-gray-500'>
@@ -241,7 +241,8 @@ export default function SignupPage() {
                 </form>
               </div>
 
-              <div className='flex justify-center flex-col items-center mt-10'>
+              {/* GOOGLE LOGIN  */}
+              {/* <div className='flex justify-center flex-col items-center mt-10'>
                 <div className='relative '>
                   <div
                     className='absolute inset-0 flex items-center'
@@ -285,18 +286,9 @@ export default function SignupPage() {
                     </span>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
-        </div>
-        <div className='relative hidden w-0 flex-1 lg:block'>
-          <Image
-            className='absolute inset-0 h-full w-full object-cover'
-            src='/signupImage.png'
-            alt='Sign up '
-            width={1280}
-            height={980}
-          />
         </div>
       </div>
     </>

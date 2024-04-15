@@ -67,23 +67,19 @@ export default function LoginPage() {
       <Head>
         <title>Region Intelligence - Login</title>
       </Head>
-      <div className='lg:grid lg:grid-cols-2 flex justify-center'>
-        <div className='w-full hidden lg:block'>
-          <Image
-            alt='login'
-            priority={true}
-            width={700}
-            height={800}
-            src='/login/loginImage.png'
-          />
-        </div>
-        <div className='flex min-h-full max-w-lg flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
+      <div className='flex justify-center'>
+        <div className='flex min-h-full max-w-4xl lg:w-[48rem] flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
           <div className='sm:mx-auto sm:w-full flex items-center flex-col'>
-            <div className='w-10 mb-8'>
-              <Image src='/logo.png' alt='logo' width={200} height={200} />
+            <div className='w-96 '>
+              <Image
+                src='/GrayscaleLogo.svg'
+                alt='logo'
+                width={400}
+                height={200}
+              />
             </div>
             <h1 className='font-bold text-center text-3xl'>Sign In</h1>
-            <p className='mt-2 text-center text-lg leading-9 tracking-tight text-gray-900'>
+            <p className='mt-2 text-center  text-sm leading-6 text-gray-500 tracking-tight '>
               New to our product?{' '}
               <Link
                 href='/signup'
