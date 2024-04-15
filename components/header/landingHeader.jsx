@@ -1,4 +1,5 @@
 import { motion as m, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 // ------------------------------------------------------------------------------------------------------------------------------------
 // TODO: fix responsiveness on ipads
@@ -158,10 +159,12 @@ export default function LandingHeaderNew() {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={cardVariantsHorizontalFromRight}
                 className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:mr-0 place-content-center '>
-                <img
+                <Image
                   className='rounded-md w-96 max-w-96 block lg:hidden'
                   src='/landingHeader/fosteringInnovation.png'
                   alt='2nd section'
+                  width={400}
+                  height={400}
                 />
               </m.div>
             </div>
@@ -208,10 +211,12 @@ export default function LandingHeaderNew() {
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariantsHorizontalFromLeft}
             className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8 xl:inset-0 xl:left-1/2 xl:mr-0'>
-            <img
+            <Image
               className='bg-gray-50 w-96 max-w-96 lg:absolute rounded-md'
               src='/landingHeader/landingHeader3.png'
-              alt=''
+              alt='Landing'
+              width={400}
+              height={400}
             />
           </m.div>
         </div>
@@ -224,10 +229,12 @@ export default function LandingHeaderNew() {
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariantsHorizontalFromRight}
               className='flex items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
-              <img
+              <Image
                 className='bg-gray-100 rounded-md w-96 max-w-96 md:w-full hidden lg:block'
                 src='/landingHeader/landingHeader4.png'
-                alt=''
+                alt='Landing'
+                width={400}
+                height={400}
               />
             </m.div>
             <m.div
@@ -271,10 +278,12 @@ export default function LandingHeaderNew() {
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariantsHorizontalFromRight}
               className='flex justify-center items-center relative md:mt-12 lg:col-span-4 lg:-mr-8  xl:mr-0 place-content-center '>
-              <img
+              <Image
                 className='rounded-md w-96 max-w-96 lg:hidden block'
                 src='/landingHeader/landingHeader4.png'
                 alt='2nd section'
+                width={400}
+                height={400}
               />
             </m.div>
           </div>

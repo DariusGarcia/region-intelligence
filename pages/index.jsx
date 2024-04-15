@@ -46,7 +46,7 @@ export default function LandingPage({ posts }) {
         <AnimatePresence>
           <main className='isolate w-full'>
             {/* Hero section */}
-            <div className='flex justify-center md:py-12 w-full'>
+            <div className='flex justify-center  w-full'>
               <LandingHeader
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
