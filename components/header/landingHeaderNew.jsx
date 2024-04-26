@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { motion as m, AnimatePresence } from 'framer-motion'
 import { FaDollarSign } from 'react-icons/fa'
+import Link from 'next/link'
 
 export default function landingHeaderNew() {
   return (
@@ -162,6 +163,167 @@ export default function landingHeaderNew() {
               </m.div>
             </m.div>
           </m.div>
+        </section>
+        <section className='mt-24 flex flex-row justify-between w-full max-w-7xl '>
+          <div className='w-1/2'>
+            <p className='mb-8 w-96 text-lg'>
+              Region Intelligence equips real estate professionals with dynamic
+              tools for comprehensive market analysis. Track municipal changes,
+              price trends, and new investment opportunities.
+            </p>
+            <Link
+              className='text-blue-600 text-xl font-semibold '
+              href='/waitlist'>
+              Join Our Waitlist
+            </Link>
+          </div>
+          <div>hi</div>
+        </section>
+        <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
+          <h3 className='text-3xl font-bold'>What We Offer</h3>
+          <div className='flex flex-row justify-between gap-12 mt-12 '>
+            <div className='bg-gray-300 p-12 w-1/2'>
+              <div className='flex flex-row gap-4'>
+                <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                  <h4 className='text-xl font-semibold'>Cities</h4>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Culver City</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Buena Park</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Azuza</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Long Beach</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='bg-gray-200 p-2 rounded-md flex flex-row justify-between items-center gap-12'>
+                    <p>Anaheim</p>
+                    <span className='bg-black text-white p-2 w-24 text-center rounded-md'>
+                      TTM
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <p>Tentative Tract Map</p>
+                </div>
+              </div>
+            </div>
+            <div className='w-1/2'>
+              <h5 className='text-3xl font-semibold'>
+                Real-Time Data Driven Insights
+              </h5>
+              <p className='text-lg text-stone-600 mt-8'>
+                Leveraging artificial intelligence, we offer access to
+                instantaneous data on the ever-changing local market landscape,
+                transforming how decisions are made.
+              </p>
+              <ul className='list-disc flex flex-col gap-8 pl-6 mt-8'>
+                <li className='text-stone-600 text-lg'>
+                  Discover the latest municipal developments in your area.
+                </li>
+                <li className='text-stone-600 text-lg'>
+                  Understand upcoming rezoning changes and subdivisions in a
+                  region.
+                </li>
+                <li className='text-stone-600 text-lg'>
+                  Stay informed with daily updates on local market shifts.{' '}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section className='max-w-7xl flex flex-row justify-between gap-6 w-full mt-24'>
+          <div className='w-1/2'>
+            <h5 className='text-3xl font-semibold'>
+              Land Leads and Comparables
+            </h5>
+            <p className='text-lg text-stone-600 mt-8'>
+              Leveraging our comprehensive analysis, you gain a strategic
+              advantage, by finding new land potential. Bringing you new land
+              insights and development potential. You can just worry about
+              closing the deal.{' '}
+            </p>
+            <ul className='list-disc flex flex-col gap-8 pl-6 mt-8'>
+              <li className='text-stone-600 text-lg'>
+                Explore development trends within each city.
+              </li>
+              <li className='text-stone-600 text-lg'>
+                Find potential parcels that are prime for development.
+              </li>
+              <li className='text-stone-600 text-lg'>
+                Explore similar transaction costs of each parcel and find if it
+                makes sense to you.
+              </li>
+            </ul>
+          </div>
+          <div className='w-1/2 bg-gray-300'> hi</div>
+        </section>
+        <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
+          <div className='flex flex-row justify-between gap-12 mt-12 '>
+            <div className='bg-gray-300 p-12 w-1/2'>
+              <div className='flex flex-row gap-4'>
+                <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                  <h4 className='text-xl font-semibold'>Cities</h4>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Culver City</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Buena Park</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Azuza</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='flex flex-row justify-between items-center gap-12'>
+                    <p>Long Beach</p>
+                    <span className='h-2 bg-gray-200 w-24'></span>
+                  </div>
+                  <div className='bg-gray-200 p-2 rounded-md flex flex-row justify-between items-center gap-12'>
+                    <p>Anaheim</p>
+                    <span className='bg-black text-white p-2 w-24 text-center rounded-md'>
+                      TTM
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <p>Tentative Tract Map</p>
+                </div>
+              </div>
+            </div>
+            <div className='w-1/2'>
+              <h5 className='text-3xl font-semibold'>
+                Risk Analysis and Zoning
+              </h5>
+              <p className='text-lg text-stone-600 mt-8'>
+                Navigate zoning laws and environmental risks with our detailed
+                risk assessments, ensuring your real estate decisions are
+                safeguarded and set for growth. Our tools provide clarity and
+                foresight in complex landscapes.
+              </p>
+              <ul className='list-disc flex flex-col gap-8 pl-6 mt-8'>
+                <li className='text-stone-600 text-lg'>
+                  Get updated on potential obstacles that may effect land
+                  development.
+                </li>
+                <li className='text-stone-600 text-lg'>
+                  Employ our proprietary models that evaluate the efficacy of
+                  land makeup and local regulations.
+                </li>
+                <li className='text-stone-600 text-lg'>
+                  Real-time data to assess and strategize for project
+                  resilience.
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
       </AnimatePresence>
     </div>

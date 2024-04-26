@@ -14,6 +14,7 @@ import {
 } from '@heroicons/react/24/outline'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 import LandingHeaderNew from '@/components/header/landingHeaderNew'
+import Link from 'next/link'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -47,7 +48,7 @@ export default function LandingPage({ posts }) {
           <main className='isolate w-full'>
             {/* Hero section */}
             <div className='flex justify-center  w-full'>
-              <LandingHeader
+              <LandingHeaderNew
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
                 }
@@ -200,10 +201,30 @@ export default function LandingPage({ posts }) {
             {/* <Faq /> */}
 
             {/* CTA section */}
-            <section className='mb-12'>
+            {/* <section className='mb-12'>
               <BlogShowCaseContainer posts={posts} />
-            </section>
-            <Cta />
+            </section> */}
+            <div className='pb-12'>
+              <div className='mx-auto max-w-7xl px-6 py-24  lg:flex lg:items-center lg:justify-between lg:px-12 bg-indigo-100 rounded-md'>
+                <div className='max-w-2xl'>
+                  <h2 className='text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl mb-6'>
+                    Talk to an expert
+                  </h2>
+                  <p className=''>
+                    Region Intelligence is the only technology provider enabling
+                    users to identify, research, and engage in the real estate
+                    deals ahead of the competition.{' '}
+                  </p>
+                </div>
+                <div className='mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0'>
+                  <Link
+                    href='/products'
+                    className='rounded-md bg-black w-36 text-center px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
+                    Get started
+                  </Link>
+                </div>
+              </div>
+            </div>
           </main>
         </AnimatePresence>
       </div>
