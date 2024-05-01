@@ -7,7 +7,6 @@ import groq from 'groq'
 import BlogSection from '@/features/blog/blog'
 import CTA from '@/components/cta'
 import DefaultLayout from '@/components/layouts/defaultLayout'
-import { InboxIcon, TrashIcon, UsersIcon } from '@heroicons/react/24/outline'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -35,31 +34,109 @@ export default function ProductsPage({ posts }) {
         />
       </Head>
       <div className='relative overflow-hidden bg-white'>
+        <div
+          className='hidden lg:absolute lg:inset-0 lg:block'
+          aria-hidden='true'>
+          <svg
+            className='absolute left-1/2 top-0 -translate-y-8 translate-x-64 transform'
+            width={640}
+            height={784}
+            fill='none'
+            viewBox='0 0 640 784'>
+            <defs>
+              <pattern
+                id='9ebea6f4-a1f5-4d96-8c4e-4c2abf658047'
+                x={118}
+                y={0}
+                width={20}
+                height={20}
+                patternUnits='userSpaceOnUse'>
+                <rect
+                  x={0}
+                  y={0}
+                  width={4}
+                  height={4}
+                  className='text-gray-200'
+                  fill='currentColor'
+                />
+              </pattern>
+            </defs>
+            <rect
+              y={72}
+              width={640}
+              height={640}
+              className='text-gray-50'
+              fill='currentColor'
+            />
+            <rect
+              x={118}
+              width={404}
+              height={784}
+              fill='url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)'
+            />
+          </svg>
+        </div>
+
         <div className='relative pb-16 pt-6 sm:pb-24 lg:pb-32'>
           <main className='sm:mt-16'>
             <div className='lg:grid lg:grid-cols-12 lg:gap-8 mx-auto mt-6 max-w-7xl px-4 md:px-6 '>
               <div className='sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:text-left'>
                 <h1>
-                  <span className='mb-6 mt-1 block text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl'>
+                  <span className='block text-base font-semibold text-gray-500 sm:text-lg lg:text-base xl:text-lg'>
+                    Coming soon
+                  </span>
+                  <span className='mt-1 block text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl'>
                     <span className='block text-gray-900'>
                       Data Driven Insights
                     </span>
-                    <span className='block'>Made Easy</span>
+                    <span className='block text-blue-600'>Made Easy</span>
                   </span>
                 </h1>
-                <p className='mt-3 text-base text-black sm:mt-5 sm:text-xl lg:text-lg'>
-                  <span className='text-orange-400 font-semibold italic'>
-                    Simple, quick, insightful.
-                  </span>{' '}
-                  Transforming Southern California's urban challenges into
-                  opportunities for smarter development
+                <p className='mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl'>
+                  A unique experience tailored to fit your needs.
                 </p>
                 <div className='flex flex-row gap-8 mt-6'>
                   <Link
                     href='/dashboard'
-                    className='w-56 bg-black transition ease-out hover:bg-gray-500 p-2 rounded-md px-4 text-center text-white font-semibold'>
-                    Get Started
+                    className='bg-blue-600 transition ease-out hover:bg-blue-500 p-2 rounded-md px-4 w-max text-white font-semibold'>
+                    Explore Product
                   </Link>
+                  <Link
+                    href='/why-us'
+                    className='bg-white text-black underline transition ease-out p-2 rounded-md px-4 w-max hover:opacity-70  font-semibold'>
+                    Why RI <span aria-hidden='true'>→</span>
+                  </Link>
+                </div>
+                <div className='mt-8 sm:mx-auto sm:max-w-lg sm:text-center lg:mx-0 lg:text-left'>
+                  <p className='text-base font-medium text-gray-900'>
+                    Sign up to get notified when it’s ready.
+                  </p>
+                  <form action='#' method='POST' className='mt-3 sm:flex'>
+                    <label htmlFor='email' className='sr-only'>
+                      Email
+                    </label>
+                    <input
+                      type='email'
+                      name='email'
+                      id='email'
+                      className='block w-full rounded-md border-gray-300 py-3 text-base placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:flex-1'
+                      placeholder='Enter your email'
+                    />
+                    <button
+                      type='submit'
+                      className='mt-3 w-full rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:ml-3 sm:mt-0 sm:inline-flex sm:w-auto sm:flex-shrink-0 sm:items-center'>
+                      Notify me
+                    </button>
+                  </form>
+                  <p className='mt-3 text-sm text-gray-500'>
+                    We care about the protection of your data. Read our{' '}
+                    <a
+                      href='/company/privacy'
+                      className='font-medium text-gray-900 underline'>
+                      Privacy Policy
+                    </a>
+                    .
+                  </p>
                 </div>
               </div>
               <div className='relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
@@ -123,59 +200,14 @@ export default function ProductsPage({ posts }) {
               </div>
             </div>
             <section className='mt-12 mx-0'>
-              <div className='py-24 sm:py-32'>
-                <div className='mx-auto max-w-7xl p-12 rounded-md bg-gray-200'>
-                  <div className='mx-auto max-w-2xl lg:mx-0'></div>
-                  <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
-                    <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4'>
-                      {features.map((feature) => (
-                        <div key={feature.name} className='flex flex-col'>
-                          <dt className='text-base font-semibold leading-7 text-gray-900'>
-                            <div className='mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600'>
-                              <feature.icon
-                                className='h-6 w-6 text-white'
-                                aria-hidden='true'
-                              />
-                            </div>
-                            {feature.name}
-                          </dt>
-                          <dd className='mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                            <p className='flex-auto'>{feature.description}</p>
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </div>
-                </div>
-              </div>
+              <ProductFeatures />
             </section>
             <section>
               <section className=' my-12 h-full flex justify-center w-full px-4 md:px-0 '>
-                <div className='max-w-7xl flex flex-col items-center gap-12'>
-                  <h2 className='text-5xl font-bold'>Use Cases</h2>
-                  <div className='w-full flex md:flex-row justify-center gap-12 '>
-                    {useCases.map((useCase) => (
-                      <div
-                        className='w-full text-white bg-neutral-800 rounded-md'
-                        key={useCase.id}>
-                        <img
-                          src={useCase.image}
-                          alt=''
-                          className='w-full object-cover rounded-t-md'
-                        />
-                        <div className='p-6 flex flex-col gap-6'>
-                          <h4 className='text-lg font-semibold'>
-                            {useCase.title}
-                          </h4>
-                          <p>{useCase.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <div className='max-w-7xl'>
+                  <BlogSection posts={posts} />
                 </div>
               </section>
-            </section>
-            <section className='mt-36'>
               <CTA />
             </section>
           </main>
@@ -185,29 +217,6 @@ export default function ProductsPage({ posts }) {
   )
 }
 
-const useCases = [
-  {
-    id: 1,
-    image: '/about/construction1.jpg',
-    title: 'Cast A Wide Net',
-    description:
-      'Keep track of local commissions and new rezoning laws to find the latest happenings in a city near you.',
-  },
-  {
-    id: 2,
-    image: '/about/construction1.jpg',
-    title: 'Reduce Time Becoming Compliant',
-    description:
-      'Identify the barriers of land development by looking at hazards and area potential. Giving you knowledge of development information. ',
-  },
-  {
-    id: 3,
-    image: '/about/construction1.jpg',
-    title: 'De-Risk your Investment',
-    description:
-      'Local price tracking keeps you ahead of your due diligence. If you are interested in a piece of land, identify price similarities and take advantage of the lead.',
-  },
-]
 export async function getServerSideProps() {
   const posts = await client.fetch(groq`
         *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
@@ -226,32 +235,3 @@ ProductsPage.getLayout = function getLayout(page) {
     </DefaultLayout>
   )
 }
-
-const features = [
-  {
-    name: 'City Developments',
-    description: 'Keep track of local commissions and new rezoning laws. ',
-    href: '#',
-    icon: InboxIcon,
-  },
-  {
-    name: 'Land Insights',
-    description: 'Understand the area and hazards  around a specific location.',
-    href: '#',
-    icon: UsersIcon,
-  },
-  {
-    name: 'Opportunities',
-    description:
-      'Identify development opportunities across Southern California. ',
-    href: '#',
-    icon: TrashIcon,
-  },
-  {
-    name: 'Price Comparatives',
-    description:
-      'Leverage our proprietary machine learning models to identify potential sales prices of land. ',
-    href: '#',
-    icon: TrashIcon,
-  },
-]
