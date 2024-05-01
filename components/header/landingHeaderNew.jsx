@@ -164,7 +164,7 @@ export default function landingHeaderNew() {
             </m.div>
           </m.div>
         </section>
-        <section className='mt-24 flex flex-row justify-between w-full max-w-7xl '>
+        <section className='mt-24 mb-12 flex flex-row items-center justify-between w-full max-w-7xl '>
           <div className='w-1/2'>
             <p className='mb-8 w-96 text-lg'>
               Region Intelligence equips real estate professionals with dynamic
@@ -177,7 +177,9 @@ export default function landingHeaderNew() {
               Join Our Waitlist
             </Link>
           </div>
-          <div>hi</div>
+          <div>
+            <img src='/about/sitePlan.jpg' alt='' className='w-72 rounded-md' />
+          </div>
         </section>
         <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
           <h3 className='text-3xl font-bold'>What We Offer</h3>
@@ -188,19 +190,19 @@ export default function landingHeaderNew() {
                   <h4 className='text-xl font-semibold'>Cities</h4>
                   <div className='flex flex-row justify-between items-center gap-12'>
                     <p>Culver City</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
+                    <span className='h-2 bg-gray-200 w-24 rounded-md'></span>
                   </div>
                   <div className='flex flex-row justify-between items-center gap-12'>
                     <p>Buena Park</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
+                    <span className='h-2 bg-gray-200 w-24 rounded-md'></span>
                   </div>
                   <div className='flex flex-row justify-between items-center gap-12'>
                     <p>Azuza</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
+                    <span className='h-2 bg-gray-200 w-24 rounded-md'></span>
                   </div>
                   <div className='flex flex-row justify-between items-center gap-12'>
                     <p>Long Beach</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
+                    <span className='h-2 bg-gray-200 w-24 rounded-md'></span>
                   </div>
                   <div className='bg-gray-200 p-2 rounded-md flex flex-row justify-between items-center gap-12'>
                     <p>Anaheim</p>

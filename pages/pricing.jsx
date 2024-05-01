@@ -7,6 +7,7 @@ import {
   XMarkIcon as XMarkIconMini,
 } from '@heroicons/react/20/solid'
 import { motion as m, AnimatePresence } from 'framer-motion'
+import DefaultLayout from '@/components/layouts/defaultLayout'
 
 export default function PricingPage() {
   const [frequency, setFrequency] = useState(pricing.frequencies[0])
@@ -458,6 +459,13 @@ export default function PricingPage() {
   )
 }
 
+PricingPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
+}
 const pricing = {
   frequencies: [
     { value: 'monthly', label: 'Monthly' },

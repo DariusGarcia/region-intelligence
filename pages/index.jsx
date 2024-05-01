@@ -219,7 +219,7 @@ export default function LandingPage({ posts }) {
                 <div className='mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0'>
                   <Link
                     href='/products'
-                    className='rounded-md bg-black w-36 text-center px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
+                    className='rounded-md bg-black w-56 text-center px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
                     Get started
                   </Link>
                 </div>

@@ -89,23 +89,23 @@ export default function Navbar() {
         <div className='hidden md:flex flex-col md:flex-row gap-16 justify-between'>
           <Link
             href='/products'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-800 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
             Product
           </Link>
           <Link
             href='/pricing'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-800 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
             Pricing
           </Link>
 
           <Link
             href='/why-us'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
             Why RI
           </Link>
           <Link
             href='/blog'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
             RI Blog
           </Link>
         </div>
