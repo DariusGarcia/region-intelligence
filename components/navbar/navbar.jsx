@@ -59,18 +59,15 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-blue-600 z-50'>
+    <header className='bg-gray-300 z-50'>
       <nav
-        className='mx-auto flex max-w-7xl items-center justify-between p-6 md:pl-8 '
+        className='mx-auto flex max-w-7xl w-full items-center justify-between p-6 md:pl-8 '
         aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>Region Intelligence</span>
-            <p className='text-lg font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            <p className='text-lg font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
               Region Intelligence
-              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
-                Beta
-              </span>
             </p>
           </Link>
         </div>
@@ -83,127 +80,35 @@ export default function Navbar() {
         <div className='flex lg:hidden'>
           <button
             type='button'
-            className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white'
+            className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black'
             onClick={() => setMobileMenuOpen(true)}>
             <span className='sr-only'>Open main menu</span>
             <Bars3Icon className='h-6 w-6' aria-hidden='true' />
           </button>
         </div>
-        <Popover.Group className='hidden lg:flex lg:gap-x-12'>
-          <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 hover:text-gray-300 text-white transition ease-out'>
-              Products
-              <ChevronDownIcon
-                className='h-5 w-5 flex-none text-white'
-                aria-hidden='true'
-              />
-            </Popover.Button>
-            <Transition
-              as={Fragment}
-              enter='transition ease-out duration-200'
-              enterFrom='opacity-0 translate-y-1'
-              enterTo='opacity-100 translate-y-0'
-              leave='transition ease-in duration-150'
-              leaveFrom='opacity-100 translate-y-0'
-              leaveTo='opacity-0 translate-y-1'>
-              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg'>
-                <div className='p-4'>
-                  {products.map((item) => (
-                    <div
-                      key={item.name}
-                      className='group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 z-50'>
-                      <div className='mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
-                        <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
-                          aria-hidden='true'
-                        />
-                      </div>
-                      <div className='flex-auto'>
-                        <Link
-                          href={item.href}
-                          className='block font-semibold text-gray-900'>
-                          {item.name}
-                          <span className='absolute inset-0' />
-                        </Link>
-                        <p className='mt-1 text-gray-600'>{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {/* <div className='grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50'>
-                  {callsToAction.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className='flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100'>
-                      <item.icon
-                        className='h-5 w-5 flex-none text-gray-400'
-                        aria-hidden='true'
-                      />
-                      {item.name}
-                    </Link>
-                  ))}
-                </div> */}
-              </Popover.Panel>
-            </Transition>
-          </Popover>
-          {/* <Link
+        <div className='hidden md:flex flex-col md:flex-row gap-16 justify-between'>
+          <Link
+            href='/products'
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-800 transition ease-out'>
+            Product
+          </Link>
+          <Link
             href='/pricing'
-            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-800 transition ease-out'>
             Pricing
-          </Link> */}
-          <Popover className='relative'>
-            <Popover.Button className='flex items-center gap-x-1 text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-              About Us
-              <ChevronDownIcon
-                className='h-5 w-5 flex-none text-white'
-                aria-hidden='true'
-              />
-            </Popover.Button>
-            <Transition
-              as={Fragment}
-              enter='transition ease-out duration-200'
-              enterFrom='opacity-0 translate-y-1'
-              enterTo='opacity-100 translate-y-0'
-              leave='transition ease-in duration-150'
-              leaveFrom='opacity-100 translate-y-0'
-              leaveTo='opacity-0 translate-y-1'>
-              <Popover.Panel className='absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5'>
-                {company.map((item) => (
-                  <div
-                    key={item.name}
-                    className='relative rounded-lg p-4 hover:bg-gray-50'>
-                    <Link
-                      href={item.href}
-                      className='block text-sm font-semibold leading-6 text-gray-900'>
-                      {item.name}
-                      <span className='absolute inset-0' />
-                    </Link>
-                    <p className='mt-1 text-sm leading-6 text-gray-600'>
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </Popover.Panel>
-            </Transition>
-          </Popover>{' '}
+          </Link>
+
           <Link
             href='/why-us'
-            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
             Why RI
           </Link>
           <Link
             href='/blog'
-            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
             RI Blog
           </Link>
-          {/* <Link
-            href='/resources'
-            className='text-sm font-semibold leading-6 text-white hover:text-gray-300 transition ease-out'>
-            Resources
-          </Link> */}
-        </Popover.Group>
-
+        </div>
         {/*
          * USER AVATAR
          *
@@ -222,7 +127,7 @@ export default function Navbar() {
               Logout
             </Button>
           ) : (
-            <Button className='text-sm font-semibold leading-6 flex items-center justify-center text-black transition ease-out bg-white p-2 hover:shadow-none rounded-sm px-6'>
+            <Button className='text-sm font-semibold leading-6 flex items-center justify-center text-white transition ease-out bg-black p-2 hover:shadow-none rounded-sm px-6'>
               <a href='/login'>
                 Log in <span aria-hidden='true'>&rarr;</span>
               </a>
@@ -249,12 +154,9 @@ export default function Navbar() {
               <Link href='/' className='-m-1.5 p-1.5'>
                 <span className='sr-only'>Region Intelligence</span>
                 <p
-                  className='font-bold leading-6 text-blue-600 text-xl hover:text-blue-500 hover:underline transition ease-out'
+                  className='font-bold leading-6 text-black text-xl hover:text-gray-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
                   Region Intelligence{' '}
-                  <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
-                    Beta
-                  </span>
                 </p>
               </Link>
               <button
@@ -269,7 +171,7 @@ export default function Navbar() {
               <div className='py-4' onClick={() => setMobileMenuOpen(false)}>
                 {user ? (
                   <button
-                    className='text-base font-semibold leading-6 text-gray-900 hover:text-blue-600'
+                    className='text-base font-semibold leading-6 text-gray-900 hover:text-gray-600'
                     onClick={logout}>
                     Logout <span aria-hidden='true'>&rarr;</span>
                   </button>
@@ -296,7 +198,7 @@ export default function Navbar() {
                       className='group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                       <div className='flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white'>
                         <item.icon
-                          className='h-6 w-6 text-gray-600 group-hover:text-blue-600'
+                          className='h-6 w-6 text-gray-600 group-hover:text-gray-600'
                           aria-hidden='true'
                         />
                       </div>
