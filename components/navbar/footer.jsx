@@ -12,17 +12,11 @@ export default function Footer() {
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <div className='flex flex-row gap-2'>
-            <div className='w-8'>
-              <Image src='/logo.png' width={50} height={50} />
-            </div>
             <Link
               href='/'
-              className='h-7 text-xl font-bold hover:underline leading-6 hover:text-blue-500 transition ease-out'
+              className='h-7 text-xl font-bold hover:underline leading-6 hover:text-blue-500 transition ease-out bg-none'
               alt='Company name'>
-              Region Intelligence{' '}
-              <span className='inline-flex ml-2 items-center rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700'>
-                Beta
-              </span>
+              <img src='/bigLogo.png' className='w-72' />
             </Link>
           </div>
 
@@ -109,10 +103,10 @@ const footerNavigation = {
     // { name: 'Map View', href: '/current-planning-developments/map-view' },
     // { name: 'Land Directory', href: '/current-planning-developments' },
     { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Product Overview', href: '/products' },
-    { name: 'Demo', href: '/demo' },
+    // { name: 'Product Overview', href: '/products' },
+    { name: 'Product Demo', href: '/demo' },
     { name: 'Deep Dive', href: '/products' },
-    { name: 'My Profile', href: '/dashboard/personal-settings' },
+    // { name: 'My Profile', href: '/dashboard/personal-settings' },
     // { name: 'CEQA Map', href: '/ceqa' },
   ],
   support: [
@@ -123,12 +117,12 @@ const footerNavigation = {
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Why Us', href: '/why-us' },
-    { name: 'RI Blog', href: '/blog' },
-    { name: 'FAQ', href: '/company/faq' },
+    // { name: 'RI Blog', href: '/blog' },
+    // { name: 'FAQ', href: '/company/faq' },
   ],
   legal: [
     // { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '/company/privacy' },
-    { name: 'Terms', href: '/company/terms-and-conditions' },
+    { name: 'Privacy Policy', href: '/company/privacy' },
+    { name: 'Terms & Conditions', href: '/company/terms-and-conditions' },
   ],
 }
