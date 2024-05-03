@@ -204,7 +204,7 @@ export default function LandingPage({ posts }) {
             {/* <section className='mb-12'>
               <BlogShowCaseContainer posts={posts} />
             </section> */}
-            <div className='pb-12'>
+            <div className='pb-12 mb-24'>
               <div className='mx-auto max-w-7xl px-6 py-24  lg:flex lg:items-center lg:justify-between lg:px-12 bg-indigo-100 rounded-md'>
                 <div className='max-w-2xl'>
                   <h2 className='text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl mb-6'>
@@ -225,6 +225,7 @@ export default function LandingPage({ posts }) {
                 </div>
               </div>
             </div>
+            <Cta />
           </main>
         </AnimatePresence>
       </div>

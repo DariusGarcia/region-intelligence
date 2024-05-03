@@ -59,7 +59,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className='bg-gray-300 z-50'>
+    <header className='bg-white-300 z-50'>
       <nav
         className='mx-auto flex max-w-7xl w-full items-center justify-between p-6 md:pl-8 '
         aria-label='Global'>

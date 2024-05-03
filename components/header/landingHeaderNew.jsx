@@ -166,7 +166,7 @@ export default function landingHeaderNew() {
         </section>
         <section className='mt-24 mb-12 flex flex-row items-center justify-between w-full max-w-7xl '>
           <div className='w-1/2'>
-            <p className='mb-8 w-96 text-lg'>
+            <p className='mb-8 text-2xl'>
               Region Intelligence equips real estate professionals with dynamic
               tools for comprehensive market analysis. Track municipal changes,
               price trends, and new investment opportunities.
@@ -178,14 +178,14 @@ export default function landingHeaderNew() {
             </Link>
           </div>
           <div>
-            <img src='/about/sitePlan.jpg' alt='' className='w-72 rounded-md' />
+            <img src='/about/sitePlan.jpg' alt='' className='w-72 rounded-lg' />
           </div>
         </section>
         <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
-          <h3 className='text-3xl font-bold'>What We Offer</h3>
+          <h3 className='text-3xl font-bold mb-12'>What We Offer</h3>
           <div className='flex flex-row justify-between gap-12 mt-12 '>
-            <div className='bg-gray-300 p-12 w-1/2'>
-              <div className='flex flex-row gap-4'>
+            <div className='bg-gray-300 p-12 w-1/2 h-full '>
+              <div className='flex flex-row gap-4 h-full pb-12'>
                 <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
                   <h4 className='text-xl font-semibold'>Cities</h4>
                   <div className='flex flex-row justify-between items-center gap-12'>
@@ -211,8 +211,20 @@ export default function landingHeaderNew() {
                     </span>
                   </div>
                 </div>
-                <div>
-                  <p>Tentative Tract Map</p>
+                <div className='h-full justify-end flex flex-col my-12  '>
+                  <img
+                    src='/building.png'
+                    alt='image'
+                    className='rounded-t-md w-56'
+                  />
+                  <div className='bg-white p-4 rounded-b-md flex flex-col items-center gap-6'>
+                    <p>Tentative Tract Map</p>
+                    <Link
+                      href='#'
+                      className='bg-neutral-300 p-2 rounded-md font-semibold w-full text-center'>
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,37 +278,49 @@ export default function landingHeaderNew() {
           </div>
           <div className='w-1/2 bg-gray-300'> hi</div>
         </section>
-        <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
+        <section className='mt-24 w-full flex flex-col items-center max-w-7xl  '>
           <div className='flex flex-row justify-between gap-12 mt-12 '>
             <div className='bg-gray-300 p-12 w-1/2'>
               <div className='flex flex-row gap-4'>
-                <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
-                  <h4 className='text-xl font-semibold'>Cities</h4>
-                  <div className='flex flex-row justify-between items-center gap-12'>
-                    <p>Culver City</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
+                <div className='flex flex-col gap-6 bg-white p-4 rounded-md w-full'>
+                  <div className='flex flex-row justify-between'>
+                    <h4 className='text-xl font-semibold'>APN</h4>x
                   </div>
-                  <div className='flex flex-row justify-between items-center gap-12'>
-                    <p>Buena Park</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
-                  </div>
-                  <div className='flex flex-row justify-between items-center gap-12'>
-                    <p>Azuza</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
-                  </div>
-                  <div className='flex flex-row justify-between items-center gap-12'>
-                    <p>Long Beach</p>
-                    <span className='h-2 bg-gray-200 w-24'></span>
-                  </div>
-                  <div className='bg-gray-200 p-2 rounded-md flex flex-row justify-between items-center gap-12'>
-                    <p>Anaheim</p>
-                    <span className='bg-black text-white p-2 w-24 text-center rounded-md'>
-                      TTM
-                    </span>
-                  </div>
+                  <p className='font-bold text-lg h-max'>8675309</p>
                 </div>
-                <div>
-                  <p>Tentative Tract Map</p>
+                <div className='flex flex-col gap-2'>
+                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                    <div className='flex flex-row justify-between items-center gap-12 w-full h-full'>
+                      <h5 className='font-semibold text-lg'>Hazard</h5>
+                      <span className='h-2 bg-gray-400 w-16 rounded-md' />
+                    </div>
+                    <div className='flex flex-row'>
+                      <span className='h-3 ml-2 bg-red-400 w-16 rounded-md' />
+                      <span className='h-3 bg-red-400 opacity-30 w-24 rounded-md' />
+                    </div>
+                  </div>
+                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                    <div className='flex flex-row justify-between items-center gap-12 w-full h-full'>
+                      <h5 className='font-semibold text-lg'>Area</h5>
+                      <span className='h-2 bg-gray-400 w-16 rounded-md' />
+                    </div>
+                    <div className='flex flex-row'>
+                      <span className='h-3 ml-2 bg-green-500 w-48 rounded-md' />
+                      <span className='h-3 bg-green-400 opacity-30 w-16 rounded-md' />
+                    </div>
+                  </div>
+                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                    <div className='flex flex-row justify-between items-center gap-12 w-full h-full'>
+                      <h5 className='font-semibold text-lg'>Zone</h5>
+                      <span className='h-3 bg-yellow-400 w-16 rounded-md' />
+                    </div>
+                  </div>
+                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+                    <div className='flex flex-row justify-between items-center gap-12 w-full h-full'>
+                      <h5 className='font-semibold text-lg'>Land Use</h5>
+                      <span className='h-3 bg-yellow-400 w-16 rounded-md' />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
