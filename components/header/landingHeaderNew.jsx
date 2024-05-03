@@ -276,7 +276,55 @@ export default function landingHeaderNew() {
               </li>
             </ul>
           </div>
-          <div className='w-1/2 bg-gray-300'> hi</div>
+          <div className='w-1/2 bg-gray-300 flex justify-center p-12'>
+            <div className='flex flex-row gap-4 h-full pb-12 '>
+              <div className='flex flex-col justify-between gap-6 bg-white p-4 rounded-md '>
+                <div className='flex flex-row justify-between'>
+                  <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                  <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                </div>
+                <div className='flex flex-row items-end gap-6'>
+                  <span className='h-24 bg-red-400 opacity-70 w-2 rounded-md' />
+                  <span className='h-20 bg-red-400 w-2 rounded-md' />
+                  <span className='h-24 bg-red-400 opacity-70 w-2 rounded-md' />
+                  <span className='h-16 bg-red-400 opacity-70 w-2 rounded-md' />
+                  <span className='h-12 bg-red-400 opacity-70 w-2 rounded-md' />
+                  <span className='h-20 bg-red-400 opacity-70 w-2 rounded-md' />
+                  <span className='h-4 bg-red-400 opacity-70 w-2 rounded-md' />
+                </div>
+                <div className='flex flex-row justify-between'>
+                  <div className='flex flex-col gap-4'>
+                    <span className='h-2 bg-gray-300 w-16 rounded-md' />
+                    <p className='font-bold text-lg'>1.8</p>
+                  </div>
+                  <div className='flex flex-col gap-2'>
+                    <span className='h-2 bg-gray-300 w-full rounded-md' />
+                    <p className='font-bold text-lg'>Residential</p>
+                  </div>
+                </div>
+              </div>
+              <div className='h-full justify-end flex flex-col my-12'>
+                <div className='bg-white p-4 rounded-b-md flex flex-col items-center gap-6 w-full'>
+                  <p className='text-xl font-bold'>New Leads</p>
+                  <div className='flex flex-row justify-between gap-6 w-full'>
+                    <div className='flex flex-col gap-8 justify-between w-full'>
+                      <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                      <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                      <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                      <span className='h-2 bg-gray-300 w-24 rounded-md' />
+                    </div>
+                    <div className='flex flex-col w-full h-full justify-between'>
+                      <span className='h-2 bg-red-300 w-18 rounded-md' />
+                      <span className='h-2 bg-green-300 w-18 rounded-md' />
+                      <span className='h-2 bg-green-300 w-18 rounded-md' />
+                      <span className='h-2 bg-green-300 w-18 rounded-md' />
+                      <span className='h-2 bg-green-300 w-18 rounded-md' />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <section className='mt-24 w-full flex flex-col items-center max-w-7xl  '>
           <div className='flex flex-row justify-between gap-12 mt-12 '>
@@ -284,7 +332,7 @@ export default function landingHeaderNew() {
               <div className='flex flex-row gap-4'>
                 <div className='flex flex-col gap-6 bg-white p-4 rounded-md w-full'>
                   <div className='flex flex-row justify-between'>
-                    <h4 className='text-xl font-semibold'>APN</h4>x
+                    <h4 className='text-xl font-semibold'>APN</h4>
                   </div>
                   <p className='font-bold text-lg h-max'>8675309</p>
                 </div>
