@@ -104,9 +104,9 @@ export default function Navbar() {
             Why RI
           </Link>
           <Link
-            href='/blog'
+            href='/about'
             className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
-            RI Blog
+            About Us
           </Link>
         </div>
         {/*
