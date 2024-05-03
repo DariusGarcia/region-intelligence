@@ -70,12 +70,7 @@ export default function PersonalSettingsProfile() {
   }, [user])
 
   async function updateProfile(e) {
-<<<<<<< HEAD
-    // e.preventDefault()
-=======
     e.preventDefault()
-
->>>>>>> 05a4be1bd2f395d9b797f8fc53d7158574c3ce76
     if (!user) return
     setLoading(true)
 
@@ -107,100 +102,6 @@ export default function PersonalSettingsProfile() {
     }
     setLoading(false)
   }
-
-<<<<<<< HEAD
-          <div className='mt-10 flex flex-col md:grid gap-x-6 gap-y-8 md:grid-cols-6'>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='first-name'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                First name
-              </label>
-              <div className='mt-2'>
-                <input
-                  type='text'
-                  name='first-name'
-                  id='first-name'
-                  autoComplete='given-name'
-                  value={first_name || ''}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='last-name'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                Last name
-              </label>
-              <div className='mt-2'>
-                <input
-                  type='text'
-                  name='last-name'
-                  id='last-name'
-                  value={last_name || ''}
-                  onChange={(e) => setLastName(e.target.value)}
-                  autoComplete='family-name'
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='email'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                Email address
-              </label>
-              <div className='mt-2'>
-                <input
-                  id='email'
-                  name='email'
-                  type='email'
-                  disabled={true}
-                  value={user?.email}
-                  autoComplete='email'
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>{' '}
-            <div className='sm:col-span-3'>
-              {' '}
-              <label
-                htmlFor='email'
-                className='block text-sm font-medium leading-6 text-gray-900'>
-                Phone Number
-              </label>
-              <div className='mt-2'>
-                <input
-                  id='phone'
-                  name='phone'
-                  type='phone'
-                  value={phone_number || ''}
-                  onChange={(e) => setPhone_number(e.target.value)}
-                  autoComplete='phone'
-                  className='block pl-4 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
-            <div className='col-span-full'>
-              {/*
-              ***************************************************
-               TODO: Fix mobile screen width of avatar component 
-               **************************************************
-              */}
-              {/* <Avatar
-                url={avatar_url}
-                size={150}
-                onUpload={(event, url) => {
-                  updateProfile(event, url)
-                }}
-              /> */}
-=======
-  const handleTabChange = (key) => {
-    setActiveTab(key)
-  }
-
   const items = [
     {
       key: '1',
@@ -223,7 +124,6 @@ export default function PersonalSettingsProfile() {
                 onChange={(e) => setFirstName(e.target.value)}
                 className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
               />
->>>>>>> 05a4be1bd2f395d9b797f8fc53d7158574c3ce76
             </div>
           </div>
           <div className='sm:col-span-3'>
@@ -261,11 +161,10 @@ export default function PersonalSettingsProfile() {
                 className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
               />
             </div>
-          </div>{' '}
+          </div>
           <div className='sm:col-span-3'>
-            {' '}
             <label
-              htmlFor='email'
+              htmlFor='phone'
               className='block text-sm font-medium leading-6 text-gray-900'>
               Phone Number
             </label>
@@ -281,84 +180,67 @@ export default function PersonalSettingsProfile() {
               />
             </div>
           </div>
-          {/* <div className='col-span-full'>
-    <Avatar
-      url={avatar_url}
-      size={150}
-      onUpload={(event, url) => {
-        updateProfile(event, url)
-      }}
-    />
-  </div> */}
-          <div className='flex flex-col col-span-6 mb-12 border-t border-gray-900/10 pt-12'>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Regional Settings
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Set your language and timezone
-            </p>
-            <div className='mt-6 flex flex-row justify-between'>
-              <div className='w-full'>
-                <label
-                  htmlFor='country'
-                  className='block text-sm font-medium leading-6 text-gray-900'>
-                  Language
-                </label>
-                <div className='mt-2 w-full'>
-                  <select
-                    id='country'
-                    name='country'
-                    autoComplete='country-name'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
-                    <option>English</option>
-                    <option>Spanish</option>
-                    <option>French</option>
-                    <option>German</option>
-                  </select>
-                </div>
-              </div>
-              <div className='w-full'>
-                <label
-                  htmlFor='country'
-                  className='block text-sm font-medium leading-6 text-gray-900'>
-                  Timezone
-                </label>
-                <div className='mt-2 w-full'>
-                  <select
-                    id='country'
-                    name='country'
-                    autoComplete='country-name'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6'>
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
-                </div>
-              </div>
+          <div className='col-span-full'>
+            {/* Content for the Avatar component */}
+          </div>
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='last-name'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Last name
+            </label>
+            <div className='mt-2'>
+              <input
+                type='text'
+                name='last-name'
+                id='last-name'
+                value={last_name || ''}
+                onChange={(e) => setLastName(e.target.value)}
+                autoComplete='family-name'
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
             </div>
           </div>
-          {/* username */}
-          {/* <div className='sm:col-span-4'>
-    <label
-      htmlFor='username'
-      className='block text-sm font-medium leading-6 text-gray-900'>
-      Username
-    </label>
-    <div className='mt-2'>
-      <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md'>
-        <input
-          type='text'
-          name='username'
-          id='username'
-          autoComplete='username'
-          className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
-        />
-      </div>
-    </div>
-  </div> */}
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='email'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Email address
+            </label>
+            <div className='mt-2'>
+              <input
+                id='email'
+                name='email'
+                type='email'
+                disabled={true}
+                value={user?.email}
+                autoComplete='email'
+                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+            </div>
+          </div>
+          <div className='sm:col-span-3'>
+            <label
+              htmlFor='phone'
+              className='block text-sm font-medium leading-6 text-gray-900'>
+              Phone Number
+            </label>
+            <div className='mt-2'>
+              <input
+                id='phone'
+                name='phone'
+                type='phone'
+                value={phone_number || ''}
+                onChange={(e) => setPhone_number(e.target.value)}
+                autoComplete='phone'
+                className='block pl-4 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+              />
+            </div>
+          </div>
         </div>
       ),
     },
+
     {
       key: '2',
       label: 'Notifications',

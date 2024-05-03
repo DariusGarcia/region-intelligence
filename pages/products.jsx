@@ -156,12 +156,12 @@ export default function ProductsPage({ posts }) {
                   <div className='w-full flex md:flex-row justify-center gap-12 '>
                     {useCases.map((useCase) => (
                       <div
-                        className='w-full text-white bg-neutral-800 rounded-md'
+                        className='w-full text-white bg-neutral-800 rounded-md border-none'
                         key={useCase.id}>
                         <img
                           src={useCase.image}
                           alt=''
-                          className='w-full object-cover rounded-t-md'
+                          className='w-full object-cover rounded-t-md border-none'
                         />
                         <div className='p-6 flex flex-col gap-6'>
                           <h4 className='text-lg font-semibold'>
@@ -188,21 +188,21 @@ export default function ProductsPage({ posts }) {
 const useCases = [
   {
     id: 1,
-    image: '/about/construction1.jpg',
+    image: '/cities.png',
     title: 'Cast A Wide Net',
     description:
       'Keep track of local commissions and new rezoning laws to find the latest happenings in a city near you.',
   },
   {
     id: 2,
-    image: '/about/construction1.jpg',
+    image: '/skyscraper.png',
     title: 'Reduce Time Becoming Compliant',
     description:
       'Identify the barriers of land development by looking at hazards and area potential. Giving you knowledge of development information. ',
   },
   {
     id: 3,
-    image: '/about/construction1.jpg',
+    image: '/desert.png',
     title: 'De-Risk your Investment',
     description:
       'Local price tracking keeps you ahead of your due diligence. If you are interested in a piece of land, identify price similarities and take advantage of the lead.',
