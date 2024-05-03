@@ -102,6 +102,11 @@ export default function PersonalSettingsProfile() {
     }
     setLoading(false)
   }
+
+  const handleTabChange = (key) => {
+    setActiveTab(key)
+  }
+
   const items = [
     {
       key: '1',
