@@ -102,23 +102,16 @@ export default function ProductsPage({ posts }) {
                     fill='url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)'
                   />
                 </svg>
-                <div className='relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md'>
-                  <button
-                    type='button'
-                    className='relative block w-full overflow-hidden rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>
-                    <span className='sr-only'>
-                      Watch our demo to learn more.
-                    </span>
-                    <Image
-                      className='w-full'
-                      width={900}
-                      height={600}
-                      priority
-                      style={{ objectFit: 'contain' }}
-                      src='/productsHeader.png'
-                      alt='product header'
-                    />
-                  </button>
+                <div className='relative mx-auto w-full rounded-lg  lg:max-w-md'>
+                  <Image
+                    className='w-full'
+                    width={900}
+                    height={600}
+                    priority
+                    style={{ objectFit: 'contain' }}
+                    src='/landingHeader/landingHeader.png'
+                    alt='product header'
+                  />
                 </div>
               </div>
             </div>
@@ -153,7 +146,7 @@ export default function ProductsPage({ posts }) {
               <section className=' my-12 h-full flex justify-center w-full px-4 md:px-0 '>
                 <div className='max-w-7xl flex flex-col items-center gap-12'>
                   <h2 className='text-5xl font-bold'>Use Cases</h2>
-                  <div className='w-full flex md:flex-row justify-center gap-12 '>
+                  <div className='w-full flex flex-col md:flex-row  justify-center gap-12 '>
                     {useCases.map((useCase) => (
                       <div
                         className='w-full text-white bg-neutral-800 rounded-md border-none'
