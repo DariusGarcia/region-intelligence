@@ -7,7 +7,24 @@ import groq from 'groq'
 import BlogSection from '@/features/blog/blog'
 import CTA from '@/components/cta'
 import DefaultLayout from '@/components/layouts/defaultLayout'
-import { InboxIcon, TrashIcon, UsersIcon } from '@heroicons/react/24/outline'
+import {
+  BuildingLibraryIcon,
+  InboxIcon,
+  Square3Stack3DIcon,
+  TrashIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline'
+import { FaCity } from 'react-icons/fa'
+import { Square2StackIcon } from '@heroicons/react/20/solid'
+import {
+  AddBoxOutlined,
+  GpsFixedOutlined,
+  LocationCity,
+  LocationCityOutlined,
+  PriceChangeOutlined,
+  ReduceCapacityRounded,
+  SquareFootSharp,
+} from '@mui/icons-material'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 
@@ -54,7 +71,7 @@ export default function ProductsPage({ posts }) {
                   Transforming Southern California's urban challenges into
                   opportunities for smarter development
                 </p>
-                <div className='flex flex-row gap-8 mt-6'>
+                <div className='flex flex-row gap-8 mt-6 justify-center pb-24 md:md-0'>
                   <Link
                     href='/dashboard'
                     className='w-56 bg-black transition ease-out hover:bg-gray-500 p-2 rounded-md px-4 text-center text-white font-semibold'>
@@ -62,7 +79,7 @@ export default function ProductsPage({ posts }) {
                   </Link>
                 </div>
               </div>
-              <div className='relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
+              <div className='relativemt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
                 <svg
                   className='absolute left-1/2 top-0 origin-top -translate-x-1/2 -translate-y-8 scale-75 transform sm:scale-100 lg:hidden'
                   width={640}
@@ -102,7 +119,7 @@ export default function ProductsPage({ posts }) {
                     fill='url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)'
                   />
                 </svg>
-                <div className='relative mx-auto w-full rounded-lg  lg:max-w-md'>
+                <div className='relative mx-auto w-full rounded-lg lg:max-w-md'>
                   <Image
                     className='w-full'
                     width={900}
@@ -115,25 +132,29 @@ export default function ProductsPage({ posts }) {
                 </div>
               </div>
             </div>
-            <section className='mt-12 mx-0'>
+            <section className='mt-24 mx-0'>
               <div className='py-24 sm:py-32'>
-                <div className='mx-auto max-w-7xl p-12 rounded-md bg-gray-200'>
+                <div className='mx-auto w-full max-w-7xl p-24 rounded-md bg-gray-100'>
                   <div className='mx-auto max-w-2xl lg:mx-0'></div>
-                  <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
-                    <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4'>
+                  <div className='mx-auto max-w-2xl lg:max-w-none'>
+                    <dl className='w-full grid md:max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4'>
                       {features.map((feature) => (
-                        <div key={feature.name} className='flex flex-col'>
-                          <dt className='text-base font-semibold leading-7 text-gray-900'>
-                            <div className='mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600'>
+                        <div
+                          key={feature.name}
+                          className='flex flex-col w-full'>
+                          <dt className='text-lg font-semibold leading-7 text-gray-900'>
+                            <div className='mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-blue-200'>
                               <feature.icon
-                                className='h-6 w-6 text-white'
+                                className='h-12 w-12 text-black'
                                 aria-hidden='true'
                               />
                             </div>
                             {feature.name}
                           </dt>
                           <dd className='mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                            <p className='flex-auto'>{feature.description}</p>
+                            <p className='flex-auto w-full'>
+                              {feature.description}
+                            </p>
                           </dd>
                         </div>
                       ))}
@@ -225,26 +246,26 @@ const features = [
     name: 'City Developments',
     description: 'Keep track of local commissions and new rezoning laws. ',
     href: '#',
-    icon: InboxIcon,
+    icon: FaCity,
   },
   {
     name: 'Land Insights',
     description: 'Understand the area and hazards  around a specific location.',
     href: '#',
-    icon: UsersIcon,
+    icon: Square2StackIcon,
   },
   {
     name: 'Opportunities',
     description:
       'Identify development opportunities across Southern California. ',
     href: '#',
-    icon: TrashIcon,
+    icon: GpsFixedOutlined,
   },
   {
     name: 'Price Comparatives',
     description:
       'Leverage our proprietary machine learning models to identify potential sales prices of land. ',
     href: '#',
-    icon: TrashIcon,
+    icon: PriceChangeOutlined,
   },
 ]
