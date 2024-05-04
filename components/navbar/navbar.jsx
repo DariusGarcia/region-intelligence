@@ -66,7 +66,7 @@ export default function Navbar() {
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>Region Intelligence</span>
-            <p className='text-lg font-semibold leading-6 text-black hover:text-gray-300 transition ease-out'>
+            <p className='text-lg font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
               Region Intelligence
             </p>
           </Link>
@@ -89,23 +89,23 @@ export default function Navbar() {
         <div className='hidden lg:flex flex-col md:flex-row gap-16 justify-between'>
           <Link
             href='/products'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Product
           </Link>
           <Link
             href='/pricing'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Pricing
           </Link>
 
           <Link
             href='/why-us'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Why RI
           </Link>
           <Link
             href='/about'
-            className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             About Us
           </Link>
         </div>

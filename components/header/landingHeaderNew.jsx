@@ -189,9 +189,9 @@ export default function landingHeaderNew() {
           <div className='mt-24 w-full flex flex-col items-center max-w-7xl'>
             <h3 className='text-3xl font-bold mb-12'>What We Offer</h3>
             <div className='flex flex-col md:flex-row justify-between items-center gap-12 mt-12 w-full '>
-              <div className='bg-gray-300 p-4 md:p-12 md:w-1/2 h-full '>
-                <div className='flex flex-row gap-4 h-full pb-12'>
-                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+              <div className='bg-gray-300 p-4 md:p-12 md:w-1/2 h-full w-full rounded-md'>
+                <div className='flex flex-col md:flex-row gap-4 h-full pb-12 w-full'>
+                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md  '>
                     <h4 className='text-xl font-semibold'>Cities</h4>
                     <div className='flex flex-row justify-between items-center gap-12'>
                       <p>Culver City</p>
@@ -216,13 +216,13 @@ export default function landingHeaderNew() {
                       </span>
                     </div>
                   </div>
-                  <div className='h-full justify-end flex flex-col my-12  '>
+                  <div className='h-full justify-center items-center w-full lg:justify-end flex flex-col my-12 '>
                     <img
                       src='/building.png'
                       alt='image'
-                      className='rounded-t-md w-56'
+                      className='rounded-t-md w-full xl:w-56'
                     />
-                    <div className='bg-white p-4 rounded-b-md flex flex-col items-center gap-6'>
+                    <div className='bg-white p-4 w-full rounded-b-md flex flex-col items-center gap-6'>
                       <p>Tentative Tract Map</p>
                       <Link
                         href='#'
@@ -283,8 +283,8 @@ export default function landingHeaderNew() {
                 </li>
               </ul>
             </div>
-            <div className='md:w-1/2 bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0'>
-              <div className='flex flex-row gap-4 h-full pb-12 '>
+            <div className='md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0'>
+              <div className='flex flex-col md:flex-row gap-4 h-full pb-12 '>
                 <div className='flex flex-col justify-between gap-6 bg-white p-4 rounded-md '>
                   <div className='flex flex-row justify-between'>
                     <span className='h-2 bg-gray-300 w-24 rounded-md' />
