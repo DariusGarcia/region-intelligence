@@ -86,7 +86,7 @@ export default function Navbar() {
             <Bars3Icon className='h-6 w-6' aria-hidden='true' />
           </button>
         </div>
-        <div className='hidden md:flex flex-col md:flex-row gap-16 justify-between'>
+        <div className='hidden lg:flex flex-col md:flex-row gap-16 justify-between'>
           <Link
             href='/products'
             className='text-sm font-semibold leading-6 text-black hover:text-gray-500 transition ease-out'>
