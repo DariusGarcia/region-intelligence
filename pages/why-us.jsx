@@ -21,8 +21,8 @@ export default function WhyUsPage() {
       </Head>
       <div className=''>
         <div className='relative isolate pb-24 overflow-hidden pt-8 '>
-          <div className='mx-auto max-w-7xl px-6 pt-6 sm:py-12 z-50 lg:px-8 flex md:flex-row flex-col justify-between'>
-            <div className='md:mx-auto w-full mt-6 lg:mx-0 z-50  lg:max-w-none flex flex-col justify-center gap-6'>
+          <div className='mx-auto max-w-7xl  pt-6 sm:py-12 z-50 lg:px-8 flex md:flex-row flex-col justify-between'>
+            <div className='md:mx-auto w-full px-4 mt-6 lg:mx-0 z-50  lg:max-w-none flex flex-col justify-center gap-6'>
               <h2 className='max-w-2xl pl-16 md:pl-20  text-4xl font-bold tracking-tight text-neutral-500 sm:text-5xl lg:col-span-2 xl:col-auto '>
                 Analysts
               </h2>
@@ -52,7 +52,7 @@ export default function WhyUsPage() {
                 </Link>
               </div>
             </div>
-            <div className='flex flex-row relative gap-4  bg-black md:p-12 xl:p-24  p-4 w-full rounded-md'>
+            <div className='flex flex-col mt-24 lg:mt-0 lg:flex-row relative gap-12 lg:gap-4 py-12 bg-black md:p-12 xl:p-24 p-12 w-full lg:rounded-md'>
               <div className='flex flex-col gap-4 bg-white p-4 rounded-md'>
                 <p className='text-xl font-semibold '>Hazard Overview</p>
                 <div className='flex flex-row gap-4'>
@@ -80,7 +80,7 @@ export default function WhyUsPage() {
                   <span className='h-2 bg-green-400 w-12 md:w-16 rounded-md  items-center'></span>
                 </div>
               </div>
-              <div className='absolute border right-20 pb-24  bottom-5  flex flex-col gap-4 justify-end  h-max bg-white p-4 rounded-md'>
+              <div className='lg:absolute border right-20 pb-24  bottom-5  flex flex-col gap-4 justify-end  h-max bg-white p-4 rounded-md'>
                 <p className='text-lg'>Price Trends</p>
                 <div className='flex flex-row gap-4'>
                   <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
@@ -89,7 +89,7 @@ export default function WhyUsPage() {
                 <p className='text-lg'>$180,000</p>
                 <img src='/line.png' alt='line' />
                 <img src='/line (1).png' alt='line' />
-                <div className='flex flex-row justify-between'>
+                <div className='flex flex-row justify-between mt-8'>
                   <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
                   <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
                 </div>
@@ -108,11 +108,11 @@ export default function WhyUsPage() {
           </div>
         </div>
         {/* Data is the new oil section */}
-        <div className='w-full flex justify-center p-4'>
+        <div className='w-full flex justify-center p-12'>
           <div className='max-w-7xl md:pt-0 md:my-36 w-full grid grid-cols-1 md:grid-cols-3 items-start justify-center gap-12'>
             <div className='flex flex-col gap-4'>
               <h3 className='font-bold text-xl'>First Mover Advantage</h3>
-              <p className='md:w-96'>
+              <p className='xl:w-96'>
                 Get the latest information on city planning to stay ahead of
                 your competition. We provide all of the analysis at your
                 fingertips so all you have to do is make the call.{' '}
@@ -120,14 +120,14 @@ export default function WhyUsPage() {
             </div>
             <div className='flex flex-col gap-4'>
               <h3 className='font-bold text-xl'>Data Driven Decision Making</h3>
-              <p className='md:w-96'>
+              <p className='xl:w-96'>
                 We leverage AI in our data process so you can get real-time
                 insights on latest city development trends.{' '}
               </p>
             </div>
             <div className='flex flex-col gap-4'>
               <h3 className='font-bold text-xl'>A Growing Community</h3>
-              <p className='md:w-96'>
+              <p className='xl:w-96'>
                 Our community of investors, developers, builders, and analysts
                 value our data.{' '}
               </p>
@@ -136,10 +136,10 @@ export default function WhyUsPage() {
         </div>
         {/* LEVERAGE AI section */}
         <div className='flex flex-col w-full items-center justify-center mb-24'>
-          <section className='mt-24 w-full flex flex-col items-center max-w-7xl '>
+          <section className='mt-12 w-full p-4 flex flex-col items-center max-w-7xl '>
             <h3 className='text-5xl font-bold mb-12'>Features</h3>
-            <div className='flex flex-col items-center  md:flex-row justify-between gap-12 mt-12 '>
-              <div className='bg-gray-300 p-4 md:p-12 md:w-1/2 rounded-md'>
+            <div className='flex flex-col items-center xl:flex-row justify-between gap-12 mt-12 '>
+              <div className='bg-gray-300 p-4 md:p-12 xl:w-1/2 md:rounded-md'>
                 <div className='flex flex-row gap-4'>
                   <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
                     <h4 className='text-xl font-semibold'>New Developments</h4>
@@ -176,7 +176,7 @@ export default function WhyUsPage() {
                   </div>
                 </div>
               </div>
-              <div className='p-4 md:p-0 md:w-1/2'>
+              <div className='p-4 md:p-0 xl:w-1/2 md:mt-12'>
                 <h5 className='text-3xl font-semibold'>
                   Aggregated Municipal Items
                 </h5>
@@ -201,7 +201,7 @@ export default function WhyUsPage() {
             </div>
           </section>
 
-          <section className='max-w-7xl flex flex-col md:flex-row p-4 justify-between gap-6 w-full mt-24'>
+          <section className='max-w-7xl flex flex-col xl:flex-row p-8 items-center justify-between gap-6 w-full mt-24'>
             <div className='md:w-1/2'>
               <h5 className='text-3xl font-semibold'>
                 A Basis for Land Prices
