@@ -30,11 +30,11 @@ export default function WaitlistPage() {
     }
   }
   return (
-    <div className='flex flex-col w-full items-center my-12 p-4'>
-      <nav className='flex flex-row justify-between w-full items-center max-w-7xl'>
+    <div className='flex flex-col w-full items-center my-12 p-4 bg-white'>
+      <nav className='flex flex-col md:flex-row gap-6 justify-between w-full items-center max-w-7xl'>
         <img src='logoWhiteBG.png' alt='logo' className='w-36' />
         <div className='flex flex-row gap-12 items-center'>
-          <Link href='/about' className='font-semibold'>
+          <Link href='/about' className='font-semibold underline'>
             ABOUT US
           </Link>
           <Link
@@ -55,7 +55,7 @@ export default function WaitlistPage() {
             We're diligently working on bringing you the new product. As we iron
             out the final details, we invite you to be a part of our journey.{' '}
           </p>
-          <form action='' className='flex flex-col gap-6'>
+          <form action='' className='flex flex-col gap-8'>
             <div>
               <label
                 htmlFor='email'
@@ -141,21 +141,21 @@ export default function WaitlistPage() {
               </div>
             </div>
 
-            <div className='relative flex flex-col gap-8 items-start w-full'>
+            <form
+              action='#'
+              className='relative flex flex-col gap-12 items-start w-full'>
               <div className='flex'>
                 <div className='flex h-6 items-center'>
                   <input
-                    id='comments'
-                    aria-describedby='comments-description'
-                    name='comments'
+                    id='terms'
+                    aria-describedby='terms-description'
+                    name='terms'
                     type='checkbox'
                     className='h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600'
                   />
                 </div>
                 <div className='ml-3 text-sm leading-6'>
-                  <label
-                    htmlFor='comments'
-                    className='font-medium text-gray-900'>
+                  <label htmlFor='terms' className='font-medium text-gray-900'>
                     Terms of Service & Privacy Policy
                   </label>
                 </div>
@@ -163,26 +163,24 @@ export default function WaitlistPage() {
               <div className='flex'>
                 <div className='flex h-6 items-center'>
                   <input
-                    id='comments'
-                    aria-describedby='comments-description'
-                    name='comments'
+                    id='notify'
+                    aria-describedby='notify-description'
+                    name='notify'
                     type='checkbox'
                     className='h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600'
                   />
                 </div>
                 <div className='ml-3 text-sm leading-6'>
-                  <label
-                    htmlFor='comments'
-                    className='font-medium text-gray-900'>
+                  <label htmlFor='notify' className='font-medium text-gray-900'>
                     Notify me for latest blogs, promotions, and updates
                   </label>
                 </div>
               </div>
 
-              <Button className='border-black p-4 w-full md:w-48 text-center justify-center flex items-center'>
+              <Button className='border-black p-4 w-full  text-center justify-center flex items-center'>
                 GET ON THE LIST
               </Button>
-            </div>
+            </form>
           </form>
         </div>
         <div className='w-full flex justify-center md:justify-end mt-24 md:mt-0'>
