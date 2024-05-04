@@ -52,7 +52,50 @@ export default function WhyUsPage() {
                 </Link>
               </div>
             </div>
-            <div className='w-full flex justify-center md:justify-end mt-12 md:mt-0'>
+            <div className='flex flex-row relative gap-4  bg-black md:p-12 xl:p-24  p-4 w-full rounded-md'>
+              <div className='flex flex-col gap-4 bg-white p-4 rounded-md'>
+                <p className='text-xl font-semibold '>Hazard Overview</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-gray-400 w-12 md:w-24 rounded-md  items-center'></span>
+                </div>
+                <p className='text-lg font-semibold '>Fire Hazard</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-green-300 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                </div>
+                <p className='text-lg font-semibold '>Liquefaction</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-green-400 w-12 md:w-16 rounded-md  items-center'></span>
+                </div>
+                <p className='text-lg font-semibold '>Earthquake Fault</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-green-400 w-12 md:w-16 rounded-md  items-center'></span>
+                </div>
+                <p className='text-lg font-semibold '>Sea Rise</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-green-400 w-12 md:w-16 rounded-md  items-center'></span>
+                </div>
+              </div>
+              <div className='absolute border right-20 pb-24  bottom-5  flex flex-col gap-4 justify-end  h-max bg-white p-4 rounded-md'>
+                <p className='text-lg'>Price Trends</p>
+                <div className='flex flex-row gap-4'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                  <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
+                </div>
+                <p className='text-lg'>$180,000</p>
+                <img src='/line.png' alt='line' />
+                <img src='/line (1).png' alt='line' />
+                <div className='flex flex-row justify-between'>
+                  <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
+                  <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
+                </div>
+              </div>
+            </div>
+            {/* <div className='w-full flex justify-center md:justify-end mt-12 md:mt-0'>
               <Image
                 src='/whyUs.png'
                 priority={true}
@@ -61,7 +104,7 @@ export default function WhyUsPage() {
                 alt='aerial view of LA'
                 className=' w-96 max-w-lg my-8 md:my-0 rounded-lg md:mt-0 '
               />
-            </div>
+            </div> */}
           </div>
         </div>
         {/* Data is the new oil section */}
