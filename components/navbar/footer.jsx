@@ -12,12 +12,7 @@ export default function Footer() {
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
           <div className='flex flex-row gap-2'>
-            <Link
-              href='/'
-              className='h-7 text-xl font-bold hover:underline leading-6 hover:text-blue-500 transition ease-out bg-none'
-              alt='Company name'>
-              <img src='/bigLogo.png' className='w-72' />
-            </Link>
+            <img src='/bigLogo.png' className='w-72' />
           </div>
 
           <div className='mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
