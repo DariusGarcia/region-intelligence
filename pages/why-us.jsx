@@ -87,8 +87,8 @@ export default function WhyUsPage() {
                   <span className='h-2 bg-stone-200 w-12 md:w-24 rounded-md  items-center'></span>
                 </div>
                 <p className='text-lg'>$180,000</p>
-                <img src='/line.png' alt='line' />
-                <img src='/line (1).png' alt='line' />
+                <img src='/line.png' alt='line'className='w-56' />
+                <img src='/line (1).png' alt='line' className='w-56'/>
                 <div className='flex flex-row justify-between mt-8'>
                   <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
                   <span className='h-2 bg-stone-200 w-12 md:w-16 rounded-md  items-center'></span>
@@ -138,8 +138,8 @@ export default function WhyUsPage() {
         <div className='flex flex-col w-full items-center justify-center mb-24'>
           <section className='mt-12 w-full p-4 flex flex-col items-center max-w-7xl '>
             <h3 className='text-5xl font-bold mb-12'>Features</h3>
-            <div className='flex flex-col items-center xl:flex-row justify-between gap-12 mt-12 '>
-              <div className='bg-gray-300 p-4 md:p-12 xl:w-1/2 md:rounded-md'>
+            <div className='flex flex-col items-center xl:flex-row w-full justify-between gap-12 mt-12 '>
+              <div className='bg-gray-300 p-4 md:p-12 w-full md:rounded-md flex flex-col items-center'>
                 <div className='flex flex-row gap-4'>
                   <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
                     <h4 className='text-xl font-semibold'>New Developments</h4>
@@ -176,7 +176,7 @@ export default function WhyUsPage() {
                   </div>
                 </div>
               </div>
-              <div className='p-4 md:p-0 xl:w-1/2 md:mt-12'>
+              <div className='p-4 md:mt-12 w-full'>
                 <h5 className='text-3xl font-semibold'>
                   Aggregated Municipal Items
                 </h5>
@@ -202,7 +202,7 @@ export default function WhyUsPage() {
           </section>
 
           <section className='max-w-7xl flex flex-col xl:flex-row p-8 items-center justify-between gap-6 w-full mt-24'>
-            <div className='md:w-1/2'>
+            <div className='xl:w-1/2 w-full'>
               <h5 className='text-3xl font-semibold'>
                 A Basis for Land Prices
               </h5>
@@ -213,8 +213,8 @@ export default function WhyUsPage() {
                 bad deal.
               </p>
             </div>
-            <div className='w-full md:w-1/2 rounded-md bg-gray-300 flex flex-row justify-center gap-4 xl:p-12 p-4'>
-              <div className='w-full flex flex-col gap-2 bg-white p-4 h-full rounded-lg'>
+            <div className='w-full xl:w-1/2 rounded-md bg-gray-300 flex flex-row justify-center gap-4 xl:p-12 p-4'>
+              <div className='w-full h-full flex flex-col gap-2 bg-white p-4 rounded-lg'>
                 <h4 className='border-b-4 border-black font-semibold text-lg w-max'>
                   Overview
                 </h4>

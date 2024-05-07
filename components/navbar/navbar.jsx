@@ -152,12 +152,14 @@ export default function Navbar() {
           <div className='p-6'>
             <div className='flex items-center justify-between'>
               <Link href='/' className='-m-1.5 p-1.5'>
-                <span className='sr-only'>Region Intelligence</span>
-                <p
+                {/* <span className='sr-only'>Region Intelligence</span> */}
+                <img src='/logos/logo3.svg' />
+                {/* <p
                   className='font-bold leading-6 text-black text-xl hover:text-gray-500 hover:underline transition ease-out'
                   onClick={() => setMobileMenuOpen(false)}>
                   Region Intelligence{' '}
-                </p>
+                </p> */}
+                <img src='/logos/logo3.svg' />
               </Link>
               <button
                 type='button'

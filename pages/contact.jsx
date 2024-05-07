@@ -11,7 +11,7 @@ export default function ContactPage() {
     <>
       {' '}
       <Head>
-        <title>Region Intelligence - Why Us</title>
+        <title>Region Intelligence - Contact Us</title>
         <meta
           name='description'
           content=' No more navigating through complex research. With Region Intelligence,
@@ -22,7 +22,7 @@ export default function ContactPage() {
       today!'
         />
       </Head>
-      <div className='relative md:mt-12 isolate bg-white'>
+      <div className='relative md:mt-0 isolate bg-white'>
         <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
           <div className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
             <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg'>
@@ -123,8 +123,9 @@ export default function ContactPage() {
           <form
             action='#'
             method='POST'
-            className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
+            className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-12'>
             <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
+                <div className='mb-12'><img src='logos/logo3.svg' alt='logo' className='w-36'/></div>
               <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
                 <div>
                   <label
