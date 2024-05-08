@@ -11,7 +11,7 @@ export default function Footer() {
           Footer
         </h2>
         <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
-          <Link href='/' className='flex flex-row gap-2'>
+          <Link href='/' className='flex flex-row justify-center gap-2'>
             <img src='/logos/logo2.svg' className='w-72' />
           </Link>
 
