@@ -173,7 +173,7 @@ export default function landingHeaderNew() {
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true, amount: 0.2 }}
-              className='col-span-1 flex flex-col gap-12 bg-white py-6'>
+              className='col-span-1 flex flex-col gap-12 bg-white py-6 rounded-r-md'>
               <m.div
                 variants={staggeredCardVariants}
                 custom={0}
@@ -336,7 +336,7 @@ export default function landingHeaderNew() {
                 </li>
               </ul>
             </div>
-            <div className='md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0'>
+            <div className='md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0 rounded-md'>
               <div className='flex flex-col md:flex-row gap-4 h-full pb-12 '>
                 <div className='flex flex-col justify-between gap-6 bg-white p-4 rounded-md '>
                   <div className='flex flex-row justify-between'>
@@ -390,7 +390,7 @@ export default function landingHeaderNew() {
         <section className='w-full flex flex-col items-center justify-center'>
           <div className='mt-12 md:mt-24 w-full flex flex-col items-center max-w-7xl  '>
             <div className='flex flex-col md:flex-row justify-between gap-12 mt-12 '>
-              <div className='bg-gray-300 p-4 md:p-12 md:w-1/2'>
+              <div className='bg-gray-300 p-4 md:p-12 md:w-1/2 rounded-md'>
                 <div className='flex flex-col justify-center items-center md:flex-row gap-4 w-full'>
                   <div className='flex flex-col gap-6 bg-white p-4 rounded-md w-full'>
                     <div className='flex flex-row justify-between'>
