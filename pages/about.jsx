@@ -42,9 +42,13 @@ export default function AboutPage({ posts }) {
             <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
               <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
                 <div className='mt-6 max-w-3xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full'>
-                  <div className='flex flex-row items-center'>
-                    <img src='/simpleLogo.png' alt='logo' className='w-72' />
-                    <h1 className='max-w-4xl text-3xl md:text-6xl font-bold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
+                  <div className='flex flex-row gap-12 items-center'>
+                    <img
+                      src='/logos/logo3.svg'
+                      alt='logo'
+                      className='w-full md:w-72'
+                    />
+                    <h1 className='max-w-4xl text-5xl lg:text-9xl font-semibold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
                       RI
                     </h1>
                   </div>

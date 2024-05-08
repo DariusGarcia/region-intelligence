@@ -127,7 +127,7 @@ export default function Navbar() {
               Logout
             </Button>
           ) : (
-            <Button className='text-sm font-semibold leading-6 flex items-center justify-center text-white transition ease-out bg-black p-2 hover:shadow-none rounded-sm px-6'>
+            <Button className='text-sm font-semibold leading-6 flex items-center justify-center text-white transition ease-out bg-black p-2 py-4 text-center hover:shadow-none rounded-sm px-6'>
               <a href='/login'>
                 Log in <span aria-hidden='true'>&rarr;</span>
               </a>

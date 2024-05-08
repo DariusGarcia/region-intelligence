@@ -38,7 +38,6 @@ const client = createClient({
 export default function ProductsPage({ posts }) {
   return (
     <>
-      {' '}
       <Head>
         <title>Region Intelligence - Products</title>
         <meta
@@ -55,80 +54,69 @@ export default function ProductsPage({ posts }) {
         <div className='relative pb-16 pt-6 sm:pb-24 lg:pb-32'>
           <main className='sm:mt-16'>
             <div className='lg:grid lg:grid-cols-12 lg:gap-8 mx-auto mt-6 max-w-7xl px-4 md:px-6 '>
-              <div className='sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:text-left'>
+              <div className='flex flex-col gap-12 sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:text-left'>
                 <h1>
-                  <span className='mb-6 mt-1 block text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl'>
+                  <span className='block text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl'>
                     <span className='block text-gray-900'>
                       Data Driven Insights
                     </span>
                     <span className='block'>Made Easy</span>
                   </span>
                 </h1>
-                <p className='mt-3 text-base text-black sm:mt-5 sm:text-xl lg:text-lg'>
+                <p className=' text-base text-black sm:text-xl lg:text-lg'>
                   <span className='text-orange-400 font-semibold italic'>
                     Simple, quick, insightful.
                   </span>{' '}
                   Transforming Southern California's urban challenges into
                   opportunities for smarter development
                 </p>
-                <div className='flex flex-row gap-8 mt-6 justify-center pb-24 md:md-0'>
+                <div className='flex flex-row gap-8 lg:justify-start justify-center pb-24 md:md-0'>
                   <Link
                     href='/dashboard'
-                    className='w-56 bg-black transition ease-out hover:bg-gray-500 p-2 rounded-md px-4 text-center text-white font-semibold'>
+                    className='w-56 bg-black transition ease-out hover:bg-gray-500 p-2 rounded-md px-4 text-center  text-white font-semibold'>
                     Get Started
                   </Link>
                 </div>
               </div>
-              <div className='relativemt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
-                <svg
-                  className='absolute left-1/2 top-0 origin-top -translate-x-1/2 -translate-y-8 scale-75 transform sm:scale-100 lg:hidden'
-                  width={640}
-                  height={784}
-                  fill='none'
-                  viewBox='0 0 640 784'
-                  aria-hidden='true'>
-                  <defs>
-                    <pattern
-                      id='4f4f415c-a0e9-44c2-9601-6ded5a34a13e'
-                      x={118}
-                      y={0}
-                      width={20}
-                      height={20}
-                      patternUnits='userSpaceOnUse'>
-                      <rect
-                        x={0}
-                        y={0}
-                        width={4}
-                        height={4}
-                        className='text-gray-200'
-                        fill='currentColor'
-                      />
-                    </pattern>
-                  </defs>
-                  <rect
-                    y={72}
-                    width={640}
-                    height={640}
-                    className='text-gray-50'
-                    fill='currentColor'
-                  />
-                  <rect
-                    x={118}
-                    width={404}
-                    height={784}
-                    fill='url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)'
-                  />
-                </svg>
-                <div className='relative mx-auto w-full rounded-lg lg:max-w-md'>
-                  <Image
-                    className='w-full'
-                    width={900}
-                    height={600}
-                    priority
-                    style={{ objectFit: 'contain' }}
-                    src='/landingHeader/landingHeader.png'
-                    alt='product header'
-                  />
+              <div className='relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
+                <div className='flex flex-col'>
+                  <div className='flex flex-row gap-6'>
+                    <p className='w-24 text-center font-semibold bg-black text-white p-2 rounded-sm'>
+                      Save
+                    </p>
+                    <p className='w-24 text-center font-semibold p-2 rounded-sm bg-blue-500 text-white'>
+                      Export
+                    </p>
+                  </div>
+                  <div className='flex flex-row justify-between text-2xl gap-4'>
+                    <p className='font-semibold border-b border-black'>
+                      Overview
+                    </p>
+                    <p className='font-semibold border-b border-gray-200 '>
+                      Land Use
+                    </p>
+                    <p className='font-semibold border-b border-gray-200'>
+                      Hazards
+                    </p>
+                  </div>
+                  <div className='flex flex-row justify-between'>
+                    <div className='flex flex-col gap-12'>
+                      <p className='p-2 text-white rounded-md text-center bg-red-400'>
+                        Residential
+                      </p>
+                      <p className='p-2 text-white rounded-md text-center bg-neutral-800'>
+                        Commercial
+                      </p>
+                      <p className='p-2 text-white rounded-md text-center bg-green-600'>
+                        Agriculture
+                      </p>
+                    </div>
+                    <div className='flex flex-col gap-12'>
+                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
+                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
+                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
