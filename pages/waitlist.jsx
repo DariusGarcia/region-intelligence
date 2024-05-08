@@ -30,16 +30,20 @@ export default function WaitlistPage() {
     }
   }
   return (
-    <div className='flex flex-col w-full items-center my-12 p-4 bg-white'>
+    <div className='flex flex-col w-full items-center mt-6 md:my-12 mb-24 p-6 bg-white'>
       <nav className='flex flex-col md:flex-row gap-6 justify-between w-full items-center max-w-7xl'>
-        <img src='logoWhiteBG.png' alt='logo' className='w-36' />
+        <Link href='/' className='mb-8 lg:mb-0'>
+          <img src='/logos/logo3.svg' alt='logo' className='w-24' />
+        </Link>
         <div className='flex flex-row gap-12 items-center'>
-          <Link href='/about' className='font-semibold underline'>
+          <Link
+            href='/about'
+            className='font-semibold underline hover:text-gray-500 transition ease-out'>
             ABOUT US
           </Link>
           <Link
             href='/about'
-            className='font-semibold border-2 rounded-xl p-2 border-black'>
+            className='font-semibold border-2 rounded-xl p-2 border-black hover:bg-gray-300 transition ease-out'>
             GRAB AN INVITE
           </Link>
         </div>
@@ -47,26 +51,26 @@ export default function WaitlistPage() {
       <main className='flex flex-col md:flex-row justify-between w-full max-w-7xl mt-12'>
         <div className='md:w-1/2 w-full flex flex-col gap-12'>
           <p className='text-lg font-semibold'>JOIN OUR WAITING LIST</p>
-          <p className='font-bold text-lg md:w-96'>
+          <p className='font-semibold text-md md:w-96'>
             Region Intelligence is a brand new way to perform due diligence on
             investments.{' '}
           </p>
-          <p className='font-bold text-lg md:w-96'>
+          <p className='font-semibold text-md md:w-96'>
             We're diligently working on bringing you the new product. As we iron
             out the final details, we invite you to be a part of our journey.{' '}
           </p>
           <form action='' className='flex flex-col gap-8'>
             <div>
               <label
-                htmlFor='email'
+                htmlFor='name'
                 className='block text-sm font-medium leading-6 text-gray-900'>
                 Name
               </label>
               <div className='mt-2'>
                 <input
-                  type='email'
-                  name='email'
-                  id='email'
+                  type='text'
+                  name='name'
+                  id='name'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                   placeholder='Your name'
                 />
@@ -110,15 +114,15 @@ export default function WaitlistPage() {
             </div>
             <div>
               <label
-                htmlFor='email'
+                htmlFor='organization'
                 className='block text-sm font-medium leading-6 text-gray-900'>
                 Organization
               </label>
               <div className='mt-2'>
                 <input
-                  type='email'
-                  name='email'
-                  id='email'
+                  type='text'
+                  name='organization'
+                  id='organization'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                   placeholder='Your organization'
                 />
@@ -126,24 +130,21 @@ export default function WaitlistPage() {
             </div>
             <div>
               <label
-                htmlFor='email'
+                htmlFor='title'
                 className='block text-sm font-medium leading-6 text-gray-900'>
                 Title
               </label>
               <div className='mt-2'>
                 <input
-                  type='email'
-                  name='email'
-                  id='email'
+                  type='text'
+                  name='title'
+                  id='title'
                   className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
                   placeholder='Your position title'
                 />
               </div>
             </div>
-
-            <form
-              action='#'
-              className='relative flex flex-col gap-12 items-start w-full'>
+            <div className='relative flex flex-col gap-12 items-start w-full'>
               <div className='flex'>
                 <div className='flex h-6 items-center'>
                   <input
@@ -176,11 +177,10 @@ export default function WaitlistPage() {
                   </label>
                 </div>
               </div>
-
               <Button className='border-black p-4 w-full  text-center justify-center flex items-center'>
                 GET ON THE LIST
               </Button>
-            </form>
+            </div>
           </form>
         </div>
         <div className='w-full flex justify-center md:justify-end mt-24 md:mt-0'>
