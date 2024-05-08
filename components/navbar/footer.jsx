@@ -10,8 +10,9 @@ export default function Footer() {
         <h2 id='footer-heading' className='sr-only'>
           Footer
         </h2>
-        <div className='flex flex-col items-center xl:grid xl:grid-cols-3 xl:gap-8'>
-          <Link href='/' className='flex flex-row gap-2'>
+
+        <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
+          <Link href='/' className='flex flex-row justify-center gap-2'>
             <img src='/logos/logo2.svg' className='w-72' />
           </Link>
 
