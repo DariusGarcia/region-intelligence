@@ -78,9 +78,9 @@ export default function ProductsPage({ posts }) {
                   </Link>
                 </div>
               </div>
-              <div className='relative mt-12 sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
-                <div className='flex flex-col'>
-                  <div className='flex flex-row gap-6'>
+              <div className='relative mt-12 h-full sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
+                <div className='lg:absolute bottom-0 z-50 flex flex-col shadow-md p-4 rounded-md bg-white lg:w-96'>
+                  <div className='flex flex-row gap-6 mb-4'>
                     <p className='w-24 text-center font-semibold bg-black text-white p-2 rounded-sm'>
                       Save
                     </p>
@@ -99,24 +99,62 @@ export default function ProductsPage({ posts }) {
                       Hazards
                     </p>
                   </div>
-                  <div className='flex flex-row justify-between'>
-                    <div className='flex flex-col gap-12'>
-                      <p className='p-2 text-white rounded-md text-center bg-red-400'>
-                        Residential
-                      </p>
-                      <p className='p-2 text-white rounded-md text-center bg-neutral-800'>
-                        Commercial
-                      </p>
-                      <p className='p-2 text-white rounded-md text-center bg-green-600'>
-                        Agriculture
-                      </p>
+                  <div className='w-full flex flex-row justify-between items-center mt-8 pl-2'>
+                    <div className='flex flex-col gap-6 h-full w-full'>
+                      <div className='flex flex-row justify-between w-full items-center'>
+                        <p className='p-2 w-36 text-white rounded-md text-center bg-red-400'>
+                          Residential
+                        </p>
+                        <span className='h-2 w-24 rounded-lg bg-gray-200' />
+                      </div>
+                      <div className='flex flex-row justify-between items-center'>
+                        <p className='p-2 w-36 text-white rounded-md text-center bg-neutral-800'>
+                          Commercial
+                        </p>
+                        <span className='h-2 w-24 rounded-lg bg-gray-200' />
+                      </div>
+                      <div className='flex flex-row justify-between items-center'>
+                        <p className='p-2 w-36 text-white rounded-md text-center bg-green-600'>
+                          Agriculture
+                        </p>
+                        <span className='h-2 w-24 rounded-lg bg-gray-200' />
+                      </div>
                     </div>
-                    <div className='flex flex-col gap-12'>
-                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
-                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
-                      <span className='h-2 w-56 rounded-lg bg-gray-200' />
-                    </div>
+                    <div className='flex flex-col gap-12 h-full'></div>
                   </div>
+                </div>
+                <div className='mt-8 lg:mt-0 lg:absolute lg:w-96 flex gap-2 right-0 top-0 flex-col shadow-md p-4 rounded-md bg-white'>
+                  <Image
+                    src='/logos/logo3.svg'
+                    alt='logo'
+                    width={50}
+                    height={50}
+                    className='rounded-md'
+                  />
+                  <p className='font-semibold text-3xl '>New Developments</p>
+                  <p className='border-2 p-2 rounded-sm text-gray-400 w-max'>
+                    Search Applicant, APN, Permit...
+                  </p>
+                  <span className='w-full h-12 bg-neutral-200' />
+                  <table className='flex flex-col gap-4 mt-6'>
+                    {headerTable.map((item) => (
+                      <div
+                        key={item.id}
+                        className='grid grid-cols-3 items-center'>
+                        <p>{item.id}</p>
+                        {item.status === 'New' ? (
+                          <p className='bg-yellow-500 text-white p-2 rounded-md w-24 text-center '>
+                            {item.status}
+                          </p>
+                        ) : (
+                          <p className='bg-green-500 text-white p-2 rounded-md w-24 text-center'>
+                            {item.status}
+                          </p>
+                        )}
+                        <p>{item.city}</p>
+                      </div>
+                    ))}
+                  </table>
                 </div>
               </div>
             </div>
@@ -255,5 +293,33 @@ const features = [
       'Leverage our proprietary machine learning models to identify potential sales prices of land. ',
     href: '#',
     icon: PriceChangeOutlined,
+  },
+]
+
+const headerTable = [
+  {
+    id: 0,
+    city: 'Los Angeles',
+    status: 'New',
+  },
+  {
+    id: 1,
+    city: 'Santa Monica',
+    status: 'New',
+  },
+  {
+    id: 2,
+    city: 'Long Beach',
+    status: 'New',
+  },
+  {
+    id: 3,
+    city: 'Beverly Hills',
+    status: 'Updated',
+  },
+  {
+    id: 4,
+    city: 'Malibu',
+    status: 'New',
   },
 ]
