@@ -21,6 +21,7 @@ import {
 } from '@heroicons/react/20/solid'
 import Avatar from './avatar'
 import { Button } from 'antd'
+import Image from 'next/image'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -66,9 +67,12 @@ export default function Navbar() {
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
             <span className='sr-only'>Region Intelligence</span>
-            <p className='text-lg font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
-              Region Intelligence
-            </p>
+            <div className='flex flex-row items-center gap-2'>
+              <Image src='/logos/logo3.svg' width={30} height={20} />
+              <p className='text-lg font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
+                Region Intelligence
+              </p>
+            </div>
           </Link>
         </div>
         {/**
