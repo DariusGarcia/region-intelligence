@@ -136,7 +136,7 @@ export default function ProductsPage({ posts }) {
                     Search Applicant, APN, Permit...
                   </p>
                   <span className='w-full h-12 bg-neutral-200' />
-                  <table className='flex flex-col gap-4 mt-6'>
+                  <section className='flex flex-col gap-4 mt-6'>
                     {headerTable.map((item) => (
                       <div
                         key={item.id}
@@ -154,7 +154,7 @@ export default function ProductsPage({ posts }) {
                         <p>{item.city}</p>
                       </div>
                     ))}
-                  </table>
+                  </section>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function ProductsPage({ posts }) {
                         key={useCase.id}>
                         <img
                           src={useCase.image}
-                          alt=''
+                          alt='logo'
                           className='w-full object-cover rounded-t-md border-none'
                         />
                         <div className='p-6 flex flex-col gap-6'>
