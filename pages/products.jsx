@@ -167,7 +167,7 @@ export default function ProductsPage({ posts }) {
                       {features.map((feature) => (
                         <div
                           key={feature.name}
-                          className='flex flex-col w-full'>
+                          className='flex flex-col w-full '>
                           <dt className='text-lg font-semibold leading-7 text-gray-900'>
                             <div className='mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-blue-200'>
                               <feature.icon

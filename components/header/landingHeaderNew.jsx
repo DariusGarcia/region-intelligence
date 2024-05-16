@@ -232,7 +232,7 @@ export default function landingHeaderNew() {
           </div>
           <div>
             <img
-              src='/about/sitePlan.jpg'
+              src='/landingHeader/3squares.svg'
               alt=''
               className='w-full md:w-72 rounded-lg'
             />
