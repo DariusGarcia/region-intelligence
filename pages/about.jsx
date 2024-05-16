@@ -42,17 +42,17 @@ export default function AboutPage({ posts }) {
             <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
               <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
                 <div className='mt-6 max-w-3xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full'>
-                  <div className='flex flex-row gap-12 items-center'>
+                  <div className='flex flex-row gap-12 items-end'>
                     <img
                       src='/logos/logo3.svg'
                       alt='logo'
-                      className='w-full md:w-72'
+                      className='w-24 lg:w-56'
                     />
-                    <h1 className='max-w-4xl text-5xl lg:text-9xl font-semibold tracking-tight text-gray-900 lg:col-span-2 xl:col-auto uppercase'>
+                    <h1 className='max-w-4xl text-7xl lg:text-9xl font-semibold tracking-tight lg:col-span-2 xl:col-auto uppercase'>
                       RI
                     </h1>
                   </div>
-                  <p className='pl-1 text-lg leading-8 text-gray-600 uppercase font-semibold'>
+                  <p className='pl-1 text-2xl leading-8 uppercase font-semibold'>
                     Based in Los Angeles
                   </p>
                 </div>
