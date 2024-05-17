@@ -96,11 +96,11 @@ export default function Navbar() {
             className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Product
           </Link>
-          <Link
+          {/* <Link
             href='/pricing'
             className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Pricing
-          </Link>
+          </Link> */}
 
           <Link
             href='/why-us'
