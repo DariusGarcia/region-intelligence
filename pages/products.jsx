@@ -1,41 +1,13 @@
-import ProductFeatures from '@/components/productFeatures'
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import { createClient } from 'next-sanity'
-import groq from 'groq'
-import BlogSection from '@/features/blog/blog'
 import CTA from '@/components/cta'
 import DefaultLayout from '@/components/layouts/defaultLayout'
-import {
-  BuildingLibraryIcon,
-  InboxIcon,
-  Square3Stack3DIcon,
-  TrashIcon,
-  UsersIcon,
-} from '@heroicons/react/24/outline'
 import { FaCity } from 'react-icons/fa'
 import { Square2StackIcon } from '@heroicons/react/20/solid'
-import {
-  AddBoxOutlined,
-  GpsFixedOutlined,
-  LocationCity,
-  LocationCityOutlined,
-  PriceChangeOutlined,
-  ReduceCapacityRounded,
-  SquareFootSharp,
-} from '@mui/icons-material'
+import { GpsFixedOutlined, PriceChangeOutlined } from '@mui/icons-material'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-
-const client = createClient({
-  projectId: projectId,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-})
-
-export default function ProductsPage({ posts }) {
+export default function ProductsPage() {
   return (
     <>
       <Head>
@@ -225,6 +197,14 @@ export default function ProductsPage({ posts }) {
   )
 }
 
+ProductsPage.getLayout = function getLayout(page) {
+  return (
+    <DefaultLayout>
+      <>{page}</>
+    </DefaultLayout>
+  )
+}
+
 const useCases = [
   {
     id: 1,
@@ -248,24 +228,6 @@ const useCases = [
       'Local price tracking keeps you ahead of your due diligence. If you are interested in a piece of land, identify price similarities and take advantage of the lead.',
   },
 ]
-export async function getServerSideProps() {
-  const posts = await client.fetch(groq`
-        *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-        `)
-  return {
-    props: {
-      posts,
-    },
-  }
-}
-
-ProductsPage.getLayout = function getLayout(page) {
-  return (
-    <DefaultLayout>
-      <>{page}</>
-    </DefaultLayout>
-  )
-}
 
 const features = [
   {

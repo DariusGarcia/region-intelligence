@@ -1,21 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Image from 'next/image'
-import { createClient } from 'next-sanity'
-import groq from 'groq'
-import BlogSection from '@/features/blog/blog'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-
-const client = createClient({
-  projectId: projectId,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-})
-
-export default function AboutPage({ posts }) {
+export default function AboutPage() {
   return (
     <>
       <Head>
@@ -134,17 +121,6 @@ AboutPage.getLayout = function getLayout(page) {
   )
 }
 
-export async function getServerSideProps() {
-  const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-      `)
-  return {
-    props: {
-      posts,
-    },
-  }
-}
-
 const links = [
   {
     id: 0,
@@ -242,11 +218,6 @@ const mission = [
       'Being based in Los Angeles means that we are at the forefront of real estate development in California. With thousands of building permits submitted across over 200 cities. Southern California provides Region Intelligence the best foothold to reach developers of all types. ',
   },
 ]
-
-// used for "mission and values" section
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 const people = [
   {
