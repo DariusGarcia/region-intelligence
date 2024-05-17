@@ -1,11 +1,8 @@
 import React, { useRef } from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
-import { createClient } from 'next-sanity'
-import groq from 'groq'
 import Cta from '@/components/cta'
-import LandingHeader from '@/components/header/landingHeader'
-import BlogShowCaseContainer from '@/features/blog/blogShowCaseContainer'
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
@@ -14,18 +11,8 @@ import {
 } from '@heroicons/react/24/outline'
 import DefaultLayout from '@/components/layouts/defaultLayout'
 import LandingHeaderNew from '@/components/header/landingHeaderNew'
-import Link from 'next/link'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-
-const client = createClient({
-  projectId: projectId,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-})
-
-export default function LandingPage({ posts }) {
+export default function LandingPage() {
   const targetRef = useRef(null)
   const secondaryFeaturesControls = useAnimation()
 
@@ -313,26 +300,4 @@ const cardVariants = {
       duration: 1,
     },
   },
-}
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export async function getServerSideProps() {
-  const posts = await client.fetch(groq`
-      *[_type == "post" && publishedAt < now()] { title,
-        "name": author->name,
-        "categories": categories[]->title,
-        "authorImage": author->image,
-        body,
-        slug,
-        publishedAt,
-        mainImage}  | order(publishedAt desc)
-      `)
-  return {
-    props: {
-      posts,
-    },
-  }
 }
