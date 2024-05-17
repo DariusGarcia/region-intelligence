@@ -22,6 +22,7 @@ import {
 import Avatar from './avatar'
 import { Button } from 'antd'
 import Image from 'next/image'
+import { Dashboard } from '@mui/icons-material'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -92,6 +93,11 @@ export default function Navbar() {
         </div>
         <div className='hidden lg:flex flex-col md:flex-row gap-16 justify-between'>
           <Link
+            href='/dashboard'
+            className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
+            Dashboard
+          </Link>
+          <Link
             href='/products'
             className='text-sm font-semibold leading-6 text-black hover:text-gray-600 hover:underline transition ease-out'>
             Product
@@ -156,13 +162,6 @@ export default function Navbar() {
           <div className='p-6'>
             <div className='flex items-center justify-between'>
               <Link href='/' className='-m-1.5 p-1.5'>
-                {/* <span className='sr-only'>Region Intelligence</span> */}
-                <img src='/logos/logo3.svg' />
-                {/* <p
-                  className='font-bold leading-6 text-black text-xl hover:text-gray-500 hover:underline transition ease-out'
-                  onClick={() => setMobileMenuOpen(false)}>
-                  Region Intelligence{' '}
-                </p> */}
                 <img src='/logos/logo3.svg' />
               </Link>
               <button
@@ -263,16 +262,16 @@ export default function Navbar() {
 
 const products = [
   {
-    name: 'Product Overview',
-    description: 'Explore our products.',
-    href: '/products',
-    icon: HomeIcon,
-  },
-  {
     name: 'Dashboard',
     description:
       'Explore a comprehensive overview of pending city permits with key insights.',
     href: '/dashboard',
+    icon: Dashboard,
+  },
+  {
+    name: 'Product Overview',
+    description: 'Explore our products.',
+    href: '/products',
     icon: HomeIcon,
   },
   // {
