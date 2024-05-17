@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import { Dialog, Popover, Transition } from '@headlessui/react'
 import {
@@ -19,10 +20,9 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
-import Avatar from './avatar'
 import { Button } from 'antd'
-import Image from 'next/image'
 import { Dashboard } from '@mui/icons-material'
+import Avatar from './avatar'
 
 export default function Navbar() {
   const supabase = useSupabaseClient()
@@ -218,18 +218,12 @@ export default function Navbar() {
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     Pricing
                   </Link> */}
-                  {/* <Link
-                    href='/ceqa'
-                    className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
-                    Ceqa
-                  </Link> */}
                   <Link
                     href='/profile'
                     onClick={() => setMobileMenuOpen(false)}
                     className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'>
                     My Profile
                   </Link>
-
                   {company.map((item) => (
                     <Link
                       onClick={() => setMobileMenuOpen(false)}
@@ -287,42 +281,7 @@ const products = [
   //   icon: ListBulletIcon,
   // },
 ]
-const projects = [
-  {
-    name: 'Map View',
-    description: 'View the locations of pending city permits',
-    href: '/current-planning-developments/maps',
-    icon: ChartPieIcon,
-  },
-  // {
-  //   name: 'Engagement',
-  //   description: 'Speak directly to your customers',
-  //   href: '#',
-  //   icon: CursorArrowRaysIcon,
-  // },
-  // {
-  //   name: 'Security',
-  //   description: 'Your customers’ data will be safe and secure',
-  //   href: '#',
-  //   icon: FingerPrintIcon,
-  // },
-  // {
-  //   name: 'Integrations',
-  //   description: 'Connect with third-party tools',
-  //   href: '#',
-  //   icon: SquaresPlusIcon,
-  // },
-  // {
-  //   name: 'Automations',
-  //   description: 'Build strategic funnels that will convert',
-  //   href: '#',
-  //   icon: ArrowPathIcon,
-  // },
-]
-const callsToAction = [
-  { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
-]
+
 const company = [
   {
     name: 'About Us',
@@ -342,16 +301,23 @@ const company = [
     description:
       'Get in touch with our dedicated support team for any questions or inquiries',
   },
-  // {
-  //   name: 'Careers',
-  //   href: '#',
-  //   description:
-  //     'Looking for you next career opportunity? See all of our open positions',
-  // },
   {
     name: 'RI Blog',
     href: '/blog',
     description:
       'Read our latest announcements and get perspectives from our team',
   },
+]
+
+const projects = [
+  {
+    name: 'Map View',
+    description: 'View the locations of pending city permits',
+    href: '/current-planning-developments/maps',
+    icon: ChartPieIcon,
+  },
+]
+const callsToAction = [
+  { name: 'Watch demo', href: '/demo', icon: PlayCircleIcon },
+  { name: 'Contact sales', href: '/contact', icon: PhoneIcon },
 ]

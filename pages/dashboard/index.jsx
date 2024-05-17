@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
@@ -18,7 +19,6 @@ import {
   navDashboardsItems,
   navHousingElementsItems,
 } from '@/components/navbar/navigationLinksData'
-import Link from 'next/link'
 import {
   Bars3Icon,
   BellIcon,
@@ -117,7 +117,7 @@ export default function DashboardHomePage() {
         <title>RI Dashboard - Home</title>
         <meta
           name='description'
-          content=' No more navigating through complex research. With Region Intelligence,
+          content='No more navigating through complex research. With Region Intelligence,
     everything you need is just a few clicks away. Our platform
     revolutionizes the way you access and handle vital information,
     making your decision-making process quicker and more informed.
@@ -439,153 +439,28 @@ export default function DashboardHomePage() {
               className='h-6 w-px bg-gray-200 lg:hidden'
               aria-hidden='true'
             />
-
-            <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6 md:z-30 '>
-              <form className='relative flex flex-1' action='#' method='GET'>
-                <label htmlFor='search-field' className='sr-only'>
-                  Search for Projects
-                </label>
-                <MagnifyingGlassIcon
-                  className='pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400'
-                  aria-hidden='true'
-                />
+          </div>
+          <main className='w-full flex flex-col justify-center items-center bg-neutral-100'>
+            <div className='w-full my-12 flex flex-col items-center'>
+              <form action='submit' className='w-full max-w-2xl mb-12'>
+                <h2 className='font-semibold text-xl mb-4'>
+                  Enter and Address or Assessor Parcel Number (APN)
+                </h2>
                 <input
-                  id='search-field'
-                  className='block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm'
-                  placeholder='Search for projects...'
-                  type='search'
-                  name='search'
+                  type='text'
+                  placeholder='Ex: 11111 Western Ave, East California, 90000'
+                  className='w-full border border-gray-300 rounded-md p-2'
                 />
               </form>
-              <div className='flex items-center gap-x-4 lg:gap-x-6'>
-                <button
-                  type='button'
-                  className='-m-2.5 p-2.5 text-gray-400 hover:text-gray-500'>
-                  <span className='sr-only'>View notifications</span>
-                  <BellIcon className='h-6 w-6' aria-hidden='true' />
-                </button>
-
-                {/* Separator */}
-                <div
-                  className='hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200'
-                  aria-hidden='true'
-                />
-
-                {/* Profile dropdown */}
-                <Menu as='div' className='relative'>
-                  <Menu.Button className='-m-1.5 flex items-center p-1.5'>
-                    <span className='sr-only'>Open user menu</span>
-                    <UserCircleIcon
-                      className='h-10 w-10 text-gray-300'
-                      aria-hidden='true'
-                    />
-                    <span className='hidden lg:flex lg:items-center'>
-                      <span
-                        className='ml-4 text-sm font-semibold leading-6 text-gray-900'
-                        aria-hidden='true'>
-                        {first_name} {last_name}
-                      </span>
-                      <ChevronDownIcon
-                        className='ml-2 h-5 w-5 text-gray-400'
-                        aria-hidden='true'
-                      />
-                    </span>
-                  </Menu.Button>
-                  <Transition
-                    as={Fragment}
-                    enter='transition ease-out duration-100'
-                    enterFrom='transform opacity-0 scale-95'
-                    enterTo='transform opacity-100 scale-100'
-                    leave='transition ease-in duration-75'
-                    leaveFrom='transform opacity-100 scale-100'
-                    leaveTo='transform opacity-0 scale-95'>
-                    <Menu.Items className='absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none'>
-                      {userNavigation.map((item) => (
-                        <Menu.Item key={item.name}>
-                          {({ active }) => (
-                            <a
-                              href={item.href}
-                              className={classNames(
-                                active ? 'bg-gray-50' : '',
-                                'block px-3 py-1 text-sm leading-6 text-gray-900'
-                              )}>
-                              {item.name}
-                            </a>
-                          )}
-                        </Menu.Item>
-                      ))}
-                      <Menu.Item
-                        key={'logout'}
-                        className='w-max flex justify-center ml-3 mt-2'>
-                        <Button
-                          onClick={logout}
-                          className='block px-3 py-1 text-sm leading-6 text-gray-900'>
-                          Logout
-                        </Button>
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
-            </div>
-          </div>
-          {/*
-          *****************************
-            *
-            MAIN CONTENT
-            *
-           *****************************
-           */}
-          <main className='py-4 bg-gray-50 '>
-            <div className='px-4 sm:px-6 lg:px-8 '>
-              <section>
-                <h1 className='text-2xl font-semibold mb-8'>
-                  Welcome {first_name}!
-                </h1>
-                {/* First row */}
-                <div className='flex flex-col gap-8 md:gap-16 md:flex-row '>
-                  {/* IMAGE CAROUSEL COMPONENT */}
-                  <article className='sm:w-[30rem] xl:w-[36rem] border-2 rounded-md bg-white'>
-                    {articlesContent[0]?.images && <ImageCarousel />}
-                  </article>
-                  <section className='md:w-full flex flex-col justify-center md:p-8 p-4 gap-4 border-2 rounded-md '>
-                    {dashboardText.map((item, index) => (
-                      <article
-                        key={item.id}
-                        className='flex flex-row items-center gap-8 bg-white p-2 rounded-md shadow-md hover:shadow-none transition ease-out cursor-pointer'>
-                        <div
-                          className={`flex items-center justify-center w-16 h-16 rounded-lg ${item.style}`}>
-                          <item.icon size={40} />
-                        </div>
-                        {loading === index ? ( // Display loading spinner only for the item with the matching index
-                          <Spin />
-                        ) : (
-                          <Link
-                            href={`${item.href}`}
-                            className=''
-                            onClick={() => handleClick(index)}>
-                            {' '}
-                            {/* Pass index to handleClick */}
-                            <p className='text-md font-semibold'>
-                              {item.title}
-                            </p>
-                            <p className='text-sm'>
-                              {item.description} <ArrowRightAltOutlined />
-                            </p>
-                          </Link>
-                        )}
-                      </article>
-                    ))}
-                  </section>
-                </div>
+              <section className='w-full grid grid-cols-1 lg:grid-cols-2 gap-12'>
+                {dashboardCards.map((card) => (
+                  <Link href={card.href} key={card.id}>
+                    <article className='flex flex-row  justify-between items-center bg-white p-12 rounded-lg'>
+                      {card.icon} <h3>{card.title}</h3>
+                    </article>
+                  </Link>
+                ))}
               </section>
-              {/* Second Row - Stats */}
-              <Stats />
-              {/* Third Row - Latest Developments Table */}
-              <div className='mt-12'>
-                <h3 className='font-bold text-lg mb-4'>Latest Developments</h3>
-                <CurrentPlanningDevelopmentsList />
-              </div>
             </div>
           </main>
         </div>
@@ -594,27 +469,51 @@ export default function DashboardHomePage() {
   )
 }
 
-const dashboardText = [
+const dashboardCards = [
   {
     id: 1,
-    title: 'Customize Your Experience',
-    description: 'Personal Settings',
+    title: 'Overview',
+    description: '',
     icon: IoMdPeople,
     style: 'text-blue-600 bg-blue-200',
-    href: '/dashboard/personal-settings',
+    href: '/dashboard/',
   },
   {
     id: 2,
-    title: 'Latest Land Use Trends',
-    description: 'View recent land use data',
+    title: 'Environmental',
+    description: '',
     icon: VscGraphLine,
     style: 'text-green-600 bg-green-200',
-    href: '/dashboard/land-use',
+    href: '/dashboard',
   },
   {
     id: 3,
-    title: 'Recent Project Updates',
-    description: 'Up to date project information',
+    title: 'Zone Pricing',
+    description: '',
+    icon: HiOutlineClock,
+    style: 'text-red-600 bg-red-200',
+    href: '/dashboard',
+  },
+  {
+    id: 4,
+    title: 'Market Comparable',
+    description: '',
+    icon: HiOutlineClock,
+    style: 'text-red-600 bg-red-200',
+    href: '/dashboard',
+  },
+  {
+    id: 5,
+    title: 'Local Trends',
+    description: '',
+    icon: HiOutlineClock,
+    style: 'text-red-600 bg-red-200',
+    href: '/dashboard',
+  },
+  {
+    id: 6,
+    title: 'Area Analysis',
+    description: '',
     icon: HiOutlineClock,
     style: 'text-red-600 bg-red-200',
     href: '/dashboard',
