@@ -1,40 +1,40 @@
-import React, { useRef } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import { motion as m, AnimatePresence, useAnimation } from 'framer-motion'
-import Cta from '@/components/cta'
+import React, { useRef } from 'react';
+import Link from 'next/link';
+import Head from 'next/head';
+import { motion as m, AnimatePresence, useAnimation } from 'framer-motion';
+import Cta from '@/components/cta';
 import {
   ArrowPathIcon,
   CloudArrowUpIcon,
   FingerPrintIcon,
   LockClosedIcon,
-} from '@heroicons/react/24/outline'
-import DefaultLayout from '@/components/layouts/defaultLayout'
-import LandingHeaderNew from '@/components/header/landingHeaderNew'
+} from '@heroicons/react/24/outline';
+import DefaultLayout from '@/components/layouts/defaultLayout';
+import LandingHeaderNew from '@/components/header/landingHeaderNew';
 
 export default function LandingPage() {
-  const targetRef = useRef(null)
-  const secondaryFeaturesControls = useAnimation()
+  const targetRef = useRef(null);
+  const secondaryFeaturesControls = useAnimation();
 
   return (
     <>
       <Head>
         <title>Region Intelligence - Home</title>
         <meta
-          name='description'
-          content=' No more navigating through complex research. With Region Intelligence,
+          name="description"
+          content=" No more navigating through complex research. With Region Intelligence,
               everything you need is just a few clicks away. Our platform
               revolutionizes the way you access and handle vital information,
               making your decision-making process quicker and more informed.
               Step into the future of property development - Join Region Intelligence
-              today!'
+              today!"
         />
       </Head>
-      <div className='bg-gray-200 w-full'>
+      <div className="bg-gray-200 w-full">
         <AnimatePresence>
-          <main className='isolate w-full'>
+          <main className="isolate w-full">
             {/* Hero section */}
-            <div className='flex justify-center  w-full'>
+            <div className="flex justify-center  w-full">
               <LandingHeaderNew
                 scrollToTarget={() =>
                   targetRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -191,33 +191,13 @@ export default function LandingPage() {
             {/* <section className='mb-12'>
               <BlogShowCaseContainer posts={posts} />
             </section> */}
-            <div className='pb-12 mb-24'>
-              <div className='mx-auto max-w-7xl px-6 py-24  lg:flex lg:items-center lg:justify-between lg:px-12 bg-indigo-100 rounded-md'>
-                <div className='max-w-2xl'>
-                  <h2 className='text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl mb-6'>
-                    Talk to an expert
-                  </h2>
-                  <p className=''>
-                    Region Intelligence is the only technology provider enabling
-                    users to identify, research, and engage in the real estate
-                    deals ahead of the competition.{' '}
-                  </p>
-                </div>
-                <div className='mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0'>
-                  <Link
-                    href='/products'
-                    className='rounded-md bg-black w-56 text-center px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
-                    Get started
-                  </Link>
-                </div>
-              </div>
-            </div>
+
             <Cta />
           </main>
         </AnimatePresence>
       </div>
     </>
-  )
+  );
 }
 
 LandingPage.getLayout = function getLayout(page) {
@@ -225,8 +205,8 @@ LandingPage.getLayout = function getLayout(page) {
     <DefaultLayout>
       <>{page}</>
     </DefaultLayout>
-  )
-}
+  );
+};
 const features = [
   {
     name: 'Zoning',
@@ -252,7 +232,7 @@ const features = [
       "Explore key points of interest throughout Southern California. Whether you're searching for nearby grocery stores, bars, gyms, or other amenities, our platform guides you to essential locations to enhance the due diligence process.",
     icon: FingerPrintIcon,
   },
-]
+];
 
 const tiers = [
   {
@@ -284,7 +264,7 @@ const tiers = [
   //   ],
   //   mostPopular: true,
   // },
-]
+];
 
 const cardVariants = {
   hidden: {
@@ -300,4 +280,4 @@ const cardVariants = {
       duration: 1,
     },
   },
-}
+};
