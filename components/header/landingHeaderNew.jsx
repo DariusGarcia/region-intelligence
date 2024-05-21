@@ -256,26 +256,26 @@ export default function landingHeaderNew() {
             <h3 className="text-3xl font-bold mb-12">What We Offer</h3>
             <div className="flex flex-col md:flex-row justify-between items-center gap-12 mt-12 w-full ">
               <div className="bg-gray-300 p-4 md:p-12 md:w-1/2 h-full w-full rounded-md">
-                <div className="flex flex-col md:flex-row gap-4 h-full pb-12 w-full">
-                  <div className="flex flex-col gap-6 bg-white p-4 rounded-md  ">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-4 h-full pb-12 w-full">
+                  <div className="flex flex-col md:col-span-1 justify-between gap-6 bg-white p-4 rounded-md  ">
                     <h4 className="text-xl font-semibold">Cities</h4>
-                    <div className="flex flex-row justify-between items-center gap-12">
+                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
                       <p>Culver City</p>
                       <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
                     </div>
-                    <div className="flex flex-row justify-between items-center gap-12">
+                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
                       <p>Buena Park</p>
                       <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
                     </div>
-                    <div className="flex flex-row justify-between items-center gap-12">
+                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
                       <p>Azuza</p>
                       <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
                     </div>
-                    <div className="flex flex-row justify-between items-center gap-12">
+                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
                       <p>Long Beach</p>
                       <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
                     </div>
-                    <div className="bg-gray-200 p-2 rounded-md flex flex-row justify-between items-center gap-12">
+                    <div className="bg-gray-200 p-2 rounded-md flex flex-row justify-between text-xs items-center gap-12">
                       <p>Anaheim</p>
                       <span className="bg-black text-white p-2 w-24 text-center rounded-md">
                         TTM
@@ -286,7 +286,7 @@ export default function landingHeaderNew() {
                     <img
                       src="/building.png"
                       alt="image"
-                      className="rounded-t-md w-full xl:w-56"
+                      className="rounded-t-md w-full"
                     />
                     <div className="bg-white p-4 w-full rounded-b-md flex flex-col items-center gap-6">
                       <p>Tentative Tract Map</p>
@@ -353,11 +353,11 @@ export default function landingHeaderNew() {
             <div className="md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0 rounded-md">
               <div className="flex flex-col md:flex-row gap-4 h-full pb-12 ">
                 <div className="flex flex-col justify-between gap-6 bg-white p-4 rounded-md ">
-                  <div className="flex flex-row justify-between">
+                  <div className="flex flex-row justify-between pt-6 gap-2">
                     <span className="h-2 bg-gray-300 w-24 rounded-md" />
                     <span className="h-2 bg-gray-300 w-24 rounded-md" />
                   </div>
-                  <div className="flex flex-row items-end gap-6">
+                  <div className="flex flex-row items-end gap-3">
                     <span className="h-24 bg-red-400 opacity-70 w-2 rounded-md" />
                     <span className="h-20 bg-red-400 w-2 rounded-md" />
                     <span className="h-24 bg-red-400 opacity-70 w-2 rounded-md" />
@@ -365,9 +365,11 @@ export default function landingHeaderNew() {
                     <span className="h-12 bg-red-400 opacity-70 w-2 rounded-md" />
                     <span className="h-20 bg-red-400 opacity-70 w-2 rounded-md" />
                     <span className="h-4 bg-red-400 opacity-70 w-2 rounded-md" />
+                    <span className="h-20 bg-red-400 w-2 rounded-md" />
+                    <span className="h-24 bg-red-400 opacity-70 w-2 rounded-md" />
                   </div>
                   <div className="flex flex-row justify-between">
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2 items-center justify-center">
                       <span className="h-2 bg-gray-300 w-16 rounded-md" />
                       <p className="font-bold text-lg">1.8</p>
                     </div>
@@ -378,10 +380,10 @@ export default function landingHeaderNew() {
                   </div>
                 </div>
                 <div className="h-full justify-end flex flex-col my-12">
-                  <div className="bg-white p-4 rounded-b-md flex flex-col items-center gap-6 w-full">
+                  <div className="bg-white p-4 rounded-b-md md:rounded-md flex flex-col items-center gap-6 w-full">
                     <p className="text-xl font-bold">New Leads</p>
                     <div className="flex flex-row justify-between gap-6 w-full">
-                      <div className="flex flex-col gap-8 justify-between w-full">
+                      <div className="flex flex-col gap-4 justify-between w-full">
                         <span className="h-2 bg-gray-300 w-24 rounded-md" />
                         <span className="h-2 bg-gray-300 w-24 rounded-md" />
                         <span className="h-2 bg-gray-300 w-24 rounded-md" />
