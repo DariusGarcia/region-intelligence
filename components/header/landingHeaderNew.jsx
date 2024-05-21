@@ -8,7 +8,7 @@ import { HiSearchCircle } from 'react-icons/hi';
 
 export default function landingHeaderNew() {
   return (
-    <div className="my-12 lg:my-24 flex flex-col items-center px-2 lg:px-0">
+    <div className="my-12 lg:mt-12 lg:mb-24 flex flex-col items-center px-2 lg:px-0">
       <AnimatePresence>
         {' '}
         <div className="p-4">
@@ -16,7 +16,7 @@ export default function landingHeaderNew() {
             Bringing Innovation to Urban Landscapes
           </h1>
         </div>
-        <section className="hidden lg:block max-w-7xl mt-24 h-full">
+        <section className="hidden lg:block max-w-7xl mt-12 h-full">
           <m.div className="h-full grid grid-cols-7 bg-gray-50 rounded-lg">
             <m.div
               key="card"
