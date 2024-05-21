@@ -255,50 +255,8 @@ export default function landingHeaderNew() {
           <div className="mt-24 w-full flex flex-col items-center max-w-7xl">
             <h3 className="text-3xl font-bold mb-12">What We Offer</h3>
             <div className="flex flex-col md:flex-row justify-between items-center gap-12 mt-12 w-full ">
-              <div className="bg-gray-300 p-4 md:p-12 md:w-1/2 h-full w-full rounded-md">
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-4 h-full pb-12 w-full">
-                  <div className="flex flex-col md:col-span-1 justify-between gap-6 bg-white p-4 rounded-md  ">
-                    <h4 className="text-xl font-semibold">Cities</h4>
-                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
-                      <p>Culver City</p>
-                      <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
-                    </div>
-                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
-                      <p>Buena Park</p>
-                      <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
-                    </div>
-                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
-                      <p>Azuza</p>
-                      <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
-                    </div>
-                    <div className="flex flex-row justify-between items-center gap-6 text-xs">
-                      <p>Long Beach</p>
-                      <span className="h-2 bg-gray-200 w-24 rounded-md"></span>
-                    </div>
-                    <div className="bg-gray-200 p-2 rounded-md flex flex-row justify-between text-xs items-center gap-12">
-                      <p>Anaheim</p>
-                      <span className="bg-black text-white p-2 w-24 text-center rounded-md">
-                        TTM
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-full justify-center items-center w-full lg:justify-end flex flex-col my-12 ">
-                    <img
-                      src="/building.png"
-                      alt="image"
-                      className="rounded-t-md w-full"
-                    />
-                    <div className="bg-white p-4 w-full rounded-b-md flex flex-col items-center gap-6">
-                      <p>Tentative Tract Map</p>
-                      <Link
-                        href="#"
-                        className="bg-neutral-300 p-2 rounded-md font-semibold w-full text-center"
-                      >
-                        View Details
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+              <div className="bg-gray-300 md:w-1/2 p-4 rounded-md flex items-center justify-center md:p-12">
+                <img src="/landingHeader/chart3.svg" alt="chart" className="" />
               </div>
               <div className="p-4 xl:p-0 md:w-1/2">
                 <h5 className="text-3xl font-semibold">
@@ -350,7 +308,7 @@ export default function landingHeaderNew() {
                 </li>
               </ul>
             </div>
-            <div className="md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0 rounded-md">
+            {/* <div className="md:w-1/2 w-full bg-gray-300 flex justify-center p-4 md:p-12 mt-12 md:mt-0 rounded-md">
               <div className="flex flex-col md:flex-row gap-4 h-full pb-12 ">
                 <div className="flex flex-col justify-between gap-6 bg-white p-4 rounded-md ">
                   <div className="flex flex-row justify-between pt-6 gap-2">
@@ -400,13 +358,16 @@ export default function landingHeaderNew() {
                   </div>
                 </div>
               </div>
+            </div> */}
+            <div className="bg-gray-300 md:w-1/2 p-4 rounded-md flex items-center justify-center md:p-12">
+              <img src="/landingHeader/chart2.svg" alt="chart" className="" />
             </div>
           </div>
         </section>
         <section className="w-full flex flex-col items-center justify-center">
           <div className="mt-12 md:mt-24 w-full flex flex-col items-center max-w-7xl  ">
             <div className="flex flex-col md:flex-row justify-between gap-12 mt-12 ">
-              <div className="bg-gray-300 p-4 md:p-12 md:w-1/2 rounded-md">
+              {/* <div className="bg-gray-300 p-4 md:p-12 md:w-1/2 rounded-md">
                 <div className="flex flex-col justify-center items-center md:flex-row gap-4 w-full">
                   <div className="flex flex-col gap-6 bg-white p-4 rounded-md w-full">
                     <div className="flex flex-row justify-between">
@@ -449,6 +410,9 @@ export default function landingHeaderNew() {
                     </div>
                   </div>
                 </div>
+              </div> */}
+              <div className="bg-gray-300 md:w-1/2 p-4 rounded-md flex items-center justify-center md:p-12">
+                <img src="/landingHeader/chart.svg" alt="chart" className="" />
               </div>
               <div className="p-4 xl:p-0 md:w-1/2 mb-12">
                 <h5 className="text-3xl font-semibold">
