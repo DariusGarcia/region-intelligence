@@ -136,12 +136,11 @@ export default function WhyUsPage() {
         </div>
         {/* LEVERAGE AI section */}
         <div className='flex flex-col w-full items-center justify-center mb-24'>
-          <section className='md:mt-12 w-full p-4 flex flex-col items-center max-w-7xl '>
+          <section className='md:mt-12 w-full h-full p-4 flex flex-col items-center max-w-7xl '>
             <h3 className='text-5xl font-bold mb-12'>Features</h3>
-            <div className='flex flex-col items-center xl:flex-row w-full justify-between gap-12 mt-6 lg:mt-12 '>
-              <div className='bg-gray-300 p-4 md:p-12 w-full md:rounded-md flex flex-col items-center'>
-                <div className='flex flex-row gap-4'>
-                  <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
+            <div className='flex flex-col items-center xl:flex-row w-full h-full justify-between gap-12 mt-6 lg:mt-12 '>
+              <div className='bg-gray-300 p-4 md:p-12 w-full h-full md:rounded-md flex flex-col items-center'>
+                {/* <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
                     <h4 className='text-xl font-semibold'>New Developments</h4>
                     <div className='grid grid-cols-4 gap-8 w-full p-1'>
                       <p className='font-semibold text-sm'>APN(s)</p>
@@ -173,26 +172,30 @@ export default function WhyUsPage() {
                         View
                       </p>
                     </div>
-                  </div>
-                </div>
+                  </div> */}
+                <img
+                  src='/newDevelopments.svg'
+                  alt='new developments'
+                  className='w-full h-full'
+                />
               </div>
               <div className='p-4 md:mt-12 w-full'>
                 <h5 className='text-3xl font-semibold'>
                   Aggregated Municipal Items
                 </h5>
-                <p className='text-lg text-stone-600 mt-8'>
+                <p className='text-lg mt-8'>
                   Region Intelligence is at the forefront of uniting
                   municipalities through cutting edge technologies.
                 </p>
                 <ul className='list-disc flex flex-col gap-8 pl-6 mt-8'>
-                  <li className='text-stone-600 text-lg'>
+                  <li className='text-lg'>
                     See Individual land requirements for your developments.
                   </li>
-                  <li className='text-stone-600 text-lg'>
+                  <li className='text-lg'>
                     Identify hazards, dimensions, area analysis, and more for
                     each project.
                   </li>
-                  <li className='text-stone-600 text-lg'>
+                  <li className='text-lg'>
                     Customize your experience in our fast-growing platform of
                     cities.
                   </li>
@@ -206,7 +209,7 @@ export default function WhyUsPage() {
               <h5 className='text-3xl font-semibold'>
                 A Basis for Land Prices
               </h5>
-              <p className='text-lg text-stone-600 mt-8'>
+              <p className='text-lg mt-8'>
                 Leverage our proprietary AI to identify accurate pricing for
                 parcels of land across Southern California. This takes the guess
                 work out of your negotiations so you don’t need to worry about a
@@ -217,7 +220,7 @@ export default function WhyUsPage() {
               <img
                 src='/landPrices.svg'
                 alt='land prices'
-                className='w-full h-full lg:w-96'
+                className='w-full h-full'
               />
               {/* <div className='w-full h-full flex flex-col gap-2 bg-white p-4 rounded-lg'>
                 <h4 className='border-b-4 border-black font-semibold text-lg w-max'>
