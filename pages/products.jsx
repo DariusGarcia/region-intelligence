@@ -50,7 +50,7 @@ export default function ProductsPage() {
                   </Link>
                 </div>
               </div>
-              <div className='relative mt-12 h-full sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
+              {/* <div className='relative mt-12 h-full sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
                 <div className='lg:absolute bottom-0 z-50 flex flex-col shadow-md p-4 rounded-md bg-white lg:w-96'>
                   <div className='flex flex-row gap-6 mb-4'>
                     <p className='w-24 text-center font-semibold bg-black text-white p-2 rounded-sm'>
@@ -128,13 +128,20 @@ export default function ProductsPage() {
                     ))}
                   </section>
                 </div>
+              </div> */}
+              <div className='relative mt-12 h-full sm:mx-auto sm:max-w-lg lg:col-span-6 lg:mx-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center'>
+                <img
+                  src='/productsPage.svg'
+                  alt='chart'
+                  className='w-full h-full'
+                />
               </div>
             </div>
             <section className='mt-24 mx-0'>
-              <div className='py-24 sm:py-32'>
-                <div className='mx-auto w-full max-w-7xl p-24 rounded-md bg-gray-100'>
-                  <div className='mx-auto max-w-2xl lg:mx-0'></div>
-                  <div className='mx-auto max-w-2xl lg:max-w-none'>
+              <div className='py-12  bg-gray-100'>
+                <div className='mx-auto w-full max-w-7xl p-8 lg:p-24 rounded-md '>
+                  <div className='mx-auto  lg:mx-0'></div>
+                  <div className='mx-auto  lg:max-w-none'>
                     <dl className='w-full grid md:max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4'>
                       {features.map((feature) => (
                         <div
@@ -162,7 +169,7 @@ export default function ProductsPage() {
               </div>
             </section>
             <section>
-              <section className=' my-12 h-full flex justify-center w-full px-4'>
+              <section className='mt-24 my-12 h-full flex justify-center w-full px-4'>
                 <div className='max-w-7xl flex flex-col items-center gap-12'>
                   <h2 className='text-5xl font-bold'>Use Cases</h2>
                   <div className='w-full flex flex-col md:flex-row  justify-center gap-12 '>
