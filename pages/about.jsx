@@ -25,10 +25,10 @@ export default function AboutPage() {
       <div className='bg-[#FDFBF5]'>
         <main className='isolate'>
           {/* Hero section */}
-          <div className='relative isolate -z-10 overflow-hidden bg-gradient-to-b from-blue-100/20 pt-24 '>
+          <div className='relative isolate -z-10 overflow-hidden pt-24 '>
             <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
               <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
-                <div className='mt-6 max-w-3xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full'>
+                <div className='mt-6 max-w-7xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full'>
                   <div className='flex flex-row gap-12 items-end'>
                     <img
                       src='/logos/logo3.svg'
@@ -43,14 +43,6 @@ export default function AboutPage() {
                     Based in Los Angeles
                   </p>
                 </div>
-                <Image
-                  src='/about/about-us-image.png'
-                  priority={true}
-                  width={1080}
-                  height={1280}
-                  alt='aerial view of LA'
-                  className='aspect-[7/4] w-full max-w-xl my-8 md:my-0 rounded-md object-cover sm:mt-16 lg:mt-0 xl:row-span-2 xl:row-end-2'
-                />
               </div>
             </div>
           </div>
