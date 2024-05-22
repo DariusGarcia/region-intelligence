@@ -136,10 +136,10 @@ export default function WhyUsPage() {
         </div>
         {/* LEVERAGE AI section */}
         <div className='flex flex-col w-full items-center justify-center mb-24'>
-          <section className='md:mt-12 w-full h-full p-4 flex flex-col items-center max-w-7xl '>
+          <section className='md:mt-12 w-full h-full flex flex-col items-center max-w-7xl '>
             <h3 className='text-5xl font-bold mb-12'>Features</h3>
             <div className='flex flex-col items-center xl:flex-row w-full h-full justify-between gap-12 mt-6 lg:mt-12 '>
-              <div className='bg-gray-300 p-4 md:p-12 w-full h-full md:rounded-md flex flex-col items-center'>
+              <div className='bg-gray-300 py-16 lg:py-12 p-4 md:p-12 w-full h-full md:rounded-md flex flex-col items-center'>
                 {/* <div className='flex flex-col gap-6 bg-white p-4 rounded-md'>
                     <h4 className='text-xl font-semibold'>New Developments</h4>
                     <div className='grid grid-cols-4 gap-8 w-full p-1'>
@@ -204,8 +204,8 @@ export default function WhyUsPage() {
             </div>
           </section>
 
-          <section className='max-w-7xl flex flex-col xl:flex-row p-8 items-center justify-between gap-6 w-full mt-24'>
-            <div className='xl:w-1/2 w-full'>
+          <section className='max-w-7xl flex flex-col xl:flex-row items-center justify-between gap-6 w-full mt-24'>
+            <div className='xl:w-1/2 w-full p-4'>
               <h5 className='text-3xl font-semibold'>
                 A Basis for Land Prices
               </h5>
@@ -216,7 +216,7 @@ export default function WhyUsPage() {
                 bad deal.
               </p>
             </div>
-            <div className='w-full xl:w-1/2 rounded-md bg-gray-300 flex flex-col lg:flex-row justify-center gap-4 xl:p-12 p-4'>
+            <div className='w-full xl:w-1/2 rounded-md bg-gray-300 py-16 flex flex-col lg:flex-row justify-center gap-4 xl:p-12 p-4'>
               <img
                 src='/landPrices.svg'
                 alt='land prices'
