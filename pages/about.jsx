@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import DefaultLayout from '@/components/layouts/defaultLayout'
+import Head from 'next/head';
+import Image from 'next/image';
+import DefaultLayout from '@/components/layouts/defaultLayout';
 
 export default function AboutPage() {
   return (
@@ -13,33 +13,33 @@ export default function AboutPage() {
           development
         </title>
         <meta
-          name='description'
-          content=' No more navigating through complex research. With Region Intelligence,
+          name="description"
+          content=" No more navigating through complex research. With Region Intelligence,
           everything you need is just a few clicks away. Our platform
           revolutionizes the way you access and handle vital information,
           making your decision-making process quicker and more informed.
           Step into the future of property development - Join Region Intelligence
-          today!'
+          today!"
         />
       </Head>
-      <div className='bg-[#FDFBF5]'>
-        <main className='isolate'>
+      <div className="bg-[#FDFBF5]">
+        <main className="isolate">
           {/* Hero section */}
-          <div className='relative isolate -z-10 overflow-hidden pt-24 '>
-            <div className='mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex '>
-              <div className='mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center'>
-                <div className='mt-6 max-w-7xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full'>
-                  <div className='flex flex-row gap-12 items-end'>
+          <div className="relative isolate -z-10 overflow-hidden pt-24 ">
+            <div className="mx-auto max-w-7xl px-6 py-4 sm:py-12 lg:px-8 flex ">
+              <div className="mx-auto w-full lg:mx-0  lg:max-w-none  flex flex-col md:flex-row gap-12 justify-between  items-center">
+                <div className="mt-6 max-w-7xl lg:mt-0 flex flex-col items-center gap-8 justify-center w-full">
+                  <div className="flex flex-row h-full justify-end gap-12 items-end">
                     <img
-                      src='/logos/logo3.svg'
-                      alt='logo'
-                      className='w-24 lg:w-56'
+                      src="/logos/logo3.svg"
+                      alt="logo"
+                      className="w-24 lg:w-56 pb-3"
                     />
-                    <h1 className='max-w-4xl text-7xl lg:text-9xl font-semibold tracking-tight lg:col-span-2 xl:col-auto uppercase'>
+                    <h1 className="max-w-4xl h-full text-7xl lg:text-9xl font-semibold tracking-tight lg:col-span-2 xl:col-auto uppercase">
                       RI
                     </h1>
                   </div>
-                  <p className='pl-1 text-2xl leading-8 uppercase font-semibold'>
+                  <p className="pl-1 text-2xl leading-8 uppercase font-semibold">
                     Based in Los Angeles
                   </p>
                 </div>
@@ -48,15 +48,15 @@ export default function AboutPage() {
           </div>
 
           {/* Principles section */}
-          <div className='w-full flex justify-center bg-neutral-800 text-white my-12 '>
-            <div className='max-w-7xl px-6'>
-              <section className='flex flex-col justify-center gap-4 py-16'>
+          <div className="w-full flex justify-center bg-neutral-800 text-white my-12 ">
+            <div className="max-w-7xl px-6">
+              <section className="flex flex-col justify-center gap-4 py-16">
                 {mission.map((item) => (
-                  <article key={item.title} className='py-4'>
-                    <p className='text-3xl uppercase font-semibold'>
+                  <article key={item.title} className="py-4">
+                    <p className="text-3xl uppercase font-semibold">
                       {item.title}
                     </p>
-                    <div className='flex flex-col gap-8 mt-6'>
+                    <div className="flex flex-col gap-8 mt-6">
                       <p>{item.body1}</p>
                       <p>{item.body2}</p>
                       <p>{item.body3}</p>
@@ -69,30 +69,32 @@ export default function AboutPage() {
             </div>
           </div>
           {/* Timeline section */}
-          <div className='mx-auto max-w-7xl px-6 lg:px-8 mt-12 md:mt-24 border-b pb-24'>
-            <h2 className='mb-8 text-3xl font-bold '>COMPANY TIMELINE</h2>
-            <div className='mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3'>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-12 md:mt-24 border-b pb-24">
+            <h2 className="mb-8 text-3xl font-bold ">COMPANY TIMELINE</h2>
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 overflow-hidden lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {timeline.map((item) => (
                 <div key={item.name}>
                   <time
                     dateTime={item.dateTime}
-                    className='flex items-center text-sm font-semibold leading-6'>
+                    className="flex items-center text-sm font-semibold leading-6"
+                  >
                     <svg
-                      viewBox='0 0 4 4'
-                      className='mr-4 h-1 w-1 flex-none'
-                      aria-hidden='true'>
-                      <circle cx={2} cy={2} r={2} fill='currentColor' />
+                      viewBox="0 0 4 4"
+                      className="mr-4 h-1 w-1 flex-none"
+                      aria-hidden="true"
+                    >
+                      <circle cx={2} cy={2} r={2} fill="currentColor" />
                     </svg>
                     {item.date}
                     <div
-                      className='absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0'
-                      aria-hidden='true'
+                      className="absolute -ml-2 h-px w-screen -translate-x-full bg-gray-900/10 sm:-ml-4 lg:static lg:-mr-6 lg:ml-8 lg:w-auto lg:flex-auto lg:translate-x-0"
+                      aria-hidden="true"
                     />
                   </time>
-                  <p className='mt-6 text-xl font-semibold leading-8 tracking-tight text-gray-900'>
+                  <p className="mt-6 text-xl font-semibold leading-8 tracking-tight text-gray-900">
                     {item.name}
                   </p>
-                  <p className='mt-1 text-base leading-7 text-gray-600'>
+                  <p className="mt-1 text-base leading-7 text-gray-600">
                     {item.description}
                   </p>
                 </div>
@@ -102,7 +104,7 @@ export default function AboutPage() {
         </main>
       </div>
     </>
-  )
+  );
 }
 
 AboutPage.getLayout = function getLayout(page) {
@@ -110,8 +112,8 @@ AboutPage.getLayout = function getLayout(page) {
     <DefaultLayout>
       <>{page}</>
     </DefaultLayout>
-  )
-}
+  );
+};
 
 const links = [
   {
@@ -130,7 +132,7 @@ const links = [
     title: 'How to use our products - a beginners guide',
     href: '/company/faq',
   },
-]
+];
 
 const timeline = [
   {
@@ -175,7 +177,7 @@ const timeline = [
     date: 'August 2024',
     dateTime: '2024-08',
   },
-]
+];
 
 const values = [
   {
@@ -192,7 +194,7 @@ const values = [
     imageSrc: '/about/construction2.jpg',
     imageAlt: 'Night image of construction site.',
   },
-]
+];
 
 const mission = [
   {
@@ -209,7 +211,7 @@ const mission = [
     body5:
       'Being based in Los Angeles means that we are at the forefront of real estate development in California. With thousands of building permits submitted across over 200 cities. Southern California provides Region Intelligence the best foothold to reach developers of all types. ',
   },
-]
+];
 
 const people = [
   {
@@ -228,7 +230,7 @@ const people = [
     // twitterUrl: '#',
     linkedinUrl: 'https://www.linkedin.com/in/darius-garcia/',
   },
-]
+];
 
 {
   /* Staff section */
