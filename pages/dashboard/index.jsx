@@ -1,24 +1,25 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Fragment, useState, useEffect } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import Stats from '@/features/dashboards/home/stats'
-import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList'
-import DashboardLayout from '@/components/layouts/dashboardLayout'
-import { Button, Carousel, Spin } from 'antd'
-import { DownOutlined } from '@ant-design/icons'
-import { Dropdown, Space } from 'antd'
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Fragment, useState, useEffect } from 'react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
+import Stats from '@/features/dashboards/home/stats';
+import CurrentPlanningDevelopmentsList from '@/features/dashboards/currentPlanningDevelopmentsList';
+import DashboardLayout from '@/components/layouts/dashboardLayout';
+import { Button, Carousel, Spin } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
+import mockAPNData from '../../components/mockData.js';
 import {
   useSession,
   useSupabaseClient,
   useUser,
-} from '@supabase/auth-helpers-react'
-import Router from 'next/router'
+} from '@supabase/auth-helpers-react';
+import Router from 'next/router';
 import {
   navDashboardsItems,
   navHousingElementsItems,
-} from '@/components/navbar/navigationLinksData'
+} from '@/components/navbar/navigationLinksData';
 import {
   Bars3Icon,
   BellIcon,
@@ -29,40 +30,41 @@ import {
   UserIcon,
   UsersIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/outline';
 import {
   ChevronDownIcon,
   HomeModernIcon,
   ListBulletIcon,
   MagnifyingGlassIcon,
   Squares2X2Icon,
-} from '@heroicons/react/20/solid'
-import { IoMdPaper, IoMdPeople } from 'react-icons/io'
+} from '@heroicons/react/20/solid';
+import { IoMdPaper, IoMdPeople } from 'react-icons/io';
 import {
   ArrowRightAltOutlined,
   BarChart,
   LineAxisOutlined,
   StarOutline,
-} from '@mui/icons-material'
-import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-import { VscGraphLine } from 'react-icons/vsc'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
-import ImageCarousel from '@/components/imageCarousel'
+} from '@mui/icons-material';
+import { HiOutlineClock, HiOutlineQuestionMarkCircle } from 'react-icons/hi';
+import { VscGraphLine } from 'react-icons/vsc';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
+import ImageCarousel from '@/components/imageCarousel';
 
 export default function DashboardHomePage() {
-  const session = useSession()
-  const supabase = useSupabaseClient()
-  const user = useUser()
-  const [first_name, setFirstName] = useState(null)
-  const [last_name, setLastName] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const session = useSession();
+  const supabase = useSupabaseClient();
+  const user = useUser();
+  const [first_name, setFirstName] = useState(null);
+  const [last_name, setLastName] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   async function logout() {
-    const { error } = await supabase.auth.signOut()
-    if (error) console.log('Error logging out:', error.message)
+    const { error } = await supabase.auth.signOut();
+    if (error) console.log('Error logging out:', error.message);
   }
 
+  console.log(mockAPNData[0]);
   // check if user is logged in
   // useEffect(() => {
   //   const timeout = setTimeout(() => {
@@ -76,122 +78,133 @@ export default function DashboardHomePage() {
   // fetch user info
   useEffect(() => {
     async function loadData() {
-      setLoading(true)
+      setLoading(true);
       try {
         const { data, error } = await supabase
           .from('profiles')
           .select('*')
           .eq('id', user.id)
-          .single()
+          .single();
 
         if (error) {
-          setError(error.message)
-          console.warn(error)
+          setError(error.message);
+          console.warn(error);
         } else if (data) {
-          setFirstName(data.first_name)
-          setLastName(data.last_name)
+          setFirstName(data.first_name);
+          setLastName(data.last_name);
         }
 
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
     // Only run query once user is logged in.
-    if (user) loadData()
-  }, [user])
+    if (user) loadData();
+  }, [user]);
 
   const articlesContent = [
     {
       images: 'fasdfasdfa',
     },
-  ]
+  ];
 
   const handleClick = (index) => {
-    setLoading(index) // Set loading state to true when link is clicked
-  }
+    setLoading(index); // Set loading state to true when link is clicked
+  };
 
   return (
     <>
       <Head>
         <title>RI Dashboard - Home</title>
         <meta
-          name='description'
-          content='No more navigating through complex research. With Region Intelligence,
+          name="description"
+          content="No more navigating through complex research. With Region Intelligence,
     everything you need is just a few clicks away. Our platform
     revolutionizes the way you access and handle vital information,
     making your decision-making process quicker and more informed.
     Step into the future of property development - Join Region Intelligence
-    today!'
+    today!"
         />
       </Head>
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
-            as='div'
-            className='relative z-50 lg:hidden'
-            onClose={setSidebarOpen}>
+            as="div"
+            className="relative z-50 lg:hidden"
+            onClose={setSidebarOpen}
+          >
             <Transition.Child
               as={Fragment}
-              enter='transition-opacity ease-linear duration-300'
-              enterFrom='opacity-0'
-              enterTo='opacity-100'
-              leave='transition-opacity ease-linear duration-300'
-              leaveFrom='opacity-100'
-              leaveTo='opacity-0'>
-              <div className='fixed inset-0 bg-gray-900/80' />
+              enter="transition-opacity ease-linear duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity ease-linear duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-900/80" />
             </Transition.Child>
 
-            <div className='fixed inset-0 flex'>
+            <div className="fixed inset-0 flex">
               <Transition.Child
                 as={Fragment}
-                enter='transition ease-in-out duration-300 transform'
-                enterFrom='-translate-x-full'
-                enterTo='translate-x-0'
-                leave='transition ease-in-out duration-300 transform'
-                leaveFrom='translate-x-0'
-                leaveTo='-translate-x-full'>
-                <Dialog.Panel className='relative mr-16 flex w-full max-w-xs flex-1'>
+                enter="transition ease-in-out duration-300 transform"
+                enterFrom="-translate-x-full"
+                enterTo="translate-x-0"
+                leave="transition ease-in-out duration-300 transform"
+                leaveFrom="translate-x-0"
+                leaveTo="-translate-x-full"
+              >
+                <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
                   <Transition.Child
                     as={Fragment}
-                    enter='ease-in-out duration-300'
-                    enterFrom='opacity-0'
-                    enterTo='opacity-100'
-                    leave='ease-in-out duration-300'
-                    leaveFrom='opacity-100'
-                    leaveTo='opacity-0'>
-                    <div className='absolute left-full top-0 flex w-16 justify-center pt-5'>
+                    enter="ease-in-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in-out duration-300"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
                       <button
-                        type='button'
-                        className='-m-2.5 p-2.5'
-                        onClick={() => setSidebarOpen(false)}>
-                        <span className='sr-only'>Close sidebar</span>
+                        type="button"
+                        className="-m-2.5 p-2.5"
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        <span className="sr-only">Close sidebar</span>
                         <XMarkIcon
-                          className='h-6 w-6 text-white'
-                          aria-hidden='true'
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
                         />
                       </button>
                     </div>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className='flex grow flex-col gap-y-5 overflow-y-auto bg-white md:px-6 pb-4'>
-                    <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white md:px-6 pb-4">
+                    <div className="flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4">
                       <Link
-                        href='/'
-                        className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>
-                        <div className='w-8 mr-2'>
-                          <Image src='/logo.png' width={50} height={50} />
+                        href="/"
+                        className="flex h-16 shrink-0 items-center border-b w-full bg-white px-6"
+                      >
+                        <div className="w-8 mr-2">
+                          <Image
+                            src="/logos/logo3.svg"
+                            width={50}
+                            height={50}
+                          />
                         </div>
-                        <p className='hover:underline font-semibold'>
+                        <p className="hover:underline font-semibold">
                           Region Intelligence
                         </p>
                       </Link>
-                      <nav className='flex flex-1 flex-col pl-6'>
+                      <nav className="flex flex-1 flex-col pl-6">
                         <ul
-                          role='list'
-                          className='flex flex-1 flex-col gap-y-7'>
+                          role="list"
+                          className="flex flex-1 flex-col gap-y-7"
+                        >
                           <li>
-                            <ul role='list' className='-mx-2 space-y-1'>
+                            <ul role="list" className="-mx-2 space-y-1">
                               {navItems.mainLinks.map((item) => (
                                 <li key={item.id}>
                                   <Link
@@ -200,18 +213,19 @@ export default function DashboardHomePage() {
                                       item.active
                                         ? 'bg-blue-600 text-white '
                                         : 'hover:text-blue-600 hover:bg-gray-50'
-                                    }`}>
+                                    }`}
+                                  >
                                     {item.icon && (
                                       <item.icon
-                                        aria-hidden='true'
-                                        className='w-6 h-6'
+                                        aria-hidden="true"
+                                        className="w-6 h-6"
                                       />
                                     )}
                                     {item.name}
                                   </Link>
                                 </li>
                               ))}
-                              <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                              {/* <p className="text-gray-500 text-xs ml-2 pb-2 pt-12">
                                 Other Information
                               </p>
                               {navItems.subLinks1.map((item) => (
@@ -222,7 +236,8 @@ export default function DashboardHomePage() {
                                       item.active
                                         ? 'bg-blue-600 text-white '
                                         : 'hover:text-blue-600 hover:bg-gray-50'
-                                    }`}>
+                                    }`}
+                                  >
                                     <item.icon
                                       className={classNames(
                                         item.current
@@ -230,13 +245,13 @@ export default function DashboardHomePage() {
                                           : 'text-gray-400 group-hover:text-blue-600',
                                         'h-6 w-6 shrink-0'
                                       )}
-                                      aria-hidden='true'
+                                      aria-hidden="true"
                                     />
                                     {item.name}
                                   </Link>
                                 </li>
                               ))}
-                              <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                              <p className="text-gray-500 text-xs ml-2 pb-2 pt-12">
                                 Settings
                               </p>
                               {navItems.subLinks2.map((item) => (
@@ -247,7 +262,8 @@ export default function DashboardHomePage() {
                                       item.active
                                         ? 'bg-blue-600 text-white '
                                         : 'hover:text-blue-600 hover:bg-gray-50'
-                                    }`}>
+                                    }`}
+                                  >
                                     <item.icon
                                       className={classNames(
                                         item.current
@@ -255,12 +271,12 @@ export default function DashboardHomePage() {
                                           : 'text-gray-400 group-hover:text-blue-600',
                                         'h-6 w-6 shrink-0'
                                       )}
-                                      aria-hidden='true'
+                                      aria-hidden="true"
                                     />
                                     {item.name}
                                   </Link>
                                 </li>
-                              ))}
+                              ))} */}
                             </ul>
                           </li>
                         </ul>
@@ -274,40 +290,39 @@ export default function DashboardHomePage() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col'>
+        <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-48 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4'>
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4">
             <Link
-              href='/'
-              className='flex h-16 shrink-0 items-center border-b w-full bg-white px-6'>
-              <div className='w-8 mr-2'>
-                <Image src='/logo.png' width={50} height={50} />
+              href="/"
+              className="flex h-16 shrink-0 items-center border-b w-full bg-white px-6"
+            >
+              <div className="w-8 mr-2">
+                <Image src="/logos/logo3.svg" width={50} height={50} />
               </div>
-              <p className='hover:underline font-semibold'>
-                Region Intelligence
-              </p>
             </Link>
-            <nav className='flex flex-1 flex-col pl-6'>
-              <ul role='list' className='flex flex-1 flex-col gap-y-7'>
+            <nav className="flex flex-1 flex-col pl-6">
+              <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
-                  <ul role='list' className='-mx-2 space-y-1'>
+                  <ul role="list" className="-mx-2 space-y-1">
                     {navItems.mainLinks.map((item) => (
                       <li key={item.id}>
                         <Link
                           href={item.href}
                           className={`text-gray-700 cursor-pointer group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
                             item.active
-                              ? 'bg-blue-600 text-white '
+                              ? 'bg-black text-white '
                               : 'hover:text-blue-600 hover:bg-gray-50'
-                          }`}>
+                          }`}
+                        >
                           {item.icon && (
-                            <item.icon aria-hidden='true' className='w-6 h-6' />
+                            <item.icon aria-hidden="true" className="w-6 h-6" />
                           )}
                           {item.name}
                         </Link>
                       </li>
                     ))}
-                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                    {/* <p className="text-gray-500 text-xs ml-2 pb-2 pt-12">
                       Other Information
                     </p>
                     {navItems.subLinks1.map((item) => (
@@ -318,7 +333,8 @@ export default function DashboardHomePage() {
                             item.active
                               ? 'bg-blue-600 text-white '
                               : 'hover:text-blue-600 hover:bg-gray-50'
-                          }`}>
+                          }`}
+                        >
                           <item.icon
                             className={classNames(
                               item.current
@@ -326,13 +342,13 @@ export default function DashboardHomePage() {
                                 : 'text-gray-400 group-hover:text-blue-600',
                               'h-6 w-6 shrink-0'
                             )}
-                            aria-hidden='true'
+                            aria-hidden="true"
                           />
                           {item.name}
                         </Link>
                       </li>
                     ))}
-                    <p className='text-gray-500 text-xs ml-2 pb-2 pt-12'>
+                    <p className="text-gray-500 text-xs ml-2 pb-2 pt-12">
                       Settings
                     </p>
                     {navItems.subLinks2.map((item) => (
@@ -343,7 +359,8 @@ export default function DashboardHomePage() {
                             item.active
                               ? 'bg-blue-600 text-white '
                               : 'hover:text-blue-600 hover:bg-gray-50'
-                          }`}>
+                          }`}
+                        >
                           <item.icon
                             className={classNames(
                               item.current
@@ -351,105 +368,46 @@ export default function DashboardHomePage() {
                                 : 'text-gray-400 group-hover:text-blue-600',
                               'h-6 w-6 shrink-0'
                             )}
-                            aria-hidden='true'
+                            aria-hidden="true"
                           />
                           {item.name}
                         </Link>
                       </li>
-                    ))}
+                    ))} */}
                   </ul>
                 </li>
-                {/* <div className='mt-8'>
-                  <div className='relative '>
-                    <div className='mx-auto max-w-md  sm:max-w-3xl lg:max-w-7xl '>
-                      <div className='relative overflow-hidden rounded-2xl bg-blue-600 py-4 shadow-xl'>
-                        <div
-                          aria-hidden='true'
-                          className='absolute inset-0 -mt-72 sm:-mt-32 md:mt-0'>
-                          <svg
-                            className='absolute inset-0 h-full w-full'
-                            preserveAspectRatio='xMidYMid slice'
-                            fill='none'
-                            viewBox='0 0 1463 360'>
-                            <path
-                              className='text-blue-500 text-opacity-40'
-                              fill='currentColor'
-                              d='M-82.673 72l1761.849 472.086-134.327 501.315-1761.85-472.086z'
-                            />
-                            <path
-                              className='text-blue-700 text-opacity-40'
-                              fill='currentColor'
-                              d='M-217.088 544.086L1544.761 72l134.327 501.316-1761.849 472.086z'
-                            />
-                          </svg>
-                        </div>
-                        <div className='relative'>
-                          <div className='pl-4'>
-                            <h2 className='text-sm font-bold tracking-tight text-white '>
-                              Join Our Newsletter
-                            </h2>
-                            <p className='mt-2 max-w-2xl text-sm text-blue-200'>
-                              Discover new developments
-                            </p>
-                          </div>
-                          <form
-                            action='#'
-                            className='mt-6 sm:mx-auto sm:flex flex-col px-2 gap-4 sm:max-w-lg'>
-                            <div className='min-w-0 flex-1'>
-                              <label htmlFor='cta-email' className='sr-only'>
-                                Email address
-                              </label>
-                              <input
-                                id='cta-email'
-                                type='email'
-                                className='block w-full rounded-md border border-transparent px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600'
-                                placeholder='Enter your email'
-                              />
-                            </div>
-                            <div className='mt-4 sm:mt-0'>
-                              <button
-                                type='submit'
-                                className='block w-full rounded-md border border-transparent bg-blue-500 px-2 py-3 text-md font-medium text-white shadow hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 '>
-                                Notify me
-                              </button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div> 
-                  </div>
-                </div>*/}
               </ul>
             </nav>
           </div>
         </div>
 
-        <div className='lg:pl-64'>
-          <div className='sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+        <div className="lg:pl-48">
+          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
-              type='button'
-              className='-m-2.5 p-2.5 text-gray-700 lg:hidden'
-              onClick={() => setSidebarOpen(true)}>
-              <span className='sr-only'>Open sidebar</span>
-              <Bars3Icon className='h-6 w-6' aria-hidden='true' />
+              type="button"
+              className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <span className="sr-only">Open sidebar</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
 
             {/* Separator */}
             <div
-              className='h-6 w-px bg-gray-200 lg:hidden'
-              aria-hidden='true'
+              className="h-6 w-px bg-gray-200 lg:hidden"
+              aria-hidden="true"
             />
           </div>
-          <main className='w-full flex flex-col justify-center items-center bg-neutral-100'>
-            <div className='w-full my-12 flex flex-col items-center'>
-              <form action='submit' className='w-full max-w-2xl mb-12'>
-                <h2 className='font-semibold text-xl mb-4'>
-                  Enter and Address or Assessor Parcel Number (APN)
+          <main className="w-full flex flex-col justify-center items-center bg-neutral-100">
+            <div className="w-full my-4 lg:my-12 flex flex-col items-center">
+              <form action="submit" className="w-full max-w-2xl mb-6 p-4">
+                <h2 className="font-semibold text-xl mb-4">
+                  Enter an Address or Assessor Parcel Number (APN)
                 </h2>
                 <input
-                  type='text'
-                  placeholder='Ex: 11111 Western Ave, East California, 90000'
-                  className='w-full border border-gray-300 rounded-md p-2'
+                  type="text"
+                  placeholder="Ex: 11111 Western Ave, East California, 90000"
+                  className="w-full border border-gray-300 rounded-md p-2"
                 />
               </form>
               {/* <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 lg:px-12">
@@ -465,79 +423,250 @@ export default function DashboardHomePage() {
                   </Link>
                 ))}
               </section> */}
-              <section className='w-full grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 lg:px-12'>
-                <article className='flex flex-col justify-center gap-8 items-center bg-white p-12 rounded-lg hover:bg-neutral-200 hover:shadow-lg transition ease-out'>
-                  <div className='flex flex-row gap-12 items-center'>
-                    <IoMdPeople size={50} />
-                    <h3 className='font-semibold text-xl'>Overview</h3>
+              <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 px-4">
+                <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
+                  <div className="flex flex-row gap-12 items-center w-full justify-start">
+                    <IoMdPeople
+                      size={70}
+                      className="bg-blue-100 text-blue-500 p-4 rounded-full"
+                    />
+                    <h3 className="font-semibold text-xl">Overview</h3>
                   </div>
-                  <div className='flex flex-col gap-6'>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md">
                       <p>Owner</p>
-                      <p>Steven Segal</p>
+                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
+                    <div
+                      className="flex flex-row justify-between font-semibold items-center>
                       <p>Current Zoning</p>
-                      <p>Residential</p>
+                      <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
+                    <div className="
+                      flex
+                      flex-row
+                      justify-between
+                      font-semibold
+                      items-center
+                    >
                       <p>Land Use</p>
                       <p>Single Family</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
+                    <div
+                      className="flex flex-row justify-between font-semibold items-center>
                       <p>Lot Size</p>
-                      <p>1.83 Acres</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="
+                      flex
+                      flex-row
+                      justify-between
+                      font-semibold
+                      items-center
+                    >
+                      <p>Impairment</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div
+                      className="flex flex-row justify-between font-semibold items-center>
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>{' '}
+                    <div className="
+                      flex
+                      flex-row
+                      justify-between
+                      font-semibold
+                      items-center
+                    >
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
                     </div>
                   </div>
                 </article>
-                <article className='flex flex-col justify-center gap-8 items-center bg-white p-12 rounded-lg hover:bg-neutral-200 hover:shadow-lg transition ease-out'>
-                  <div className='flex flex-row gap-12 items-center'>
-                    <IoMdPeople size={50} />
-                    <h3 className='font-semibold text-xl'>Hazards</h3>
+                <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
+                  <div className="flex flex-row gap-12 items-center w-full justify-start">
+                    <IoMdPeople
+                      size={70}
+                      className="bg-orange-100 text-orange-500 p-4 rounded-full"
+                    />
+                    <h3 className="font-semibold text-xl">Hazards</h3>
                   </div>
-                  <div className='flex flex-col gap-6'>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Fire Hazard</p>
-                      <p>Steven Segal</p>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md">
+                      <p className="w-full">Fire Hazard</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].fireHazard
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Liquefaction</p>
-                      <p>Residential</p>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Liquefaction</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].liquafactionZone
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Sea Rise</p>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Sea Rise</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].searise1Meter
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Earthquake Fault</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].equakeZone
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Impairment</p>
+                      <p className="w-full">
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Tax Status</p>
+                      <p className="w-full">
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>{' '}
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p className="w-full">Tax Status</p>
+                      <p className="w-full">
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
+                  <div className="flex flex-row gap-12 items-center w-full justify-start">
+                    <IoMdPeople
+                      size={70}
+                      className="bg-orange-100 text-orange-500 p-4 rounded-full"
+                    />
+                    <h3 className="font-semibold text-xl">Structure Info</h3>
+                  </div>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md">
+                      <p>Size</p>
+                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Bath</p>
+                      <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Pool</p>
                       <p>Single Family</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Earthquake Fault</p>
-                      <p>1.83 Acres</p>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Lot Size</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Impairment</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>{' '}
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
                     </div>
                   </div>
                 </article>
-                <article className='flex flex-col justify-center gap-8 items-center bg-white p-12 rounded-lg hover:bg-neutral-200 hover:shadow-lg transition ease-out'>
-                  <div className='flex flex-row gap-12 items-center'>
+                <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
+                  <div className="flex flex-row gap-12 items-center w-full justify-start">
                     <IoMdPeople
-                      size={80}
-                      className='bg-blue-200 p-4 rounded-lg'
+                      size={70}
+                      className="bg-blue-100 text-blue-500 p-4 rounded-full"
                     />
-                    <h3 className='font-semibold text-xl'>Structure Info</h3>
+                    <h3 className="font-semibold text-xl">Zone Pricing</h3>
                   </div>
-                  <div className='flex flex-col gap-6'>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Size</p>
-                      <p>1600 sqft</p>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md">
+                      <p>Owner</p>
+                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Bed</p>
-                      <p>3</p>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Current Zoning</p>
+                      <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
                     </div>
-                    <div className='flex flex-row justify-between font-semibold text-lg '>
-                      <p>Bath</p>
-                      <p>2</p>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Land Use</p>
+                      <p>Single Family</p>
                     </div>
-                    <div className='flex flex-row justify-between items-center font-semibold text-lg h-full w-full'>
-                      <p>Pool</p>
-                      <span className='bg-gray-100 rounded-full w-12  h-2 ' />
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Lot Size</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Impairment</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
+                    </div>{' '}
+                    <div className="flex flex-row justify-between font-semibold items-center">
+                      <p>Tax Status</p>
+                      <p>
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
+                        sqft
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -547,8 +676,45 @@ export default function DashboardHomePage() {
         </div>
       </div>
     </>
-  )
+  );
 }
+
+// export async function getStaticProps() {
+//   const res = await fetch(
+//     'http://region-intelligence-rest.us-east-2.elasticbeanstalk.com/v1/cities/'
+//   );
+//   const apnLandUse = await res.json();
+
+//   return {
+//     props: {
+//       apnLandUse,
+//     },
+//     // Next.js will attempt to re-generate the page:
+//     // - When a request comes in
+//     // - At most once every 1000 seconds
+//     revalidate: 1000, // In seconds
+//   };
+// }
+
+// // This function gets called at build time on server-side.
+// // It may be called again, on a serverless function, if
+// // the path has not been generated.
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     'http://region-intelligence-rest.us-east-2.elasticbeanstalk.com/v1/cities'
+//   );
+//   const apnLandUse = await res.json();
+
+//   // Get the paths we want to pre-render based on apnLandUse
+//   const paths = apnLandUse.map((apnLandUse) => ({
+//     params: { id: apnLandUse.id },
+//   }));
+
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: 'blocking' } will server-render pages
+//   // on-demand if the path doesn't exist.
+//   return { paths, fallback: 'blocking' };
+// }
 
 const dashboardCards = [
   {
@@ -599,7 +765,7 @@ const dashboardCards = [
     style: 'text-red-600 bg-red-200',
     href: '/dashboard',
   },
-]
+];
 const navItems = {
   mainLinks: [
     { id: 1, name: 'Home', href: '/dashboard', icon: HomeIcon, active: true },
@@ -612,40 +778,40 @@ const navItems = {
     },
     {
       id: 3,
-      name: 'Land Use',
+      name: 'Prospectus',
       href: '/dashboard/land-use',
       icon: BarChart,
       active: false,
     },
-    {
-      id: 4,
-      name: 'Demographics',
-      href: '/dashboard/demographics',
-      icon: UsersIcon,
-      active: false,
-    },
-    {
-      id: 5,
-      name: 'My Reports',
-      href: '/dashboard/reports',
-      icon: FolderIcon,
-      active: false,
-    },
-    {
-      id: 6,
-      name: 'Favorites',
-      href: '/dashboard/favorites',
-      icon: StarOutline,
+    // {
+    //   id: 4,
+    //   name: 'Demographics',
+    //   href: '/dashboard/demographics',
+    //   icon: UsersIcon,
+    //   active: false,
+    // },
+    // {
+    //   id: 5,
+    //   name: 'My Reports',
+    //   href: '/dashboard/reports',
+    //   icon: FolderIcon,
+    //   active: false,
+    // },
+    // {
+    //   id: 6,
+    //   name: 'Favorites',
+    //   href: '/dashboard/favorites',
+    //   icon: StarOutline,
 
-      active: false,
-    },
-    {
-      id: 7,
-      name: 'RI Blog',
-      href: '/blog',
-      icon: Squares2X2Icon,
-      active: false,
-    },
+    //   active: false,
+    // },
+    // {
+    //   id: 7,
+    //   name: 'RI Blog',
+    //   href: '/blog',
+    //   icon: Squares2X2Icon,
+    //   active: false,
+    // },
   ],
   subLinks1: [
     {
@@ -679,7 +845,7 @@ const navItems = {
       active: false,
     },
   ],
-}
+};
 
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -689,15 +855,15 @@ const navigation = [
   //   { name: 'Settings', href: '#', icon: IoMdSettings, current: false },
   //   { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
   //   { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
-]
+];
 const teams = [
   { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
   { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
   { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-]
+];
 const userNavigation = [
   { name: 'Your profile', href: '/dashboard/personal-settings' },
-]
+];
 
 const discover = [
   {
@@ -728,7 +894,7 @@ const discover = [
     categoryColors: ['bg-blue-500'],
     icon: 'icon',
   },
-]
+];
 
 // Define the page layout
 DashboardHomePage.getLayout = function getLayout(page) {
@@ -736,9 +902,9 @@ DashboardHomePage.getLayout = function getLayout(page) {
     <DashboardLayout>
       <>{page}</>
     </DashboardLayout>
-  )
-}
+  );
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
