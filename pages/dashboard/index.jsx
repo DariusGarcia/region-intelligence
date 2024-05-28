@@ -185,13 +185,14 @@ export default function DashboardHomePage() {
                     <div className="flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden  border-r border-gray-200 bg-gray-100 pb-4">
                       <Link
                         href="/"
-                        className="flex h-16 shrink-0 items-center border-b w-full bg-white px-6"
+                        className="flex h-16 shrink-0 items-center justify-center border-b w-full bg-white px-6"
                       >
-                        <div className="w-8 mr-2">
+                        <div className="w-full flex justify-center">
                           <Image
                             src="/logos/logo3.svg"
                             width={50}
                             height={50}
+                            className="w-8"
                           />
                         </div>
                         <p className="hover:underline font-semibold">
@@ -423,7 +424,7 @@ export default function DashboardHomePage() {
                   </Link>
                 ))}
               </section> */}
-              <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 px-4">
+              <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 px-4 lg:px-12">
                 <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
                   <div className="flex flex-row gap-12 items-center w-full justify-start">
                     <IoMdPeople
@@ -432,40 +433,42 @@ export default function DashboardHomePage() {
                     />
                     <h3 className="font-semibold text-xl">Overview</h3>
                   </div>
-                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
-                    <div className="flex flex-row justify-between font-semibold items-center text-md">
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-4">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md w-full">
                       <p>Owner</p>
-                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
+                      <p className="font-bold">
+                        {mockAPNData && mockAPNData[0].firstOwnerName}
+                      </p>
                     </div>
-                    <div
-                      className="flex flex-row justify-between font-semibold items-center>
+                    <div className="flex flex-row justify-between font-semibold items-center">
                       <p>Current Zoning</p>
                       <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
                     </div>
-                    <div className="
+                    <div
+                      className="
                       flex
                       flex-row
                       justify-between
                       font-semibold
-                      items-center
+                      items-center"
                     >
                       <p>Land Use</p>
                       <p>Single Family</p>
                     </div>
-                    <div
-                      className="flex flex-row justify-between font-semibold items-center>
+                    <div className="flex flex-row justify-between font-semibold items-center">
                       <p>Lot Size</p>
                       <p>
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>
-                    <div className="
+                    <div
+                      className="
                       flex
                       flex-row
                       justify-between
                       font-semibold
-                      items-center
+                      items-center"
                     >
                       <p>Impairment</p>
                       <p>
@@ -473,20 +476,20 @@ export default function DashboardHomePage() {
                         sqft
                       </p>
                     </div>
-                    <div
-                      className="flex flex-row justify-between font-semibold items-center>
+                    <div className="flex flex-row justify-between font-semibold items-center">
                       <p>Tax Status</p>
                       <p>
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>{' '}
-                    <div className="
+                    <div
+                      className="
                       flex
                       flex-row
                       justify-between
                       font-semibold
-                      items-center
+                      items-center"
                     >
                       <p>Tax Status</p>
                       <p>
@@ -504,8 +507,8 @@ export default function DashboardHomePage() {
                     />
                     <h3 className="font-semibold text-xl">Hazards</h3>
                   </div>
-                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
-                    <div className="flex flex-row justify-between font-semibold items-center text-md">
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-4">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md w-full">
                       <p className="w-full">Fire Hazard</p>
                       <span
                         className={`h-2 w-full rounded-full ${
@@ -546,26 +549,25 @@ export default function DashboardHomePage() {
                       />
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p className="w-full">Impairment</p>
-                      <p className="w-full">
-                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
-                        sqft
-                      </p>
+                      <p className="w-full">Land Slide</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].landslideZone
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p className="w-full">Tax Status</p>
-                      <p className="w-full">
-                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
-                        sqft
-                      </p>
+                      <p className="w-full">Flooding</p>
+                      <span
+                        className={`h-2 w-full rounded-full ${
+                          mockAPNData[0].floodPlainZone
+                            ? 'bg-green-300'
+                            : 'bg-gray-300'
+                        }`}
+                      />
                     </div>{' '}
-                    <div className="flex flex-row justify-between font-semibold items-center">
-                      <p className="w-full">Tax Status</p>
-                      <p className="w-full">
-                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
-                        sqft
-                      </p>
-                    </div>
                   </div>
                 </article>
                 <article className="max-h-96 flex flex-col justify-center gap-8 items-center bg-white p-4 lg:p-6 rounded-lg hover:shadow-lg transition ease-out">
@@ -576,45 +578,50 @@ export default function DashboardHomePage() {
                     />
                     <h3 className="font-semibold text-xl">Structure Info</h3>
                   </div>
-                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
-                    <div className="flex flex-row justify-between font-semibold items-center text-md">
-                      <p>Size</p>
-                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-4">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md w-full">
+                      <p className="w-full">Size</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(0)}{' '}
+                        sqft
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Bath</p>
-                      <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
+                      <p className="w-full">Bath</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].landUseClassName}
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Pool</p>
-                      <p>Single Family</p>
+                      <p className="w-full">Pool</p>
+                      <p className="w-full justify-end flex items-end">
+                        Single Family
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Lot Size</p>
-                      <p>
+                      <p className="w-full">Lot Size</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Impairment</p>
-                      <p>
-                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
-                        sqft
+                      <p className="w-full">Impairment</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].impairmentDescription}
                       </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Tax Status</p>
-                      <p>
+                      <p className="w-full">Tax Status</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>{' '}
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Tax Status</p>
-                      <p>
-                        {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
-                        sqft
+                      <p className="w-full">Year Built</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].yearBuilt}
                       </p>
                     </div>
                   </div>
@@ -627,43 +634,49 @@ export default function DashboardHomePage() {
                     />
                     <h3 className="font-semibold text-xl">Zone Pricing</h3>
                   </div>
-                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-2">
-                    <div className="flex flex-row justify-between font-semibold items-center text-md">
-                      <p>Owner</p>
-                      <p>{mockAPNData && mockAPNData[0].firstOwnerName}</p>
+                  <div className="flex flex-col w-full justify-bewteen gap-6 overflow-y-auto overflow-scroll overflow-x-hidden max-h-72 pr-4">
+                    <div className="flex flex-row justify-between font-semibold items-center text-md w-full">
+                      <p className="w-full">Owner</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].firstOwnerName}
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Current Zoning</p>
-                      <p>{mockAPNData && mockAPNData[0].landUseClassName}</p>
+                      <p className="w-full">Current Zoning</p>
+                      <p className="w-full justify-end flex items-end">
+                        {mockAPNData && mockAPNData[0].landUseClassName}
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Land Use</p>
-                      <p>Single Family</p>
+                      <p className="w-full">Land Use</p>
+                      <p className="w-full justify-end flex items-end">
+                        Single Family
+                      </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Lot Size</p>
-                      <p>
+                      <p className="w-full">Lot Size</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Impairment</p>
-                      <p>
+                      <p className="w-full">Impairment</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Tax Status</p>
-                      <p>
+                      <p className="w-full">Tax Status</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
                     </div>{' '}
                     <div className="flex flex-row justify-between font-semibold items-center">
-                      <p>Tax Status</p>
-                      <p>
+                      <p className="w-full">Tax Status</p>
+                      <p className="w-full justify-end flex items-end">
                         {mockAPNData && mockAPNData[0].buildingSqft.toFixed(2)}{' '}
                         sqft
                       </p>
